@@ -250,7 +250,7 @@
       </tags>
   </entry>
   <entry>
-    <title>2023夏令营项目实训1：Windows 10下安装TensorRT并配置</title>
+    <title>Windows 10下安装CUDA、TensorRT记录</title>
     <url>/%E6%97%A5%E5%B8%B8/5/</url>
     <content><![CDATA[<p>GPU：NVIDIA GeFOrce GTX 1050</p>
 <p>关键词：深度学习、YOLOv5、TensorRT、C++推演</p>
@@ -327,6 +327,86 @@
       </tags>
   </entry>
   <entry>
+    <title>Windows下Python3.11.4的安装记录</title>
+    <url>/%E6%97%A5%E5%B8%B8/8/</url>
+    <content><![CDATA[<p>记录一次安装Python</p>
+<p>关键词：Python</p>
+<span id="more"></span>
+
+<hr>
+<!-- toc -->
+
+<ul>
+<li><a href="#%E4%B8%8B%E8%BD%BDpython%E5%AE%89%E8%A3%85%E5%8C%85">下载Python安装包</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85python">安装Python</a></li>
+<li><a href="#%E6%B5%8B%E8%AF%95python">测试Python</a></li>
+<li><a href="#%E9%99%84%E6%9B%B4%E6%94%B9python%E7%9A%84pip%E5%AE%89%E8%A3%85%E8%B7%AF%E5%BE%84">附：更改Python的pip安装路径</a></li>
+</ul>
+<!-- tocstop -->
+
+<h1><span id="下载python安装包">下载Python安装包</span></h1><p><a href="https://www.python.org/downloads/windows/">官网</a>选择尽量较新的Python版本下载。</p>
+<h1><span id="安装python">安装Python</span></h1><p>打开下载的Python安装包，选择<code>Customize installation</code>客制化安装，记得勾选下面的“Add python.exe to PATH”。</p>
+<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/8_py1.jpg" alt="安装步骤1"></p>
+<p>接着默认勾选：</p>
+<ul>
+<li>pip：包管理器，下载包时使用。建议勾选上</li>
+</ul>
+<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/8_py2.jpg" alt="安装步骤2"></p>
+<p>再接着更改安装路径，建议安装在非系统盘。</p>
+<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/8_py3.jpg" alt="安装步骤3"></p>
+<p>等待安装完成即可。</p>
+<h1><span id="测试python">测试Python</span></h1><p>按下<code>Win+R</code>输入<code>cmd</code>打开命令窗口，输入下面命令验证是否安装成功。</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">python -V</span><br></pre></td></tr></table></figure>
+
+<p>如果出现版本号，即为安装成功。</p>
+<h1><span id="附更改python的pip安装路径">附：更改Python的pip安装路径</span></h1><p>建议将pip安装的包放至非系统盘。进入Python的安装路径，如我的在<code>D:\Pyhton\Lib</code>，寻找文件<code>site.py</code>，使用记事本打开。使用<code>ctrl+f</code>查找关键字<code>USER_SITE</code>等字，将路径更改为自定义的路径。我更改情况如下图。</p>
+<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/8_py.jpg" alt="更改路径"></p>
+<p>更改路径后，打开cmd，使用下面指令安装numpy包。</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">pip install numpy</span><br></pre></td></tr></table></figure>
+
+<p>安装成功后，再使用下面指令查看numpy包的安装位置。</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">pip show numpy</span><br></pre></td></tr></table></figure>
+
+<p>我成功更改pip的安装路径，新下载的numpy包位于<code>D:\Pyhton\Lib\site-packages</code>。</p>
+<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/8_py4.jpg" alt="更改路径后"></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>YOLOv5由pt文件转onnx文件报错解决</title>
+    <url>/%E6%97%A5%E5%B8%B8/7/</url>
+    <content><![CDATA[<p>ONNX: export failure ❌ 5.9s: Unsupported ONNX opset version: 17</p>
+<p>关键词：深度学习、YOLOv5、onnx</p>
+<span id="more"></span>
+
+<hr>
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%8A%A5%E9%94%99%E7%AA%97%E5%8F%A3">报错窗口</a></li>
+<li><a href="#%E6%8A%A5%E9%94%99%E5%8E%9F%E5%9B%A0">报错原因</a></li>
+<li><a href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88">解决方案</a></li>
+</ul>
+<!-- tocstop -->
+
+<h1><span id="报错窗口">报错窗口</span></h1><p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/7_error.png" alt="报错"></p>
+<h1><span id="报错原因">报错原因</span></h1><p>export.py文件中parse_opt()函数设置的opset版本错误。</p>
+<h1><span id="解决方案">解决方案</span></h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#找到parse_opt()函数中的此行，将default值改为12</span></span><br><span class="line">parser.add_argument(<span class="string">&#x27;--opset&#x27;</span>, <span class="built_in">type</span>=<span class="built_in">int</span>, default=<span class="number">12</span>, <span class="built_in">help</span>=<span class="string">&#x27;ONNX: opset version&#x27;</span>)</span><br></pre></td></tr></table></figure><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>深度学习</tag>
+        <tag>YOLOv5</tag>
+        <tag>onnx</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++报错：表达式必须含有常量值</title>
     <url>/%E6%97%A5%E5%B8%B8/6/</url>
     <content><![CDATA[<p>关于在Visual Studio 2022使用C++ 20语法的表达式开辟数组空间报错</p>
@@ -380,86 +460,6 @@
       </categories>
       <tags>
         <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>YOLOv5由pt文件转onnx文件报错解决</title>
-    <url>/%E6%97%A5%E5%B8%B8/7/</url>
-    <content><![CDATA[<p>ONNX: export failure ❌ 5.9s: Unsupported ONNX opset version: 17</p>
-<p>关键词：深度学习、YOLOv5、onnx</p>
-<span id="more"></span>
-
-<hr>
-<!-- toc -->
-
-<ul>
-<li><a href="#%E6%8A%A5%E9%94%99%E7%AA%97%E5%8F%A3">报错窗口</a></li>
-<li><a href="#%E6%8A%A5%E9%94%99%E5%8E%9F%E5%9B%A0">报错原因</a></li>
-<li><a href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88">解决方案</a></li>
-</ul>
-<!-- tocstop -->
-
-<h1><span id="报错窗口">报错窗口</span></h1><p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/7_error.png" alt="报错"></p>
-<h1><span id="报错原因">报错原因</span></h1><p>export.py文件中parse_opt()函数设置的opset版本错误。</p>
-<h1><span id="解决方案">解决方案</span></h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#找到parse_opt()函数中的此行，将default值改为12</span></span><br><span class="line">parser.add_argument(<span class="string">&#x27;--opset&#x27;</span>, <span class="built_in">type</span>=<span class="built_in">int</span>, default=<span class="number">12</span>, <span class="built_in">help</span>=<span class="string">&#x27;ONNX: opset version&#x27;</span>)</span><br></pre></td></tr></table></figure><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>深度学习</tag>
-        <tag>YOLOv5</tag>
-        <tag>onnx</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Windows下Python3.11.4的安装记录</title>
-    <url>/%E6%97%A5%E5%B8%B8/8/</url>
-    <content><![CDATA[<p>记录一次安装Python</p>
-<p>关键词：Python</p>
-<span id="more"></span>
-
-<hr>
-<!-- toc -->
-
-<ul>
-<li><a href="#%E4%B8%8B%E8%BD%BDpython%E5%AE%89%E8%A3%85%E5%8C%85">下载Python安装包</a></li>
-<li><a href="#%E5%AE%89%E8%A3%85python">安装Python</a></li>
-<li><a href="#%E6%B5%8B%E8%AF%95python">测试Python</a></li>
-<li><a href="#%E9%99%84%E6%9B%B4%E6%94%B9python%E7%9A%84pip%E5%AE%89%E8%A3%85%E8%B7%AF%E5%BE%84">附：更改Python的pip安装路径</a></li>
-</ul>
-<!-- tocstop -->
-
-<h1><span id="下载python安装包">下载Python安装包</span></h1><p><a href="https://www.python.org/downloads/windows/">官网</a>选择尽量较新的Python版本下载。</p>
-<h1><span id="安装python">安装Python</span></h1><p>打开下载的Python安装包，选择<code>Customize installation</code>客制化安装，记得勾选下面的“Add python.exe to PATH”。</p>
-<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/8_py1.jpg" alt="安装步骤1"></p>
-<p>接着默认勾选：</p>
-<ul>
-<li>pip：包管理器，下载包时使用。建议勾选上</li>
-</ul>
-<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/8_py2.jpg" alt="安装步骤2"></p>
-<p>再接着更改安装路径，建议安装在非系统盘。</p>
-<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/8_py3.jpg" alt="安装步骤3"></p>
-<p>等待安装完成即可。</p>
-<h1><span id="测试python">测试Python</span></h1><p>按下<code>Win+R</code>输入<code>cmd</code>打开命令窗口，输入下面命令验证是否安装成功。</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">python -V</span><br></pre></td></tr></table></figure>
-
-<p>如果出现版本号，即为安装成功。</p>
-<h1><span id="附更改python的pip安装路径">附：更改Python的pip安装路径</span></h1><p>建议将pip安装的包放至非系统盘。进入Python的安装路径，如我的在<code>D:\Pyhton\Lib</code>，寻找文件<code>site.py</code>，使用记事本打开。使用<code>ctrl+f</code>查找关键字<code>USER_SITE</code>等字，将路径更改为自定义的路径。我更改情况如下图。</p>
-<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/8_py.jpg" alt="更改路径"></p>
-<p>更改路径后，打开cmd，使用下面指令安装numpy包。</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">pip install numpy</span><br></pre></td></tr></table></figure>
-
-<p>安装成功后，再使用下面指令查看numpy包的安装位置。</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">pip show numpy</span><br></pre></td></tr></table></figure>
-
-<p>我成功更改pip的安装路径，新下载的numpy包位于<code>D:\Pyhton\Lib\site-packages</code>。</p>
-<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/8_py4.jpg" alt="更改路径后"></p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -1588,6 +1588,145 @@
       <tags>
         <tag>深度学习</tag>
         <tag>GPU服务器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一个小巧的Markdown编辑工具</title>
+    <url>/%E8%BD%AF%E4%BB%B6/tools1/</url>
+    <content><![CDATA[<p>介绍一个小巧方便的编写Markdown语言工具。</p>
+<ol>
+<li><p>什么是Markdown</p>
+</li>
+<li><p>MarkText</p>
+</li>
+<li><p>进阶使用</p>
+</li>
+</ol>
+<p>关键词：Markdown工具</p>
+<span id="more"></span>
+
+<hr>
+<h1><span id="什么是markdown">什么是Markdown</span></h1><ul>
+<li><p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。</p>
+</li>
+<li><p>Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。</p>
+</li>
+<li><p>Markdown可用于编写记录笔记、博客、电子书等电子文档。</p>
+</li>
+</ul>
+<h1><span id="marktext">MarkText</span></h1><ul>
+<li>MarkText是一款开源的Markdown工具，可用于编辑输出Markdown文件。本人推荐的是英文语言软件，如何汉化自行研究。</li>
+</ul>
+<p>软件地址：建议安装到非系统盘（非C盘）</p>
+<p><a href="https://github.com/marktext/marktext/releases">MarkText下载 - 官网</a></p>
+<p><a href="https://www.aliyundrive.com/s/CoADkVDj1Sq">MarkText下载 - 个人网盘（Windows64位）</a></p>
+<ul>
+<li>MarkText具有多个明暗主题选择，软件菜单内容明确，主打轻便，是一款很不错的小工具。</li>
+</ul>
+<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E4%B8%BB%E7%95%8C%E9%9D%A2.jpg" alt="软件界面（明亮主题）"></p>
+<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E4%B8%BB%E7%95%8C%E9%9D%A22.jpg" alt="软件界面（灰暗主题）"></p>
+<ul>
+<li>使用方法</li>
+</ul>
+<p>输入<code>@</code>选择插入的模块，包括段落、分割线、标题、表格、数学公式、引用块、列表等。如果本身对于Markdown语言有一定基础的话，也可直接建立该模块。</p>
+<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E4%BD%BF%E7%94%A81.jpg" alt="使用过程"></p>
+<p>在编写完内容后，可以直接保存为Markdown文件（<code>.md</code>后缀），也可以导出为PDF文件和HTML文件。</p>
+<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E4%BF%9D%E5%AD%98.jpg" alt="选择保存"></p>
+<h1><span id="进阶使用">进阶使用</span></h1><ul>
+<li>有时候对于PDF文件，会有显示目录大纲的需求，但是该软件直接导出并不能设置，此时需要借助另一个工具：wkhtmltopdf。</li>
+</ul>
+<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.jpg" alt="带目录的PDF文件"></p>
+<ul>
+<li><strong>wkhtmltopdf</strong></li>
+</ul>
+<p>一款<strong>将HTML文件转化为PDF文件</strong>的小工具，但是其并没有软件UI界面，对小白不友好，但是万能的网络能搜到使用方法，此处针对如何导出带目录的PDF进行介绍。</p>
+<ol>
+<li>下载软件</li>
+</ol>
+<p>下载地址：可能提示有风险，建议安装到非系统盘（非C盘）</p>
+<p><a href="https://wkhtmltopdf.org/downloads.html">wkhtmltopdf下载 - 官网</a></p>
+<p><a href="https://www.aliyundrive.com/s/V4SBUcntBAv">wkhtmltopdf下载 - 个人网盘（Windows64位）</a></p>
+<ol start="2">
+<li>安装并配置</li>
+</ol>
+<p>安装后，需要记住安装的具体位置，比如我是安装在D盘，位置就是<code>D:\wkhtmltopdf</code>，接着进行系统环境变量的配置。在电脑设置中搜索环境变量，打开编辑页面。</p>
+<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.jpg" alt="配置环境变量"></p>
+<p>具体步骤：编辑→新建→输入安装的位置里面的bin文件夹即<code>D:\wkhtmltopdf\bin</code>→确定所有系统设置窗口。</p>
+<p>（添加错误的环境变量并不会对电脑造成严重伤害，但不要胡乱删除环境变量）</p>
+<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%90%8E.jpg" alt="配置环境变量后"></p>
+<p>再接着确认环境变量是否配置成功：按快捷键<code>win+r</code>，输入cmd，打开黑窗口，在窗口内输入<code>wkhtmltopdf -V</code>（查询wkhtmltopdf的版本），如果出现类似于版本号的数字，则说明添加环境变量成功。</p>
+<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_cmd.jpg" alt="配置成功"></p>
+<ol start="3">
+<li>软件使用</li>
+</ol>
+<p>在cmd黑窗口切换到想要HTML文件转换为PDF文件的位置，直接输入<code>F:</code>切换到不同的盘，输入<code>cd xx</code>可以进入不同文件夹。如果不知道自己是什么路径，可以先进入所在盘，再打开文件所在文件夹，在地址栏点击获得路径，然后复制粘贴到黑窗口进入。</p>
+<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E8%BF%9B%E5%85%A5%E6%96%87%E4%BB%B6%E5%A4%B9.jpg" alt="进入工作文件夹"></p>
+<p>接着回到MarkText软件，将文件导出为HTML文件，保存在特定文件夹，该文件夹应该跟cmd黑窗口进入的文件夹一样。举例时，我将该文件保存为<code>test.html</code>文件在<code>F:\14.Books</code>文件夹。</p>
+<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E5%AF%BC%E5%87%BAHTML.jpg" alt="导出HTML"></p>
+<p>再回到黑窗口，使用命令<code>wkhtmltopdf 目的文件名字 新文件名字</code>转换，我这里应该是<code>wkhtmltopdf test.html test.pdf</code>。等待转换成功。</p>
+<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E8%BD%AC%E6%8D%A2%E6%88%90%E5%8A%9F.jpg" alt="转换成功"></p>
+<p>此时回到文件夹，就可以看到转换完成的带目录的PDF文件。</p>
+<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_test.jpg" alt="转换成功的PDF文件"></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>软件</category>
+      </categories>
+      <tags>
+        <tag>Markdown工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OI Wiki，一个整合了编程竞赛的知识整合站点</title>
+    <url>/%E5%85%B6%E4%BB%96%E5%88%86%E4%BA%AB/oiwiki/</url>
+    <content><![CDATA[<p>Github分享</p>
+<p>关键词：算法、数据结构、竞赛</p>
+<span id="more"></span>
+
+<hr>
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%98%AF%E4%BB%80%E4%B9%88">是什么</a></li>
+<li><a href="#%E5%86%85%E5%AE%B9%E9%93%BE%E6%8E%A5">内容链接</a></li>
+<li><a href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8">如何使用</a></li>
+</ul>
+<!-- tocstop -->
+
+<h1><span id="是什么">是什么</span></h1><p>“OI Wiki 致力于成为一个免费开放且持续更新的知识整合站点，大家可以在这里获取关于 编程竞赛 (competitive programming) 有趣又实用的知识，我们为大家准备了竞赛中的基础知识、常见题型、解题思路以及常用工具等内容，帮助大家更快速深入地学习编程竞赛。”</p>
+<h1><span id="内容链接">内容链接</span></h1><p><a href="https://oi-wiki.org/">OI Wiki——网页使用</a><br><a href="https://github.com/OI-wiki/OI-wiki">Github 仓库</a><br><a href="https://gitee.com/OI-wiki/OI-wiki">Gitee 仓库</a></p>
+<h1><span id="如何使用">如何使用</span></h1><p>在Github主页上有详细介绍。</p>
+<p>可以直接点击上面的OI Wiki链接使用。</p>
+<p>我在此用Windows 10做一个简单的 <strong>离线版</strong> 使用示例。</p>
+<ol>
+<li>直接或git方式下载仓库压缩包。</li>
+</ol>
+<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/oiwiki_download.jpg" alt="下载"></p>
+<ol start="2">
+<li><p>解压压缩包</p>
+</li>
+<li><p>在Python下（没有Python的可以<a href="https://fingsinz.space/%E6%97%A5%E5%B8%B8/8/#more">安装Python</a>），使用命令建立静态网页：在解压后的目录下地址栏输入cmd，接着输入下面的命令启动网页。</p>
+</li>
+</ol>
+<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/oiwiki_run.jpg" alt="打开cmd"></p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"># 如果是 python3</span><br><span class="line">python3 -m http.server</span><br><span class="line"># 如果是 python2</span><br><span class="line">python2 -m SimpleHTTPServer</span><br><span class="line"># 有些环境下找不到名叫 python3/python2 的可执行文件，不妨运行 python 试试</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/oiwiki_run2.jpg" alt="启动网页服务"></p>
+<ul>
+<li>如上图则为启动网页服务成功。我在此输入的是<code>python</code>，可以试试<code>python3</code>或者<code>python2</code>能不能运行。</li>
+<li>在浏览器地址栏中输入<code>http://localhost:8000/</code>或<code>127.0.0.1:8000</code>即可进入网页，其中<code>8000</code>为上图启动网页服务的端口，并不一定是<code>8000</code>。</li>
+</ul>
+<ol start="4">
+<li>页面如下图即可进行阅读学习</li>
+</ol>
+<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/oiwiki_home.jpg" alt="OI Wiki"></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>其他分享</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>数据结构</tag>
+        <tag>竞赛</tag>
       </tags>
   </entry>
   <entry>
@@ -3173,88 +3312,46 @@
       </tags>
   </entry>
   <entry>
-    <title>一个小巧的Markdown编辑工具</title>
-    <url>/%E8%BD%AF%E4%BB%B6/tools1/</url>
-    <content><![CDATA[<p>介绍一个小巧方便的编写Markdown语言工具。</p>
+    <title>两个用过的导航页</title>
+    <url>/%E7%BD%91%E9%A1%B5/%E5%AF%BC%E8%88%AA%E9%A1%B5/</url>
+    <content><![CDATA[<p>介绍两个我常用的导航页。导航页就是一个网站的目录，其包含了很多常用其他网站的快捷方式。</p>
 <ol>
-<li><p>什么是Markdown</p>
+<li><p>果汁导航页</p>
 </li>
-<li><p>MarkText</p>
-</li>
-<li><p>进阶使用</p>
+<li><p>青柠起始页</p>
 </li>
 </ol>
-<p>关键词：Markdown工具</p>
+<ul>
+<li>附设置浏览器起始页</li>
+</ul>
+<p>关键词：导航页</p>
 <span id="more"></span>
 
 <hr>
-<h1><span id="什么是markdown">什么是Markdown</span></h1><ul>
-<li><p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。</p>
-</li>
-<li><p>Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。</p>
-</li>
-<li><p>Markdown可用于编写记录笔记、博客、电子书等电子文档。</p>
-</li>
-</ul>
-<h1><span id="marktext">MarkText</span></h1><ul>
-<li>MarkText是一款开源的Markdown工具，可用于编辑输出Markdown文件。本人推荐的是英文语言软件，如何汉化自行研究。</li>
-</ul>
-<p>软件地址：建议安装到非系统盘（非C盘）</p>
-<p><a href="https://github.com/marktext/marktext/releases">MarkText下载 - 官网</a></p>
-<p><a href="https://www.aliyundrive.com/s/CoADkVDj1Sq">MarkText下载 - 个人网盘（Windows64位）</a></p>
-<ul>
-<li>MarkText具有多个明暗主题选择，软件菜单内容明确，主打轻便，是一款很不错的小工具。</li>
-</ul>
-<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E4%B8%BB%E7%95%8C%E9%9D%A2.jpg" alt="软件界面（明亮主题）"></p>
-<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E4%B8%BB%E7%95%8C%E9%9D%A22.jpg" alt="软件界面（灰暗主题）"></p>
-<ul>
-<li>使用方法</li>
-</ul>
-<p>输入<code>@</code>选择插入的模块，包括段落、分割线、标题、表格、数学公式、引用块、列表等。如果本身对于Markdown语言有一定基础的话，也可直接建立该模块。</p>
-<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E4%BD%BF%E7%94%A81.jpg" alt="使用过程"></p>
-<p>在编写完内容后，可以直接保存为Markdown文件（<code>.md</code>后缀），也可以导出为PDF文件和HTML文件。</p>
-<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E4%BF%9D%E5%AD%98.jpg" alt="选择保存"></p>
-<h1><span id="进阶使用">进阶使用</span></h1><ul>
-<li>有时候对于PDF文件，会有显示目录大纲的需求，但是该软件直接导出并不能设置，此时需要借助另一个工具：wkhtmltopdf。</li>
-</ul>
-<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.jpg" alt="带目录的PDF文件"></p>
-<ul>
-<li><strong>wkhtmltopdf</strong></li>
-</ul>
-<p>一款<strong>将HTML文件转化为PDF文件</strong>的小工具，但是其并没有软件UI界面，对小白不友好，但是万能的网络能搜到使用方法，此处针对如何导出带目录的PDF进行介绍。</p>
 <ol>
-<li>下载软件</li>
+<li>果汁导航</li>
 </ol>
-<p>下载地址：可能提示有风险，建议安装到非系统盘（非C盘）</p>
-<p><a href="https://wkhtmltopdf.org/downloads.html">wkhtmltopdf下载 - 官网</a></p>
-<p><a href="https://www.aliyundrive.com/s/V4SBUcntBAv">wkhtmltopdf下载 - 个人网盘（Windows64位）</a></p>
+<p>果汁导航页包括互联网搜索功能，还有各种生活学习用到的网页快捷方式。每层目录下还收纳了很多相关网站，包括影视、知识、新闻、等网站，丰富度很高，也很容易因为内容太多眼花缭乱忘记了有这么样的功能。更多功能可以自己探索发现收藏。可登录使用也可不登录使用。</p>
+<p>地址：<a href="http://guozhivip.com/">果汁导航 - guozhivip.com</a></p>
+<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/%E5%AF%BC%E8%88%AA%E9%A1%B5_%E6%9E%9C%E6%B1%81%E8%B5%84%E6%BA%90%E5%AF%BC%E8%88%AA.png" alt="果汁导航"></p>
 <ol start="2">
-<li>安装并配置</li>
+<li>青柠起始页</li>
 </ol>
-<p>安装后，需要记住安装的具体位置，比如我是安装在D盘，位置就是<code>D:\wkhtmltopdf</code>，接着进行系统环境变量的配置。在电脑设置中搜索环境变量，打开编辑页面。</p>
-<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.jpg" alt="配置环境变量"></p>
-<p>具体步骤：编辑→新建→输入安装的位置里面的bin文件夹即<code>D:\wkhtmltopdf\bin</code>→确定所有系统设置窗口。</p>
-<p>（添加错误的环境变量并不会对电脑造成严重伤害，但不要胡乱删除环境变量）</p>
-<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%90%8E.jpg" alt="配置环境变量后"></p>
-<p>再接着确认环境变量是否配置成功：按快捷键<code>win+r</code>，输入cmd，打开黑窗口，在窗口内输入<code>wkhtmltopdf -V</code>（查询wkhtmltopdf的版本），如果出现类似于版本号的数字，则说明添加环境变量成功。</p>
-<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_cmd.jpg" alt="配置成功"></p>
-<ol start="3">
-<li>软件使用</li>
-</ol>
-<p>在cmd黑窗口切换到想要HTML文件转换为PDF文件的位置，直接输入<code>F:</code>切换到不同的盘，输入<code>cd xx</code>可以进入不同文件夹。如果不知道自己是什么路径，可以先进入所在盘，再打开文件所在文件夹，在地址栏点击获得路径，然后复制粘贴到黑窗口进入。</p>
-<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E8%BF%9B%E5%85%A5%E6%96%87%E4%BB%B6%E5%A4%B9.jpg" alt="进入工作文件夹"></p>
-<p>接着回到MarkText软件，将文件导出为HTML文件，保存在特定文件夹，该文件夹应该跟cmd黑窗口进入的文件夹一样。举例时，我将该文件保存为<code>test.html</code>文件在<code>F:\14.Books</code>文件夹。</p>
-<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E5%AF%BC%E5%87%BAHTML.jpg" alt="导出HTML"></p>
-<p>再回到黑窗口，使用命令<code>wkhtmltopdf 目的文件名字 新文件名字</code>转换，我这里应该是<code>wkhtmltopdf test.html test.pdf</code>。等待转换成功。</p>
-<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E8%BD%AC%E6%8D%A2%E6%88%90%E5%8A%9F.jpg" alt="转换成功"></p>
-<p>此时回到文件夹，就可以看到转换完成的带目录的PDF文件。</p>
-<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_test.jpg" alt="转换成功的PDF文件"></p>
+<p>一个简约的起始页，具有搜索功能，当搜索框聚焦时，背景具有毛玻璃效果。点击时钟可以到达另一页，此页可以添加一些常用的网站快捷方式（需登录），自定义程度高。丰富度不高，简约型网站。</p>
+<p>地址：<a href="https://limestart.cn/">青柠起始页 - limestart.cn</a></p>
+<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/%E5%AF%BC%E8%88%AA%E9%A1%B5_%E9%9D%92%E6%9F%A0%E8%B5%B7%E5%A7%8B%E9%A1%B5.jpg" alt="青柠起始页主页"></p>
+<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/%E5%AF%BC%E8%88%AA%E9%A1%B5_%E9%9D%92%E6%9F%A0%E8%B5%B7%E5%A7%8B%E9%A1%B51.jpg" alt="青柠起始页附页"></p>
+<ul>
+<li>附：设置为浏览器起始页</li>
+</ul>
+<p>以Edge浏览器为例，打开设置页面，选择<code>开始、主页和新建标签页</code>，将启动时页面改为想要的导航页，更方便自己浏览器使用。</p>
+<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/%E5%AF%BC%E8%88%AA%E9%A1%B5_%E8%AE%BE%E7%BD%AE.jpg" alt="设置"></p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
-        <category>软件</category>
+        <category>网页</category>
       </categories>
       <tags>
-        <tag>Markdown工具</tag>
+        <tag>导航页</tag>
       </tags>
   </entry>
   <entry>
@@ -3307,49 +3404,6 @@
       </categories>
       <tags>
         <tag>启动工具</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>两个用过的导航页</title>
-    <url>/%E7%BD%91%E9%A1%B5/%E5%AF%BC%E8%88%AA%E9%A1%B5/</url>
-    <content><![CDATA[<p>介绍两个我常用的导航页。导航页就是一个网站的目录，其包含了很多常用其他网站的快捷方式。</p>
-<ol>
-<li><p>果汁导航页</p>
-</li>
-<li><p>青柠起始页</p>
-</li>
-</ol>
-<ul>
-<li>附设置浏览器起始页</li>
-</ul>
-<p>关键词：导航页</p>
-<span id="more"></span>
-
-<hr>
-<ol>
-<li>果汁导航</li>
-</ol>
-<p>果汁导航页包括互联网搜索功能，还有各种生活学习用到的网页快捷方式。每层目录下还收纳了很多相关网站，包括影视、知识、新闻、等网站，丰富度很高，也很容易因为内容太多眼花缭乱忘记了有这么样的功能。更多功能可以自己探索发现收藏。可登录使用也可不登录使用。</p>
-<p>地址：<a href="http://guozhivip.com/">果汁导航 - guozhivip.com</a></p>
-<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/%E5%AF%BC%E8%88%AA%E9%A1%B5_%E6%9E%9C%E6%B1%81%E8%B5%84%E6%BA%90%E5%AF%BC%E8%88%AA.png" alt="果汁导航"></p>
-<ol start="2">
-<li>青柠起始页</li>
-</ol>
-<p>一个简约的起始页，具有搜索功能，当搜索框聚焦时，背景具有毛玻璃效果。点击时钟可以到达另一页，此页可以添加一些常用的网站快捷方式（需登录），自定义程度高。丰富度不高，简约型网站。</p>
-<p>地址：<a href="https://limestart.cn/">青柠起始页 - limestart.cn</a></p>
-<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/%E5%AF%BC%E8%88%AA%E9%A1%B5_%E9%9D%92%E6%9F%A0%E8%B5%B7%E5%A7%8B%E9%A1%B5.jpg" alt="青柠起始页主页"></p>
-<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/%E5%AF%BC%E8%88%AA%E9%A1%B5_%E9%9D%92%E6%9F%A0%E8%B5%B7%E5%A7%8B%E9%A1%B51.jpg" alt="青柠起始页附页"></p>
-<ul>
-<li>附：设置为浏览器起始页</li>
-</ul>
-<p>以Edge浏览器为例，打开设置页面，选择<code>开始、主页和新建标签页</code>，将启动时页面改为想要的导航页，更方便自己浏览器使用。</p>
-<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/%E5%AF%BC%E8%88%AA%E9%A1%B5_%E8%AE%BE%E7%BD%AE.jpg" alt="设置"></p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>网页</category>
-      </categories>
-      <tags>
-        <tag>导航页</tag>
       </tags>
   </entry>
 </search>
