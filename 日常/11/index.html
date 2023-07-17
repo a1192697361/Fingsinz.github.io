@@ -22,25 +22,33 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"fingsinz.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.17.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"show_result":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="不忘初心，方得始终">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Fingsinz&#39;s space">
-<meta property="og:url" content="https://fingsinz.github.io/tags/%E7%89%A9%E7%90%86%E5%B1%82/index.html">
+    <meta name="description" content="介绍如何将VS的C++项目打包 关键词：C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Visual Studio2022的C++项目打包成软件记录">
+<meta property="og:url" content="https://fingsinz.github.io/%E6%97%A5%E5%B8%B8/11/index.html">
 <meta property="og:site_name" content="Fingsinz&#39;s space">
-<meta property="og:description" content="不忘初心，方得始终">
+<meta property="og:description" content="介绍如何将VS的C++项目打包 关键词：C++">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/11_vs.jpg">
+<meta property="og:image" content="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/11_exe.jpg">
+<meta property="og:image" content="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/11_dependents.jpg">
+<meta property="og:image" content="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/11_last.jpg">
+<meta property="article:published_time" content="2023-07-17T08:27:38.000Z">
+<meta property="article:modified_time" content="2023-07-17T09:10:45.947Z">
 <meta property="article:author" content="Fingsinz">
+<meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/11_vs.jpg">
 
 
-<link rel="canonical" href="https://fingsinz.github.io/tags/%E7%89%A9%E7%90%86%E5%B1%82/">
+<link rel="canonical" href="https://fingsinz.github.io/%E6%97%A5%E5%B8%B8/11/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"tags/物理层/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://fingsinz.github.io/%E6%97%A5%E5%B8%B8/11/","path":"日常/11/","title":"Visual Studio2022的C++项目打包成软件记录"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>标签: 物理层 | Fingsinz's space</title>
+<title>Visual Studio2022的C++项目打包成软件记录 | Fingsinz's space</title>
   
 
 
@@ -127,7 +135,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -140,6 +148,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">1.编译出.exe文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">2.打包项目</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -199,50 +208,141 @@
 
     </div>
 
-    <div class="main-inner tag posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h1 class="collection-header">物理层
-          <small>标签</small>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://fingsinz.github.io/%E6%97%A5%E5%B8%B8/11/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/favicon.png">
+      <meta itemprop="name" content="Fingsinz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fingsinz's space">
+      <meta itemprop="description" content="不忘初心，方得始终">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Visual Studio2022的C++项目打包成软件记录 | Fingsinz's space">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Visual Studio2022的C++项目打包成软件记录
         </h1>
-      </div>
 
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2023</span>
+
+      <time title="创建时间：2023-07-17 16:27:38 / 修改时间：17:10:45" itemprop="dateCreated datePublished" datetime="2023-07-17T16:27:38+08:00">2023-07-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%97%A5%E5%B8%B8/" itemprop="url" rel="index"><span itemprop="name">日常</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>577</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>介绍如何将VS的C++项目打包</p>
+<p>关键词：C++</p>
+<span id="more"></span>
+
+<hr>
+<!-- toc -->
+
+<ul>
+<li><a href="#1%E7%BC%96%E8%AF%91%E5%87%BAexe%E6%96%87%E4%BB%B6">1.编译出.exe文件</a></li>
+<li><a href="#2%E6%89%93%E5%8C%85%E9%A1%B9%E7%9B%AE">2.打包项目</a></li>
+</ul>
+<!-- tocstop -->
+
+<h1><span id="1编译出exe文件">1.编译出.exe文件</span></h1><p>选择Release生成，我在此是<code>Realease x64</code>编译。</p>
+<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/11_vs.jpg" alt="编译"></p>
+<h1><span id="2打包项目">2.打包项目</span></h1><p>将刚才构建出来的.exe文件复制到一个新的文件夹（目录尽量不带中文），该目录作为软件的工作目录。比如我复制到F:\test\HelloWorld1.0，软件工作目录就是这个文件夹，test目录下的一个新建文件夹。</p>
+<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/11_exe.jpg" alt="软件工作目录"></p>
+<p>打开Visual Studio的安装目录，找到<code>dumpbin.exe</code>并复制其路径，可以按照下面的路径查找：<br><code>E:\Microsoft_Visual_Studio\VS\VC\Tools\MSVC\14.36.32532\bin\Hostx64\x64</code></p>
+<p>回到软件工作目录，在地址栏输入cmd打开命令提示符，按格式输入：<br><code>dumpbin.exe路径 /dependents 发布软件的路径</code></p>
+<p>如：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">E:\<span class="title">Microsoft_Visual_Studio</span>\<span class="title">VS</span>\<span class="title">VC</span>\<span class="title">Tools</span>\<span class="title">MSVC</span>\14.36.32532\<span class="title">bin</span>\<span class="title">Hostx64</span>\<span class="title">x64</span>\<span class="title">dumpbin.exe</span> /<span class="title">dependents</span> <span class="title">HelloWorld.exe</span></span></span><br></pre></td></tr></table></figure>
+
+<p>接着将出现的.dll文件找出来，推荐使用<a target="_blank" rel="noopener" href="https://www.voidtools.com/zh-cn/downloads/">Everything软件</a>搜索，选择路径上对应的平台（x86或x64），复制到软件的工作目录即可。</p>
+<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/11_dependents.jpg" alt="软件依赖"></p>
+<p>如图：</p>
+<p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/11_last.jpg" alt="完整的软件工作目录"></p>
+<p>这样即可直接点击.exe文件运行。</p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-06-07T10:56:46+08:00"
-              content="2023-06-07">
-          06-07
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/cnetwork1/" itemprop="url">
-            <span itemprop="name">计算机网络笔记1</span>
-          </a>
-      </div>
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
+          </div>
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/%E6%97%A5%E5%B8%B8/10/" rel="prev" title="Qt5.14.2项目打包成软件记录">
+                  <i class="fa fa-chevron-left"></i> Qt5.14.2项目打包成软件记录
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
+</div>
 
-    </div>
-  </div>
-  
-  
-  
+
+
+
+
 
 </div>
   </main>
@@ -326,7 +426,7 @@
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://fingsinz.github.io/tags/%E7%89%A9%E7%90%86%E5%B1%82/"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://fingsinz.github.io/%E6%97%A5%E5%B8%B8/11/"}</script>
   <script src="/js/third-party/quicklink.js"></script>
 
 </body>
