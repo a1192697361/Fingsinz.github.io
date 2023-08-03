@@ -1,6 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Qt5.14.2项目打包成软件记录</title>
+    <url>/%E6%97%A5%E5%B8%B8/10/</url>
+    <content><![CDATA[<p>介绍如何将Qt项目打包成软件发布</p>
+<p>关键词：C++、Qt</p>
+<span id="more"></span>
+
+<hr>
+<!-- toc -->
+
+<ul>
+<li><a href="#1%E7%BC%96%E8%AF%91%E5%87%BAexe%E6%96%87%E4%BB%B6">1.编译出.exe文件</a></li>
+<li><a href="#2%E6%89%93%E5%8C%85%E9%A1%B9%E7%9B%AE">2.打包项目</a></li>
+</ul>
+<!-- tocstop -->
+
+<h1><span id="1编译出exe文件">1.编译出.exe文件</span></h1><p>打开需要打包的项目，在左下角选择合适的构建部件和版本，版本要选择<code>Release</code>，至于64bit还是32bit看需求。</p>
+<p>选择后点击锤子编译项目，此处我以<code>MinGWx64,Release</code>编译。</p>
+<p><img lazyload src="/images/loading.svg" data-src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/10_qt.jpg" alt="选择构建部件和版本"></p>
+<p>点击左侧的项目，查看构建目录（项目目录跟构建目录尽量别带中文）。</p>
+<p><img lazyload src="/images/loading.svg" data-src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/10_qt2.jpg" alt="查看构建目录"></p>
+<p>打开构建目录，发现出现一个.exe文件。</p>
+<p><img lazyload src="/images/loading.svg" data-src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/10_exe.jpg" alt="编译出.exe文件"></p>
+<h1><span id="2打包项目">2.打包项目</span></h1><p>将刚才构建出来的.exe文件复制到一个新的文件夹（目录尽量不带中文），该目录作为软件的工作目录。比如我复制到<code>F:\test\HelloWorld1.0</code>，软件工作目录就是这个文件夹，test目录下的一个新建文件夹。</p>
+<p>接着打开Qt的安装目录下的bin文件夹，找到<code>windeployqt.exe</code>，复制其路径，我的<code>windeployqt.exe</code>位于<code>D:\Qt\5.14.2\mingw73_64\bin</code>。</p>
+<p>回到软件的工作目录（新建的文件夹），在地址栏输入cmd打开命令提示符，按格式输入：</p>
+<p><code>windeployqt文件路径 发布软件的路径</code></p>
+<p>如：</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">D:\Qt\5.14.2\mingw73_64\bin\windeployqt.exe HelloWorld.exe</span><br></pre></td></tr></table></figure></div>
+
+<p>慢慢等待打包完成。</p>
+<p><img lazyload src="/images/loading.svg" data-src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/10_finish.jpg" alt="打包完成"></p>
+<p>之后就可以直接打开软件工作目录下的exe执行。</p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>Qt</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>第一个博客</title>
     <url>/%E6%97%A5%E5%B8%B8/1/</url>
     <content><![CDATA[<p>博客建成：Hello World</p>
@@ -62,45 +104,38 @@
       </tags>
   </entry>
   <entry>
-    <title>Qt5.14.2项目打包成软件记录</title>
-    <url>/%E6%97%A5%E5%B8%B8/10/</url>
-    <content><![CDATA[<p>介绍如何将Qt项目打包成软件发布</p>
-<p>关键词：C++、Qt</p>
+    <title>如何暂停Windows的系统升级</title>
+    <url>/%E6%97%A5%E5%B8%B8/13/</url>
+    <content><![CDATA[<p>关闭Windows的自动更新</p>
+<p>关键词：Windows</p>
 <span id="more"></span>
 
 <hr>
 <!-- toc -->
 
 <ul>
-<li><a href="#1%E7%BC%96%E8%AF%91%E5%87%BAexe%E6%96%87%E4%BB%B6">1.编译出.exe文件</a></li>
-<li><a href="#2%E6%89%93%E5%8C%85%E9%A1%B9%E7%9B%AE">2.打包项目</a></li>
+<li><a href="#1%E4%BF%AE%E6%94%B9%E6%B3%A8%E5%86%8C%E8%A1%A8%E7%BC%96%E8%BE%91%E5%99%A8">1.修改注册表编辑器</a></li>
+<li><a href="#2%E6%89%93%E5%BC%80%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE">2.打开系统设置</a></li>
+<li><a href="#3%E6%81%A2%E5%A4%8D%E6%9B%B4%E6%96%B0">3.恢复更新</a></li>
 </ul>
 <!-- tocstop -->
 
-<h1><span id="1编译出exe文件">1.编译出.exe文件</span></h1><p>打开需要打包的项目，在左下角选择合适的构建部件和版本，版本要选择<code>Release</code>，至于64bit还是32bit看需求。</p>
-<p>选择后点击锤子编译项目，此处我以<code>MinGWx64,Release</code>编译。</p>
-<p><img lazyload src="/images/loading.svg" data-src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/10_qt.jpg" alt="选择构建部件和版本"></p>
-<p>点击左侧的项目，查看构建目录（项目目录跟构建目录尽量别带中文）。</p>
-<p><img lazyload src="/images/loading.svg" data-src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/10_qt2.jpg" alt="查看构建目录"></p>
-<p>打开构建目录，发现出现一个.exe文件。</p>
-<p><img lazyload src="/images/loading.svg" data-src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/10_exe.jpg" alt="编译出.exe文件"></p>
-<h1><span id="2打包项目">2.打包项目</span></h1><p>将刚才构建出来的.exe文件复制到一个新的文件夹（目录尽量不带中文），该目录作为软件的工作目录。比如我复制到<code>F:\test\HelloWorld1.0</code>，软件工作目录就是这个文件夹，test目录下的一个新建文件夹。</p>
-<p>接着打开Qt的安装目录下的bin文件夹，找到<code>windeployqt.exe</code>，复制其路径，我的<code>windeployqt.exe</code>位于<code>D:\Qt\5.14.2\mingw73_64\bin</code>。</p>
-<p>回到软件的工作目录（新建的文件夹），在地址栏输入cmd打开命令提示符，按格式输入：</p>
-<p><code>windeployqt文件路径 发布软件的路径</code></p>
-<p>如：</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">D:\Qt\5.14.2\mingw73_64\bin\windeployqt.exe HelloWorld.exe</span><br></pre></td></tr></table></figure></div>
-
-<p>慢慢等待打包完成。</p>
-<p><img lazyload src="/images/loading.svg" data-src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/10_finish.jpg" alt="打包完成"></p>
-<p>之后就可以直接打开软件工作目录下的exe执行。</p>
+<h1><span id="1修改注册表编辑器">1.修改注册表编辑器</span></h1><p>按住 <code>Win</code> + <code>R</code> 输入 <code>regedit</code> 进入注册表编辑器。</p>
+<p>找到 <code>HKEY_LOCAL_MACHINE → SOFTWARE → Microsoft → WindowsUpdate → UX → Settings</code></p>
+<p>点击右边空白处，选择新建DWORD（32位）值，重命名为 <code>FightSettingsMaxPauseDays</code> ，</p>
+<p>双击打开，选择十进制，输入想要暂停的最大天数，我这里输入 <code>8888</code> 。</p>
+<p><img lazyload src="/images/loading.svg" data-src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/13_1.jpg" alt="添加新项"></p>
+<h1><span id="2打开系统设置">2.打开系统设置</span></h1><p>按住 <code>Win</code> + <code>I</code> 打开系统设置，搜索 <code>Windows更新</code> ，进入Windows更新设置，在暂停更新处选择最大值即可。</p>
+<p>Windows 10的暂停更新在 <code>Windows 更新设置 → 高级选项 → 暂停更新</code></p>
+<p>效果如图：</p>
+<p><img lazyload src="/images/loading.svg" data-src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/13_2.jpg" alt="暂停8888天"></p>
+<h1><span id="3恢复更新">3.恢复更新</span></h1><p>直接点击继续更新即可。</p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>日常</category>
       </categories>
       <tags>
-        <tag>C++</tag>
-        <tag>Qt</tag>
+        <tag>Windows</tag>
       </tags>
   </entry>
   <entry>
@@ -150,41 +185,6 @@
       </categories>
       <tags>
         <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何暂停Windows的系统升级</title>
-    <url>/%E6%97%A5%E5%B8%B8/13/</url>
-    <content><![CDATA[<p>关闭Windows的自动更新</p>
-<p>关键词：Windows</p>
-<span id="more"></span>
-
-<hr>
-<!-- toc -->
-
-<ul>
-<li><a href="#1%E4%BF%AE%E6%94%B9%E6%B3%A8%E5%86%8C%E8%A1%A8%E7%BC%96%E8%BE%91%E5%99%A8">1.修改注册表编辑器</a></li>
-<li><a href="#2%E6%89%93%E5%BC%80%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE">2.打开系统设置</a></li>
-<li><a href="#3%E6%81%A2%E5%A4%8D%E6%9B%B4%E6%96%B0">3.恢复更新</a></li>
-</ul>
-<!-- tocstop -->
-
-<h1><span id="1修改注册表编辑器">1.修改注册表编辑器</span></h1><p>按住 <code>Win</code> + <code>R</code> 输入 <code>regedit</code> 进入注册表编辑器。</p>
-<p>找到 <code>HKEY_LOCAL_MACHINE → SOFTWARE → Microsoft → WindowsUpdate → UX → Settings</code></p>
-<p>点击右边空白处，选择新建DWORD（32位）值，重命名为 <code>FightSettingsMaxPauseDays</code> ，</p>
-<p>双击打开，选择十进制，输入想要暂停的最大天数，我这里输入 <code>8888</code> 。</p>
-<p><img lazyload src="/images/loading.svg" data-src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/13_1.jpg" alt="添加新项"></p>
-<h1><span id="2打开系统设置">2.打开系统设置</span></h1><p>按住 <code>Win</code> + <code>I</code> 打开系统设置，搜索 <code>Windows更新</code> ，进入Windows更新设置，在暂停更新处选择最大值即可。</p>
-<p>Windows 10的暂停更新在 <code>Windows 更新设置 → 高级选项 → 暂停更新</code></p>
-<p>效果如图：</p>
-<p><img lazyload src="/images/loading.svg" data-src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/13_2.jpg" alt="暂停8888天"></p>
-<h1><span id="3恢复更新">3.恢复更新</span></h1><p>直接点击继续更新即可。</p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>Windows</tag>
       </tags>
   </entry>
   <entry>
@@ -1895,58 +1895,6 @@
       </tags>
   </entry>
   <entry>
-    <title>关于GPU服务器的选用</title>
-    <url>/%E5%85%B6%E4%BB%96%E5%88%86%E4%BA%AB/gpuserver/</url>
-    <content><![CDATA[<p>介绍关于GPU服务器：租用、使用</p>
-<p>关键词：深度学习、GPU服务器</p>
-<span id="more"></span>
-
-<hr>
-<!-- toc -->
-
-<ul>
-<li><a href="#gpu%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9C%8D%E5%8A%A1%E5%95%86">GPU服务器服务商</a></li>
-<li><a href="#gpu%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8">GPU服务器使用</a></li>
-</ul>
-<!-- tocstop -->
-
-<h1><span id="gpu服务器服务商">GPU服务器服务商</span></h1><ol>
-<li>AutoDL算力云</li>
-</ol>
-<ul>
-<li>网站：<a class="link" href="https://www.autodl.com/home">AutoDL算力云 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
-<li>个人评价：本人具有使用经历，价格偏便宜，镜像有现成，适合新手入门尝试。</li>
-</ul>
-<ol start="2">
-<li><a class="link" href="https://mistgpu.com/">MistGPU <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
-</ol>
-<ul>
-<li>网站：<a class="link" href="https://mistgpu.com/">MistGPU <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
-<li>个人评价：价格还行，备用选择。</li>
-</ul>
-<ol start="3">
-<li>阿里云</li>
-</ol>
-<ul>
-<li>网站：<a class="link" href="https://www.aliyun.com/product/ecs/gpu">阿里云 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
-<li>个人评价：阿里云，不多说，可靠也不便宜。</li>
-</ul>
-<h1><span id="gpu服务器使用">GPU服务器使用</span></h1><ol>
-<li>选择适合的GPU型号、显存大小、浮点算力、存储盘大小。</li>
-<li>选择合适的镜像进行环境配置。</li>
-<li>一般无图形窗口，命令行使用，文件上传下载。</li>
-<li>详细可参考各个服务商的帮助文档。</li>
-</ol>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>其他分享</category>
-      </categories>
-      <tags>
-        <tag>深度学习</tag>
-        <tag>GPU服务器</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C语言入门学习教程</title>
     <url>/%E7%AC%94%E8%AE%B0/c-language-learning/</url>
     <content><![CDATA[<p>个人认为面向入门基础级别的C语言学习教程。</p>
@@ -3440,6 +3388,58 @@
       </tags>
   </entry>
   <entry>
+    <title>关于GPU服务器的选用</title>
+    <url>/%E5%85%B6%E4%BB%96%E5%88%86%E4%BA%AB/gpuserver/</url>
+    <content><![CDATA[<p>介绍关于GPU服务器：租用、使用</p>
+<p>关键词：深度学习、GPU服务器</p>
+<span id="more"></span>
+
+<hr>
+<!-- toc -->
+
+<ul>
+<li><a href="#gpu%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9C%8D%E5%8A%A1%E5%95%86">GPU服务器服务商</a></li>
+<li><a href="#gpu%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8">GPU服务器使用</a></li>
+</ul>
+<!-- tocstop -->
+
+<h1><span id="gpu服务器服务商">GPU服务器服务商</span></h1><ol>
+<li>AutoDL算力云</li>
+</ol>
+<ul>
+<li>网站：<a class="link" href="https://www.autodl.com/home">AutoDL算力云 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+<li>个人评价：本人具有使用经历，价格偏便宜，镜像有现成，适合新手入门尝试。</li>
+</ul>
+<ol start="2">
+<li><a class="link" href="https://mistgpu.com/">MistGPU <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+</ol>
+<ul>
+<li>网站：<a class="link" href="https://mistgpu.com/">MistGPU <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+<li>个人评价：价格还行，备用选择。</li>
+</ul>
+<ol start="3">
+<li>阿里云</li>
+</ol>
+<ul>
+<li>网站：<a class="link" href="https://www.aliyun.com/product/ecs/gpu">阿里云 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+<li>个人评价：阿里云，不多说，可靠也不便宜。</li>
+</ul>
+<h1><span id="gpu服务器使用">GPU服务器使用</span></h1><ol>
+<li>选择适合的GPU型号、显存大小、浮点算力、存储盘大小。</li>
+<li>选择合适的镜像进行环境配置。</li>
+<li>一般无图形窗口，命令行使用，文件上传下载。</li>
+<li>详细可参考各个服务商的帮助文档。</li>
+</ol>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>其他分享</category>
+      </categories>
+      <tags>
+        <tag>深度学习</tag>
+        <tag>GPU服务器</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>OI Wiki，一个整合了编程竞赛的知识整合站点</title>
     <url>/%E5%85%B6%E4%BB%96%E5%88%86%E4%BA%AB/oiwiki/</url>
     <content><![CDATA[<p>Github分享</p>
@@ -3491,6 +3491,79 @@
         <tag>算法</tag>
         <tag>数据结构</tag>
         <tag>竞赛</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>给大一的你</title>
+    <url>/%E7%BB%8F%E9%AA%8C%E4%B9%8B%E8%B0%88/tofreshman/</url>
+    <content><![CDATA[<p>如今大二将完，给大一朋友的一些话。</p>
+<p>关键词：经验</p>
+<span id="more"></span>
+
+<hr>
+<!-- toc -->
+
+
+
+<!-- tocstop -->
+
+<p><font face="kaiti">刚高考完就像是刚解放了一样，有的人安排得忙忙的：把好久没看的纪录片、电视剧、电影看个遍；有的人还不知道干什么，日复一日看手机无聊度过。</font></p>
+<p><font face="kaiti">在我自己看来，大一的你可以是这样：</font></p>
+<ul>
+<li><p><font face="kaiti">广泛阅读，看看文学，看看历史等等；</font></p>
+</li>
+<li><p><font face="kaiti">广泛交友，识得良师益友；</font></p>
+</li>
+<li><p><font face="kaiti">进入一两个社团组织，培养技能，提高能力；</font></p>
+</li>
+<li><p><font face="kaiti">……</font></p>
+</li>
+</ul>
+<p><font face="kaiti">大一其实还算处于一种很自由，很空闲的状态。这个时候拥有很多试错的机会，可以去长见识。</font></p>
+<p><font face="kaiti">如果说你想拼搏努力地度过大一，那就去关注比赛等学术上的活动，同样也是获得经验的过程。如果说你想时而摆烂，不想逼得自己那么紧，那也完全可以，慢慢提升自己。你可以走得很慢，但绝不后退。</font></p>
+<p><font face="kaiti">趁着大一，我觉得最好是提高广度。更重要的是，你是你，无需别人怎么样你也怎么样。有时候遇到的室友、同学摆烂或者很卷，你可以不受他们影响，自个过自个的。注意，这个观念很简单，做到其实很难。</font></p>
+<p><font face="kaiti">其实还有一点，大一是视野逐渐开阔的过程，这个过程中也有很多骗子趁机而入，希望能够三思，能够谨慎，能够小心，谨防诈骗。</font></p>
+<hr>
+<p>接下来，我想说一些计算机专业相关的建议。其实很多同学大一之前对于计算机的知识是不全面的，更不用说丰富，你可以当作从零开始慢慢积累。</p>
+<p>计算机并不是一门单纯地如何如何敲代码的学科，它其实更多是一门综合学科。你不用担心高中怎么偏科带来的影响，你可以先把高中带来的放到一边。</p>
+<p>我个人觉得，计算机专业大一应该学习了解：</p>
+<ul>
+<li><p>一门基础编程语言：C语言或者C++（这两者差不多的）或者其他基础语言</p>
+</li>
+<li><p>计算机导论&#x2F;计算机概论：至少知道计算机的部分术语和基本内容</p>
+</li>
+<li><p><a class="link" href="https://www.bilibili.com/video/av21376839/?vd_source=2accbe36e414045d5297e94e0d032887">计算机组成原理 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>：关于计算机硬件方面的知识</p>
+</li>
+<li><p><a class="link" href="https://xiaolincoding.com/network/">计算机网络 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>：计算机网络方面的内容，比较抽象，作了解</p>
+</li>
+<li><p><a class="link" href="https://www.bilibili.com/video/BV1EW411u7th?p=14&vd_source=2accbe36e414045d5297e94e0d032887">数据结构 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>：编程基础</p>
+</li>
+<li><p><a class="link" href="https://xiaolincoding.com/os/">操作系统 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>：选择性学习</p>
+</li>
+</ul>
+<p>上面的这些内容可能大一的时候还没开始学，但是个人大一学是很好的机会。通过对这些方面的了解，会更好地认识计算机这一专业甚至行业。</p>
+<p>还有一些很平常，学校不会怎么教学但很重要的内容：</p>
+<ul>
+<li><p>学会使用<a class="link" href="https://www.github.com/">Github（国外） <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>和<a class="link" href="https://www.gitee.com/">Gitee（国内） <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+</li>
+<li><p>如何从编程语言变成程序运行</p>
+</li>
+<li><p>编程工具的使用</p>
+</li>
+<li><p>编程代码的习惯</p>
+</li>
+<li><p>程序项目的管理</p>
+</li>
+</ul>
+<p>暂时想到这么多，如若再想到再添加。</p>
+<hr>
+<p>最后，如果想和我交流的，欢迎<u>QQ：1192697361</u></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>经验之谈</category>
+      </categories>
+      <tags>
+        <tag>经验</tag>
       </tags>
   </entry>
   <entry>
@@ -3629,79 +3702,6 @@
       </categories>
       <tags>
         <tag>启动工具</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>给大一的你</title>
-    <url>/%E7%BB%8F%E9%AA%8C%E4%B9%8B%E8%B0%88/tofreshman/</url>
-    <content><![CDATA[<p>如今大二将完，给大一朋友的一些话。</p>
-<p>关键词：经验</p>
-<span id="more"></span>
-
-<hr>
-<!-- toc -->
-
-
-
-<!-- tocstop -->
-
-<p><font face="kaiti">刚高考完就像是刚解放了一样，有的人安排得忙忙的：把好久没看的纪录片、电视剧、电影看个遍；有的人还不知道干什么，日复一日看手机无聊度过。</font></p>
-<p><font face="kaiti">在我自己看来，大一的你可以是这样：</font></p>
-<ul>
-<li><p><font face="kaiti">广泛阅读，看看文学，看看历史等等；</font></p>
-</li>
-<li><p><font face="kaiti">广泛交友，识得良师益友；</font></p>
-</li>
-<li><p><font face="kaiti">进入一两个社团组织，培养技能，提高能力；</font></p>
-</li>
-<li><p><font face="kaiti">……</font></p>
-</li>
-</ul>
-<p><font face="kaiti">大一其实还算处于一种很自由，很空闲的状态。这个时候拥有很多试错的机会，可以去长见识。</font></p>
-<p><font face="kaiti">如果说你想拼搏努力地度过大一，那就去关注比赛等学术上的活动，同样也是获得经验的过程。如果说你想时而摆烂，不想逼得自己那么紧，那也完全可以，慢慢提升自己。你可以走得很慢，但绝不后退。</font></p>
-<p><font face="kaiti">趁着大一，我觉得最好是提高广度。更重要的是，你是你，无需别人怎么样你也怎么样。有时候遇到的室友、同学摆烂或者很卷，你可以不受他们影响，自个过自个的。注意，这个观念很简单，做到其实很难。</font></p>
-<p><font face="kaiti">其实还有一点，大一是视野逐渐开阔的过程，这个过程中也有很多骗子趁机而入，希望能够三思，能够谨慎，能够小心，谨防诈骗。</font></p>
-<hr>
-<p>接下来，我想说一些计算机专业相关的建议。其实很多同学大一之前对于计算机的知识是不全面的，更不用说丰富，你可以当作从零开始慢慢积累。</p>
-<p>计算机并不是一门单纯地如何如何敲代码的学科，它其实更多是一门综合学科。你不用担心高中怎么偏科带来的影响，你可以先把高中带来的放到一边。</p>
-<p>我个人觉得，计算机专业大一应该学习了解：</p>
-<ul>
-<li><p>一门基础编程语言：C语言或者C++（这两者差不多的）或者其他基础语言</p>
-</li>
-<li><p>计算机导论&#x2F;计算机概论：至少知道计算机的部分术语和基本内容</p>
-</li>
-<li><p><a class="link" href="https://www.bilibili.com/video/av21376839/?vd_source=2accbe36e414045d5297e94e0d032887">计算机组成原理 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>：关于计算机硬件方面的知识</p>
-</li>
-<li><p><a class="link" href="https://xiaolincoding.com/network/">计算机网络 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>：计算机网络方面的内容，比较抽象，作了解</p>
-</li>
-<li><p><a class="link" href="https://www.bilibili.com/video/BV1EW411u7th?p=14&vd_source=2accbe36e414045d5297e94e0d032887">数据结构 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>：编程基础</p>
-</li>
-<li><p><a class="link" href="https://xiaolincoding.com/os/">操作系统 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>：选择性学习</p>
-</li>
-</ul>
-<p>上面的这些内容可能大一的时候还没开始学，但是个人大一学是很好的机会。通过对这些方面的了解，会更好地认识计算机这一专业甚至行业。</p>
-<p>还有一些很平常，学校不会怎么教学但很重要的内容：</p>
-<ul>
-<li><p>学会使用<a class="link" href="https://www.github.com/">Github（国外） <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>和<a class="link" href="https://www.gitee.com/">Gitee（国内） <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-</li>
-<li><p>如何从编程语言变成程序运行</p>
-</li>
-<li><p>编程工具的使用</p>
-</li>
-<li><p>编程代码的习惯</p>
-</li>
-<li><p>程序项目的管理</p>
-</li>
-</ul>
-<p>暂时想到这么多，如若再想到再添加。</p>
-<hr>
-<p>最后，如果想和我交流的，欢迎<u>QQ：1192697361</u></p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>经验之谈</category>
-      </categories>
-      <tags>
-        <tag>经验</tag>
       </tags>
   </entry>
   <entry>
