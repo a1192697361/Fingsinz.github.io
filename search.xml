@@ -1,48 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Qt5.14.2项目打包成软件记录</title>
-    <url>/%E6%97%A5%E5%B8%B8/10/</url>
-    <content><![CDATA[<p>介绍如何将Qt项目打包成软件发布</p>
-<p>关键词：C++、Qt</p>
-<span id="more"></span>
-
-<hr>
-<!-- toc -->
-
-<ul>
-<li><a href="#1%E7%BC%96%E8%AF%91%E5%87%BAexe%E6%96%87%E4%BB%B6">1.编译出.exe文件</a></li>
-<li><a href="#2%E6%89%93%E5%8C%85%E9%A1%B9%E7%9B%AE">2.打包项目</a></li>
-</ul>
-<!-- tocstop -->
-
-<h1><span id="1编译出exe文件">1.编译出.exe文件</span></h1><p>打开需要打包的项目，在左下角选择合适的构建部件和版本，版本要选择<code>Release</code>，至于64bit还是32bit看需求。</p>
-<p>选择后点击锤子编译项目，此处我以<code>MinGWx64,Release</code>编译。</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/10_qt.jpg" alt="选择构建部件和版本"><figcaption>选择构建部件和版本</figcaption></figure></p>
-<p>点击左侧的项目，查看构建目录（项目目录跟构建目录尽量别带中文）。</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/10_qt2.jpg" alt="查看构建目录"><figcaption>查看构建目录</figcaption></figure></p>
-<p>打开构建目录，发现出现一个.exe文件。</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/10_exe.jpg" alt="编译出.exe文件"><figcaption>编译出.exe文件</figcaption></figure></p>
-<h1><span id="2打包项目">2.打包项目</span></h1><p>将刚才构建出来的.exe文件复制到一个新的文件夹（目录尽量不带中文），该目录作为软件的工作目录。比如我复制到<code>F:\test\HelloWorld1.0</code>，软件工作目录就是这个文件夹，test目录下的一个新建文件夹。</p>
-<p>接着打开Qt的安装目录下的bin文件夹，找到<code>windeployqt.exe</code>，复制其路径，我的<code>windeployqt.exe</code>位于<code>D:\Qt\5.14.2\mingw73_64\bin</code>。</p>
-<p>回到软件的工作目录（新建的文件夹），在地址栏输入cmd打开命令提示符，按格式输入：</p>
-<p><code>windeployqt文件路径 发布软件的路径</code></p>
-<p>如：</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">D:\Qt\5.14.2\mingw73_64\bin\windeployqt.exe HelloWorld.exe</span><br></pre></td></tr></table></figure></div>
-
-<p>慢慢等待打包完成。</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/10_finish.jpg" alt="打包完成"><figcaption>打包完成</figcaption></figure></p>
-<p>之后就可以直接打开软件工作目录下的exe执行。</p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>Qt</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>第一个博客</title>
     <url>/%E6%97%A5%E5%B8%B8/1/</url>
     <content><![CDATA[<p>博客建成：Hello World</p>
@@ -64,79 +22,6 @@
       <categories>
         <category>日常</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Visual Studio2022的C++项目打包成软件记录</title>
-    <url>/%E6%97%A5%E5%B8%B8/11/</url>
-    <content><![CDATA[<p>介绍如何将VS的C++项目打包</p>
-<p>关键词：C++</p>
-<span id="more"></span>
-
-<hr>
-<!-- toc -->
-
-<ul>
-<li><a href="#1%E7%BC%96%E8%AF%91%E5%87%BAexe%E6%96%87%E4%BB%B6">1.编译出.exe文件</a></li>
-<li><a href="#2%E6%89%93%E5%8C%85%E9%A1%B9%E7%9B%AE">2.打包项目</a></li>
-</ul>
-<!-- tocstop -->
-
-<h1><span id="1编译出exe文件">1.编译出.exe文件</span></h1><p>选择Release生成，我在此是<code>Realease x64</code>编译。</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/11_vs.jpg" alt="编译"><figcaption>编译</figcaption></figure></p>
-<h1><span id="2打包项目">2.打包项目</span></h1><p>将刚才构建出来的.exe文件复制到一个新的文件夹（目录尽量不带中文），该目录作为软件的工作目录。比如我复制到F:\test\HelloWorld1.0，软件工作目录就是这个文件夹，test目录下的一个新建文件夹。</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/11_exe.jpg" alt="软件工作目录"><figcaption>软件工作目录</figcaption></figure></p>
-<p>打开Visual Studio的安装目录，找到<code>dumpbin.exe</code>并复制其路径，可以按照下面的路径查找：<br><code>E:\Microsoft_Visual_Studio\VS\VC\Tools\MSVC\14.36.32532\bin\Hostx64\x64</code></p>
-<p>回到软件工作目录，在地址栏输入cmd打开命令提示符，按格式输入：<br><code>dumpbin.exe路径 /dependents 发布软件的路径</code></p>
-<p>如：</p>
-<div class="highlight-container" data-rel="Cmd"><figure class="iseeu highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="function">E:\<span class="title">Microsoft_Visual_Studio</span>\<span class="title">VS</span>\<span class="title">VC</span>\<span class="title">Tools</span>\<span class="title">MSVC</span>\14.36.32532\<span class="title">bin</span>\<span class="title">Hostx64</span>\<span class="title">x64</span>\<span class="title">dumpbin.exe</span> /<span class="title">dependents</span> <span class="title">HelloWorld.exe</span></span></span><br></pre></td></tr></table></figure></div>
-
-<p>接着将出现的.dll文件找出来，推荐使用<a class="link" href="https://www.voidtools.com/zh-cn/downloads/">Everything软件 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>搜索，选择路径上对应的平台（x86或x64），复制到软件的工作目录即可。</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/11_dependents.jpg" alt="软件依赖"><figcaption>软件依赖</figcaption></figure></p>
-<p>如图：</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/11_last.jpg" alt="完整的软件工作目录"><figcaption>完整的软件工作目录</figcaption></figure></p>
-<p>这样即可直接点击.exe文件运行。</p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何暂停Windows的系统升级</title>
-    <url>/%E6%97%A5%E5%B8%B8/13/</url>
-    <content><![CDATA[<p>关闭Windows的自动更新</p>
-<p>关键词：Windows</p>
-<span id="more"></span>
-
-<hr>
-<!-- toc -->
-
-<ul>
-<li><a href="#1%E4%BF%AE%E6%94%B9%E6%B3%A8%E5%86%8C%E8%A1%A8%E7%BC%96%E8%BE%91%E5%99%A8">1.修改注册表编辑器</a></li>
-<li><a href="#2%E6%89%93%E5%BC%80%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE">2.打开系统设置</a></li>
-<li><a href="#3%E6%81%A2%E5%A4%8D%E6%9B%B4%E6%96%B0">3.恢复更新</a></li>
-</ul>
-<!-- tocstop -->
-
-<h1><span id="1修改注册表编辑器">1.修改注册表编辑器</span></h1><p>按住 <code>Win</code> + <code>R</code> 输入 <code>regedit</code> 进入注册表编辑器。</p>
-<p>找到 <code>HKEY_LOCAL_MACHINE → SOFTWARE → Microsoft → WindowsUpdate → UX → Settings</code></p>
-<p>点击右边空白处，选择新建DWORD（32位）值，重命名为 <code>FightSettingsMaxPauseDays</code> ，</p>
-<p>双击打开，选择十进制，输入想要暂停的最大天数，我这里输入 <code>8888</code> 。</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/13_1.jpg" alt="添加新项"><figcaption>添加新项</figcaption></figure></p>
-<h1><span id="2打开系统设置">2.打开系统设置</span></h1><p>按住 <code>Win</code> + <code>I</code> 打开系统设置，搜索 <code>Windows更新</code> ，进入Windows更新设置，在暂停更新处选择最大值即可。</p>
-<p>Windows 10的暂停更新在 <code>Windows 更新设置 → 高级选项 → 暂停更新</code></p>
-<p>效果如图：</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/13_2.jpg" alt="暂停8888天"><figcaption>暂停8888天</figcaption></figure></p>
-<h1><span id="3恢复更新">3.恢复更新</span></h1><p>直接点击继续更新即可。</p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>Windows</tag>
-      </tags>
   </entry>
   <entry>
     <title>Python源代码打包成.exe文件记录</title>
@@ -185,6 +70,121 @@
       </categories>
       <tags>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Visual Studio2022的C++项目打包成软件记录</title>
+    <url>/%E6%97%A5%E5%B8%B8/11/</url>
+    <content><![CDATA[<p>介绍如何将VS的C++项目打包</p>
+<p>关键词：C++</p>
+<span id="more"></span>
+
+<hr>
+<!-- toc -->
+
+<ul>
+<li><a href="#1%E7%BC%96%E8%AF%91%E5%87%BAexe%E6%96%87%E4%BB%B6">1.编译出.exe文件</a></li>
+<li><a href="#2%E6%89%93%E5%8C%85%E9%A1%B9%E7%9B%AE">2.打包项目</a></li>
+</ul>
+<!-- tocstop -->
+
+<h1><span id="1编译出exe文件">1.编译出.exe文件</span></h1><p>选择Release生成，我在此是<code>Realease x64</code>编译。</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/11_vs.jpg" alt="编译"><figcaption>编译</figcaption></figure></p>
+<h1><span id="2打包项目">2.打包项目</span></h1><p>将刚才构建出来的.exe文件复制到一个新的文件夹（目录尽量不带中文），该目录作为软件的工作目录。比如我复制到F:\test\HelloWorld1.0，软件工作目录就是这个文件夹，test目录下的一个新建文件夹。</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/11_exe.jpg" alt="软件工作目录"><figcaption>软件工作目录</figcaption></figure></p>
+<p>打开Visual Studio的安装目录，找到<code>dumpbin.exe</code>并复制其路径，可以按照下面的路径查找：<br><code>E:\Microsoft_Visual_Studio\VS\VC\Tools\MSVC\14.36.32532\bin\Hostx64\x64</code></p>
+<p>回到软件工作目录，在地址栏输入cmd打开命令提示符，按格式输入：<br><code>dumpbin.exe路径 /dependents 发布软件的路径</code></p>
+<p>如：</p>
+<div class="highlight-container" data-rel="Cmd"><figure class="iseeu highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="function">E:\<span class="title">Microsoft_Visual_Studio</span>\<span class="title">VS</span>\<span class="title">VC</span>\<span class="title">Tools</span>\<span class="title">MSVC</span>\14.36.32532\<span class="title">bin</span>\<span class="title">Hostx64</span>\<span class="title">x64</span>\<span class="title">dumpbin.exe</span> /<span class="title">dependents</span> <span class="title">HelloWorld.exe</span></span></span><br></pre></td></tr></table></figure></div>
+
+<p>接着将出现的.dll文件找出来，推荐使用<a class="link" href="https://www.voidtools.com/zh-cn/downloads/">Everything软件 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>搜索，选择路径上对应的平台（x86或x64），复制到软件的工作目录即可。</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/11_dependents.jpg" alt="软件依赖"><figcaption>软件依赖</figcaption></figure></p>
+<p>如图：</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/11_last.jpg" alt="完整的软件工作目录"><figcaption>完整的软件工作目录</figcaption></figure></p>
+<p>这样即可直接点击.exe文件运行。</p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Qt5.14.2项目打包成软件记录</title>
+    <url>/%E6%97%A5%E5%B8%B8/10/</url>
+    <content><![CDATA[<p>介绍如何将Qt项目打包成软件发布</p>
+<p>关键词：C++、Qt</p>
+<span id="more"></span>
+
+<hr>
+<!-- toc -->
+
+<ul>
+<li><a href="#1%E7%BC%96%E8%AF%91%E5%87%BAexe%E6%96%87%E4%BB%B6">1.编译出.exe文件</a></li>
+<li><a href="#2%E6%89%93%E5%8C%85%E9%A1%B9%E7%9B%AE">2.打包项目</a></li>
+</ul>
+<!-- tocstop -->
+
+<h1><span id="1编译出exe文件">1.编译出.exe文件</span></h1><p>打开需要打包的项目，在左下角选择合适的构建部件和版本，版本要选择<code>Release</code>，至于64bit还是32bit看需求。</p>
+<p>选择后点击锤子编译项目，此处我以<code>MinGWx64,Release</code>编译。</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/10_qt.jpg" alt="选择构建部件和版本"><figcaption>选择构建部件和版本</figcaption></figure></p>
+<p>点击左侧的项目，查看构建目录（项目目录跟构建目录尽量别带中文）。</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/10_qt2.jpg" alt="查看构建目录"><figcaption>查看构建目录</figcaption></figure></p>
+<p>打开构建目录，发现出现一个.exe文件。</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/10_exe.jpg" alt="编译出.exe文件"><figcaption>编译出.exe文件</figcaption></figure></p>
+<h1><span id="2打包项目">2.打包项目</span></h1><p>将刚才构建出来的.exe文件复制到一个新的文件夹（目录尽量不带中文），该目录作为软件的工作目录。比如我复制到<code>F:\test\HelloWorld1.0</code>，软件工作目录就是这个文件夹，test目录下的一个新建文件夹。</p>
+<p>接着打开Qt的安装目录下的bin文件夹，找到<code>windeployqt.exe</code>，复制其路径，我的<code>windeployqt.exe</code>位于<code>D:\Qt\5.14.2\mingw73_64\bin</code>。</p>
+<p>回到软件的工作目录（新建的文件夹），在地址栏输入cmd打开命令提示符，按格式输入：</p>
+<p><code>windeployqt文件路径 发布软件的路径</code></p>
+<p>如：</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">D:\Qt\5.14.2\mingw73_64\bin\windeployqt.exe HelloWorld.exe</span><br></pre></td></tr></table></figure></div>
+
+<p>慢慢等待打包完成。</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/10_finish.jpg" alt="打包完成"><figcaption>打包完成</figcaption></figure></p>
+<p>之后就可以直接打开软件工作目录下的exe执行。</p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>Qt</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何暂停Windows的系统升级</title>
+    <url>/%E6%97%A5%E5%B8%B8/13/</url>
+    <content><![CDATA[<p>关闭Windows的自动更新</p>
+<p>关键词：Windows</p>
+<span id="more"></span>
+
+<hr>
+<!-- toc -->
+
+<ul>
+<li><a href="#1%E4%BF%AE%E6%94%B9%E6%B3%A8%E5%86%8C%E8%A1%A8%E7%BC%96%E8%BE%91%E5%99%A8">1.修改注册表编辑器</a></li>
+<li><a href="#2%E6%89%93%E5%BC%80%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE">2.打开系统设置</a></li>
+<li><a href="#3%E6%81%A2%E5%A4%8D%E6%9B%B4%E6%96%B0">3.恢复更新</a></li>
+</ul>
+<!-- tocstop -->
+
+<h1><span id="1修改注册表编辑器">1.修改注册表编辑器</span></h1><p>按住 <code>Win</code> + <code>R</code> 输入 <code>regedit</code> 进入注册表编辑器。</p>
+<p>找到 <code>HKEY_LOCAL_MACHINE → SOFTWARE → Microsoft → WindowsUpdate → UX → Settings</code></p>
+<p>点击右边空白处，选择新建DWORD（32位）值，重命名为 <code>FightSettingsMaxPauseDays</code> ，</p>
+<p>双击打开，选择十进制，输入想要暂停的最大天数，我这里输入 <code>8888</code> 。</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/13_1.jpg" alt="添加新项"><figcaption>添加新项</figcaption></figure></p>
+<h1><span id="2打开系统设置">2.打开系统设置</span></h1><p>按住 <code>Win</code> + <code>I</code> 打开系统设置，搜索 <code>Windows更新</code> ，进入Windows更新设置，在暂停更新处选择最大值即可。</p>
+<p>Windows 10的暂停更新在 <code>Windows 更新设置 → 高级选项 → 暂停更新</code></p>
+<p>效果如图：</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/13_2.jpg" alt="暂停8888天"><figcaption>暂停8888天</figcaption></figure></p>
+<h1><span id="3恢复更新">3.恢复更新</span></h1><p>直接点击继续更新即可。</p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
       </tags>
   </entry>
   <entry>
@@ -473,6 +473,62 @@
       </tags>
   </entry>
   <entry>
+    <title>C++报错：表达式必须含有常量值</title>
+    <url>/%E6%97%A5%E5%B8%B8/6/</url>
+    <content><![CDATA[<p>关于在Visual Studio 2022使用C++ 20语法的表达式开辟数组空间报错</p>
+<p>关键词：C++</p>
+<span id="more"></span>
+
+<hr>
+<!-- toc -->
+
+<ul>
+<li><a href="#%E9%94%99%E8%AF%AF%E5%8E%9F%E5%9B%A0">错误原因</a></li>
+<li><a href="#%E9%94%99%E8%AF%AF%E7%A4%BA%E4%BE%8B">错误示例</a></li>
+<li><a href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88">解决方案</a></li>
+</ul>
+<!-- tocstop -->
+
+<h1><span id="错误原因">错误原因</span></h1><ol>
+<li><p>c++中不允许使用变量作为数组的长度定义数组，必须为常量值，c++中所有的内存需求都是在程序执行前通过定义的常量来确定的。</p>
+</li>
+<li><p>声明为const或constexpr的表达式在编译时计算结果不是常数。</p>
+</li>
+<li><p>编译器必须能够在表达式被使用时确定表达式的值。</p>
+</li>
+</ol>
+<h1><span id="错误示例">错误示例</span></h1><div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//错误示范1</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> a = <span class="number">3</span>, b = <span class="number">4</span>, c = <span class="number">5</span>;</span><br><span class="line">	<span class="type">int</span> d[a * b * c]; <span class="comment">// error</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//错误示范2</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> a = <span class="number">3</span>, b = <span class="number">4</span>, c = <span class="number">5</span>;</span><br><span class="line">	<span class="type">const</span> <span class="type">int</span> tmp = a * b * c;</span><br><span class="line">	<span class="type">int</span> d[tmp]; <span class="comment">// error，如错误原因2</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//错误示范3</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">test</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">static</span> <span class="type">const</span> <span class="type">int</span> array_size; <span class="comment">// error</span></span><br><span class="line">    <span class="type">int</span> size_array[array_size];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> test::array_size = <span class="number">42</span>;</span><br></pre></td></tr></table></figure></div>
+
+<h1><span id="解决方案">解决方案</span></h1><p>使用<code>new</code>进行动态内存分配，<strong>记得通过<code>delete</code>回收分配的内存</strong>，如上述代码改为：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> a = <span class="number">3</span>, b = <span class="number">4</span>, c = <span class="number">5</span>;</span><br><span class="line">	<span class="type">int</span> *d = <span class="keyword">new</span> <span class="type">int</span>[a * b * c];</span><br><span class="line">	<span class="keyword">delete</span>[] d;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>关于new分配内存的使用：</p>
+<ol>
+<li>单变量分配</li>
+</ol>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line">Type *p = <span class="keyword">new</span> Type;</span><br><span class="line"><span class="keyword">delete</span> p;</span><br><span class="line"></span><br><span class="line">Type *p = <span class="keyword">new</span> <span class="built_in">Type</span>(<span class="number">2</span>); <span class="comment">//动态分配内存并初始化</span></span><br><span class="line"><span class="keyword">delete</span> p;</span><br></pre></td></tr></table></figure></div>
+
+<ol start="2">
+<li>一维数组申请</li>
+</ol>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line">Type *p = <span class="keyword">new</span> Type[n];</span><br><span class="line"><span class="keyword">delete</span>[] p;</span><br><span class="line"></span><br><span class="line">Type *p = <span class="keyword">new</span> Type[n]();<span class="comment">//动态分配内存并初始化全部为0</span></span><br><span class="line"><span class="keyword">delete</span>[] p;</span><br></pre></td></tr></table></figure></div>
+
+<ol start="3">
+<li>二维数组申请</li>
+</ol>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line">Type **p = <span class="keyword">new</span> Type *[m];</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; ++i)</span><br><span class="line">&#123;</span><br><span class="line">	p[i] = <span class="keyword">new</span> Type[n];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Windows 10下安装CUDA、TensorRT记录</title>
     <url>/%E6%97%A5%E5%B8%B8/5/</url>
     <content><![CDATA[<p>GPU：NVIDIA GeFOrce GTX 1050</p>
@@ -550,91 +606,6 @@
       </tags>
   </entry>
   <entry>
-    <title>C++报错：表达式必须含有常量值</title>
-    <url>/%E6%97%A5%E5%B8%B8/6/</url>
-    <content><![CDATA[<p>关于在Visual Studio 2022使用C++ 20语法的表达式开辟数组空间报错</p>
-<p>关键词：C++</p>
-<span id="more"></span>
-
-<hr>
-<!-- toc -->
-
-<ul>
-<li><a href="#%E9%94%99%E8%AF%AF%E5%8E%9F%E5%9B%A0">错误原因</a></li>
-<li><a href="#%E9%94%99%E8%AF%AF%E7%A4%BA%E4%BE%8B">错误示例</a></li>
-<li><a href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88">解决方案</a></li>
-</ul>
-<!-- tocstop -->
-
-<h1><span id="错误原因">错误原因</span></h1><ol>
-<li><p>c++中不允许使用变量作为数组的长度定义数组，必须为常量值，c++中所有的内存需求都是在程序执行前通过定义的常量来确定的。</p>
-</li>
-<li><p>声明为const或constexpr的表达式在编译时计算结果不是常数。</p>
-</li>
-<li><p>编译器必须能够在表达式被使用时确定表达式的值。</p>
-</li>
-</ol>
-<h1><span id="错误示例">错误示例</span></h1><div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//错误示范1</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> a = <span class="number">3</span>, b = <span class="number">4</span>, c = <span class="number">5</span>;</span><br><span class="line">	<span class="type">int</span> d[a * b * c]; <span class="comment">// error</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//错误示范2</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> a = <span class="number">3</span>, b = <span class="number">4</span>, c = <span class="number">5</span>;</span><br><span class="line">	<span class="type">const</span> <span class="type">int</span> tmp = a * b * c;</span><br><span class="line">	<span class="type">int</span> d[tmp]; <span class="comment">// error，如错误原因2</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
-
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//错误示范3</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">test</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">static</span> <span class="type">const</span> <span class="type">int</span> array_size; <span class="comment">// error</span></span><br><span class="line">    <span class="type">int</span> size_array[array_size];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> test::array_size = <span class="number">42</span>;</span><br></pre></td></tr></table></figure></div>
-
-<h1><span id="解决方案">解决方案</span></h1><p>使用<code>new</code>进行动态内存分配，<strong>记得通过<code>delete</code>回收分配的内存</strong>，如上述代码改为：</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> a = <span class="number">3</span>, b = <span class="number">4</span>, c = <span class="number">5</span>;</span><br><span class="line">	<span class="type">int</span> *d = <span class="keyword">new</span> <span class="type">int</span>[a * b * c];</span><br><span class="line">	<span class="keyword">delete</span>[] d;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>关于new分配内存的使用：</p>
-<ol>
-<li>单变量分配</li>
-</ol>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line">Type *p = <span class="keyword">new</span> Type;</span><br><span class="line"><span class="keyword">delete</span> p;</span><br><span class="line"></span><br><span class="line">Type *p = <span class="keyword">new</span> <span class="built_in">Type</span>(<span class="number">2</span>); <span class="comment">//动态分配内存并初始化</span></span><br><span class="line"><span class="keyword">delete</span> p;</span><br></pre></td></tr></table></figure></div>
-
-<ol start="2">
-<li>一维数组申请</li>
-</ol>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line">Type *p = <span class="keyword">new</span> Type[n];</span><br><span class="line"><span class="keyword">delete</span>[] p;</span><br><span class="line"></span><br><span class="line">Type *p = <span class="keyword">new</span> Type[n]();<span class="comment">//动态分配内存并初始化全部为0</span></span><br><span class="line"><span class="keyword">delete</span>[] p;</span><br></pre></td></tr></table></figure></div>
-
-<ol start="3">
-<li>二维数组申请</li>
-</ol>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line">Type **p = <span class="keyword">new</span> Type *[m];</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; ++i)</span><br><span class="line">&#123;</span><br><span class="line">	p[i] = <span class="keyword">new</span> Type[n];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>YOLOv5由pt文件转onnx文件报错解决</title>
-    <url>/%E6%97%A5%E5%B8%B8/7/</url>
-    <content><![CDATA[<p>ONNX: export failure ❌ 5.9s: Unsupported ONNX opset version: 17</p>
-<p>关键词：深度学习、YOLOv5、onnx</p>
-<span id="more"></span>
-
-<hr>
-<!-- toc -->
-
-<ul>
-<li><a href="#%E6%8A%A5%E9%94%99%E7%AA%97%E5%8F%A3">报错窗口</a></li>
-<li><a href="#%E6%8A%A5%E9%94%99%E5%8E%9F%E5%9B%A0">报错原因</a></li>
-<li><a href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88">解决方案</a></li>
-</ul>
-<!-- tocstop -->
-
-<h1><span id="报错窗口">报错窗口</span></h1><p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/7_error.png" alt="报错"><figcaption>报错</figcaption></figure></p>
-<h1><span id="报错原因">报错原因</span></h1><p>export.py文件中parse_opt()函数设置的opset版本错误。</p>
-<h1><span id="解决方案">解决方案</span></h1><div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#找到parse_opt()函数中的此行，将default值改为12</span></span><br><span class="line">parser.add_argument(<span class="string">&#x27;--opset&#x27;</span>, <span class="built_in">type</span>=<span class="built_in">int</span>, default=<span class="number">12</span>, <span class="built_in">help</span>=<span class="string">&#x27;ONNX: opset version&#x27;</span>)</span><br></pre></td></tr></table></figure></div><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>深度学习</tag>
-        <tag>YOLOv5</tag>
-        <tag>onnx</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Windows下Python3.11.4的安装记录</title>
     <url>/%E6%97%A5%E5%B8%B8/8/</url>
     <content><![CDATA[<p>记录一次安装Python</p>
@@ -683,6 +654,35 @@
       </categories>
       <tags>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>YOLOv5由pt文件转onnx文件报错解决</title>
+    <url>/%E6%97%A5%E5%B8%B8/7/</url>
+    <content><![CDATA[<p>ONNX: export failure ❌ 5.9s: Unsupported ONNX opset version: 17</p>
+<p>关键词：深度学习、YOLOv5、onnx</p>
+<span id="more"></span>
+
+<hr>
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%8A%A5%E9%94%99%E7%AA%97%E5%8F%A3">报错窗口</a></li>
+<li><a href="#%E6%8A%A5%E9%94%99%E5%8E%9F%E5%9B%A0">报错原因</a></li>
+<li><a href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88">解决方案</a></li>
+</ul>
+<!-- tocstop -->
+
+<h1><span id="报错窗口">报错窗口</span></h1><p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/7_error.png" alt="报错"><figcaption>报错</figcaption></figure></p>
+<h1><span id="报错原因">报错原因</span></h1><p>export.py文件中parse_opt()函数设置的opset版本错误。</p>
+<h1><span id="解决方案">解决方案</span></h1><div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#找到parse_opt()函数中的此行，将default值改为12</span></span><br><span class="line">parser.add_argument(<span class="string">&#x27;--opset&#x27;</span>, <span class="built_in">type</span>=<span class="built_in">int</span>, default=<span class="number">12</span>, <span class="built_in">help</span>=<span class="string">&#x27;ONNX: opset version&#x27;</span>)</span><br></pre></td></tr></table></figure></div><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>深度学习</tag>
+        <tag>YOLOv5</tag>
+        <tag>onnx</tag>
       </tags>
   </entry>
   <entry>
@@ -816,60 +816,6 @@
         <tag>深度学习</tag>
         <tag>OpenCV</tag>
         <tag>CUDA</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OI Wiki，一个整合了编程竞赛的知识整合站点</title>
-    <url>/%E5%85%B6%E4%BB%96%E5%88%86%E4%BA%AB/oiwiki/</url>
-    <content><![CDATA[<p>Github分享</p>
-<p>关键词：算法、数据结构、竞赛</p>
-<span id="more"></span>
-
-<hr>
-<!-- toc -->
-
-<ul>
-<li><a href="#%E6%98%AF%E4%BB%80%E4%B9%88">是什么</a></li>
-<li><a href="#%E5%86%85%E5%AE%B9%E9%93%BE%E6%8E%A5">内容链接</a></li>
-<li><a href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8">如何使用</a></li>
-</ul>
-<!-- tocstop -->
-
-<h1><span id="是什么">是什么</span></h1><p>“OI Wiki 致力于成为一个免费开放且持续更新的知识整合站点，大家可以在这里获取关于 编程竞赛 (competitive programming) 有趣又实用的知识，我们为大家准备了竞赛中的基础知识、常见题型、解题思路以及常用工具等内容，帮助大家更快速深入地学习编程竞赛。”</p>
-<h1><span id="内容链接">内容链接</span></h1><p><a class="link" href="https://oi-wiki.org/">OI Wiki——网页使用 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br><a class="link" href="https://github.com/OI-wiki/OI-wiki">Github 仓库 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br><a class="link" href="https://gitee.com/OI-wiki/OI-wiki">Gitee 仓库 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h1><span id="如何使用">如何使用</span></h1><p>在Github主页上有详细介绍。</p>
-<p>可以直接点击上面的OI Wiki链接使用。</p>
-<p>我在此用Windows 10做一个简单的 <strong>离线版</strong> 使用示例。</p>
-<ol>
-<li>直接或git方式下载仓库压缩包。</li>
-</ol>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/oiwiki_download.jpg" alt="下载"><figcaption>下载</figcaption></figure></p>
-<ol start="2">
-<li><p>解压压缩包</p>
-</li>
-<li><p>在Python下（没有Python的可以<a class="link" href="https://fingsinz.space/%E6%97%A5%E5%B8%B8/8/#more">安装Python <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>），使用命令建立静态网页：在解压后的目录下地址栏输入cmd，接着输入下面的命令启动网页。</p>
-</li>
-</ol>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/oiwiki_run.jpg" alt="打开cmd"><figcaption>打开cmd</figcaption></figure></p>
-<div class="highlight-container" data-rel="Cmd"><figure class="iseeu highlight cmd"><table><tr><td class="code"><pre><span class="line"># 如果是 python3</span><br><span class="line">python3 -m http.server</span><br><span class="line"># 如果是 python2</span><br><span class="line">python2 -m SimpleHTTPServer</span><br><span class="line"># 有些环境下找不到名叫 python3/python2 的可执行文件，不妨运行 python 试试</span><br></pre></td></tr></table></figure></div>
-
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/oiwiki_run2.jpg" alt="启动网页服务"><figcaption>启动网页服务</figcaption></figure></p>
-<ul>
-<li>如上图则为启动网页服务成功。我在此输入的是<code>python</code>，可以试试<code>python3</code>或者<code>python2</code>能不能运行。</li>
-<li>在浏览器地址栏中输入<code>http://localhost:8000/</code>或<code>127.0.0.1:8000</code>即可进入网页，其中<code>8000</code>为上图启动网页服务的端口，并不一定是<code>8000</code>。</li>
-</ul>
-<ol start="4">
-<li>页面如下图即可进行阅读学习</li>
-</ol>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/oiwiki_home.jpg" alt="OI Wiki"><figcaption>OI Wiki</figcaption></figure></p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>其他分享</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>数据结构</tag>
-        <tag>竞赛</tag>
       </tags>
   </entry>
   <entry>
@@ -1949,92 +1895,6 @@
       </tags>
   </entry>
   <entry>
-    <title>一个小巧的Markdown编辑工具</title>
-    <url>/%E8%BD%AF%E4%BB%B6/tools1/</url>
-    <content><![CDATA[<p>介绍一个小巧方便的编写Markdown语言工具——MarkText。</p>
-<p>关键词：Markdown工具</p>
-<span id="more"></span>
-
-<hr>
-<!-- toc -->
-
-<ul>
-<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AFmarkdown">什么是Markdown</a></li>
-<li><a href="#marktext">MarkText</a></li>
-<li><a href="#%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8">进阶使用</a></li>
-</ul>
-<!-- tocstop -->
-
-<h1><span id="什么是markdown">什么是Markdown</span></h1><ul>
-<li><p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。</p>
-</li>
-<li><p>Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。</p>
-</li>
-<li><p>Markdown可用于编写记录笔记、博客、电子书等电子文档。</p>
-</li>
-</ul>
-<h1><span id="marktext">MarkText</span></h1><ul>
-<li>MarkText是一款开源的Markdown工具，可用于编辑输出Markdown文件。本人推荐的是英文语言软件，如何汉化自行研究。</li>
-</ul>
-<p>软件地址：建议安装到非系统盘（非C盘）</p>
-<p><a class="link" href="https://github.com/marktext/marktext/releases">MarkText下载 - 官网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p><a class="link" href="https://www.aliyundrive.com/s/CoADkVDj1Sq">MarkText下载 - 个人网盘（Windows64位） <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<ul>
-<li>MarkText具有多个明暗主题选择，软件菜单内容明确，主打轻便，是一款很不错的小工具。</li>
-</ul>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E4%B8%BB%E7%95%8C%E9%9D%A2.jpg" alt="软件界面（明亮主题）"><figcaption>软件界面（明亮主题）</figcaption></figure></p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E4%B8%BB%E7%95%8C%E9%9D%A22.jpg" alt="软件界面（灰暗主题）"><figcaption>软件界面（灰暗主题）</figcaption></figure></p>
-<ul>
-<li>使用方法</li>
-</ul>
-<p>输入<code>@</code>选择插入的模块，包括段落、分割线、标题、表格、数学公式、引用块、列表等。如果本身对于Markdown语言有一定基础的话，也可直接建立该模块。</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E4%BD%BF%E7%94%A81.jpg" alt="使用过程"><figcaption>使用过程</figcaption></figure></p>
-<p>在编写完内容后，可以直接保存为Markdown文件（<code>.md</code>后缀），也可以导出为PDF文件和HTML文件。</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E4%BF%9D%E5%AD%98.jpg" alt="选择保存"><figcaption>选择保存</figcaption></figure></p>
-<h1><span id="进阶使用">进阶使用</span></h1><ul>
-<li>有时候对于PDF文件，会有显示目录大纲的需求，但是该软件直接导出并不能设置，此时需要借助另一个工具：wkhtmltopdf。</li>
-</ul>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.jpg" alt="带目录的PDF文件"><figcaption>带目录的PDF文件</figcaption></figure></p>
-<ul>
-<li><strong>wkhtmltopdf</strong></li>
-</ul>
-<p>一款<strong>将HTML文件转化为PDF文件</strong>的小工具，但是其并没有软件UI界面，对小白不友好，但是万能的网络能搜到使用方法，此处针对如何导出带目录的PDF进行介绍。</p>
-<ol>
-<li>下载软件</li>
-</ol>
-<p>下载地址：可能提示有风险，建议安装到非系统盘（非C盘）</p>
-<p><a class="link" href="https://wkhtmltopdf.org/downloads.html">wkhtmltopdf下载 - 官网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p><a class="link" href="https://www.aliyundrive.com/s/V4SBUcntBAv">wkhtmltopdf下载 - 个人网盘（Windows64位） <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<ol start="2">
-<li>安装并配置</li>
-</ol>
-<p>安装后，需要记住安装的具体位置，比如我是安装在D盘，位置就是<code>D:\wkhtmltopdf</code>，接着进行系统环境变量的配置。在电脑设置中搜索环境变量，打开编辑页面。</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.jpg" alt="配置环境变量"><figcaption>配置环境变量</figcaption></figure></p>
-<p>具体步骤：编辑→新建→输入安装的位置里面的bin文件夹即<code>D:\wkhtmltopdf\bin</code>→确定所有系统设置窗口。</p>
-<p>（添加错误的环境变量并不会对电脑造成严重伤害，但不要胡乱删除环境变量）</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%90%8E.jpg" alt="配置环境变量后"><figcaption>配置环境变量后</figcaption></figure></p>
-<p>再接着确认环境变量是否配置成功：按快捷键<code>win+r</code>，输入cmd，打开黑窗口，在窗口内输入<code>wkhtmltopdf -V</code>（查询wkhtmltopdf的版本），如果出现类似于版本号的数字，则说明添加环境变量成功。</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_cmd.jpg" alt="配置成功"><figcaption>配置成功</figcaption></figure></p>
-<ol start="3">
-<li>软件使用</li>
-</ol>
-<p>在cmd黑窗口切换到想要HTML文件转换为PDF文件的位置，直接输入<code>F:</code>切换到不同的盘，输入<code>cd xx</code>可以进入不同文件夹。如果不知道自己是什么路径，可以先进入所在盘，再打开文件所在文件夹，在地址栏点击获得路径，然后复制粘贴到黑窗口进入。</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E8%BF%9B%E5%85%A5%E6%96%87%E4%BB%B6%E5%A4%B9.jpg" alt="进入工作文件夹"><figcaption>进入工作文件夹</figcaption></figure></p>
-<p>接着回到MarkText软件，将文件导出为HTML文件，保存在特定文件夹，该文件夹应该跟cmd黑窗口进入的文件夹一样。举例时，我将该文件保存为<code>test.html</code>文件在<code>F:\14.Books</code>文件夹。</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E5%AF%BC%E5%87%BAHTML.jpg" alt="导出HTML"><figcaption>导出HTML</figcaption></figure></p>
-<p>再回到黑窗口，使用命令<code>wkhtmltopdf 目的文件名字 新文件名字</code>转换，我这里应该是<code>wkhtmltopdf test.html test.pdf</code>。等待转换成功。</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E8%BD%AC%E6%8D%A2%E6%88%90%E5%8A%9F.jpg" alt="转换成功"><figcaption>转换成功</figcaption></figure></p>
-<p>此时回到文件夹，就可以看到转换完成的带目录的PDF文件。</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_test.jpg" alt="转换成功的PDF文件"><figcaption>转换成功的PDF文件</figcaption></figure></p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>软件</category>
-      </categories>
-      <tags>
-        <tag>Markdown工具</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>关于GPU服务器的选用</title>
     <url>/%E5%85%B6%E4%BB%96%E5%88%86%E4%BA%AB/gpuserver/</url>
     <content><![CDATA[<p>介绍关于GPU服务器：租用、使用</p>
@@ -2084,6 +1944,133 @@
       <tags>
         <tag>深度学习</tag>
         <tag>GPU服务器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OI Wiki，一个整合了编程竞赛的知识整合站点</title>
+    <url>/%E5%85%B6%E4%BB%96%E5%88%86%E4%BA%AB/oiwiki/</url>
+    <content><![CDATA[<p>Github分享</p>
+<p>关键词：算法、数据结构、竞赛</p>
+<span id="more"></span>
+
+<hr>
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%98%AF%E4%BB%80%E4%B9%88">是什么</a></li>
+<li><a href="#%E5%86%85%E5%AE%B9%E9%93%BE%E6%8E%A5">内容链接</a></li>
+<li><a href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8">如何使用</a></li>
+</ul>
+<!-- tocstop -->
+
+<h1><span id="是什么">是什么</span></h1><p>“OI Wiki 致力于成为一个免费开放且持续更新的知识整合站点，大家可以在这里获取关于 编程竞赛 (competitive programming) 有趣又实用的知识，我们为大家准备了竞赛中的基础知识、常见题型、解题思路以及常用工具等内容，帮助大家更快速深入地学习编程竞赛。”</p>
+<h1><span id="内容链接">内容链接</span></h1><p><a class="link" href="https://oi-wiki.org/">OI Wiki——网页使用 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br><a class="link" href="https://github.com/OI-wiki/OI-wiki">Github 仓库 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br><a class="link" href="https://gitee.com/OI-wiki/OI-wiki">Gitee 仓库 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h1><span id="如何使用">如何使用</span></h1><p>在Github主页上有详细介绍。</p>
+<p>可以直接点击上面的OI Wiki链接使用。</p>
+<p>我在此用Windows 10做一个简单的 <strong>离线版</strong> 使用示例。</p>
+<ol>
+<li>直接或git方式下载仓库压缩包。</li>
+</ol>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/oiwiki_download.jpg" alt="下载"><figcaption>下载</figcaption></figure></p>
+<ol start="2">
+<li><p>解压压缩包</p>
+</li>
+<li><p>在Python下（没有Python的可以<a class="link" href="https://fingsinz.space/%E6%97%A5%E5%B8%B8/8/#more">安装Python <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>），使用命令建立静态网页：在解压后的目录下地址栏输入cmd，接着输入下面的命令启动网页。</p>
+</li>
+</ol>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/oiwiki_run.jpg" alt="打开cmd"><figcaption>打开cmd</figcaption></figure></p>
+<div class="highlight-container" data-rel="Cmd"><figure class="iseeu highlight cmd"><table><tr><td class="code"><pre><span class="line"># 如果是 python3</span><br><span class="line">python3 -m http.server</span><br><span class="line"># 如果是 python2</span><br><span class="line">python2 -m SimpleHTTPServer</span><br><span class="line"># 有些环境下找不到名叫 python3/python2 的可执行文件，不妨运行 python 试试</span><br></pre></td></tr></table></figure></div>
+
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/oiwiki_run2.jpg" alt="启动网页服务"><figcaption>启动网页服务</figcaption></figure></p>
+<ul>
+<li>如上图则为启动网页服务成功。我在此输入的是<code>python</code>，可以试试<code>python3</code>或者<code>python2</code>能不能运行。</li>
+<li>在浏览器地址栏中输入<code>http://localhost:8000/</code>或<code>127.0.0.1:8000</code>即可进入网页，其中<code>8000</code>为上图启动网页服务的端口，并不一定是<code>8000</code>。</li>
+</ul>
+<ol start="4">
+<li>页面如下图即可进行阅读学习</li>
+</ol>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/oiwiki_home.jpg" alt="OI Wiki"><figcaption>OI Wiki</figcaption></figure></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>其他分享</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>数据结构</tag>
+        <tag>竞赛</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>给大一的你</title>
+    <url>/%E7%BB%8F%E9%AA%8C%E4%B9%8B%E8%B0%88/tofreshman/</url>
+    <content><![CDATA[<p>如今大二将完，给大一朋友的一些话。</p>
+<p>关键词：经验</p>
+<span id="more"></span>
+
+<hr>
+<!-- toc -->
+
+
+
+<!-- tocstop -->
+
+<p><font face="kaiti">刚高考完就像是刚解放了一样，有的人安排得忙忙的：把好久没看的纪录片、电视剧、电影看个遍；有的人还不知道干什么，日复一日看手机无聊度过。</font></p>
+<p><font face="kaiti">在我自己看来，大一的你可以是这样：</font></p>
+<ul>
+<li><p><font face="kaiti">广泛阅读，看看文学，看看历史等等；</font></p>
+</li>
+<li><p><font face="kaiti">广泛交友，识得良师益友；</font></p>
+</li>
+<li><p><font face="kaiti">进入一两个社团组织，培养技能，提高能力；</font></p>
+</li>
+<li><p><font face="kaiti">……</font></p>
+</li>
+</ul>
+<p><font face="kaiti">大一其实还算处于一种很自由，很空闲的状态。这个时候拥有很多试错的机会，可以去长见识。</font></p>
+<p><font face="kaiti">如果说你想拼搏努力地度过大一，那就去关注比赛等学术上的活动，同样也是获得经验的过程。如果说你想时而摆烂，不想逼得自己那么紧，那也完全可以，慢慢提升自己。你可以走得很慢，但绝不后退。</font></p>
+<p><font face="kaiti">趁着大一，我觉得最好是提高广度。更重要的是，你是你，无需别人怎么样你也怎么样。有时候遇到的室友、同学摆烂或者很卷，你可以不受他们影响，自个过自个的。注意，这个观念很简单，做到其实很难。</font></p>
+<p><font face="kaiti">其实还有一点，大一是视野逐渐开阔的过程，这个过程中也有很多骗子趁机而入，希望能够三思，能够谨慎，能够小心，谨防诈骗。</font></p>
+<hr>
+<p>接下来，我想说一些计算机专业相关的建议。其实很多同学大一之前对于计算机的知识是不全面的，更不用说丰富，你可以当作从零开始慢慢积累。</p>
+<p>计算机并不是一门单纯地如何如何敲代码的学科，它其实更多是一门综合学科。你不用担心高中怎么偏科带来的影响，你可以先把高中带来的放到一边。</p>
+<p>我个人觉得，计算机专业大一应该学习了解：</p>
+<ul>
+<li><p>一门基础编程语言：C语言或者C++（这两者差不多的）或者其他基础语言</p>
+</li>
+<li><p>计算机导论&#x2F;计算机概论：至少知道计算机的部分术语和基本内容</p>
+</li>
+<li><p><a class="link" href="https://www.bilibili.com/video/av21376839/?vd_source=2accbe36e414045d5297e94e0d032887">计算机组成原理 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>：关于计算机硬件方面的知识</p>
+</li>
+<li><p><a class="link" href="https://xiaolincoding.com/network/">计算机网络 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>：计算机网络方面的内容，比较抽象，作了解</p>
+</li>
+<li><p><a class="link" href="https://www.bilibili.com/video/BV1EW411u7th?p=14&vd_source=2accbe36e414045d5297e94e0d032887">数据结构 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>：编程基础</p>
+</li>
+<li><p><a class="link" href="https://xiaolincoding.com/os/">操作系统 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>：选择性学习</p>
+</li>
+</ul>
+<p>上面的这些内容可能大一的时候还没开始学，但是个人大一学是很好的机会。通过对这些方面的了解，会更好地认识计算机这一专业甚至行业。</p>
+<p>还有一些很平常，学校不会怎么教学但很重要的内容：</p>
+<ul>
+<li><p>学会使用<a class="link" href="https://www.github.com/">Github（国外） <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>和<a class="link" href="https://www.gitee.com/">Gitee（国内） <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+</li>
+<li><p>如何从编程语言变成程序运行</p>
+</li>
+<li><p>编程工具的使用</p>
+</li>
+<li><p>编程代码的习惯</p>
+</li>
+<li><p>程序项目的管理</p>
+</li>
+</ul>
+<p>暂时想到这么多，如若再想到再添加。</p>
+<hr>
+<p>最后，如果想和我交流的，欢迎<u>QQ：1192697361</u></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>经验之谈</category>
+      </categories>
+      <tags>
+        <tag>经验</tag>
       </tags>
   </entry>
   <entry>
@@ -3580,79 +3567,6 @@
       </tags>
   </entry>
   <entry>
-    <title>给大一的你</title>
-    <url>/%E7%BB%8F%E9%AA%8C%E4%B9%8B%E8%B0%88/tofreshman/</url>
-    <content><![CDATA[<p>如今大二将完，给大一朋友的一些话。</p>
-<p>关键词：经验</p>
-<span id="more"></span>
-
-<hr>
-<!-- toc -->
-
-
-
-<!-- tocstop -->
-
-<p><font face="kaiti">刚高考完就像是刚解放了一样，有的人安排得忙忙的：把好久没看的纪录片、电视剧、电影看个遍；有的人还不知道干什么，日复一日看手机无聊度过。</font></p>
-<p><font face="kaiti">在我自己看来，大一的你可以是这样：</font></p>
-<ul>
-<li><p><font face="kaiti">广泛阅读，看看文学，看看历史等等；</font></p>
-</li>
-<li><p><font face="kaiti">广泛交友，识得良师益友；</font></p>
-</li>
-<li><p><font face="kaiti">进入一两个社团组织，培养技能，提高能力；</font></p>
-</li>
-<li><p><font face="kaiti">……</font></p>
-</li>
-</ul>
-<p><font face="kaiti">大一其实还算处于一种很自由，很空闲的状态。这个时候拥有很多试错的机会，可以去长见识。</font></p>
-<p><font face="kaiti">如果说你想拼搏努力地度过大一，那就去关注比赛等学术上的活动，同样也是获得经验的过程。如果说你想时而摆烂，不想逼得自己那么紧，那也完全可以，慢慢提升自己。你可以走得很慢，但绝不后退。</font></p>
-<p><font face="kaiti">趁着大一，我觉得最好是提高广度。更重要的是，你是你，无需别人怎么样你也怎么样。有时候遇到的室友、同学摆烂或者很卷，你可以不受他们影响，自个过自个的。注意，这个观念很简单，做到其实很难。</font></p>
-<p><font face="kaiti">其实还有一点，大一是视野逐渐开阔的过程，这个过程中也有很多骗子趁机而入，希望能够三思，能够谨慎，能够小心，谨防诈骗。</font></p>
-<hr>
-<p>接下来，我想说一些计算机专业相关的建议。其实很多同学大一之前对于计算机的知识是不全面的，更不用说丰富，你可以当作从零开始慢慢积累。</p>
-<p>计算机并不是一门单纯地如何如何敲代码的学科，它其实更多是一门综合学科。你不用担心高中怎么偏科带来的影响，你可以先把高中带来的放到一边。</p>
-<p>我个人觉得，计算机专业大一应该学习了解：</p>
-<ul>
-<li><p>一门基础编程语言：C语言或者C++（这两者差不多的）或者其他基础语言</p>
-</li>
-<li><p>计算机导论&#x2F;计算机概论：至少知道计算机的部分术语和基本内容</p>
-</li>
-<li><p><a class="link" href="https://www.bilibili.com/video/av21376839/?vd_source=2accbe36e414045d5297e94e0d032887">计算机组成原理 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>：关于计算机硬件方面的知识</p>
-</li>
-<li><p><a class="link" href="https://xiaolincoding.com/network/">计算机网络 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>：计算机网络方面的内容，比较抽象，作了解</p>
-</li>
-<li><p><a class="link" href="https://www.bilibili.com/video/BV1EW411u7th?p=14&vd_source=2accbe36e414045d5297e94e0d032887">数据结构 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>：编程基础</p>
-</li>
-<li><p><a class="link" href="https://xiaolincoding.com/os/">操作系统 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>：选择性学习</p>
-</li>
-</ul>
-<p>上面的这些内容可能大一的时候还没开始学，但是个人大一学是很好的机会。通过对这些方面的了解，会更好地认识计算机这一专业甚至行业。</p>
-<p>还有一些很平常，学校不会怎么教学但很重要的内容：</p>
-<ul>
-<li><p>学会使用<a class="link" href="https://www.github.com/">Github（国外） <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>和<a class="link" href="https://www.gitee.com/">Gitee（国内） <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-</li>
-<li><p>如何从编程语言变成程序运行</p>
-</li>
-<li><p>编程工具的使用</p>
-</li>
-<li><p>编程代码的习惯</p>
-</li>
-<li><p>程序项目的管理</p>
-</li>
-</ul>
-<p>暂时想到这么多，如若再想到再添加。</p>
-<hr>
-<p>最后，如果想和我交流的，欢迎<u>QQ：1192697361</u></p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>经验之谈</category>
-      </categories>
-      <tags>
-        <tag>经验</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>一个便捷的启动小工具</title>
     <url>/%E8%BD%AF%E4%BB%B6/tools2/</url>
     <content><![CDATA[<p>介绍一个便捷的启动工具、搜索工具——Flow Launcher</p>
@@ -3702,6 +3616,126 @@
       </categories>
       <tags>
         <tag>启动工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一个小巧的Markdown编辑工具</title>
+    <url>/%E8%BD%AF%E4%BB%B6/tools1/</url>
+    <content><![CDATA[<p>介绍一个小巧方便的编写Markdown语言工具——MarkText。</p>
+<p>关键词：Markdown工具</p>
+<span id="more"></span>
+
+<hr>
+<!-- toc -->
+
+<ul>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AFmarkdown">什么是Markdown</a></li>
+<li><a href="#marktext">MarkText</a></li>
+<li><a href="#%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8">进阶使用</a></li>
+</ul>
+<!-- tocstop -->
+
+<h1><span id="什么是markdown">什么是Markdown</span></h1><ul>
+<li><p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。</p>
+</li>
+<li><p>Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。</p>
+</li>
+<li><p>Markdown可用于编写记录笔记、博客、电子书等电子文档。</p>
+</li>
+</ul>
+<h1><span id="marktext">MarkText</span></h1><ul>
+<li>MarkText是一款开源的Markdown工具，可用于编辑输出Markdown文件。本人推荐的是英文语言软件，如何汉化自行研究。</li>
+</ul>
+<p>软件地址：建议安装到非系统盘（非C盘）</p>
+<p><a class="link" href="https://github.com/marktext/marktext/releases">MarkText下载 - 官网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a class="link" href="https://www.aliyundrive.com/s/CoADkVDj1Sq">MarkText下载 - 个人网盘（Windows64位） <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<ul>
+<li>MarkText具有多个明暗主题选择，软件菜单内容明确，主打轻便，是一款很不错的小工具。</li>
+</ul>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E4%B8%BB%E7%95%8C%E9%9D%A2.jpg" alt="软件界面（明亮主题）"><figcaption>软件界面（明亮主题）</figcaption></figure></p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E4%B8%BB%E7%95%8C%E9%9D%A22.jpg" alt="软件界面（灰暗主题）"><figcaption>软件界面（灰暗主题）</figcaption></figure></p>
+<ul>
+<li>使用方法</li>
+</ul>
+<p>输入<code>@</code>选择插入的模块，包括段落、分割线、标题、表格、数学公式、引用块、列表等。如果本身对于Markdown语言有一定基础的话，也可直接建立该模块。</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E4%BD%BF%E7%94%A81.jpg" alt="使用过程"><figcaption>使用过程</figcaption></figure></p>
+<p>在编写完内容后，可以直接保存为Markdown文件（<code>.md</code>后缀），也可以导出为PDF文件和HTML文件。</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E4%BF%9D%E5%AD%98.jpg" alt="选择保存"><figcaption>选择保存</figcaption></figure></p>
+<h1><span id="进阶使用">进阶使用</span></h1><ul>
+<li>有时候对于PDF文件，会有显示目录大纲的需求，但是该软件直接导出并不能设置，此时需要借助另一个工具：wkhtmltopdf。</li>
+</ul>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.jpg" alt="带目录的PDF文件"><figcaption>带目录的PDF文件</figcaption></figure></p>
+<ul>
+<li><strong>wkhtmltopdf</strong></li>
+</ul>
+<p>一款<strong>将HTML文件转化为PDF文件</strong>的小工具，但是其并没有软件UI界面，对小白不友好，但是万能的网络能搜到使用方法，此处针对如何导出带目录的PDF进行介绍。</p>
+<ol>
+<li>下载软件</li>
+</ol>
+<p>下载地址：可能提示有风险，建议安装到非系统盘（非C盘）</p>
+<p><a class="link" href="https://wkhtmltopdf.org/downloads.html">wkhtmltopdf下载 - 官网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a class="link" href="https://www.aliyundrive.com/s/V4SBUcntBAv">wkhtmltopdf下载 - 个人网盘（Windows64位） <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<ol start="2">
+<li>安装并配置</li>
+</ol>
+<p>安装后，需要记住安装的具体位置，比如我是安装在D盘，位置就是<code>D:\wkhtmltopdf</code>，接着进行系统环境变量的配置。在电脑设置中搜索环境变量，打开编辑页面。</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.jpg" alt="配置环境变量"><figcaption>配置环境变量</figcaption></figure></p>
+<p>具体步骤：编辑→新建→输入安装的位置里面的bin文件夹即<code>D:\wkhtmltopdf\bin</code>→确定所有系统设置窗口。</p>
+<p>（添加错误的环境变量并不会对电脑造成严重伤害，但不要胡乱删除环境变量）</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%90%8E.jpg" alt="配置环境变量后"><figcaption>配置环境变量后</figcaption></figure></p>
+<p>再接着确认环境变量是否配置成功：按快捷键<code>win+r</code>，输入cmd，打开黑窗口，在窗口内输入<code>wkhtmltopdf -V</code>（查询wkhtmltopdf的版本），如果出现类似于版本号的数字，则说明添加环境变量成功。</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_cmd.jpg" alt="配置成功"><figcaption>配置成功</figcaption></figure></p>
+<ol start="3">
+<li>软件使用</li>
+</ol>
+<p>在cmd黑窗口切换到想要HTML文件转换为PDF文件的位置，直接输入<code>F:</code>切换到不同的盘，输入<code>cd xx</code>可以进入不同文件夹。如果不知道自己是什么路径，可以先进入所在盘，再打开文件所在文件夹，在地址栏点击获得路径，然后复制粘贴到黑窗口进入。</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E8%BF%9B%E5%85%A5%E6%96%87%E4%BB%B6%E5%A4%B9.jpg" alt="进入工作文件夹"><figcaption>进入工作文件夹</figcaption></figure></p>
+<p>接着回到MarkText软件，将文件导出为HTML文件，保存在特定文件夹，该文件夹应该跟cmd黑窗口进入的文件夹一样。举例时，我将该文件保存为<code>test.html</code>文件在<code>F:\14.Books</code>文件夹。</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E5%AF%BC%E5%87%BAHTML.jpg" alt="导出HTML"><figcaption>导出HTML</figcaption></figure></p>
+<p>再回到黑窗口，使用命令<code>wkhtmltopdf 目的文件名字 新文件名字</code>转换，我这里应该是<code>wkhtmltopdf test.html test.pdf</code>。等待转换成功。</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E8%BD%AC%E6%8D%A2%E6%88%90%E5%8A%9F.jpg" alt="转换成功"><figcaption>转换成功</figcaption></figure></p>
+<p>此时回到文件夹，就可以看到转换完成的带目录的PDF文件。</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_test.jpg" alt="转换成功的PDF文件"><figcaption>转换成功的PDF文件</figcaption></figure></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>软件</category>
+      </categories>
+      <tags>
+        <tag>Markdown工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>两个用过的导航页</title>
+    <url>/%E7%BD%91%E9%A1%B5/%E5%AF%BC%E8%88%AA%E9%A1%B5/</url>
+    <content><![CDATA[<p>介绍两个我常用的导航页——果汁导航页和青柠起始页。导航页就是一个网站的目录，其包含了很多常用其他网站的快捷方式。</p>
+<p>关键词：导航页</p>
+<span id="more"></span>
+
+<hr>
+<ol>
+<li>果汁导航</li>
+</ol>
+<p>果汁导航页包括互联网搜索功能，还有各种生活学习用到的网页快捷方式。每层目录下还收纳了很多相关网站，包括影视、知识、新闻、等网站，丰富度很高，也很容易因为内容太多眼花缭乱忘记了有这么样的功能。更多功能可以自己探索发现收藏。可登录使用也可不登录使用。</p>
+<p>地址：<a class="link" href="http://guozhivip.com/">果汁导航 - guozhivip.com <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/%E5%AF%BC%E8%88%AA%E9%A1%B5_%E6%9E%9C%E6%B1%81%E8%B5%84%E6%BA%90%E5%AF%BC%E8%88%AA.png" alt="果汁导航"><figcaption>果汁导航</figcaption></figure></p>
+<ol start="2">
+<li>青柠起始页</li>
+</ol>
+<p>一个简约的起始页，具有搜索功能，当搜索框聚焦时，背景具有毛玻璃效果。点击时钟可以到达另一页，此页可以添加一些常用的网站快捷方式（需登录），自定义程度高。丰富度不高，简约型网站。</p>
+<p>地址：<a class="link" href="https://limestart.cn/">青柠起始页 - limestart.cn <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/%E5%AF%BC%E8%88%AA%E9%A1%B5_%E9%9D%92%E6%9F%A0%E8%B5%B7%E5%A7%8B%E9%A1%B5.jpg" alt="青柠起始页主页"><figcaption>青柠起始页主页</figcaption></figure></p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/%E5%AF%BC%E8%88%AA%E9%A1%B5_%E9%9D%92%E6%9F%A0%E8%B5%B7%E5%A7%8B%E9%A1%B51.jpg" alt="青柠起始页附页"><figcaption>青柠起始页附页</figcaption></figure></p>
+<ul>
+<li>附：设置为浏览器起始页</li>
+</ul>
+<p>以Edge浏览器为例，打开设置页面，选择<code>开始、主页和新建标签页</code>，将启动时页面改为想要的导航页，更方便自己浏览器使用。</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/%E5%AF%BC%E8%88%AA%E9%A1%B5_%E8%AE%BE%E7%BD%AE.jpg" alt="设置"><figcaption>设置</figcaption></figure></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>网页</category>
+      </categories>
+      <tags>
+        <tag>导航页</tag>
       </tags>
   </entry>
   <entry>
@@ -4103,40 +4137,6 @@
         <tag>TensorRT</tag>
         <tag>C++推演</tag>
         <tag>OpenCV</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>两个用过的导航页</title>
-    <url>/%E7%BD%91%E9%A1%B5/%E5%AF%BC%E8%88%AA%E9%A1%B5/</url>
-    <content><![CDATA[<p>介绍两个我常用的导航页——果汁导航页和青柠起始页。导航页就是一个网站的目录，其包含了很多常用其他网站的快捷方式。</p>
-<p>关键词：导航页</p>
-<span id="more"></span>
-
-<hr>
-<ol>
-<li>果汁导航</li>
-</ol>
-<p>果汁导航页包括互联网搜索功能，还有各种生活学习用到的网页快捷方式。每层目录下还收纳了很多相关网站，包括影视、知识、新闻、等网站，丰富度很高，也很容易因为内容太多眼花缭乱忘记了有这么样的功能。更多功能可以自己探索发现收藏。可登录使用也可不登录使用。</p>
-<p>地址：<a class="link" href="http://guozhivip.com/">果汁导航 - guozhivip.com <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/%E5%AF%BC%E8%88%AA%E9%A1%B5_%E6%9E%9C%E6%B1%81%E8%B5%84%E6%BA%90%E5%AF%BC%E8%88%AA.png" alt="果汁导航"><figcaption>果汁导航</figcaption></figure></p>
-<ol start="2">
-<li>青柠起始页</li>
-</ol>
-<p>一个简约的起始页，具有搜索功能，当搜索框聚焦时，背景具有毛玻璃效果。点击时钟可以到达另一页，此页可以添加一些常用的网站快捷方式（需登录），自定义程度高。丰富度不高，简约型网站。</p>
-<p>地址：<a class="link" href="https://limestart.cn/">青柠起始页 - limestart.cn <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/%E5%AF%BC%E8%88%AA%E9%A1%B5_%E9%9D%92%E6%9F%A0%E8%B5%B7%E5%A7%8B%E9%A1%B5.jpg" alt="青柠起始页主页"><figcaption>青柠起始页主页</figcaption></figure></p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/%E5%AF%BC%E8%88%AA%E9%A1%B5_%E9%9D%92%E6%9F%A0%E8%B5%B7%E5%A7%8B%E9%A1%B51.jpg" alt="青柠起始页附页"><figcaption>青柠起始页附页</figcaption></figure></p>
-<ul>
-<li>附：设置为浏览器起始页</li>
-</ul>
-<p>以Edge浏览器为例，打开设置页面，选择<code>开始、主页和新建标签页</code>，将启动时页面改为想要的导航页，更方便自己浏览器使用。</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/%E5%AF%BC%E8%88%AA%E9%A1%B5_%E8%AE%BE%E7%BD%AE.jpg" alt="设置"><figcaption>设置</figcaption></figure></p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>网页</category>
-      </categories>
-      <tags>
-        <tag>导航页</tag>
       </tags>
   </entry>
 </search>
