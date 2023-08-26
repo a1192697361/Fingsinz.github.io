@@ -135,6 +135,34 @@
       </tags>
   </entry>
   <entry>
+    <title>如何暂停Windows的系统升级</title>
+    <url>/%E6%97%A5%E5%B8%B8/13/</url>
+    <content><![CDATA[<p>关闭Windows的自动更新</p>
+<p>关键词：Windows</p>
+<span id="more"></span>
+
+<hr>
+<!-- toc -->
+
+<h1 id="1-修改注册表编辑器"><a href="#1-修改注册表编辑器" class="headerlink" title="1.修改注册表编辑器"></a>1.修改注册表编辑器</h1><p>按住 <code>Win</code> + <code>R</code> 输入 <code>regedit</code> 进入注册表编辑器。</p>
+<p>找到 <code>HKEY_LOCAL_MACHINE → SOFTWARE → Microsoft → WindowsUpdate → UX → Settings</code></p>
+<p>点击右边空白处，选择新建DWORD（32位）值，重命名为 <code>FightSettingsMaxPauseDays</code> ，</p>
+<p>双击打开，选择十进制，输入想要暂停的最大天数，我这里输入 <code>8888</code> 。</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/13_1.jpg" alt="添加新项"><figcaption>添加新项</figcaption></figure></p>
+<h1 id="2-打开系统设置"><a href="#2-打开系统设置" class="headerlink" title="2.打开系统设置"></a>2.打开系统设置</h1><p>按住 <code>Win</code> + <code>I</code> 打开系统设置，搜索 <code>Windows更新</code> ，进入Windows更新设置，在暂停更新处选择最大值即可。</p>
+<p>Windows 10的暂停更新在 <code>Windows 更新设置 → 高级选项 → 暂停更新</code></p>
+<p>效果如图：</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/13_2.jpg" alt="暂停8888天"><figcaption>暂停8888天</figcaption></figure></p>
+<h1 id="3-恢复更新"><a href="#3-恢复更新" class="headerlink" title="3.恢复更新"></a>3.恢复更新</h1><p>直接点击继续更新即可。 </p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Qt的安装记录</title>
     <url>/%E6%97%A5%E5%B8%B8/14/</url>
     <content><![CDATA[<p>Qt（C++）和pyQt的安装记录</p>
@@ -185,34 +213,6 @@
       </categories>
       <tags>
         <tag>Qt</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何暂停Windows的系统升级</title>
-    <url>/%E6%97%A5%E5%B8%B8/13/</url>
-    <content><![CDATA[<p>关闭Windows的自动更新</p>
-<p>关键词：Windows</p>
-<span id="more"></span>
-
-<hr>
-<!-- toc -->
-
-<h1 id="1-修改注册表编辑器"><a href="#1-修改注册表编辑器" class="headerlink" title="1.修改注册表编辑器"></a>1.修改注册表编辑器</h1><p>按住 <code>Win</code> + <code>R</code> 输入 <code>regedit</code> 进入注册表编辑器。</p>
-<p>找到 <code>HKEY_LOCAL_MACHINE → SOFTWARE → Microsoft → WindowsUpdate → UX → Settings</code></p>
-<p>点击右边空白处，选择新建DWORD（32位）值，重命名为 <code>FightSettingsMaxPauseDays</code> ，</p>
-<p>双击打开，选择十进制，输入想要暂停的最大天数，我这里输入 <code>8888</code> 。</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/13_1.jpg" alt="添加新项"><figcaption>添加新项</figcaption></figure></p>
-<h1 id="2-打开系统设置"><a href="#2-打开系统设置" class="headerlink" title="2.打开系统设置"></a>2.打开系统设置</h1><p>按住 <code>Win</code> + <code>I</code> 打开系统设置，搜索 <code>Windows更新</code> ，进入Windows更新设置，在暂停更新处选择最大值即可。</p>
-<p>Windows 10的暂停更新在 <code>Windows 更新设置 → 高级选项 → 暂停更新</code></p>
-<p>效果如图：</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/13_2.jpg" alt="暂停8888天"><figcaption>暂停8888天</figcaption></figure></p>
-<h1 id="3-恢复更新"><a href="#3-恢复更新" class="headerlink" title="3.恢复更新"></a>3.恢复更新</h1><p>直接点击继续更新即可。 </p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>Windows</tag>
       </tags>
   </entry>
   <entry>
@@ -291,59 +291,6 @@
       </categories>
       <tags>
         <tag>对象存储OSS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Windows 10下安装CUDA、TensorRT记录</title>
-    <url>/%E6%97%A5%E5%B8%B8/5/</url>
-    <content><![CDATA[<p>GPU：NVIDIA GeFOrce GTX 1050</p>
-<p>关键词：深度学习、YOLOv5、TensorRT、C++推演</p>
-<span id="more"></span>
-
-<hr>
-<!-- toc -->
-
-<h1 id="一、下载CUDA"><a href="#一、下载CUDA" class="headerlink" title="一、下载CUDA"></a>一、下载CUDA</h1><h2 id="1-确定适配本机显卡驱动的CUDA版本"><a href="#1-确定适配本机显卡驱动的CUDA版本" class="headerlink" title="1.确定适配本机显卡驱动的CUDA版本"></a>1.确定适配本机显卡驱动的CUDA版本</h2><p>系统搜索打开NVIDIA控制面板，点击帮助，选择系统信息-&gt;组件，找到CUDA字样。此处我的CUDA适配版本为<code>12.0</code>。</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/5_CUDA%E7%89%88%E6%9C%AC.jpg" alt="CUDA版本查看"><figcaption>CUDA版本查看</figcaption></figure></p>
-<h2 id="2-下载对应版本的CUDA"><a href="#2-下载对应版本的CUDA" class="headerlink" title="2.下载对应版本的CUDA"></a>2.下载对应版本的CUDA</h2><p><a class="link" href="https://developer.nvidia.com/cuda-toolkit-archive">下载地址 - NVIDIA官网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h2 id="3-安装CUDA"><a href="#3-安装CUDA" class="headerlink" title="3.安装CUDA"></a>3.安装CUDA</h2><p>点击下载的安装exe文件，可以更改文件安装位置，记住文件安装位置。此处我的安装位置是<code>G:\NVIDIA_GPU_Computing_Toolkit_CUDA_v12.0</code>。</p>
-<h1 id="二、下载cuDNN包"><a href="#二、下载cuDNN包" class="headerlink" title="二、下载cuDNN包"></a>二、下载cuDNN包</h1><h2 id="1-选择适配CUDA的版本下载对应的cuDNN包"><a href="#1-选择适配CUDA的版本下载对应的cuDNN包" class="headerlink" title="1.选择适配CUDA的版本下载对应的cuDNN包"></a>1.选择适配CUDA的版本下载对应的cuDNN包</h2><p><a class="link" href="https://developer.nvidia.com/rdp/cudnn-archive">下载地址 - NVIDIA官网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h2 id="2-选择合适的位置解压cuDNN压缩包"><a href="#2-选择合适的位置解压cuDNN压缩包" class="headerlink" title="2.选择合适的位置解压cuDNN压缩包"></a>2.选择合适的位置解压cuDNN压缩包</h2><p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/5_cuDNN.jpg" alt="解压cuDNN后的文件"><figcaption>解压cuDNN后的文件</figcaption></figure></p>
-<h2 id="3-复制文件"><a href="#3-复制文件" class="headerlink" title="3.复制文件"></a>3.复制文件</h2><p>cuDNN属于是CUDA的一个补丁包，因此无需安装。需要将<code>bin</code>、<code>include</code>、<code>lib</code>文件夹中的相关文件拷贝到CUDA安装位置的<code>bin</code>、<code>include</code>、<code>lib的x64</code>文件夹中。</p>
-<p>我的CUDA安装位置是：<code>G:\NVIDIA_GPU_Computing_Toolkit_CUDA_v12.0</code>。</p>
-<h2 id="4-验证是否成功"><a href="#4-验证是否成功" class="headerlink" title="4.验证是否成功"></a>4.验证是否成功</h2><p><code>Win + R</code>输入cmd打开cmd窗口。<br>直接输入盘符如<code>F:</code>跳转到F盘，<code>cd</code>进入到具体地址。<br>比如我的CUDA安装在<code>G:\NVIDIA_GPU_Computing_Toolkit_CUDA_v12.0</code>，<br>那么进入到<code>G:\NVIDIA_GPU_Computing_Toolkit_CUDA_v12.0\extras\demo_suite</code></p>
-<p>接着在cmd窗口输入下面的指令分别运行两个exe文件，结果出现PASS（如图）则验证成功。</p>
-<div class="highlight-container" data-rel="Cmd"><figure class="iseeu highlight cmd"><table><tr><td class="code"><pre><span class="line">bandwidthTest.exe</span><br></pre></td></tr></table></figure></div>
-
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/5_cuDNN%E9%AA%8C%E8%AF%81.jpg" alt="第一个exe运行结果"><figcaption>第一个exe运行结果</figcaption></figure></p>
-<div class="highlight-container" data-rel="Cmd"><figure class="iseeu highlight cmd"><table><tr><td class="code"><pre><span class="line">deviceQuery.exe</span><br></pre></td></tr></table></figure></div>
-
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/5_cuDNN%E9%AA%8C%E8%AF%812.jpg" alt="第二个exe运行结果"><figcaption>第二个exe运行结果</figcaption></figure></p>
-<h1 id="三、下载TensorRT包"><a href="#三、下载TensorRT包" class="headerlink" title="三、下载TensorRT包"></a>三、下载TensorRT包</h1><h2 id="1-选择适配CUDA版本的TensorRT包下载"><a href="#1-选择适配CUDA版本的TensorRT包下载" class="headerlink" title="1.选择适配CUDA版本的TensorRT包下载"></a>1.选择适配CUDA版本的TensorRT包下载</h2><p>进入<a class="link" href="https://developer.nvidia.com/nvidia-tensorrt-download">官网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>，选择较新的大版本，再选择适合自己安装的CUDA版本下载。</p>
-<p>我在此处下载Windows的支持CUDA12.0的版本。</p>
-<h2 id="2-选择合适的位置解压TensorRT压缩包"><a href="#2-选择合适的位置解压TensorRT压缩包" class="headerlink" title="2.选择合适的位置解压TensorRT压缩包"></a>2.选择合适的位置解压TensorRT压缩包</h2><p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/5_TensorRT.jpg" alt="解压TensorRT后的文件"><figcaption>解压TensorRT后的文件</figcaption></figure></p>
-<h2 id="3-安装TensorRT"><a href="#3-安装TensorRT" class="headerlink" title="3.安装TensorRT"></a>3.安装TensorRT</h2><ul>
-<li>将TensorRT的<code>include</code>文件夹中文件复制到CUDA安装位置的<code>include</code>文件夹。</li>
-</ul>
-<p>我的操作是：<code>copy \TensorRT-8.6.1.6\include → NVIDIA_GPU_Computing_Toolkit_CUDA_v12.0\include</code></p>
-<ul>
-<li><p>将TensorRT的<code>lib</code>中所有lib文件复制到CUDA安装位置的<code>lib\x64</code>文件夹</p>
-</li>
-<li><p>将TensorRT的<code>lib</code>中所有dll文件复制到CUDA安装位置的<code>bin</code>文件夹</p>
-</li>
-</ul>
-<h2 id="4-验证TensoRT"><a href="#4-验证TensoRT" class="headerlink" title="4.验证TensoRT"></a>4.验证TensoRT</h2><p>检查系统环境变量中是否有包含了CUDA的bin文件夹，没有则添加。</p>
-<p>使用Visual Studio打开sampleMNIST示例，即打开<code>../TensorRT-8.6.1.6\samples\sampleOnnxMNIST</code>文件夹中的sln文件，必要时对项目属性的常规、VC++目录、C&#x2F;C++里面的环境进行配置，添加依赖。<a class="link" href="https://blog.csdn.net/shanglianlm/article/details/92847719">参考 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p>右键项目，点击重新生成。可以点击不调试运行测试。</p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>深度学习</tag>
-        <tag>YOLOv5</tag>
-        <tag>TensorRT</tag>
-        <tag>C++推演</tag>
       </tags>
   </entry>
   <entry>
@@ -433,6 +380,59 @@
       <tags>
         <tag>Hexo</tag>
         <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Windows 10下安装CUDA、TensorRT记录</title>
+    <url>/%E6%97%A5%E5%B8%B8/5/</url>
+    <content><![CDATA[<p>GPU：NVIDIA GeFOrce GTX 1050</p>
+<p>关键词：深度学习、YOLOv5、TensorRT、C++推演</p>
+<span id="more"></span>
+
+<hr>
+<!-- toc -->
+
+<h1 id="一、下载CUDA"><a href="#一、下载CUDA" class="headerlink" title="一、下载CUDA"></a>一、下载CUDA</h1><h2 id="1-确定适配本机显卡驱动的CUDA版本"><a href="#1-确定适配本机显卡驱动的CUDA版本" class="headerlink" title="1.确定适配本机显卡驱动的CUDA版本"></a>1.确定适配本机显卡驱动的CUDA版本</h2><p>系统搜索打开NVIDIA控制面板，点击帮助，选择系统信息-&gt;组件，找到CUDA字样。此处我的CUDA适配版本为<code>12.0</code>。</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/5_CUDA%E7%89%88%E6%9C%AC.jpg" alt="CUDA版本查看"><figcaption>CUDA版本查看</figcaption></figure></p>
+<h2 id="2-下载对应版本的CUDA"><a href="#2-下载对应版本的CUDA" class="headerlink" title="2.下载对应版本的CUDA"></a>2.下载对应版本的CUDA</h2><p><a class="link" href="https://developer.nvidia.com/cuda-toolkit-archive">下载地址 - NVIDIA官网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h2 id="3-安装CUDA"><a href="#3-安装CUDA" class="headerlink" title="3.安装CUDA"></a>3.安装CUDA</h2><p>点击下载的安装exe文件，可以更改文件安装位置，记住文件安装位置。此处我的安装位置是<code>G:\NVIDIA_GPU_Computing_Toolkit_CUDA_v12.0</code>。</p>
+<h1 id="二、下载cuDNN包"><a href="#二、下载cuDNN包" class="headerlink" title="二、下载cuDNN包"></a>二、下载cuDNN包</h1><h2 id="1-选择适配CUDA的版本下载对应的cuDNN包"><a href="#1-选择适配CUDA的版本下载对应的cuDNN包" class="headerlink" title="1.选择适配CUDA的版本下载对应的cuDNN包"></a>1.选择适配CUDA的版本下载对应的cuDNN包</h2><p><a class="link" href="https://developer.nvidia.com/rdp/cudnn-archive">下载地址 - NVIDIA官网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h2 id="2-选择合适的位置解压cuDNN压缩包"><a href="#2-选择合适的位置解压cuDNN压缩包" class="headerlink" title="2.选择合适的位置解压cuDNN压缩包"></a>2.选择合适的位置解压cuDNN压缩包</h2><p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/5_cuDNN.jpg" alt="解压cuDNN后的文件"><figcaption>解压cuDNN后的文件</figcaption></figure></p>
+<h2 id="3-复制文件"><a href="#3-复制文件" class="headerlink" title="3.复制文件"></a>3.复制文件</h2><p>cuDNN属于是CUDA的一个补丁包，因此无需安装。需要将<code>bin</code>、<code>include</code>、<code>lib</code>文件夹中的相关文件拷贝到CUDA安装位置的<code>bin</code>、<code>include</code>、<code>lib的x64</code>文件夹中。</p>
+<p>我的CUDA安装位置是：<code>G:\NVIDIA_GPU_Computing_Toolkit_CUDA_v12.0</code>。</p>
+<h2 id="4-验证是否成功"><a href="#4-验证是否成功" class="headerlink" title="4.验证是否成功"></a>4.验证是否成功</h2><p><code>Win + R</code>输入cmd打开cmd窗口。<br>直接输入盘符如<code>F:</code>跳转到F盘，<code>cd</code>进入到具体地址。<br>比如我的CUDA安装在<code>G:\NVIDIA_GPU_Computing_Toolkit_CUDA_v12.0</code>，<br>那么进入到<code>G:\NVIDIA_GPU_Computing_Toolkit_CUDA_v12.0\extras\demo_suite</code></p>
+<p>接着在cmd窗口输入下面的指令分别运行两个exe文件，结果出现PASS（如图）则验证成功。</p>
+<div class="highlight-container" data-rel="Cmd"><figure class="iseeu highlight cmd"><table><tr><td class="code"><pre><span class="line">bandwidthTest.exe</span><br></pre></td></tr></table></figure></div>
+
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/5_cuDNN%E9%AA%8C%E8%AF%81.jpg" alt="第一个exe运行结果"><figcaption>第一个exe运行结果</figcaption></figure></p>
+<div class="highlight-container" data-rel="Cmd"><figure class="iseeu highlight cmd"><table><tr><td class="code"><pre><span class="line">deviceQuery.exe</span><br></pre></td></tr></table></figure></div>
+
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/5_cuDNN%E9%AA%8C%E8%AF%812.jpg" alt="第二个exe运行结果"><figcaption>第二个exe运行结果</figcaption></figure></p>
+<h1 id="三、下载TensorRT包"><a href="#三、下载TensorRT包" class="headerlink" title="三、下载TensorRT包"></a>三、下载TensorRT包</h1><h2 id="1-选择适配CUDA版本的TensorRT包下载"><a href="#1-选择适配CUDA版本的TensorRT包下载" class="headerlink" title="1.选择适配CUDA版本的TensorRT包下载"></a>1.选择适配CUDA版本的TensorRT包下载</h2><p>进入<a class="link" href="https://developer.nvidia.com/nvidia-tensorrt-download">官网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>，选择较新的大版本，再选择适合自己安装的CUDA版本下载。</p>
+<p>我在此处下载Windows的支持CUDA12.0的版本。</p>
+<h2 id="2-选择合适的位置解压TensorRT压缩包"><a href="#2-选择合适的位置解压TensorRT压缩包" class="headerlink" title="2.选择合适的位置解压TensorRT压缩包"></a>2.选择合适的位置解压TensorRT压缩包</h2><p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/5_TensorRT.jpg" alt="解压TensorRT后的文件"><figcaption>解压TensorRT后的文件</figcaption></figure></p>
+<h2 id="3-安装TensorRT"><a href="#3-安装TensorRT" class="headerlink" title="3.安装TensorRT"></a>3.安装TensorRT</h2><ul>
+<li>将TensorRT的<code>include</code>文件夹中文件复制到CUDA安装位置的<code>include</code>文件夹。</li>
+</ul>
+<p>我的操作是：<code>copy \TensorRT-8.6.1.6\include → NVIDIA_GPU_Computing_Toolkit_CUDA_v12.0\include</code></p>
+<ul>
+<li><p>将TensorRT的<code>lib</code>中所有lib文件复制到CUDA安装位置的<code>lib\x64</code>文件夹</p>
+</li>
+<li><p>将TensorRT的<code>lib</code>中所有dll文件复制到CUDA安装位置的<code>bin</code>文件夹</p>
+</li>
+</ul>
+<h2 id="4-验证TensoRT"><a href="#4-验证TensoRT" class="headerlink" title="4.验证TensoRT"></a>4.验证TensoRT</h2><p>检查系统环境变量中是否有包含了CUDA的bin文件夹，没有则添加。</p>
+<p>使用Visual Studio打开sampleMNIST示例，即打开<code>../TensorRT-8.6.1.6\samples\sampleOnnxMNIST</code>文件夹中的sln文件，必要时对项目属性的常规、VC++目录、C&#x2F;C++里面的环境进行配置，添加依赖。<a class="link" href="https://blog.csdn.net/shanglianlm/article/details/92847719">参考 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>右键项目，点击重新生成。可以点击不调试运行测试。</p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>深度学习</tag>
+        <tag>YOLOv5</tag>
+        <tag>TensorRT</tag>
+        <tag>C++推演</tag>
       </tags>
   </entry>
   <entry>
@@ -1609,11 +1609,141 @@
     <title>基于Qt的音频播放器程序设计记录</title>
     <url>/%E7%AC%94%E8%AE%B0/fmusicplayer/</url>
     <content><![CDATA[<p>使用Qt的工具完成一个音频播放器——FMusicPlayer</p>
-<p>待补充</p>
 <p>关键词：Qt、C++</p>
 <span id="more"></span>
 
 <hr>
+<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>利用Qt的工具开发一个音乐播放器，界面如下图：</p>
+<p><figure class="image-caption"><img src="/%E7%AC%94%E8%AE%B0/fmusicplayer/ui.jpg" alt="界面截图"><figcaption>界面截图</figcaption></figure></p>
+<p>Qt版本5.12.12。该项目十分简单，适合用于练手。</p>
+<h1 id="二、模块构思"><a href="#二、模块构思" class="headerlink" title="二、模块构思"></a>二、模块构思</h1><p>根据市场上现有的音乐播放器思考，一个基本的音乐播放器应该具有以下功能：</p>
+<ul>
+<li><p>播放/暂停</p>
+</li>
+<li><p>停止</p>
+</li>
+<li><p>控制音频播放进度</p>
+</li>
+<li><p>管理音乐列表</p>
+</li>
+<li><p>音量控制</p>
+</li>
+<li><p>信息显示</p>
+</li>
+<li><p>……</p>
+</li>
+</ul>
+<p>此软件仅实现了上述功能。</p>
+<h1 id="三、模块实现"><a href="#三、模块实现" class="headerlink" title="三、模块实现"></a>三、模块实现</h1><p>此音乐播放器主要使用Qt现成的QMediaPlayer类和QMediaPlaylist类进行维护。</p>
+<h2 id="3-1-界面设计"><a href="#3-1-界面设计" class="headerlink" title="3.1 界面设计"></a>3.1 界面设计</h2><p>整体界面设计如图：</p>
+<p><figure class="image-caption"><img src="/%E7%AC%94%E8%AE%B0/fmusicplayer/uidesign.jpg" alt="界面设计"><figcaption>界面设计</figcaption></figure></p>
+<ul>
+<li><p>9个按钮QPushButton，对应各种功能；</p>
+</li>
+<li><p>3个标签文字QLabel，用于说明；</p>
+</li>
+<li><p>2个文本框QLineEdit，用于显示信息；</p>
+</li>
+<li><p>1个列表QListWidget，用于存放播放列表；</p>
+</li>
+<li><p>2个滑条QSlider，一个用于控制和显示进度，一个用于控制和显示音量。</p>
+</li>
+<li><p>若干个弹簧用于调整布局。</p>
+</li>
+</ul>
+<p>完成后的程序界面：</p>
+<p><figure class="image-caption"><img src="/%E7%AC%94%E8%AE%B0/fmusicplayer/ui2.jpg" alt="期望的UI"><figcaption>期望的UI</figcaption></figure></p>
+<h2 id="3-1-初始化工程"><a href="#3-1-初始化工程" class="headerlink" title="3.1 初始化工程"></a>3.1 初始化工程</h2><p>此程序使用了Qt的multimedia部件，所以首先在Qt的.pro工程文件中包含multimedia。</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">……</span><br><span class="line">QT  += multimedia</span><br><span class="line">……</span><br></pre></td></tr></table></figure></div>
+
+<p>接着项目中应该有以下文件：</p>
+<blockquote>
+<p>mainwindow.h<br>mainwindow.cpp<br>mainwindow.ui<br>main.cpp</p>
+</blockquote>
+<ul>
+<li><p>mainwindow.h：主要存放主窗口的一些声明</p>
+</li>
+<li><p>mainwindow.cpp：记录主窗口的实现</p>
+</li>
+<li><p>mainwindow.ui：界面的设计文件</p>
+</li>
+<li><p>main.cpp：程序入口</p>
+</li>
+</ul>
+<p>首先在mainwindow.h中将我们实现的模块添加槽函数声明和成员变量的声明：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line">QMediaPlayer *musicplayer; <span class="comment">// 播放器</span></span><br><span class="line">QMediaPlaylist *musicplayList; <span class="comment">// 播放列表</span></span><br><span class="line"></span><br><span class="line">QString durationTime;<span class="comment">// 音频总长度</span></span><br><span class="line">QString  positionTime;<span class="comment">// 当前播放到位置</span></span><br><span class="line"><span class="comment">// 槽函数声明略，见源代码</span></span><br></pre></td></tr></table></figure></div>
+
+<p>接着在主窗口构造函数中做一些初始化：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建实例</span></span><br><span class="line">musicplayer = <span class="keyword">new</span> <span class="built_in">QMediaPlayer</span>(<span class="keyword">this</span>);</span><br><span class="line">musicplayList = <span class="keyword">new</span> <span class="built_in">QMediaPlaylist</span>(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 循环播放</span></span><br><span class="line">musicplayList-&gt;<span class="built_in">setPlaybackMode</span>(QMediaPlaylist::Loop);</span><br><span class="line">musicplayer-&gt;<span class="built_in">setPlaylist</span>(musicplayList);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 默认音量，同步音量显示</span></span><br><span class="line">ui-&gt;volume-&gt;<span class="built_in">setValue</span>(<span class="number">50</span>);	</span><br><span class="line"><span class="built_in">changedVolume</span>(<span class="number">50</span>);			</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="3-3-播放-x2F-暂停模块"><a href="#3-3-播放-x2F-暂停模块" class="headerlink" title="3.3 播放/暂停模块"></a>3.3 播放/暂停模块</h2><p>当点击播放键时播放音乐，为播放按钮play绑定单击事件，触发playMusic()函数：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 播放音乐</span></span><br><span class="line"><span class="built_in">connect</span>(ui-&gt;play, <span class="built_in">SIGNAL</span>(<span class="built_in">clicked</span>()), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">playMusic</span>()));</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::playMusic</span><span class="params">()</span><span class="comment">//播放</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="comment">// 维护播放列表，使其索引正常，正常播放</span></span><br><span class="line">    <span class="keyword">if</span>(musicplayList-&gt;<span class="built_in">currentIndex</span>()&lt;<span class="number">0</span>)</span><br><span class="line">        musicplayList-&gt;<span class="built_in">setCurrentIndex</span>(<span class="number">0</span>);</span><br><span class="line">    musicplayer-&gt;<span class="built_in">play</span>();</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<p>当点击暂停键时暂停音乐，支持记录位置，从上次暂停的位置播放。为暂停按钮绑定单击事件，触发pauseMusic()函数：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 暂停音乐</span></span><br><span class="line"><span class="built_in">connect</span>(ui-&gt;pause, <span class="built_in">SIGNAL</span>(<span class="built_in">clicked</span>()), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">pauseMusic</span>()));</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::pauseMusic</span><span class="params">()</span><span class="comment">//暂停播放</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    musicplayer-&gt;<span class="built_in">pause</span>();</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="3-4-停止模块"><a href="#3-4-停止模块" class="headerlink" title="3.4 停止模块"></a>3.4 停止模块</h2><p>当点击停止键时，停止音乐，音乐播放位置归零。为停止按钮绑定单击事件，触发stopMusic()函数：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 停止音乐</span></span><br><span class="line"><span class="built_in">connect</span>(ui-&gt;stop, <span class="built_in">SIGNAL</span>(<span class="built_in">clicked</span>()), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">stopMusic</span>()));</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::stopMusic</span><span class="params">()</span><span class="comment">//停止播放</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    musicplayer-&gt;<span class="built_in">stop</span>();</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="3-5-控制音频进度模块"><a href="#3-5-控制音频进度模块" class="headerlink" title="3.5 控制音频进度模块"></a>3.5 控制音频进度模块</h2><p>播放时，音频进度条应当可以被拖动，并且更新播放的位置。为进度条绑定值修改事件，触发changedPosition()函数，函数参数为进度条传入的位置参数。</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 进度条控制</span></span><br><span class="line"><span class="built_in">connect</span>(ui-&gt;timebar, <span class="built_in">SIGNAL</span>(<span class="built_in">valueChanged</span>(<span class="type">int</span>)), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">changedPosition</span>(<span class="type">int</span>)));</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::changedPosition</span><span class="params">(<span class="type">int</span> pos)</span>   <span class="comment">// 修改播放位置</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    musicplayer-&gt;<span class="built_in">setPosition</span>(pos);</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="3-6-管理音乐列表模块"><a href="#3-6-管理音乐列表模块" class="headerlink" title="3.6 管理音乐列表模块"></a>3.6 管理音乐列表模块</h2><p>播放器应该可以输入多个文件，接着顺序播放，所以需要维护一个音乐列表。</p>
+<p>首先可以向音乐列表添加音乐，为添加音乐按钮绑定单击事件，绑定addMusic()函数。</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 添加文件</span></span><br><span class="line"><span class="built_in">connect</span>(ui-&gt;addMusic, <span class="built_in">SIGNAL</span>(<span class="built_in">clicked</span>()), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">addMusictoList</span>()));</span><br></pre></td></tr></table></figure></div>
+
+<p>读取文件时，wav文件是支持的，而mp3文件需要外置解码器的支持，处理mp3文件方法见文章最后。</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::addMusictoList</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    QString curPath = QDir::<span class="built_in">currentPath</span>();</span><br><span class="line">    QString title = <span class="string">"选择音频文件"</span>;</span><br><span class="line">    QString filter = <span class="string">"音频文件(*.wav *.mp3)"</span>;</span><br><span class="line">    QStringList fileList = QFileDialog::<span class="built_in">getOpenFileNames</span>(<span class="keyword">this</span>, title, curPath, filter);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 添加文件少于1个时退出函数</span></span><br><span class="line">    <span class="keyword">if</span>(filter.<span class="built_in">count</span>() &lt; <span class="number">1</span>)  <span class="keyword">return</span>;</span><br><span class="line">	<span class="comment">// 将读取的文件放入musicplayList里</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; fileList.<span class="built_in">count</span>(); ++ i)</span><br><span class="line">    {</span><br><span class="line">        QString aFile = fileList.<span class="built_in">at</span>(i);</span><br><span class="line">        musicplayList-&gt;<span class="built_in">addMedia</span>(QUrl::<span class="built_in">fromLocalFile</span>(aFile));</span><br><span class="line"></span><br><span class="line">        <span class="function">QFileInfo <span class="title">fileinfo</span><span class="params">(aFile)</span></span>;</span><br><span class="line">        ui-&gt;playList-&gt;<span class="built_in">addItem</span>(fileinfo.<span class="built_in">fileName</span>());</span><br><span class="line">    }</span><br><span class="line">	<span class="comment">// 将音乐列表的第一首音频作为待播放音频</span></span><br><span class="line">    <span class="keyword">if</span>(musicplayer-&gt;<span class="built_in">state</span>() != QMediaPlayer::PlayingState)</span><br><span class="line">        musicplayList-&gt;<span class="built_in">setCurrentIndex</span>(<span class="number">0</span>);</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<p>同样还应支持移除音频文件：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 移除文件</span></span><br><span class="line"><span class="built_in">connect</span>(ui-&gt;delMusic, <span class="built_in">SIGNAL</span>(<span class="built_in">clicked</span>()), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">delMusic</span>()));</span><br></pre></td></tr></table></figure></div>
+
+<p>移除文件时还应判断移除的是否为当前播放音乐，进行相应处理。</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::delMusic</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="type">int</span> pos = ui-&gt;playList-&gt;<span class="built_in">currentRow</span>(); <span class="comment">// 获取选中行</span></span><br><span class="line">    QListWidgetItem *item = ui-&gt;playList-&gt;<span class="built_in">takeItem</span>(pos);</span><br><span class="line">    <span class="keyword">delete</span>  item;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(musicplayList-&gt;<span class="built_in">currentIndex</span>() == pos)<span class="comment">// 删除是当前播放的音乐时</span></span><br><span class="line">    {</span><br><span class="line">        <span class="type">int</span> nextPos = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(pos &gt;= <span class="number">1</span>)    nextPos = pos - <span class="number">1</span>;</span><br><span class="line">        musicplayList-&gt;<span class="built_in">removeMedia</span>(pos);</span><br><span class="line">        <span class="keyword">if</span>(ui-&gt;playList-&gt;<span class="built_in">count</span>() &gt; <span class="number">0</span>)</span><br><span class="line">        {</span><br><span class="line">            musicplayList-&gt;<span class="built_in">setCurrentIndex</span>(nextPos);</span><br><span class="line">            <span class="built_in">onPlayListChanged</span>(nextPos);</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        {</span><br><span class="line">            musicplayer-&gt;<span class="built_in">stop</span>();</span><br><span class="line">            ui-&gt;playmusic-&gt;<span class="built_in">setText</span>(<span class="string">"无文件"</span>);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        musicplayList-&gt;<span class="built_in">removeMedia</span>(pos);</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<p>清空文件则是移除文件的简化版，直接将播放列表清空即可。</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 清空文件列表</span></span><br><span class="line"><span class="built_in">connect</span>(ui-&gt;clearList, <span class="built_in">SIGNAL</span>(<span class="built_in">clicked</span>()), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">clearList</span>()));</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::clearList</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    musicplayList-&gt;<span class="built_in">clear</span>();	<span class="comment">// 清空列表</span></span><br><span class="line">    ui-&gt;playList-&gt;<span class="built_in">clear</span>();	<span class="comment">// 更新UI</span></span><br><span class="line">    ui-&gt;playmusic-&gt;<span class="built_in">clear</span>();</span><br><span class="line">    ui-&gt;time-&gt;<span class="built_in">clear</span>();</span><br><span class="line">    ui-&gt;timebar-&gt;<span class="built_in">setValue</span>(<span class="number">0</span>);</span><br><span class="line">    musicplayer-&gt;<span class="built_in">stop</span>();	<span class="comment">// 停止播放</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<p>最后还可以添加上一首和下一首的功能，只需简单绑定一下点击事件和调用musicplayList的函数即可。</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line">musicplayList-&gt;<span class="built_in">previous</span>();	<span class="comment">// 上一首</span></span><br><span class="line">musicplayList-&gt;<span class="built_in">next</span>();		<span class="comment">// 下一首</span></span><br></pre></td></tr></table></figure></div>
+
+<h2 id="3-7-音量控制模块"><a href="#3-7-音量控制模块" class="headerlink" title="3.7 音量控制模块"></a>3.7 音量控制模块</h2><p>一个播放器还应该支持音量的调节，而QMediaPlayer支持音量调节，所以绑定滑条值改变事件且调用函数即可，事件返回一个滑条的位置参数。</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 控制音量</span></span><br><span class="line"><span class="built_in">connect</span>(ui-&gt;volume, <span class="built_in">SIGNAL</span>(<span class="built_in">valueChanged</span>(<span class="type">int</span>)), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">changedVolume</span>(<span class="type">int</span>)));</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::changedVolume</span><span class="params">(<span class="type">int</span> value)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    musicplayer-&gt;<span class="built_in">setVolume</span>(value);</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="3-8-信息显示与同步模块"><a href="#3-8-信息显示与同步模块" class="headerlink" title="3.8 信息显示与同步模块"></a>3.8 信息显示与同步模块</h2><p>根据UI的设计，显示的信息有：当前播放的音频名字、播放时间/完整时间。当播放音频进行切换时，需要更新音频名字、播放时间和音频完整时间等信息。</p>
+<p>为播放列表musicplayList的当前索引变化事件绑定onPlayListChanged()函数，事件返回新的索引号，用此更新播放的音频名字。</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 播放音乐变化</span></span><br><span class="line"><span class="built_in">connect</span>(musicplayList, <span class="built_in">SIGNAL</span>(<span class="built_in">currentIndexChanged</span>(<span class="type">int</span>)), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">onPlayListChanged</span>(<span class="type">int</span>)));</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::onPlayListChanged</span><span class="params">(<span class="type">int</span> pos)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    ui-&gt;playList-&gt;<span class="built_in">setCurrentRow</span>(pos);</span><br><span class="line">    <span class="comment">// 使用QListWidgetItem类取出QListWidget的某一行</span></span><br><span class="line">    QListWidgetItem *item = ui-&gt;playList-&gt;<span class="built_in">currentItem</span>();</span><br><span class="line">    <span class="keyword">if</span>(item)</span><br><span class="line">    {</span><br><span class="line">		<span class="comment">// 更新UI的音频名字</span></span><br><span class="line">        ui-&gt;playmusic-&gt;<span class="built_in">setText</span>(item-&gt;<span class="built_in">text</span>());</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<p>切换音频时，其总时长也应该变化，需要为播放器musicplayer的播放位置变化durationChanged事件绑定onDurationChanged()函数。函数为计算音频总的时间。</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 时长变化</span></span><br><span class="line"><span class="built_in">connect</span>(musicplayer, <span class="built_in">SIGNAL</span>(<span class="built_in">durationChanged</span>(qint64)), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">onDurationChanged</span>(qint64)));</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::onDurationChanged</span><span class="params">(qint64 dur)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    ui-&gt;timebar-&gt;<span class="built_in">setMaximum</span>(dur);	<span class="comment">// 设置进度条的最大值</span></span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> secs = <span class="built_in">int</span>(dur / <span class="number">1000</span>);</span><br><span class="line">    <span class="type">int</span> mins = secs / <span class="number">60</span>;</span><br><span class="line">    secs %= <span class="number">60</span>;</span><br><span class="line">    durationTime = QString::<span class="built_in">asprintf</span>(<span class="string">" %d : %d "</span>, mins, secs);</span><br><span class="line">    <span class="comment">// UI刷新时间</span></span><br><span class="line">    ui-&gt;time-&gt;<span class="built_in">setText</span>(positionTime + <span class="string">" / "</span> + durationTime);</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<p>至于音频随着播放而位置和进度的刷新，则需要为播放器musicplayer的播放位置变化positionChanged事件绑定onPositionChanged()函数。函数为计算播放的时间。</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 播放位置变化</span></span><br><span class="line"><span class="built_in">connect</span>(musicplayer, <span class="built_in">SIGNAL</span>(<span class="built_in">positionChanged</span>(qint64)), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">onPositionChanged</span>(qint64)));</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::onPositionChanged</span><span class="params">(qint64 pos)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="comment">// 进度条滑动到尽头，退出函数</span></span><br><span class="line">    <span class="keyword">if</span>(ui-&gt;timebar-&gt;<span class="built_in">isSliderDown</span>()) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    ui-&gt;timebar-&gt;<span class="built_in">setSliderPosition</span>(pos);</span><br><span class="line">    <span class="comment">// 计算分和秒</span></span><br><span class="line">    <span class="type">int</span> secs = <span class="built_in">int</span> (pos / <span class="number">1000</span>);</span><br><span class="line">    <span class="type">int</span> mins = secs / <span class="number">60</span>;</span><br><span class="line">    secs %= <span class="number">60</span>;</span><br><span class="line">    positionTime = QString::<span class="built_in">asprintf</span>(<span class="string">" %d : %d "</span>, mins, secs);</span><br><span class="line">    <span class="comment">// UI刷新时间</span></span><br><span class="line">    ui-&gt;time-&gt;<span class="built_in">setText</span>(positionTime + <span class="string">" / "</span> + durationTime);</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<h1 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h1><p>该程序源代码放在<a class="link" href="https://gitee.com/fingsinz/fmusicplayer/">Gitee - https://gitee.com/fingsinz/fmusicplayer/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>该项目只是一个简单的播放器实现，希望能够帮助萌新认识Qt，提高自己的能力。</p>
+<p>不支持直接加载mp3文件，需要先下载相关解码器。此处附上解码器链接：</p>
+<p><a class="link" href="https://www.codecguide.com/download_kl.htm">K-lite_codec_pack <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a class="link" href="https://www.codecguide.com/download_k-lite_codec_pack_basic.htm">K-lite_codec_pack_basic（基础版） <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a class="link" href="https://www.codecguide.com/download_k-lite_codec_pack_standard.htm">K-lite_codec_pack_standard（标准版） <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>笔记</category>
@@ -3071,53 +3201,6 @@
       <tags>
         <tag>深度学习</tag>
         <tag>GPU服务器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OI Wiki，一个整合了编程竞赛的知识整合站点</title>
-    <url>/%E5%85%B6%E4%BB%96%E5%88%86%E4%BA%AB/oiwiki/</url>
-    <content><![CDATA[<p>Github分享</p>
-<p>关键词：算法、数据结构、竞赛</p>
-<span id="more"></span>
-
-<hr>
-<!-- toc -->
-
-<h1 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h1><p>“OI Wiki 致力于成为一个免费开放且持续更新的知识整合站点，大家可以在这里获取关于 编程竞赛 (competitive programming) 有趣又实用的知识，我们为大家准备了竞赛中的基础知识、常见题型、解题思路以及常用工具等内容，帮助大家更快速深入地学习编程竞赛。”</p>
-<h1 id="内容链接"><a href="#内容链接" class="headerlink" title="内容链接"></a>内容链接</h1><p><a class="link" href="https://oi-wiki.org/">OI Wiki——网页使用 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br><a class="link" href="https://github.com/OI-wiki/OI-wiki">Github 仓库 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br><a class="link" href="https://gitee.com/OI-wiki/OI-wiki">Gitee 仓库 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h1 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h1><p>在Github主页上有详细介绍。</p>
-<p>可以直接点击上面的OI Wiki链接使用。</p>
-<p>我在此用Windows 10做一个简单的 <strong>离线版</strong> 使用示例。</p>
-<ol>
-<li>直接或git方式下载仓库压缩包。</li>
-</ol>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/oiwiki_download.jpg" alt="下载"><figcaption>下载</figcaption></figure></p>
-<ol start="2">
-<li><p>解压压缩包</p>
-</li>
-<li><p>在Python下（没有Python的可以<a class="link" href="https://fingsinz.space/%E6%97%A5%E5%B8%B8/8/#more">安装Python <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>），使用命令建立静态网页：在解压后的目录下地址栏输入cmd，接着输入下面的命令启动网页。</p>
-</li>
-</ol>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/oiwiki_run.jpg" alt="打开cmd"><figcaption>打开cmd</figcaption></figure></p>
-<div class="highlight-container" data-rel="Cmd"><figure class="iseeu highlight cmd"><table><tr><td class="code"><pre><span class="line"># 如果是 python3</span><br><span class="line">python3 -m http.server</span><br><span class="line"># 如果是 python2</span><br><span class="line">python2 -m SimpleHTTPServer</span><br><span class="line"># 有些环境下找不到名叫 python3/python2 的可执行文件，不妨运行 python 试试</span><br></pre></td></tr></table></figure></div>
-
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/oiwiki_run2.jpg" alt="启动网页服务"><figcaption>启动网页服务</figcaption></figure></p>
-<ul>
-<li>如上图则为启动网页服务成功。我在此输入的是<code>python</code>，可以试试<code>python3</code>或者<code>python2</code>能不能运行。</li>
-<li>在浏览器地址栏中输入<code>http://localhost:8000/</code>或<code>127.0.0.1:8000</code>即可进入网页，其中<code>8000</code>为上图启动网页服务的端口，并不一定是<code>8000</code>。</li>
-</ul>
-<ol start="4">
-<li>页面如下图即可进行阅读学习</li>
-</ol>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/oiwiki_home.jpg" alt="OI Wiki"><figcaption>OI Wiki</figcaption></figure></p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>其他分享</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>数据结构</tag>
-        <tag>竞赛</tag>
       </tags>
   </entry>
   <entry>
@@ -4711,6 +4794,132 @@
       </tags>
   </entry>
   <entry>
+    <title>OI Wiki，一个整合了编程竞赛的知识整合站点</title>
+    <url>/%E5%85%B6%E4%BB%96%E5%88%86%E4%BA%AB/oiwiki/</url>
+    <content><![CDATA[<p>Github分享</p>
+<p>关键词：算法、数据结构、竞赛</p>
+<span id="more"></span>
+
+<hr>
+<!-- toc -->
+
+<h1 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h1><p>“OI Wiki 致力于成为一个免费开放且持续更新的知识整合站点，大家可以在这里获取关于 编程竞赛 (competitive programming) 有趣又实用的知识，我们为大家准备了竞赛中的基础知识、常见题型、解题思路以及常用工具等内容，帮助大家更快速深入地学习编程竞赛。”</p>
+<h1 id="内容链接"><a href="#内容链接" class="headerlink" title="内容链接"></a>内容链接</h1><p><a class="link" href="https://oi-wiki.org/">OI Wiki——网页使用 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br><a class="link" href="https://github.com/OI-wiki/OI-wiki">Github 仓库 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br><a class="link" href="https://gitee.com/OI-wiki/OI-wiki">Gitee 仓库 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h1 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h1><p>在Github主页上有详细介绍。</p>
+<p>可以直接点击上面的OI Wiki链接使用。</p>
+<p>我在此用Windows 10做一个简单的 <strong>离线版</strong> 使用示例。</p>
+<ol>
+<li>直接或git方式下载仓库压缩包。</li>
+</ol>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/oiwiki_download.jpg" alt="下载"><figcaption>下载</figcaption></figure></p>
+<ol start="2">
+<li><p>解压压缩包</p>
+</li>
+<li><p>在Python下（没有Python的可以<a class="link" href="https://fingsinz.space/%E6%97%A5%E5%B8%B8/8/#more">安装Python <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>），使用命令建立静态网页：在解压后的目录下地址栏输入cmd，接着输入下面的命令启动网页。</p>
+</li>
+</ol>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/oiwiki_run.jpg" alt="打开cmd"><figcaption>打开cmd</figcaption></figure></p>
+<div class="highlight-container" data-rel="Cmd"><figure class="iseeu highlight cmd"><table><tr><td class="code"><pre><span class="line"># 如果是 python3</span><br><span class="line">python3 -m http.server</span><br><span class="line"># 如果是 python2</span><br><span class="line">python2 -m SimpleHTTPServer</span><br><span class="line"># 有些环境下找不到名叫 python3/python2 的可执行文件，不妨运行 python 试试</span><br></pre></td></tr></table></figure></div>
+
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/oiwiki_run2.jpg" alt="启动网页服务"><figcaption>启动网页服务</figcaption></figure></p>
+<ul>
+<li>如上图则为启动网页服务成功。我在此输入的是<code>python</code>，可以试试<code>python3</code>或者<code>python2</code>能不能运行。</li>
+<li>在浏览器地址栏中输入<code>http://localhost:8000/</code>或<code>127.0.0.1:8000</code>即可进入网页，其中<code>8000</code>为上图启动网页服务的端口，并不一定是<code>8000</code>。</li>
+</ul>
+<ol start="4">
+<li>页面如下图即可进行阅读学习</li>
+</ol>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/oiwiki_home.jpg" alt="OI Wiki"><figcaption>OI Wiki</figcaption></figure></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>其他分享</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>数据结构</tag>
+        <tag>竞赛</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一个小巧的Markdown编辑工具</title>
+    <url>/%E8%BD%AF%E4%BB%B6/tools1/</url>
+    <content><![CDATA[<p>介绍一个小巧方便的编写Markdown语言工具——MarkText。</p>
+<p>关键词：Markdown工具</p>
+<span id="more"></span>
+
+<hr>
+<!-- toc -->
+
+<h1 id="什么是Markdown"><a href="#什么是Markdown" class="headerlink" title="什么是Markdown"></a>什么是Markdown</h1><ul>
+<li><p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。</p>
+</li>
+<li><p>Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。</p>
+</li>
+<li><p>Markdown可用于编写记录笔记、博客、电子书等电子文档。</p>
+</li>
+</ul>
+<h1 id="MarkText"><a href="#MarkText" class="headerlink" title="MarkText"></a>MarkText</h1><ul>
+<li>MarkText是一款开源的Markdown工具，可用于编辑输出Markdown文件。本人推荐的是英文语言软件，如何汉化自行研究。</li>
+</ul>
+<p>软件地址：建议安装到非系统盘（非C盘）</p>
+<p><a class="link" href="https://github.com/marktext/marktext/releases">MarkText下载 - 官网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a class="link" href="https://www.aliyundrive.com/s/CoADkVDj1Sq">MarkText下载 - 个人网盘（Windows64位） <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<ul>
+<li>MarkText具有多个明暗主题选择，软件菜单内容明确，主打轻便，是一款很不错的小工具。</li>
+</ul>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E4%B8%BB%E7%95%8C%E9%9D%A2.jpg" alt="软件界面（明亮主题）"><figcaption>软件界面（明亮主题）</figcaption></figure></p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E4%B8%BB%E7%95%8C%E9%9D%A22.jpg" alt="软件界面（灰暗主题）"><figcaption>软件界面（灰暗主题）</figcaption></figure></p>
+<ul>
+<li>使用方法</li>
+</ul>
+<p>输入<code>@</code>选择插入的模块，包括段落、分割线、标题、表格、数学公式、引用块、列表等。如果本身对于Markdown语言有一定基础的话，也可直接建立该模块。</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E4%BD%BF%E7%94%A81.jpg" alt="使用过程"><figcaption>使用过程</figcaption></figure></p>
+<p>在编写完内容后，可以直接保存为Markdown文件（<code>.md</code>后缀），也可以导出为PDF文件和HTML文件。</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E4%BF%9D%E5%AD%98.jpg" alt="选择保存"><figcaption>选择保存</figcaption></figure></p>
+<h1 id="进阶使用"><a href="#进阶使用" class="headerlink" title="进阶使用"></a>进阶使用</h1><ul>
+<li>有时候对于PDF文件，会有显示目录大纲的需求，但是该软件直接导出并不能设置，此时需要借助另一个工具：wkhtmltopdf。</li>
+</ul>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.jpg" alt="带目录的PDF文件"><figcaption>带目录的PDF文件</figcaption></figure></p>
+<ul>
+<li><strong>wkhtmltopdf</strong></li>
+</ul>
+<p>一款<strong>将HTML文件转化为PDF文件</strong>的小工具，但是其并没有软件UI界面，对小白不友好，但是万能的网络能搜到使用方法，此处针对如何导出带目录的PDF进行介绍。</p>
+<ol>
+<li>下载软件</li>
+</ol>
+<p>下载地址：可能提示有风险，建议安装到非系统盘（非C盘）</p>
+<p><a class="link" href="https://wkhtmltopdf.org/downloads.html">wkhtmltopdf下载 - 官网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a class="link" href="https://www.aliyundrive.com/s/V4SBUcntBAv">wkhtmltopdf下载 - 个人网盘（Windows64位） <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<ol start="2">
+<li>安装并配置</li>
+</ol>
+<p>安装后，需要记住安装的具体位置，比如我是安装在D盘，位置就是<code>D:\wkhtmltopdf</code>，接着进行系统环境变量的配置。在电脑设置中搜索环境变量，打开编辑页面。</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.jpg" alt="配置环境变量"><figcaption>配置环境变量</figcaption></figure></p>
+<p>具体步骤：编辑→新建→输入安装的位置里面的bin文件夹即<code>D:\wkhtmltopdf\bin</code>→确定所有系统设置窗口。</p>
+<p>（添加错误的环境变量并不会对电脑造成严重伤害，但不要胡乱删除环境变量）</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%90%8E.jpg" alt="配置环境变量后"><figcaption>配置环境变量后</figcaption></figure></p>
+<p>再接着确认环境变量是否配置成功：按快捷键<code>win+r</code>，输入cmd，打开黑窗口，在窗口内输入<code>wkhtmltopdf -V</code>（查询wkhtmltopdf的版本），如果出现类似于版本号的数字，则说明添加环境变量成功。</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_cmd.jpg" alt="配置成功"><figcaption>配置成功</figcaption></figure></p>
+<ol start="3">
+<li>软件使用</li>
+</ol>
+<p>在cmd黑窗口切换到想要HTML文件转换为PDF文件的位置，直接输入<code>F:</code>切换到不同的盘，输入<code>cd xx</code>可以进入不同文件夹。如果不知道自己是什么路径，可以先进入所在盘，再打开文件所在文件夹，在地址栏点击获得路径，然后复制粘贴到黑窗口进入。</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E8%BF%9B%E5%85%A5%E6%96%87%E4%BB%B6%E5%A4%B9.jpg" alt="进入工作文件夹"><figcaption>进入工作文件夹</figcaption></figure></p>
+<p>接着回到MarkText软件，将文件导出为HTML文件，保存在特定文件夹，该文件夹应该跟cmd黑窗口进入的文件夹一样。举例时，我将该文件保存为<code>test.html</code>文件在<code>F:\14.Books</code>文件夹。</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E5%AF%BC%E5%87%BAHTML.jpg" alt="导出HTML"><figcaption>导出HTML</figcaption></figure></p>
+<p>再回到黑窗口，使用命令<code>wkhtmltopdf 目的文件名字 新文件名字</code>转换，我这里应该是<code>wkhtmltopdf test.html test.pdf</code>。等待转换成功。</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E8%BD%AC%E6%8D%A2%E6%88%90%E5%8A%9F.jpg" alt="转换成功"><figcaption>转换成功</figcaption></figure></p>
+<p>此时回到文件夹，就可以看到转换完成的带目录的PDF文件。</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_test.jpg" alt="转换成功的PDF文件"><figcaption>转换成功的PDF文件</figcaption></figure></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>软件</category>
+      </categories>
+      <tags>
+        <tag>Markdown工具</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>给大一的你</title>
     <url>/%E7%BB%8F%E9%AA%8C%E4%B9%8B%E8%B0%88/tofreshman/</url>
     <content><![CDATA[<p>如今大二将完，给大一朋友的一些话。</p>
@@ -4792,85 +5001,6 @@
       </categories>
       <tags>
         <tag>经验</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一个小巧的Markdown编辑工具</title>
-    <url>/%E8%BD%AF%E4%BB%B6/tools1/</url>
-    <content><![CDATA[<p>介绍一个小巧方便的编写Markdown语言工具——MarkText。</p>
-<p>关键词：Markdown工具</p>
-<span id="more"></span>
-
-<hr>
-<!-- toc -->
-
-<h1 id="什么是Markdown"><a href="#什么是Markdown" class="headerlink" title="什么是Markdown"></a>什么是Markdown</h1><ul>
-<li><p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。</p>
-</li>
-<li><p>Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。</p>
-</li>
-<li><p>Markdown可用于编写记录笔记、博客、电子书等电子文档。</p>
-</li>
-</ul>
-<h1 id="MarkText"><a href="#MarkText" class="headerlink" title="MarkText"></a>MarkText</h1><ul>
-<li>MarkText是一款开源的Markdown工具，可用于编辑输出Markdown文件。本人推荐的是英文语言软件，如何汉化自行研究。</li>
-</ul>
-<p>软件地址：建议安装到非系统盘（非C盘）</p>
-<p><a class="link" href="https://github.com/marktext/marktext/releases">MarkText下载 - 官网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p><a class="link" href="https://www.aliyundrive.com/s/CoADkVDj1Sq">MarkText下载 - 个人网盘（Windows64位） <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<ul>
-<li>MarkText具有多个明暗主题选择，软件菜单内容明确，主打轻便，是一款很不错的小工具。</li>
-</ul>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E4%B8%BB%E7%95%8C%E9%9D%A2.jpg" alt="软件界面（明亮主题）"><figcaption>软件界面（明亮主题）</figcaption></figure></p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E4%B8%BB%E7%95%8C%E9%9D%A22.jpg" alt="软件界面（灰暗主题）"><figcaption>软件界面（灰暗主题）</figcaption></figure></p>
-<ul>
-<li>使用方法</li>
-</ul>
-<p>输入<code>@</code>选择插入的模块，包括段落、分割线、标题、表格、数学公式、引用块、列表等。如果本身对于Markdown语言有一定基础的话，也可直接建立该模块。</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E4%BD%BF%E7%94%A81.jpg" alt="使用过程"><figcaption>使用过程</figcaption></figure></p>
-<p>在编写完内容后，可以直接保存为Markdown文件（<code>.md</code>后缀），也可以导出为PDF文件和HTML文件。</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E4%BF%9D%E5%AD%98.jpg" alt="选择保存"><figcaption>选择保存</figcaption></figure></p>
-<h1 id="进阶使用"><a href="#进阶使用" class="headerlink" title="进阶使用"></a>进阶使用</h1><ul>
-<li>有时候对于PDF文件，会有显示目录大纲的需求，但是该软件直接导出并不能设置，此时需要借助另一个工具：wkhtmltopdf。</li>
-</ul>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.jpg" alt="带目录的PDF文件"><figcaption>带目录的PDF文件</figcaption></figure></p>
-<ul>
-<li><strong>wkhtmltopdf</strong></li>
-</ul>
-<p>一款<strong>将HTML文件转化为PDF文件</strong>的小工具，但是其并没有软件UI界面，对小白不友好，但是万能的网络能搜到使用方法，此处针对如何导出带目录的PDF进行介绍。</p>
-<ol>
-<li>下载软件</li>
-</ol>
-<p>下载地址：可能提示有风险，建议安装到非系统盘（非C盘）</p>
-<p><a class="link" href="https://wkhtmltopdf.org/downloads.html">wkhtmltopdf下载 - 官网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p><a class="link" href="https://www.aliyundrive.com/s/V4SBUcntBAv">wkhtmltopdf下载 - 个人网盘（Windows64位） <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<ol start="2">
-<li>安装并配置</li>
-</ol>
-<p>安装后，需要记住安装的具体位置，比如我是安装在D盘，位置就是<code>D:\wkhtmltopdf</code>，接着进行系统环境变量的配置。在电脑设置中搜索环境变量，打开编辑页面。</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.jpg" alt="配置环境变量"><figcaption>配置环境变量</figcaption></figure></p>
-<p>具体步骤：编辑→新建→输入安装的位置里面的bin文件夹即<code>D:\wkhtmltopdf\bin</code>→确定所有系统设置窗口。</p>
-<p>（添加错误的环境变量并不会对电脑造成严重伤害，但不要胡乱删除环境变量）</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%90%8E.jpg" alt="配置环境变量后"><figcaption>配置环境变量后</figcaption></figure></p>
-<p>再接着确认环境变量是否配置成功：按快捷键<code>win+r</code>，输入cmd，打开黑窗口，在窗口内输入<code>wkhtmltopdf -V</code>（查询wkhtmltopdf的版本），如果出现类似于版本号的数字，则说明添加环境变量成功。</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_cmd.jpg" alt="配置成功"><figcaption>配置成功</figcaption></figure></p>
-<ol start="3">
-<li>软件使用</li>
-</ol>
-<p>在cmd黑窗口切换到想要HTML文件转换为PDF文件的位置，直接输入<code>F:</code>切换到不同的盘，输入<code>cd xx</code>可以进入不同文件夹。如果不知道自己是什么路径，可以先进入所在盘，再打开文件所在文件夹，在地址栏点击获得路径，然后复制粘贴到黑窗口进入。</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E8%BF%9B%E5%85%A5%E6%96%87%E4%BB%B6%E5%A4%B9.jpg" alt="进入工作文件夹"><figcaption>进入工作文件夹</figcaption></figure></p>
-<p>接着回到MarkText软件，将文件导出为HTML文件，保存在特定文件夹，该文件夹应该跟cmd黑窗口进入的文件夹一样。举例时，我将该文件保存为<code>test.html</code>文件在<code>F:\14.Books</code>文件夹。</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E5%AF%BC%E5%87%BAHTML.jpg" alt="导出HTML"><figcaption>导出HTML</figcaption></figure></p>
-<p>再回到黑窗口，使用命令<code>wkhtmltopdf 目的文件名字 新文件名字</code>转换，我这里应该是<code>wkhtmltopdf test.html test.pdf</code>。等待转换成功。</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_%E8%BD%AC%E6%8D%A2%E6%88%90%E5%8A%9F.jpg" alt="转换成功"><figcaption>转换成功</figcaption></figure></p>
-<p>此时回到文件夹，就可以看到转换完成的带目录的PDF文件。</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/tools1_test.jpg" alt="转换成功的PDF文件"><figcaption>转换成功的PDF文件</figcaption></figure></p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>软件</category>
-      </categories>
-      <tags>
-        <tag>Markdown工具</tag>
       </tags>
   </entry>
   <entry>
