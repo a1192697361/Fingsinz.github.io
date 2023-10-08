@@ -135,6 +135,34 @@
       </tags>
   </entry>
   <entry>
+    <title>如何暂停Windows的系统升级</title>
+    <url>/%E6%97%A5%E5%B8%B8/13/</url>
+    <content><![CDATA[<p>关闭Windows的自动更新</p>
+<p>关键词：Windows</p>
+<span id="more"></span>
+
+<hr>
+<!-- toc -->
+
+<h1 id="1-修改注册表编辑器"><a href="#1-修改注册表编辑器" class="headerlink" title="1.修改注册表编辑器"></a>1.修改注册表编辑器</h1><p>按住 <code>Win</code> + <code>R</code> 输入 <code>regedit</code> 进入注册表编辑器。</p>
+<p>找到 <code>HKEY_LOCAL_MACHINE → SOFTWARE → Microsoft → WindowsUpdate → UX → Settings</code></p>
+<p>点击右边空白处，选择新建DWORD（32位）值，重命名为 <code>FlightSettingsMaxPauseDays</code> ，</p>
+<p>双击打开，选择十进制，输入想要暂停的最大天数，我这里输入 <code>8888</code> 。</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/13_1.jpg" alt="添加新项"><figcaption>添加新项</figcaption></figure></p>
+<h1 id="2-打开系统设置"><a href="#2-打开系统设置" class="headerlink" title="2.打开系统设置"></a>2.打开系统设置</h1><p>按住 <code>Win</code> + <code>I</code> 打开系统设置，搜索 <code>Windows更新</code> ，进入Windows更新设置，在暂停更新处选择最大值即可。</p>
+<p>Windows 10的暂停更新在 <code>Windows 更新设置 → 高级选项 → 暂停更新</code></p>
+<p>效果如图：</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/13_2.jpg" alt="暂停8888天"><figcaption>暂停8888天</figcaption></figure></p>
+<h1 id="3-恢复更新"><a href="#3-恢复更新" class="headerlink" title="3.恢复更新"></a>3.恢复更新</h1><p>直接点击继续更新即可。 </p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Qt的安装记录</title>
     <url>/%E6%97%A5%E5%B8%B8/14/</url>
     <content><![CDATA[<p>Qt（C++）和pyQt的安装记录</p>
@@ -185,34 +213,6 @@
       </categories>
       <tags>
         <tag>Qt</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何暂停Windows的系统升级</title>
-    <url>/%E6%97%A5%E5%B8%B8/13/</url>
-    <content><![CDATA[<p>关闭Windows的自动更新</p>
-<p>关键词：Windows</p>
-<span id="more"></span>
-
-<hr>
-<!-- toc -->
-
-<h1 id="1-修改注册表编辑器"><a href="#1-修改注册表编辑器" class="headerlink" title="1.修改注册表编辑器"></a>1.修改注册表编辑器</h1><p>按住 <code>Win</code> + <code>R</code> 输入 <code>regedit</code> 进入注册表编辑器。</p>
-<p>找到 <code>HKEY_LOCAL_MACHINE → SOFTWARE → Microsoft → WindowsUpdate → UX → Settings</code></p>
-<p>点击右边空白处，选择新建DWORD（32位）值，重命名为 <code>FlightSettingsMaxPauseDays</code> ，</p>
-<p>双击打开，选择十进制，输入想要暂停的最大天数，我这里输入 <code>8888</code> 。</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/13_1.jpg" alt="添加新项"><figcaption>添加新项</figcaption></figure></p>
-<h1 id="2-打开系统设置"><a href="#2-打开系统设置" class="headerlink" title="2.打开系统设置"></a>2.打开系统设置</h1><p>按住 <code>Win</code> + <code>I</code> 打开系统设置，搜索 <code>Windows更新</code> ，进入Windows更新设置，在暂停更新处选择最大值即可。</p>
-<p>Windows 10的暂停更新在 <code>Windows 更新设置 → 高级选项 → 暂停更新</code></p>
-<p>效果如图：</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/13_2.jpg" alt="暂停8888天"><figcaption>暂停8888天</figcaption></figure></p>
-<h1 id="3-恢复更新"><a href="#3-恢复更新" class="headerlink" title="3.恢复更新"></a>3.恢复更新</h1><p>直接点击继续更新即可。 </p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>Windows</tag>
       </tags>
   </entry>
   <entry>
@@ -341,6 +341,61 @@
       </tags>
   </entry>
   <entry>
+    <title>Windows 10下安装CUDA、TensorRT记录</title>
+    <url>/%E6%97%A5%E5%B8%B8/5/</url>
+    <content><![CDATA[<p>GPU：NVIDIA GeFOrce GTX 1050</p>
+<p>关键词：深度学习、YOLOv5、TensorRT、C++推演</p>
+<span id="more"></span>
+
+<hr>
+<!-- toc -->
+
+<h1 id="一、下载CUDA"><a href="#一、下载CUDA" class="headerlink" title="一、下载CUDA"></a>一、下载CUDA</h1><h2 id="1-确定适配本机显卡驱动的CUDA版本"><a href="#1-确定适配本机显卡驱动的CUDA版本" class="headerlink" title="1.确定适配本机显卡驱动的CUDA版本"></a>1.确定适配本机显卡驱动的CUDA版本</h2><p>系统搜索打开NVIDIA控制面板，点击帮助，选择系统信息-&gt;组件，找到CUDA字样。此处我的CUDA适配版本为<code>12.0</code>。</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/5_CUDA%E7%89%88%E6%9C%AC.jpg" alt="CUDA版本查看"><figcaption>CUDA版本查看</figcaption></figure></p>
+<h2 id="2-下载对应版本的CUDA"><a href="#2-下载对应版本的CUDA" class="headerlink" title="2.下载对应版本的CUDA"></a>2.下载对应版本的CUDA</h2><p><a class="link" href="https://developer.nvidia.com/cuda-toolkit-archive">下载地址 - NVIDIA官网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h2 id="3-安装CUDA"><a href="#3-安装CUDA" class="headerlink" title="3.安装CUDA"></a>3.安装CUDA</h2><p>点击下载的安装exe文件，可以更改文件安装位置，记住文件安装位置。此处我的安装位置是<code>G:\NVIDIA_GPU_Computing_Toolkit_CUDA_v12.0</code>。</p>
+<h1 id="二、下载cuDNN包"><a href="#二、下载cuDNN包" class="headerlink" title="二、下载cuDNN包"></a>二、下载cuDNN包</h1><h2 id="1-选择适配CUDA的版本下载对应的cuDNN包"><a href="#1-选择适配CUDA的版本下载对应的cuDNN包" class="headerlink" title="1.选择适配CUDA的版本下载对应的cuDNN包"></a>1.选择适配CUDA的版本下载对应的cuDNN包</h2><p><a class="link" href="https://developer.nvidia.com/rdp/cudnn-archive">下载地址 - NVIDIA官网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h2 id="2-选择合适的位置解压cuDNN压缩包"><a href="#2-选择合适的位置解压cuDNN压缩包" class="headerlink" title="2.选择合适的位置解压cuDNN压缩包"></a>2.选择合适的位置解压cuDNN压缩包</h2><p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/5_cuDNN.jpg" alt="解压cuDNN后的文件"><figcaption>解压cuDNN后的文件</figcaption></figure></p>
+<h2 id="3-复制文件"><a href="#3-复制文件" class="headerlink" title="3.复制文件"></a>3.复制文件</h2><p>cuDNN属于是CUDA的一个补丁包，因此无需安装。需要将<code>bin</code>、<code>include</code>、<code>lib</code>文件夹中的相关文件拷贝到CUDA安装位置的<code>bin</code>、<code>include</code>、<code>lib的x64</code>文件夹中。</p>
+<p>我的CUDA安装位置是：<code>G:\NVIDIA_GPU_Computing_Toolkit_CUDA_v12.0</code>。</p>
+<h2 id="4-验证是否成功"><a href="#4-验证是否成功" class="headerlink" title="4.验证是否成功"></a>4.验证是否成功</h2><p><code>Win + R</code>输入cmd打开cmd窗口。<br>直接输入盘符如<code>F:</code>跳转到F盘，<code>cd</code>进入到具体地址。<br>比如我的CUDA安装在<code>G:\NVIDIA_GPU_Computing_Toolkit_CUDA_v12.0</code>，<br>那么进入到<code>G:\NVIDIA_GPU_Computing_Toolkit_CUDA_v12.0\extras\demo_suite</code></p>
+<p>接着在cmd窗口输入下面的指令分别运行两个exe文件，结果出现PASS（如图）则验证成功。</p>
+<div class="highlight-container" data-rel="Cmd"><figure class="iseeu highlight cmd"><table><tr><td class="code"><pre><span class="line">bandwidthTest.exe</span><br></pre></td></tr></table></figure></div>
+
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/5_cuDNN%E9%AA%8C%E8%AF%81.jpg" alt="第一个exe运行结果"><figcaption>第一个exe运行结果</figcaption></figure></p>
+<div class="highlight-container" data-rel="Cmd"><figure class="iseeu highlight cmd"><table><tr><td class="code"><pre><span class="line">deviceQuery.exe</span><br></pre></td></tr></table></figure></div>
+
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/5_cuDNN%E9%AA%8C%E8%AF%812.jpg" alt="第二个exe运行结果"><figcaption>第二个exe运行结果</figcaption></figure></p>
+<h1 id="三、下载TensorRT包"><a href="#三、下载TensorRT包" class="headerlink" title="三、下载TensorRT包"></a>三、下载TensorRT包</h1><h2 id="1-选择适配CUDA版本的TensorRT包下载"><a href="#1-选择适配CUDA版本的TensorRT包下载" class="headerlink" title="1.选择适配CUDA版本的TensorRT包下载"></a>1.选择适配CUDA版本的TensorRT包下载</h2><p>进入<a class="link" href="https://developer.nvidia.com/nvidia-tensorrt-download">官网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>，选择较新的大版本，再选择适合自己安装的CUDA版本下载。</p>
+<p>我在此处下载Windows的支持CUDA12.0的版本。</p>
+<h2 id="2-选择合适的位置解压TensorRT压缩包"><a href="#2-选择合适的位置解压TensorRT压缩包" class="headerlink" title="2.选择合适的位置解压TensorRT压缩包"></a>2.选择合适的位置解压TensorRT压缩包</h2><p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/5_TensorRT.jpg" alt="解压TensorRT后的文件"><figcaption>解压TensorRT后的文件</figcaption></figure></p>
+<h2 id="3-安装TensorRT"><a href="#3-安装TensorRT" class="headerlink" title="3.安装TensorRT"></a>3.安装TensorRT</h2><ul>
+<li>将TensorRT的<code>include</code>文件夹中文件复制到CUDA安装位置的<code>include</code>文件夹。</li>
+</ul>
+<p>我的操作是：<code>copy \TensorRT-8.6.1.6\include → NVIDIA_GPU_Computing_Toolkit_CUDA_v12.0\include</code></p>
+<ul>
+<li><p>将TensorRT的<code>lib</code>中所有lib文件复制到CUDA安装位置的<code>lib\x64</code>文件夹</p>
+</li>
+<li><p>将TensorRT的<code>lib</code>中所有dll文件复制到CUDA安装位置的<code>bin</code>文件夹</p>
+</li>
+</ul>
+<h2 id="4-验证TensoRT"><a href="#4-验证TensoRT" class="headerlink" title="4.验证TensoRT"></a>4.验证TensoRT</h2><p>检查系统环境变量中是否有包含了CUDA的bin文件夹，没有则添加。</p>
+<p>使用Visual Studio打开sampleMNIST示例，即打开<code>../TensorRT-8.6.1.6\samples\sampleOnnxMNIST</code>文件夹中的sln文件，必要时对项目属性的常规、VC++目录、C&#x2F;C++里面的环境进行配置，添加依赖。<a class="link" href="https://blog.csdn.net/shanglianlm/article/details/92847719">参考 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>右键项目，点击重新生成。可以点击不调试运行测试。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><figure class="image-caption"><img src="https://blog.csdn.net/shanglianlm/article/details/92847719" alt="TensorRT之安装与测试（Windows和Linux环境下安装TensorRT）"><figcaption>TensorRT之安装与测试（Windows和Linux环境下安装TensorRT）</figcaption></figure></p>
+<p><figure class="image-caption"><img src="https://zhuanlan.zhihu.com/p/305854081" alt="Window下Python+CUDA+PyTorch安装"><figcaption>Window下Python+CUDA+PyTorch安装</figcaption></figure></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>深度学习</tag>
+        <tag>YOLOv5</tag>
+        <tag>TensorRT</tag>
+        <tag>C++推演</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>搭建一个自己的简单博客</title>
     <url>/%E6%97%A5%E5%B8%B8/4/</url>
     <content><![CDATA[<p>简单几步，基于Hexo搭建一个属于自己的简单博客</p>
@@ -427,61 +482,6 @@
       <tags>
         <tag>Hexo</tag>
         <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Windows 10下安装CUDA、TensorRT记录</title>
-    <url>/%E6%97%A5%E5%B8%B8/5/</url>
-    <content><![CDATA[<p>GPU：NVIDIA GeFOrce GTX 1050</p>
-<p>关键词：深度学习、YOLOv5、TensorRT、C++推演</p>
-<span id="more"></span>
-
-<hr>
-<!-- toc -->
-
-<h1 id="一、下载CUDA"><a href="#一、下载CUDA" class="headerlink" title="一、下载CUDA"></a>一、下载CUDA</h1><h2 id="1-确定适配本机显卡驱动的CUDA版本"><a href="#1-确定适配本机显卡驱动的CUDA版本" class="headerlink" title="1.确定适配本机显卡驱动的CUDA版本"></a>1.确定适配本机显卡驱动的CUDA版本</h2><p>系统搜索打开NVIDIA控制面板，点击帮助，选择系统信息-&gt;组件，找到CUDA字样。此处我的CUDA适配版本为<code>12.0</code>。</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/5_CUDA%E7%89%88%E6%9C%AC.jpg" alt="CUDA版本查看"><figcaption>CUDA版本查看</figcaption></figure></p>
-<h2 id="2-下载对应版本的CUDA"><a href="#2-下载对应版本的CUDA" class="headerlink" title="2.下载对应版本的CUDA"></a>2.下载对应版本的CUDA</h2><p><a class="link" href="https://developer.nvidia.com/cuda-toolkit-archive">下载地址 - NVIDIA官网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h2 id="3-安装CUDA"><a href="#3-安装CUDA" class="headerlink" title="3.安装CUDA"></a>3.安装CUDA</h2><p>点击下载的安装exe文件，可以更改文件安装位置，记住文件安装位置。此处我的安装位置是<code>G:\NVIDIA_GPU_Computing_Toolkit_CUDA_v12.0</code>。</p>
-<h1 id="二、下载cuDNN包"><a href="#二、下载cuDNN包" class="headerlink" title="二、下载cuDNN包"></a>二、下载cuDNN包</h1><h2 id="1-选择适配CUDA的版本下载对应的cuDNN包"><a href="#1-选择适配CUDA的版本下载对应的cuDNN包" class="headerlink" title="1.选择适配CUDA的版本下载对应的cuDNN包"></a>1.选择适配CUDA的版本下载对应的cuDNN包</h2><p><a class="link" href="https://developer.nvidia.com/rdp/cudnn-archive">下载地址 - NVIDIA官网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h2 id="2-选择合适的位置解压cuDNN压缩包"><a href="#2-选择合适的位置解压cuDNN压缩包" class="headerlink" title="2.选择合适的位置解压cuDNN压缩包"></a>2.选择合适的位置解压cuDNN压缩包</h2><p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/5_cuDNN.jpg" alt="解压cuDNN后的文件"><figcaption>解压cuDNN后的文件</figcaption></figure></p>
-<h2 id="3-复制文件"><a href="#3-复制文件" class="headerlink" title="3.复制文件"></a>3.复制文件</h2><p>cuDNN属于是CUDA的一个补丁包，因此无需安装。需要将<code>bin</code>、<code>include</code>、<code>lib</code>文件夹中的相关文件拷贝到CUDA安装位置的<code>bin</code>、<code>include</code>、<code>lib的x64</code>文件夹中。</p>
-<p>我的CUDA安装位置是：<code>G:\NVIDIA_GPU_Computing_Toolkit_CUDA_v12.0</code>。</p>
-<h2 id="4-验证是否成功"><a href="#4-验证是否成功" class="headerlink" title="4.验证是否成功"></a>4.验证是否成功</h2><p><code>Win + R</code>输入cmd打开cmd窗口。<br>直接输入盘符如<code>F:</code>跳转到F盘，<code>cd</code>进入到具体地址。<br>比如我的CUDA安装在<code>G:\NVIDIA_GPU_Computing_Toolkit_CUDA_v12.0</code>，<br>那么进入到<code>G:\NVIDIA_GPU_Computing_Toolkit_CUDA_v12.0\extras\demo_suite</code></p>
-<p>接着在cmd窗口输入下面的指令分别运行两个exe文件，结果出现PASS（如图）则验证成功。</p>
-<div class="highlight-container" data-rel="Cmd"><figure class="iseeu highlight cmd"><table><tr><td class="code"><pre><span class="line">bandwidthTest.exe</span><br></pre></td></tr></table></figure></div>
-
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/5_cuDNN%E9%AA%8C%E8%AF%81.jpg" alt="第一个exe运行结果"><figcaption>第一个exe运行结果</figcaption></figure></p>
-<div class="highlight-container" data-rel="Cmd"><figure class="iseeu highlight cmd"><table><tr><td class="code"><pre><span class="line">deviceQuery.exe</span><br></pre></td></tr></table></figure></div>
-
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/5_cuDNN%E9%AA%8C%E8%AF%812.jpg" alt="第二个exe运行结果"><figcaption>第二个exe运行结果</figcaption></figure></p>
-<h1 id="三、下载TensorRT包"><a href="#三、下载TensorRT包" class="headerlink" title="三、下载TensorRT包"></a>三、下载TensorRT包</h1><h2 id="1-选择适配CUDA版本的TensorRT包下载"><a href="#1-选择适配CUDA版本的TensorRT包下载" class="headerlink" title="1.选择适配CUDA版本的TensorRT包下载"></a>1.选择适配CUDA版本的TensorRT包下载</h2><p>进入<a class="link" href="https://developer.nvidia.com/nvidia-tensorrt-download">官网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>，选择较新的大版本，再选择适合自己安装的CUDA版本下载。</p>
-<p>我在此处下载Windows的支持CUDA12.0的版本。</p>
-<h2 id="2-选择合适的位置解压TensorRT压缩包"><a href="#2-选择合适的位置解压TensorRT压缩包" class="headerlink" title="2.选择合适的位置解压TensorRT压缩包"></a>2.选择合适的位置解压TensorRT压缩包</h2><p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/5_TensorRT.jpg" alt="解压TensorRT后的文件"><figcaption>解压TensorRT后的文件</figcaption></figure></p>
-<h2 id="3-安装TensorRT"><a href="#3-安装TensorRT" class="headerlink" title="3.安装TensorRT"></a>3.安装TensorRT</h2><ul>
-<li>将TensorRT的<code>include</code>文件夹中文件复制到CUDA安装位置的<code>include</code>文件夹。</li>
-</ul>
-<p>我的操作是：<code>copy \TensorRT-8.6.1.6\include → NVIDIA_GPU_Computing_Toolkit_CUDA_v12.0\include</code></p>
-<ul>
-<li><p>将TensorRT的<code>lib</code>中所有lib文件复制到CUDA安装位置的<code>lib\x64</code>文件夹</p>
-</li>
-<li><p>将TensorRT的<code>lib</code>中所有dll文件复制到CUDA安装位置的<code>bin</code>文件夹</p>
-</li>
-</ul>
-<h2 id="4-验证TensoRT"><a href="#4-验证TensoRT" class="headerlink" title="4.验证TensoRT"></a>4.验证TensoRT</h2><p>检查系统环境变量中是否有包含了CUDA的bin文件夹，没有则添加。</p>
-<p>使用Visual Studio打开sampleMNIST示例，即打开<code>../TensorRT-8.6.1.6\samples\sampleOnnxMNIST</code>文件夹中的sln文件，必要时对项目属性的常规、VC++目录、C&#x2F;C++里面的环境进行配置，添加依赖。<a class="link" href="https://blog.csdn.net/shanglianlm/article/details/92847719">参考 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p>右键项目，点击重新生成。可以点击不调试运行测试。</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><figure class="image-caption"><img src="https://blog.csdn.net/shanglianlm/article/details/92847719" alt="TensorRT之安装与测试（Windows和Linux环境下安装TensorRT）"><figcaption>TensorRT之安装与测试（Windows和Linux环境下安装TensorRT）</figcaption></figure></p>
-<p><figure class="image-caption"><img src="https://zhuanlan.zhihu.com/p/305854081" alt="Window下Python+CUDA+PyTorch安装"><figcaption>Window下Python+CUDA+PyTorch安装</figcaption></figure></p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>深度学习</tag>
-        <tag>YOLOv5</tag>
-        <tag>TensorRT</tag>
-        <tag>C++推演</tag>
       </tags>
   </entry>
   <entry>
@@ -1653,6 +1653,553 @@
       </categories>
       <tags>
         <tag>HTML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>基于Qt的音频播放器程序设计记录</title>
+    <url>/%E7%AC%94%E8%AE%B0/fmusicplayer/</url>
+    <content><![CDATA[<p>使用Qt的工具完成一个音频播放器——FMusicPlayer</p>
+<p>关键词：Qt、C++</p>
+<span id="more"></span>
+
+<hr>
+<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>利用Qt的工具开发一个音乐播放器，界面如下图：</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/fmusicplayer_ui.jpg" alt="界面截图"><figcaption>界面截图</figcaption></figure></p>
+<p>Qt版本5.12.12。该项目十分简单，适合用于练手。</p>
+<h1 id="二、模块构思"><a href="#二、模块构思" class="headerlink" title="二、模块构思"></a>二、模块构思</h1><p>根据市场上现有的音乐播放器思考，一个基本的音乐播放器应该具有以下功能：</p>
+<ul>
+<li><p>播放/暂停</p>
+</li>
+<li><p>停止</p>
+</li>
+<li><p>控制音频播放进度</p>
+</li>
+<li><p>管理音乐列表</p>
+</li>
+<li><p>音量控制</p>
+</li>
+<li><p>信息显示</p>
+</li>
+<li><p>……</p>
+</li>
+</ul>
+<p>此软件仅实现了上述功能。</p>
+<h1 id="三、模块实现"><a href="#三、模块实现" class="headerlink" title="三、模块实现"></a>三、模块实现</h1><p>此音乐播放器主要使用Qt现成的QMediaPlayer类和QMediaPlaylist类进行维护。</p>
+<h2 id="3-1-界面设计"><a href="#3-1-界面设计" class="headerlink" title="3.1 界面设计"></a>3.1 界面设计</h2><p>整体界面设计如图：</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/fmusicplayer_uidesign.jpg" alt="界面设计"><figcaption>界面设计</figcaption></figure></p>
+<ul>
+<li><p>9个按钮QPushButton，对应各种功能；</p>
+</li>
+<li><p>3个标签文字QLabel，用于说明；</p>
+</li>
+<li><p>2个文本框QLineEdit，用于显示信息；</p>
+</li>
+<li><p>1个列表QListWidget，用于存放播放列表；</p>
+</li>
+<li><p>2个滑条QSlider，一个用于控制和显示进度，一个用于控制和显示音量。</p>
+</li>
+<li><p>若干个弹簧用于调整布局。</p>
+</li>
+</ul>
+<p>完成后的程序界面：</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/fmusicplayer_ui2.jpg" alt="期望的UI"><figcaption>期望的UI</figcaption></figure></p>
+<h2 id="3-1-初始化工程"><a href="#3-1-初始化工程" class="headerlink" title="3.1 初始化工程"></a>3.1 初始化工程</h2><p>此程序使用了Qt的multimedia部件，所以首先在Qt的.pro工程文件中包含multimedia。</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">……</span><br><span class="line">QT  += multimedia</span><br><span class="line">……</span><br></pre></td></tr></table></figure></div>
+
+<p>接着项目中应该有以下文件：</p>
+<blockquote>
+<p>mainwindow.h<br>mainwindow.cpp<br>mainwindow.ui<br>main.cpp</p>
+</blockquote>
+<ul>
+<li><p>mainwindow.h：主要存放主窗口的一些声明</p>
+</li>
+<li><p>mainwindow.cpp：记录主窗口的实现</p>
+</li>
+<li><p>mainwindow.ui：界面的设计文件</p>
+</li>
+<li><p>main.cpp：程序入口</p>
+</li>
+</ul>
+<p>首先在mainwindow.h中将我们实现的模块添加槽函数声明和成员变量的声明：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line">QMediaPlayer *musicplayer; <span class="comment">// 播放器</span></span><br><span class="line">QMediaPlaylist *musicplayList; <span class="comment">// 播放列表</span></span><br><span class="line"></span><br><span class="line">QString durationTime;<span class="comment">// 音频总长度</span></span><br><span class="line">QString  positionTime;<span class="comment">// 当前播放到位置</span></span><br><span class="line"><span class="comment">// 槽函数声明略，见源代码</span></span><br></pre></td></tr></table></figure></div>
+
+<p>接着在主窗口构造函数中做一些初始化：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建实例</span></span><br><span class="line">musicplayer = <span class="keyword">new</span> <span class="built_in">QMediaPlayer</span>(<span class="keyword">this</span>);</span><br><span class="line">musicplayList = <span class="keyword">new</span> <span class="built_in">QMediaPlaylist</span>(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 循环播放</span></span><br><span class="line">musicplayList-&gt;<span class="built_in">setPlaybackMode</span>(QMediaPlaylist::Loop);</span><br><span class="line">musicplayer-&gt;<span class="built_in">setPlaylist</span>(musicplayList);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 默认音量，同步音量显示</span></span><br><span class="line">ui-&gt;volume-&gt;<span class="built_in">setValue</span>(<span class="number">50</span>);	</span><br><span class="line"><span class="built_in">changedVolume</span>(<span class="number">50</span>);			</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="3-3-播放-x2F-暂停模块"><a href="#3-3-播放-x2F-暂停模块" class="headerlink" title="3.3 播放/暂停模块"></a>3.3 播放/暂停模块</h2><p>当点击播放键时播放音乐，为播放按钮play绑定单击事件，触发playMusic()函数：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 播放音乐</span></span><br><span class="line"><span class="built_in">connect</span>(ui-&gt;play, <span class="built_in">SIGNAL</span>(<span class="built_in">clicked</span>()), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">playMusic</span>()));</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::playMusic</span><span class="params">()</span><span class="comment">//播放</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="comment">// 维护播放列表，使其索引正常，正常播放</span></span><br><span class="line">    <span class="keyword">if</span>(musicplayList-&gt;<span class="built_in">currentIndex</span>()&lt;<span class="number">0</span>)</span><br><span class="line">        musicplayList-&gt;<span class="built_in">setCurrentIndex</span>(<span class="number">0</span>);</span><br><span class="line">    musicplayer-&gt;<span class="built_in">play</span>();</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<p>当点击暂停键时暂停音乐，支持记录位置，从上次暂停的位置播放。为暂停按钮绑定单击事件，触发pauseMusic()函数：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 暂停音乐</span></span><br><span class="line"><span class="built_in">connect</span>(ui-&gt;pause, <span class="built_in">SIGNAL</span>(<span class="built_in">clicked</span>()), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">pauseMusic</span>()));</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::pauseMusic</span><span class="params">()</span><span class="comment">//暂停播放</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    musicplayer-&gt;<span class="built_in">pause</span>();</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="3-4-停止模块"><a href="#3-4-停止模块" class="headerlink" title="3.4 停止模块"></a>3.4 停止模块</h2><p>当点击停止键时，停止音乐，音乐播放位置归零。为停止按钮绑定单击事件，触发stopMusic()函数：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 停止音乐</span></span><br><span class="line"><span class="built_in">connect</span>(ui-&gt;stop, <span class="built_in">SIGNAL</span>(<span class="built_in">clicked</span>()), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">stopMusic</span>()));</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::stopMusic</span><span class="params">()</span><span class="comment">//停止播放</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    musicplayer-&gt;<span class="built_in">stop</span>();</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="3-5-控制音频进度模块"><a href="#3-5-控制音频进度模块" class="headerlink" title="3.5 控制音频进度模块"></a>3.5 控制音频进度模块</h2><p>播放时，音频进度条应当可以被拖动，并且更新播放的位置。为进度条绑定值修改事件，触发changedPosition()函数，函数参数为进度条传入的位置参数。</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 进度条控制</span></span><br><span class="line"><span class="built_in">connect</span>(ui-&gt;timebar, <span class="built_in">SIGNAL</span>(<span class="built_in">valueChanged</span>(<span class="type">int</span>)), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">changedPosition</span>(<span class="type">int</span>)));</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::changedPosition</span><span class="params">(<span class="type">int</span> pos)</span>   <span class="comment">// 修改播放位置</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    musicplayer-&gt;<span class="built_in">setPosition</span>(pos);</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="3-6-管理音乐列表模块"><a href="#3-6-管理音乐列表模块" class="headerlink" title="3.6 管理音乐列表模块"></a>3.6 管理音乐列表模块</h2><p>播放器应该可以输入多个文件，接着顺序播放，所以需要维护一个音乐列表。</p>
+<p>首先可以向音乐列表添加音乐，为添加音乐按钮绑定单击事件，绑定addMusic()函数。</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 添加文件</span></span><br><span class="line"><span class="built_in">connect</span>(ui-&gt;addMusic, <span class="built_in">SIGNAL</span>(<span class="built_in">clicked</span>()), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">addMusictoList</span>()));</span><br></pre></td></tr></table></figure></div>
+
+<p>读取文件时，wav文件是支持的，而mp3文件需要外置解码器的支持，处理mp3文件方法见文章最后。</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::addMusictoList</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    QString curPath = QDir::<span class="built_in">currentPath</span>();</span><br><span class="line">    QString title = <span class="string">"选择音频文件"</span>;</span><br><span class="line">    QString filter = <span class="string">"音频文件(*.wav *.mp3)"</span>;</span><br><span class="line">    QStringList fileList = QFileDialog::<span class="built_in">getOpenFileNames</span>(<span class="keyword">this</span>, title, curPath, filter);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 添加文件少于1个时退出函数</span></span><br><span class="line">    <span class="keyword">if</span>(filter.<span class="built_in">count</span>() &lt; <span class="number">1</span>)  <span class="keyword">return</span>;</span><br><span class="line">	<span class="comment">// 将读取的文件放入musicplayList里</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; fileList.<span class="built_in">count</span>(); ++ i)</span><br><span class="line">    {</span><br><span class="line">        QString aFile = fileList.<span class="built_in">at</span>(i);</span><br><span class="line">        musicplayList-&gt;<span class="built_in">addMedia</span>(QUrl::<span class="built_in">fromLocalFile</span>(aFile));</span><br><span class="line"></span><br><span class="line">        <span class="function">QFileInfo <span class="title">fileinfo</span><span class="params">(aFile)</span></span>;</span><br><span class="line">        ui-&gt;playList-&gt;<span class="built_in">addItem</span>(fileinfo.<span class="built_in">fileName</span>());</span><br><span class="line">    }</span><br><span class="line">	<span class="comment">// 将音乐列表的第一首音频作为待播放音频</span></span><br><span class="line">    <span class="keyword">if</span>(musicplayer-&gt;<span class="built_in">state</span>() != QMediaPlayer::PlayingState)</span><br><span class="line">        musicplayList-&gt;<span class="built_in">setCurrentIndex</span>(<span class="number">0</span>);</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<p>同样还应支持移除音频文件：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 移除文件</span></span><br><span class="line"><span class="built_in">connect</span>(ui-&gt;delMusic, <span class="built_in">SIGNAL</span>(<span class="built_in">clicked</span>()), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">delMusic</span>()));</span><br></pre></td></tr></table></figure></div>
+
+<p>移除文件时还应判断移除的是否为当前播放音乐，进行相应处理。</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::delMusic</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="type">int</span> pos = ui-&gt;playList-&gt;<span class="built_in">currentRow</span>(); <span class="comment">// 获取选中行</span></span><br><span class="line">    QListWidgetItem *item = ui-&gt;playList-&gt;<span class="built_in">takeItem</span>(pos);</span><br><span class="line">    <span class="keyword">delete</span>  item;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(musicplayList-&gt;<span class="built_in">currentIndex</span>() == pos)<span class="comment">// 删除是当前播放的音乐时</span></span><br><span class="line">    {</span><br><span class="line">        <span class="type">int</span> nextPos = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(pos &gt;= <span class="number">1</span>)    nextPos = pos - <span class="number">1</span>;</span><br><span class="line">        musicplayList-&gt;<span class="built_in">removeMedia</span>(pos);</span><br><span class="line">        <span class="keyword">if</span>(ui-&gt;playList-&gt;<span class="built_in">count</span>() &gt; <span class="number">0</span>)</span><br><span class="line">        {</span><br><span class="line">            musicplayList-&gt;<span class="built_in">setCurrentIndex</span>(nextPos);</span><br><span class="line">            <span class="built_in">onPlayListChanged</span>(nextPos);</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        {</span><br><span class="line">            musicplayer-&gt;<span class="built_in">stop</span>();</span><br><span class="line">            ui-&gt;playmusic-&gt;<span class="built_in">setText</span>(<span class="string">"无文件"</span>);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        musicplayList-&gt;<span class="built_in">removeMedia</span>(pos);</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<p>清空文件则是移除文件的简化版，直接将播放列表清空即可。</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 清空文件列表</span></span><br><span class="line"><span class="built_in">connect</span>(ui-&gt;clearList, <span class="built_in">SIGNAL</span>(<span class="built_in">clicked</span>()), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">clearList</span>()));</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::clearList</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    musicplayList-&gt;<span class="built_in">clear</span>();	<span class="comment">// 清空列表</span></span><br><span class="line">    ui-&gt;playList-&gt;<span class="built_in">clear</span>();	<span class="comment">// 更新UI</span></span><br><span class="line">    ui-&gt;playmusic-&gt;<span class="built_in">clear</span>();</span><br><span class="line">    ui-&gt;time-&gt;<span class="built_in">clear</span>();</span><br><span class="line">    ui-&gt;timebar-&gt;<span class="built_in">setValue</span>(<span class="number">0</span>);</span><br><span class="line">    musicplayer-&gt;<span class="built_in">stop</span>();	<span class="comment">// 停止播放</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<p>最后还可以添加上一首和下一首的功能，只需简单绑定一下点击事件和调用musicplayList的函数即可。</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line">musicplayList-&gt;<span class="built_in">previous</span>();	<span class="comment">// 上一首</span></span><br><span class="line">musicplayList-&gt;<span class="built_in">next</span>();		<span class="comment">// 下一首</span></span><br></pre></td></tr></table></figure></div>
+
+<h2 id="3-7-音量控制模块"><a href="#3-7-音量控制模块" class="headerlink" title="3.7 音量控制模块"></a>3.7 音量控制模块</h2><p>一个播放器还应该支持音量的调节，而QMediaPlayer支持音量调节，所以绑定滑条值改变事件且调用函数即可，事件返回一个滑条的位置参数。</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 控制音量</span></span><br><span class="line"><span class="built_in">connect</span>(ui-&gt;volume, <span class="built_in">SIGNAL</span>(<span class="built_in">valueChanged</span>(<span class="type">int</span>)), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">changedVolume</span>(<span class="type">int</span>)));</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::changedVolume</span><span class="params">(<span class="type">int</span> value)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    musicplayer-&gt;<span class="built_in">setVolume</span>(value);</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="3-8-信息显示与同步模块"><a href="#3-8-信息显示与同步模块" class="headerlink" title="3.8 信息显示与同步模块"></a>3.8 信息显示与同步模块</h2><p>根据UI的设计，显示的信息有：当前播放的音频名字、播放时间/完整时间。当播放音频进行切换时，需要更新音频名字、播放时间和音频完整时间等信息。</p>
+<p>为播放列表musicplayList的当前索引变化事件绑定onPlayListChanged()函数，事件返回新的索引号，用此更新播放的音频名字。</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 播放音乐变化</span></span><br><span class="line"><span class="built_in">connect</span>(musicplayList, <span class="built_in">SIGNAL</span>(<span class="built_in">currentIndexChanged</span>(<span class="type">int</span>)), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">onPlayListChanged</span>(<span class="type">int</span>)));</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::onPlayListChanged</span><span class="params">(<span class="type">int</span> pos)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    ui-&gt;playList-&gt;<span class="built_in">setCurrentRow</span>(pos);</span><br><span class="line">    <span class="comment">// 使用QListWidgetItem类取出QListWidget的某一行</span></span><br><span class="line">    QListWidgetItem *item = ui-&gt;playList-&gt;<span class="built_in">currentItem</span>();</span><br><span class="line">    <span class="keyword">if</span>(item)</span><br><span class="line">    {</span><br><span class="line">		<span class="comment">// 更新UI的音频名字</span></span><br><span class="line">        ui-&gt;playmusic-&gt;<span class="built_in">setText</span>(item-&gt;<span class="built_in">text</span>());</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<p>切换音频时，其总时长也应该变化，需要为播放器musicplayer的播放位置变化durationChanged事件绑定onDurationChanged()函数。函数为计算音频总的时间。</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 时长变化</span></span><br><span class="line"><span class="built_in">connect</span>(musicplayer, <span class="built_in">SIGNAL</span>(<span class="built_in">durationChanged</span>(qint64)), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">onDurationChanged</span>(qint64)));</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::onDurationChanged</span><span class="params">(qint64 dur)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    ui-&gt;timebar-&gt;<span class="built_in">setMaximum</span>(dur);	<span class="comment">// 设置进度条的最大值</span></span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> secs = <span class="built_in">int</span>(dur / <span class="number">1000</span>);</span><br><span class="line">    <span class="type">int</span> mins = secs / <span class="number">60</span>;</span><br><span class="line">    secs %= <span class="number">60</span>;</span><br><span class="line">    durationTime = QString::<span class="built_in">asprintf</span>(<span class="string">" %d : %d "</span>, mins, secs);</span><br><span class="line">    <span class="comment">// UI刷新时间</span></span><br><span class="line">    ui-&gt;time-&gt;<span class="built_in">setText</span>(positionTime + <span class="string">" / "</span> + durationTime);</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<p>至于音频随着播放而位置和进度的刷新，则需要为播放器musicplayer的播放位置变化positionChanged事件绑定onPositionChanged()函数。函数为计算播放的时间。</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 播放位置变化</span></span><br><span class="line"><span class="built_in">connect</span>(musicplayer, <span class="built_in">SIGNAL</span>(<span class="built_in">positionChanged</span>(qint64)), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">onPositionChanged</span>(qint64)));</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::onPositionChanged</span><span class="params">(qint64 pos)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="comment">// 进度条滑动到尽头，退出函数</span></span><br><span class="line">    <span class="keyword">if</span>(ui-&gt;timebar-&gt;<span class="built_in">isSliderDown</span>()) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    ui-&gt;timebar-&gt;<span class="built_in">setSliderPosition</span>(pos);</span><br><span class="line">    <span class="comment">// 计算分和秒</span></span><br><span class="line">    <span class="type">int</span> secs = <span class="built_in">int</span> (pos / <span class="number">1000</span>);</span><br><span class="line">    <span class="type">int</span> mins = secs / <span class="number">60</span>;</span><br><span class="line">    secs %= <span class="number">60</span>;</span><br><span class="line">    positionTime = QString::<span class="built_in">asprintf</span>(<span class="string">" %d : %d "</span>, mins, secs);</span><br><span class="line">    <span class="comment">// UI刷新时间</span></span><br><span class="line">    ui-&gt;time-&gt;<span class="built_in">setText</span>(positionTime + <span class="string">" / "</span> + durationTime);</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<h1 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h1><p>该程序源代码放在<a class="link" href="https://gitee.com/fingsinz/fmusicplayer/">Gitee - https://gitee.com/fingsinz/fmusicplayer/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>该项目只是一个简单的播放器实现，希望能够帮助萌新认识Qt，提高自己的能力。</p>
+<p>不支持直接加载mp3文件，需要先下载相关解码器。此处附上解码器链接：</p>
+<p><a class="link" href="https://www.codecguide.com/download_kl.htm">K-lite_codec_pack <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a class="link" href="https://www.codecguide.com/download_k-lite_codec_pack_basic.htm">K-lite_codec_pack_basic（基础版） <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a class="link" href="https://www.codecguide.com/download_k-lite_codec_pack_standard.htm">K-lite_codec_pack_standard（标准版） <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>Qt</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>个人整理的C++学习路线</title>
+    <url>/%E7%BB%8F%E9%AA%8C%E4%B9%8B%E8%B0%88/cpproad/</url>
+    <content><![CDATA[<p>个人整理的C++大概学习路线</p>
+<p>关键词：C++</p>
+<span id="more"></span>
+
+<hr>
+<p><em>by：Fingsinz，Reference：<a class="link" href="https://roadmap.sh/cpp">C++ Developer Roadmap <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></em></p>
+<h2 id="C-语言介绍"><a href="#C-语言介绍" class="headerlink" title="C++ 语言介绍"></a>C++ 语言介绍</h2><h3 id="什么是C"><a href="#什么是C" class="headerlink" title="什么是C++"></a>什么是C++</h3><ul>
+<li><p>C++作为C编程语言的扩展，提供了类和继承等面向对象的特性。</p>
+</li>
+<li><p>C++被广泛应用于游戏开发、系统编程、嵌入式系统和高性能计算等各种应用中。</p>
+</li>
+<li><p>C++是一种静态类型语言，这意味着变量的类型是在编译过程中确定的，并且C++有一个称为C++标准库的扩展库，它为各种任务提供了一组丰富的函数、算法和数据结构。</p>
+</li>
+</ul>
+<h3 id="为什么使用C"><a href="#为什么使用C" class="headerlink" title="为什么使用C++"></a>为什么使用C++</h3><ul>
+<li><p>高性能：C++旨在提供高性能和高效率。它提供了对系统资源的细粒度控制，使优化软件变得更容易。</p>
+</li>
+<li><p>可移植性：不同的计算机体系结构和操作系统都支持C++，允许您编写在各种平台上运行的可移植代码，而无需进行重大修改。</p>
+</li>
+<li><p>面向对象编程：C++支持面向对象编程(OOP)——一种允许您使用类和对象设计程序的范例，从而实现更好的代码组织和可重用性。</p>
+</li>
+<li><p>支持低级和高级编程：C++允许您编写低级代码，如内存操作，以及高级抽象，如创建类和使用标准模板库(STL)。</p>
+</li>
+<li><p>丰富的库支持：C++提供了大量的库和工具，如标准模板库(STL)、Boost和Qt等，它们可以帮助您开发项目并使其更高效。</p>
+</li>
+<li><p>兼容C语言：C++可以与C结合使用，提供两种语言的功能，并允许您重用现有的C代码。通过合并C++特性，您可以增强代码并改进其功能。</p>
+</li>
+<li><p>活跃的社区支持：C++已经存在了很长一段时间，并且拥有一个庞大而活跃的用户社区，他们为语言的发展做出了贡献，表达了新的想法，并参与了有助于语言进一步发展的讨论。这让你更容易找到解决问题的方法。</p>
+</li>
+</ul>
+<h3 id="C和C-的区别"><a href="#C和C-的区别" class="headerlink" title="C和C++的区别"></a>C和C++的区别</h3><ul>
+<li>语法语义区别、代码可重用性和模块化、错误处理</li>
+</ul>
+<h3 id="C-版本"><a href="#C-版本" class="headerlink" title="C++版本"></a>C++版本</h3><ul>
+<li><p>C++0x：指的是C++ 11的工作名称，在其最终发布之前，它以前被称为C++ 0x。C++ 11是2011年发布的C++语言标准的主要修订版，它为该语言带来了几个新特性和改进。</p>
+<ul>
+<li><code>auto</code>、基于范围的循环：<code>for(int i : array)</code>、匿名Lambda函数、<code>nullptr</code>、右值引用和移动语义、可变模板、静态判断<code>assert</code>、支持线程</li>
+</ul>
+</li>
+<li><p>C++14：指的是2014年发布的C++版本。</p>
+<ul>
+<li>范式Lambda、<code>decltype</code>关键字、可变模板</li>
+</ul>
+</li>
+<li><p>C++17：也称为C++ 1z，是2017年12月发布的C++编程语言版本。</p>
+<ul>
+<li>if中的初始化：<code>if(auto x = map.find(key); x != map.end())</code>、结构化绑定声明、<code>inline</code>变量、折叠表达式、<code>constexpr if </code>语句、改进Lambda表达式、标准文件系统库、<code>string_view</code>标准库、对标准库算法支持并行运算</li>
+</ul>
+</li>
+<li><p>C++20：C++ 20是2020年发布的C++版本。</p>
+<ul>
+<li><code>concept</code>关键字；基于范围的处理序列；协同程序；<code>constexpr</code>和<code>consteval</code>关键字：带有<code>constexpr</code>标记的函数可以在编译时或运行时执行，而带有<code>consteval</code>标记的函数只能在编译时执行；最新C++</li>
+</ul>
+</li>
+</ul>
+<h2 id="配置C-开发环境"><a href="#配置C-开发环境" class="headerlink" title="配置C++开发环境"></a>配置C++开发环境</h2><h3 id="安装C"><a href="#安装C" class="headerlink" title="安装C++"></a>安装C++</h3><ul>
+<li>在开始用C++编程之前，您需要在系统上安装一个编译器。编译器是一个将你写的C++代码转换成计算机可以运行的可执行文件的程序。</li>
+</ul>
+<h3 id="编译器"><a href="#编译器" class="headerlink" title="编译器"></a>编译器</h3><ul>
+<li><p>编译器是一种计算机程序，它将用一种编程语言编写的源代码翻译成另一种语言，通常是机器代码或汇编代码，可以由计算机处理器直接执行。在c++环境中，编译器将您编写的c++源代码转换为可执行程序。</p>
+</li>
+<li><p>常见编译器</p>
+<ul>
+<li>GNU Compiler Collection（GCC）、Clang、Microsoft Visual C++（MSVC）、Intel C++ Compiler（ICC）</li>
+</ul>
+</li>
+<li><p>编译器状态：C++的编译过程可以分为四个主要阶段：预处理、编译、汇编和链接。每个阶段执行一个特定的任务，最终将源代码转换为可执行程序。</p>
+<ul>
+<li><p>预处理（Preprocessing）：第一个阶段是源代码的预处理。预处理器在实际编译过程之前修改源代码。在这个阶段，将展开包含的头文件，替换宏，并处理条件编译语句。</p>
+</li>
+<li><p>编译（Compilation）：第二阶段是实际编译经过预处理的源代码。编译器将修改后的源代码转换为中间表示形式，通常特定于目标处理器体系结构。此步骤还包括执行语法检查、语义分析，并为源代码中遇到的任何问题生成错误消息。</p>
+</li>
+<li><p>汇编（Assembly）：第三阶段是将编译器的中间表示转换成汇编语言。此阶段使用特定于目标处理器体系结构的助记符和语法生成汇编代码。然后，汇编程序将该汇编代码转换为目标代码(机器代码)。</p>
+</li>
+<li><p>链接（Link）：第四阶段是将目标代码与必要的库和其他目标文件链接起来。在此阶段，链接器合并多个目标文件和库，解析来自其他模块或库的外部引用，为函数和变量分配内存地址，并生成可在目标平台上运行的可执行文件。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="编辑器、集成开发环境（IDE）"><a href="#编辑器、集成开发环境（IDE）" class="headerlink" title="编辑器、集成开发环境（IDE）"></a>编辑器、集成开发环境（IDE）</h3><ul>
+<li><p>代码编辑器是专门为编辑、管理和编写源代码而设计的程序。它们提供了广泛的功能，使开发过程更容易和更快。</p>
+</li>
+<li><p>Visual Studio、Visual Studio Code、CLion、Sublime Text、CodeBlock</p>
+</li>
+</ul>
+<h3 id="运行第一个C-程序"><a href="#运行第一个C-程序" class="headerlink" title="运行第一个C++程序"></a>运行第一个C++程序</h3><ul>
+<li>Hello_World.cpp</li>
+</ul>
+<h2 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h2><h3 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h3><ul>
+<li><p>算术运算符：<code>+</code>、<code>-</code>、<code>*</code>、<code>/</code>、<code>%</code>、<code>++</code>、<code>--</code></p>
+</li>
+<li><p>逻辑运算符：<code>and</code>（<code>&amp;&amp;</code>）、<code>or</code>（<code>||</code>）、<code>not</code>（<code>!</code>）</p>
+</li>
+<li><p>位运算符：<code>&amp;</code>、<code>|</code>、<code>^</code>、<code>~</code>、<code>&lt;&lt;</code>、<code>&gt;&gt;</code></p>
+</li>
+<li><p>条件：<code>if</code>&#x2F;<code>switch</code></p>
+</li>
+<li><p>循环：<code>for</code>&#x2F;<code>while</code></p>
+</li>
+</ul>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><ul>
+<li><p>函数声明：仅有返回类型、函数名称和参数。</p>
+</li>
+<li><p>函数定义：具有详细的函数体。</p>
+</li>
+<li><p>函数原型：函数原型是没有函数体的函数声明，它告诉编译器函数的名称、返回类型和参数。</p>
+</li>
+<li><p>普通函数：函数是执行特定任务的一组语句，在程序中组织为一个单独的单元。</p>
+<ul>
+<li>标准库函数、自定义函数</li>
+</ul>
+</li>
+<li><p>运算符函数</p>
+<ul>
+<li><p>C++中的运算符是对数据执行各种操作的符号，如算术、比较和逻辑操作。它们用于操作和计算表达式和变量。</p>
+</li>
+<li><p>赋值运算符；逻辑运算符；关系运算符；算术运算符</p>
+</li>
+</ul>
+</li>
+<li><p>Lamda匿名函数</p>
+</li>
+</ul>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><ul>
+<li><p>静态数据类型</p>
+<ul>
+<li>意味着变量的数据类型是在编译时，在程序执行之前确定的。</li>
+</ul>
+</li>
+<li><p>动态数据类型</p>
+<ul>
+<li><p>意味着在运行时确定变量的数据类型。</p>
+</li>
+<li><p><code>void*</code>指针：<code>void*</code>指针是一种泛型指针，可以指向任何数据类型的对象。它们可以用于存储对任何类型对象的引用，而无需知道对象的特定类型。</p>
+</li>
+<li><p><code>std::any</code>（C++17）：<code>std::any</code>类，它代表了任何类型的单个值的广义类型安全容器。</p>
+</li>
+<li><p><code>void*</code>指针和<code>std::any</code>都有性能影响，因为在运行时进行了额外的类型检查和类型转换。它们应该谨慎使用，只有在绝对必要的时候才使用。</p>
+</li>
+</ul>
+</li>
+<li><p>运行时类型标识RTTI</p>
+<ul>
+<li><p>允许在程序执行期间获取对象的类型信息。这在使用动态类型时非常有用，因为对象的类型可以在运行时更改。</p>
+</li>
+<li><p><code>typeid</code>操作符、<code>dynamic_cast</code>操作符</p>
+</li>
+<li><p>使用RTTI可能会有一些性能开销，因为它需要在运行时存储和处理编译器生成的额外信息。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="指针和引用"><a href="#指针和引用" class="headerlink" title="指针和引用"></a>指针和引用</h3><ul>
+<li><p>普通指针：字符指针、整型指针、浮点型指针、结构体指针、函数指针……</p>
+</li>
+<li><p>原始指针</p>
+<ul>
+<li><p>原始指针是直接保存内存地址的低级结构。它们可以用于手动分配内存、创建动态数组和有效地传递值等。</p>
+</li>
+<li><p><code>new</code>&#x2F;<code>delete</code>操作符</p>
+</li>
+<li><p>内存泄漏</p>
+</li>
+</ul>
+</li>
+<li><p>智能指针</p>
+<ul>
+<li><code>unique_ptr</code>、<code>shared_ptr</code>、<code>weak_ptr</code></li>
+</ul>
+</li>
+<li><p>内存模型</p>
+<ul>
+<li>栈内存、堆内存、数据段、代码段</li>
+</ul>
+</li>
+<li><p>对象生存期</p>
+<ul>
+<li>静态存储持续期、线程存储持续期、自动存储持续期、动态存储持续期</li>
+</ul>
+</li>
+<li><p>引用</p>
+</li>
+</ul>
+<h3 id="结构体和类"><a href="#结构体和类" class="headerlink" title="结构体和类"></a>结构体和类</h3><ul>
+<li><p>面向对象编程：类、封装、继承多态</p>
+</li>
+<li><p>静态多态</p>
+<ul>
+<li><p>静态多态性，也称为编译时多态性，是一种在编译时而不是在运行时解析类型和方法调用的多态性。这通常是通过使用C++中的函数重载和模板来实现的。</p>
+</li>
+<li><p>函数重载：一种创建具有相同名称但不同参数列表的多个函数的方法。编译器根据调用函数时使用的参数类型和数量确定要调用的正确函数。</p>
+</li>
+<li><p>模板：允许创建泛型函数或类。特定类型的实际代码是在编译时生成的，这避免了运行时多态的开销。模板的使用是c++中实现静态多态性的主要技术。</p>
+</li>
+</ul>
+</li>
+<li><p>动态多态</p>
+<ul>
+<li><p>动态多态性是通过虚函数实现的，虚函数是用virtual关键字标记的基类的成员函数。在基类中指定虚函数时，可以在任何派生类中重写虚函数，以提供不同的实现。</p>
+</li>
+<li><p>虚函数：在基类的方法声明中使用virtual关键字。这告诉编译器该方法应该被视为虚方法，允许它被派生类覆盖。</p>
+</li>
+<li><p>虚表：虚表(或Vtable)是C++编译器用来支持动态多态性的一种机制。在动态多态性中，根据实际的对象类型，在运行时调用适当的函数。</p>
+</li>
+</ul>
+</li>
+<li><p>多继承：一个类可以从多个父类继承特征（数据成员和成员函数），一个类可以有多个基类。</p>
+</li>
+<li><p>菱形继承：一个类派生自两个或多个类，而这些类又派生自一个公共基类</p>
+</li>
+</ul>
+<h3 id="构建代码库"><a href="#构建代码库" class="headerlink" title="构建代码库"></a>构建代码库</h3><ul>
+<li><p>代码分割、代码风格、头文件和Cpp文件、头文件警卫、命名空间</p>
+</li>
+<li><p>作用域</p>
+<ul>
+<li>全局作用域、局部作用域、名称空间作用域、类作用域</li>
+</ul>
+</li>
+<li><p>前向声明：类前向声明、函数前向声明、枚举和<code>typedef</code>前向声明</p>
+</li>
+</ul>
+<h2 id="语言概念"><a href="#语言概念" class="headerlink" title="语言概念"></a>语言概念</h2><h3 id="习惯术语"><a href="#习惯术语" class="headerlink" title="习惯术语"></a>习惯术语</h3><ul>
+<li><p>auto关键字：用于自动类型推导。</p>
+</li>
+<li><p>类型转换：<code>static_cast</code>、<code>const_cast</code>、<code>dynamic_cast</code>、<code>reinterpret_cast</code></p>
+</li>
+<li><p>未定义行为：指由于违反语言规则而无法预测程序行为的情况。</p>
+</li>
+<li><p>参数依赖查找、命名修饰、宏定义、定义并初始化（资源获取即初始化RAII）、指针到实现（Pimpl）、奇异递归模板模式（CRTP）、不可复制&#x2F;不可移动、擦除、复制和交换、惰性复制</p>
+</li>
+</ul>
+<h3 id="调试器"><a href="#调试器" class="headerlink" title="调试器"></a>调试器</h3><ul>
+<li><p>理解调试信息：错误、警告、通知</p>
+</li>
+<li><p>调试器符号：内部调试符号、外部调试符号。</p>
+</li>
+<li><p>WinDbg：一个功能强大的Windows应用程序调试器。</p>
+</li>
+<li><p>GDB：GNU Project Debugger，一个功能强大的命令行调试器。</p>
+</li>
+</ul>
+<h3 id="构建系统"><a href="#构建系统" class="headerlink" title="构建系统"></a>构建系统</h3><ul>
+<li>Cmake、Makefile、Ninja</li>
+</ul>
+<h2 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h2><h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3><ul>
+<li><p><code>try</code>关键字：定义应该监视异常的代码块</p>
+</li>
+<li><p><code>catch</code>关键字：指定要捕获的异常类型以及异常发生时应执行的代码块。</p>
+</li>
+<li><p><code>throw</code>关键字：抛出一个异常，该异常将被捕获并由适当的捕获块处理</p>
+</li>
+<li><p><code>noexcept</code>关键字：指定一个函数，该函数不会抛出异常，也不会在其作用域中抛出异常时终止程序。</p>
+</li>
+</ul>
+<h3 id="标准异常"><a href="#标准异常" class="headerlink" title="标准异常"></a>标准异常</h3><ul>
+<li><p><code>std::exception</code>：所有标准异常的基类。</p>
+</li>
+<li><p><code>std::logic_error</code>：表示程序可以静态检测到的错误。</p>
+</li>
+<li><p><code>std::runtime_error</code>：表示程序执行期间发生的错误。</p>
+</li>
+</ul>
+<h3 id="退出代码"><a href="#退出代码" class="headerlink" title="退出代码"></a>退出代码</h3><ul>
+<li><p>退出码，也称为“返回码”或“状态码”，是程序完成执行后返回给调用环境(通常是操作系统)的数值。这些代码用于指示程序执行的成功或失败。</p>
+</li>
+<li><p>0是成功执行的标准退出代码，而非零退出代码通常表示错误或其他异常情况。非零退出码的实际含义在不同的应用程序或系统之间可能有所不同。</p>
+</li>
+<li><p>在C++中，您可以使用<code>return</code>语句从<code>main</code>函数返回退出代码，也可以使用<code>exit()</code>函数，它是C++标准库的一部分。</p>
+</li>
+</ul>
+<h3 id="访问冲突"><a href="#访问冲突" class="headerlink" title="访问冲突"></a>访问冲突</h3><ul>
+<li><p>访问冲突是程序试图访问非法内存位置时发生的一种特定类型的错误。</p>
+</li>
+<li><p>可能引起原因：取消引用空指针或无效指针；访问数组越界；对由用户或操作系统释放的内存进行阅读或写。</p>
+</li>
+</ul>
+<h2 id="标准模板库STL"><a href="#标准模板库STL" class="headerlink" title="标准模板库STL"></a>标准模板库STL</h2><h3 id="标准输入输出流"><a href="#标准输入输出流" class="headerlink" title="标准输入输出流"></a>标准输入输出流</h3><ul>
+<li><code>iostream</code>是C++标准库中的一个头文件，它提供了基本输入和输出(I&#x2F;O)操作的功能。I&#x2F;O流促进了程序与各种源(如控制台、文件或其他程序)之间的通信。</li>
+</ul>
+<h3 id="处理日期和时间"><a href="#处理日期和时间" class="headerlink" title="处理日期和时间"></a>处理日期和时间</h3><ul>
+<li>使用<code>chrono</code>库来处理日期和时间，它是标准库(Standard library, STL)的一部分。<code>chrono</code>库提供了各种数据类型和函数来表示和操作时间持续时间、时间点和时钟。</li>
+</ul>
+<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><ul>
+<li>C++中的标准模板库(Standard Template Library, STL)提供了一组泛型算法，用于处理各种容器类。这些算法是作为函数实现的，可以应用于不同的数据结构，如数组、向量、列表等。算法的主要头文件是<code>&lt;algorithm&gt;</code></li>
+</ul>
+<h3 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h3><ul>
+<li><p>迭代器是C++标准库(STL)中的对象，帮助我们遍历数组、列表和向量等容器。本质上，它们充当容器类和算法之间的桥梁。迭代器的行为类似于指针，但提供了一种更通用和抽象的方式来访问容器中的元素。</p>
+</li>
+<li><p>输入迭代器、输出迭代器、前向迭代器、反向迭代器、双向迭代器、随机访问迭代器</p>
+</li>
+</ul>
+<h3 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h3><ul>
+<li>Pair对、Vector向量、List列表、String字符串、Stack栈、Queue队列、Deque双向队列、Priority_queue优先队列、Set集合（unordered_set、multiset、unordered_multiset）、Map映射（unordered_map、multimap、unordered_multimap）、Bitset压位</li>
+</ul>
+<h3 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h3><ul>
+<li><p>多线程是指在单个进程或程序中并发执行多个线程。它允许并行执行多个任务，从而提高了应用程序的性能和效率。</p>
+</li>
+<li><p>线程创建、带参数线程、互斥锁和锁</p>
+</li>
+</ul>
+<h2 id="模板编程"><a href="#模板编程" class="headerlink" title="模板编程"></a>模板编程</h2><h3 id="可变模板"><a href="#可变模板" class="headerlink" title="可变模板"></a>可变模板</h3><ul>
+<li>可变模板是C++ 11中的一个特性，它允许定义具有可变数量参数的模板。当您需要编写一个可以接受不同数量和类型参数的函数或类时，这尤其有用。</li>
+</ul>
+<h3 id="模板专门化"><a href="#模板专门化" class="headerlink" title="模板专门化"></a>模板专门化</h3><ul>
+<li><p>全模板专门化：完全模板专门化允许在与特定类型参数集一起使用时为模板提供特定的实现或行为。</p>
+</li>
+<li><p>部分模板专门化：允许为可能的类型参数的子集专门化模板。当希望为特定类型组提供自定义实现，而不必为该组中的所有类型定义单独的专门化时，它特别有用。</p>
+</li>
+</ul>
+<h3 id="类型特征"><a href="#类型特征" class="headerlink" title="类型特征"></a>类型特征</h3><ul>
+<li>类型特征是C++中的一组模板类，可以帮助获取有关类型属性、行为或特征的信息。它们可以在<code>&lt;type_traits&gt;</code>头文件中找到。通过使用Type Traits，可以根据给定类型的属性来调整代码，甚至可以在模板代码中为类型参数强制执行特定的属性。</li>
+</ul>
+<h3 id="替换失败不是错误（SFINAE）"><a href="#替换失败不是错误（SFINAE）" class="headerlink" title="替换失败不是错误（SFINAE）"></a>替换失败不是错误（SFINAE）</h3><ul>
+<li><p>SFINAE是C++模板元编程中的一个原则，它允许编译器在替换过程中特定模板特化失败时选择适当的函数或类。术语“替换失败”是指编译器试图将模板参数替换为函数模板或类模板的过程。如果替换导致错误，编译器不会将特定的专门化视为候选专门化，而是继续搜索有效的专门化。</p>
+</li>
+<li><p>SFINAE背后的关键思想是，如果发生替换错误，它将被静默地忽略，编译器将继续探索其他模板专门化或重载。这允许编写更灵活和通用的代码，因为它使能够针对不同的场景拥有多个专门化。</p>
+</li>
+</ul>
+<h2 id="包管理"><a href="#包管理" class="headerlink" title="包管理"></a>包管理</h2><ul>
+<li><p>包管理器是自动化安装、升级和管理编程语言(如C++)软件(库、框架和其他依赖项)过程的工具</p>
+</li>
+<li><p>vcpkg、Spack、Conan、NuGet</p>
+</li>
+</ul>
+<h2 id="库和框架编程"><a href="#库和框架编程" class="headerlink" title="库和框架编程"></a>库和框架编程</h2><ul>
+<li><p>在使用C++时，可能需要使用外部库来协助完成各种任务。库是预编译的代码片段，可以在程序中重用，以执行特定任务或提供特定功能。在C++中，库可以是静态库(.lib)或动态库(Windows中的.dll, Unix&#x2F;Linux中的.so)。</p>
+</li>
+<li><p>静态库：在编译时被合并到程序中。它们与代码链接，创建更大的可执行文件，但在运行时不需要任何外部文件。</p>
+</li>
+<li><p>动态库：动态库是在运行时加载的，这意味着可执行文件只包含对这些库的引用。这些库需要在运行程序的系统上可用。</p>
+</li>
+</ul>
+<h3 id="C-库"><a href="#C-库" class="headerlink" title="C++库"></a>C++库</h3><ul>
+<li>OpenCV、POCO、protobuf、gRPC、Tensorflow、pybind11、spdlog、OpenCL、ranges_v3、fmt、Boost</li>
+</ul>
+<h3 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h3><ul>
+<li>gtest&#x2F;gmock、Qt、Catch2、Orbit Profiler、PyTorch C++</li>
+</ul>
+<embed src="TheRoadOfCPP.pdf" width="100%" height="750" type="application/pdf">
+
+
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>经验之谈</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于GPU服务器的选用</title>
+    <url>/%E5%85%B6%E4%BB%96%E5%88%86%E4%BA%AB/gpuserver/</url>
+    <content><![CDATA[<p>介绍关于GPU服务器：租用、使用</p>
+<p>关键词：深度学习、GPU服务器</p>
+<span id="more"></span>
+
+<hr>
+<!-- toc -->
+
+<h1 id="GPU服务器服务商"><a href="#GPU服务器服务商" class="headerlink" title="GPU服务器服务商"></a>GPU服务器服务商</h1><ol>
+<li>AutoDL算力云</li>
+</ol>
+<ul>
+<li>网站：<a class="link" href="https://www.autodl.com/home">AutoDL算力云 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+<li>个人评价：本人具有使用经历，价格偏便宜，镜像有现成，适合新手入门尝试。</li>
+</ul>
+<ol start="2">
+<li><a class="link" href="https://mistgpu.com/">MistGPU <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+</ol>
+<ul>
+<li>网站：<a class="link" href="https://mistgpu.com/">MistGPU <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+<li>个人评价：价格还行，备用选择。</li>
+</ul>
+<ol start="3">
+<li>阿里云</li>
+</ol>
+<ul>
+<li>网站：<a class="link" href="https://www.aliyun.com/product/ecs/gpu">阿里云 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+<li>个人评价：阿里云，不多说，可靠也不便宜。</li>
+</ul>
+<h1 id="GPU服务器使用"><a href="#GPU服务器使用" class="headerlink" title="GPU服务器使用"></a>GPU服务器使用</h1><ol>
+<li>选择适合的GPU型号、显存大小、浮点算力、存储盘大小。</li>
+<li>选择合适的镜像进行环境配置。</li>
+<li>一般无图形窗口，命令行使用，文件上传下载。</li>
+<li>详细可参考各个服务商的帮助文档。</li>
+</ol>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>其他分享</category>
+      </categories>
+      <tags>
+        <tag>深度学习</tag>
+        <tag>GPU服务器</tag>
       </tags>
   </entry>
   <entry>
@@ -3057,220 +3604,6 @@
       </categories>
       <tags>
         <tag>C</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>个人整理的C++学习路线</title>
-    <url>/%E7%BB%8F%E9%AA%8C%E4%B9%8B%E8%B0%88/cpproad/</url>
-    <content><![CDATA[<p>个人整理的C++大概学习路线</p>
-<p>关键词：C++</p>
-<span id="more"></span>
-
-<hr>
-<p><em>by：Fingsinz，Reference：<a class="link" href="https://roadmap.sh/cpp">C++ Developer Roadmap <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></em></p>
-<embed src="TheRoadOfCPP.pdf" width="100%" height="750" type="application/pdf">
-
-
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>经验之谈</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>基于Qt的音频播放器程序设计记录</title>
-    <url>/%E7%AC%94%E8%AE%B0/fmusicplayer/</url>
-    <content><![CDATA[<p>使用Qt的工具完成一个音频播放器——FMusicPlayer</p>
-<p>关键词：Qt、C++</p>
-<span id="more"></span>
-
-<hr>
-<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>利用Qt的工具开发一个音乐播放器，界面如下图：</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/fmusicplayer_ui.jpg" alt="界面截图"><figcaption>界面截图</figcaption></figure></p>
-<p>Qt版本5.12.12。该项目十分简单，适合用于练手。</p>
-<h1 id="二、模块构思"><a href="#二、模块构思" class="headerlink" title="二、模块构思"></a>二、模块构思</h1><p>根据市场上现有的音乐播放器思考，一个基本的音乐播放器应该具有以下功能：</p>
-<ul>
-<li><p>播放/暂停</p>
-</li>
-<li><p>停止</p>
-</li>
-<li><p>控制音频播放进度</p>
-</li>
-<li><p>管理音乐列表</p>
-</li>
-<li><p>音量控制</p>
-</li>
-<li><p>信息显示</p>
-</li>
-<li><p>……</p>
-</li>
-</ul>
-<p>此软件仅实现了上述功能。</p>
-<h1 id="三、模块实现"><a href="#三、模块实现" class="headerlink" title="三、模块实现"></a>三、模块实现</h1><p>此音乐播放器主要使用Qt现成的QMediaPlayer类和QMediaPlaylist类进行维护。</p>
-<h2 id="3-1-界面设计"><a href="#3-1-界面设计" class="headerlink" title="3.1 界面设计"></a>3.1 界面设计</h2><p>整体界面设计如图：</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/fmusicplayer_uidesign.jpg" alt="界面设计"><figcaption>界面设计</figcaption></figure></p>
-<ul>
-<li><p>9个按钮QPushButton，对应各种功能；</p>
-</li>
-<li><p>3个标签文字QLabel，用于说明；</p>
-</li>
-<li><p>2个文本框QLineEdit，用于显示信息；</p>
-</li>
-<li><p>1个列表QListWidget，用于存放播放列表；</p>
-</li>
-<li><p>2个滑条QSlider，一个用于控制和显示进度，一个用于控制和显示音量。</p>
-</li>
-<li><p>若干个弹簧用于调整布局。</p>
-</li>
-</ul>
-<p>完成后的程序界面：</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/fmusicplayer_ui2.jpg" alt="期望的UI"><figcaption>期望的UI</figcaption></figure></p>
-<h2 id="3-1-初始化工程"><a href="#3-1-初始化工程" class="headerlink" title="3.1 初始化工程"></a>3.1 初始化工程</h2><p>此程序使用了Qt的multimedia部件，所以首先在Qt的.pro工程文件中包含multimedia。</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">……</span><br><span class="line">QT  += multimedia</span><br><span class="line">……</span><br></pre></td></tr></table></figure></div>
-
-<p>接着项目中应该有以下文件：</p>
-<blockquote>
-<p>mainwindow.h<br>mainwindow.cpp<br>mainwindow.ui<br>main.cpp</p>
-</blockquote>
-<ul>
-<li><p>mainwindow.h：主要存放主窗口的一些声明</p>
-</li>
-<li><p>mainwindow.cpp：记录主窗口的实现</p>
-</li>
-<li><p>mainwindow.ui：界面的设计文件</p>
-</li>
-<li><p>main.cpp：程序入口</p>
-</li>
-</ul>
-<p>首先在mainwindow.h中将我们实现的模块添加槽函数声明和成员变量的声明：</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line">QMediaPlayer *musicplayer; <span class="comment">// 播放器</span></span><br><span class="line">QMediaPlaylist *musicplayList; <span class="comment">// 播放列表</span></span><br><span class="line"></span><br><span class="line">QString durationTime;<span class="comment">// 音频总长度</span></span><br><span class="line">QString  positionTime;<span class="comment">// 当前播放到位置</span></span><br><span class="line"><span class="comment">// 槽函数声明略，见源代码</span></span><br></pre></td></tr></table></figure></div>
-
-<p>接着在主窗口构造函数中做一些初始化：</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建实例</span></span><br><span class="line">musicplayer = <span class="keyword">new</span> <span class="built_in">QMediaPlayer</span>(<span class="keyword">this</span>);</span><br><span class="line">musicplayList = <span class="keyword">new</span> <span class="built_in">QMediaPlaylist</span>(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 循环播放</span></span><br><span class="line">musicplayList-&gt;<span class="built_in">setPlaybackMode</span>(QMediaPlaylist::Loop);</span><br><span class="line">musicplayer-&gt;<span class="built_in">setPlaylist</span>(musicplayList);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 默认音量，同步音量显示</span></span><br><span class="line">ui-&gt;volume-&gt;<span class="built_in">setValue</span>(<span class="number">50</span>);	</span><br><span class="line"><span class="built_in">changedVolume</span>(<span class="number">50</span>);			</span><br></pre></td></tr></table></figure></div>
-
-<h2 id="3-3-播放-x2F-暂停模块"><a href="#3-3-播放-x2F-暂停模块" class="headerlink" title="3.3 播放/暂停模块"></a>3.3 播放/暂停模块</h2><p>当点击播放键时播放音乐，为播放按钮play绑定单击事件，触发playMusic()函数：</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 播放音乐</span></span><br><span class="line"><span class="built_in">connect</span>(ui-&gt;play, <span class="built_in">SIGNAL</span>(<span class="built_in">clicked</span>()), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">playMusic</span>()));</span><br></pre></td></tr></table></figure></div>
-
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::playMusic</span><span class="params">()</span><span class="comment">//播放</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="comment">// 维护播放列表，使其索引正常，正常播放</span></span><br><span class="line">    <span class="keyword">if</span>(musicplayList-&gt;<span class="built_in">currentIndex</span>()&lt;<span class="number">0</span>)</span><br><span class="line">        musicplayList-&gt;<span class="built_in">setCurrentIndex</span>(<span class="number">0</span>);</span><br><span class="line">    musicplayer-&gt;<span class="built_in">play</span>();</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
-
-<p>当点击暂停键时暂停音乐，支持记录位置，从上次暂停的位置播放。为暂停按钮绑定单击事件，触发pauseMusic()函数：</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 暂停音乐</span></span><br><span class="line"><span class="built_in">connect</span>(ui-&gt;pause, <span class="built_in">SIGNAL</span>(<span class="built_in">clicked</span>()), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">pauseMusic</span>()));</span><br></pre></td></tr></table></figure></div>
-
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::pauseMusic</span><span class="params">()</span><span class="comment">//暂停播放</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    musicplayer-&gt;<span class="built_in">pause</span>();</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
-
-<h2 id="3-4-停止模块"><a href="#3-4-停止模块" class="headerlink" title="3.4 停止模块"></a>3.4 停止模块</h2><p>当点击停止键时，停止音乐，音乐播放位置归零。为停止按钮绑定单击事件，触发stopMusic()函数：</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 停止音乐</span></span><br><span class="line"><span class="built_in">connect</span>(ui-&gt;stop, <span class="built_in">SIGNAL</span>(<span class="built_in">clicked</span>()), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">stopMusic</span>()));</span><br></pre></td></tr></table></figure></div>
-
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::stopMusic</span><span class="params">()</span><span class="comment">//停止播放</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    musicplayer-&gt;<span class="built_in">stop</span>();</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
-
-<h2 id="3-5-控制音频进度模块"><a href="#3-5-控制音频进度模块" class="headerlink" title="3.5 控制音频进度模块"></a>3.5 控制音频进度模块</h2><p>播放时，音频进度条应当可以被拖动，并且更新播放的位置。为进度条绑定值修改事件，触发changedPosition()函数，函数参数为进度条传入的位置参数。</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 进度条控制</span></span><br><span class="line"><span class="built_in">connect</span>(ui-&gt;timebar, <span class="built_in">SIGNAL</span>(<span class="built_in">valueChanged</span>(<span class="type">int</span>)), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">changedPosition</span>(<span class="type">int</span>)));</span><br></pre></td></tr></table></figure></div>
-
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::changedPosition</span><span class="params">(<span class="type">int</span> pos)</span>   <span class="comment">// 修改播放位置</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    musicplayer-&gt;<span class="built_in">setPosition</span>(pos);</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
-
-<h2 id="3-6-管理音乐列表模块"><a href="#3-6-管理音乐列表模块" class="headerlink" title="3.6 管理音乐列表模块"></a>3.6 管理音乐列表模块</h2><p>播放器应该可以输入多个文件，接着顺序播放，所以需要维护一个音乐列表。</p>
-<p>首先可以向音乐列表添加音乐，为添加音乐按钮绑定单击事件，绑定addMusic()函数。</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 添加文件</span></span><br><span class="line"><span class="built_in">connect</span>(ui-&gt;addMusic, <span class="built_in">SIGNAL</span>(<span class="built_in">clicked</span>()), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">addMusictoList</span>()));</span><br></pre></td></tr></table></figure></div>
-
-<p>读取文件时，wav文件是支持的，而mp3文件需要外置解码器的支持，处理mp3文件方法见文章最后。</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::addMusictoList</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    QString curPath = QDir::<span class="built_in">currentPath</span>();</span><br><span class="line">    QString title = <span class="string">"选择音频文件"</span>;</span><br><span class="line">    QString filter = <span class="string">"音频文件(*.wav *.mp3)"</span>;</span><br><span class="line">    QStringList fileList = QFileDialog::<span class="built_in">getOpenFileNames</span>(<span class="keyword">this</span>, title, curPath, filter);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 添加文件少于1个时退出函数</span></span><br><span class="line">    <span class="keyword">if</span>(filter.<span class="built_in">count</span>() &lt; <span class="number">1</span>)  <span class="keyword">return</span>;</span><br><span class="line">	<span class="comment">// 将读取的文件放入musicplayList里</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; fileList.<span class="built_in">count</span>(); ++ i)</span><br><span class="line">    {</span><br><span class="line">        QString aFile = fileList.<span class="built_in">at</span>(i);</span><br><span class="line">        musicplayList-&gt;<span class="built_in">addMedia</span>(QUrl::<span class="built_in">fromLocalFile</span>(aFile));</span><br><span class="line"></span><br><span class="line">        <span class="function">QFileInfo <span class="title">fileinfo</span><span class="params">(aFile)</span></span>;</span><br><span class="line">        ui-&gt;playList-&gt;<span class="built_in">addItem</span>(fileinfo.<span class="built_in">fileName</span>());</span><br><span class="line">    }</span><br><span class="line">	<span class="comment">// 将音乐列表的第一首音频作为待播放音频</span></span><br><span class="line">    <span class="keyword">if</span>(musicplayer-&gt;<span class="built_in">state</span>() != QMediaPlayer::PlayingState)</span><br><span class="line">        musicplayList-&gt;<span class="built_in">setCurrentIndex</span>(<span class="number">0</span>);</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
-
-<p>同样还应支持移除音频文件：</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 移除文件</span></span><br><span class="line"><span class="built_in">connect</span>(ui-&gt;delMusic, <span class="built_in">SIGNAL</span>(<span class="built_in">clicked</span>()), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">delMusic</span>()));</span><br></pre></td></tr></table></figure></div>
-
-<p>移除文件时还应判断移除的是否为当前播放音乐，进行相应处理。</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::delMusic</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="type">int</span> pos = ui-&gt;playList-&gt;<span class="built_in">currentRow</span>(); <span class="comment">// 获取选中行</span></span><br><span class="line">    QListWidgetItem *item = ui-&gt;playList-&gt;<span class="built_in">takeItem</span>(pos);</span><br><span class="line">    <span class="keyword">delete</span>  item;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(musicplayList-&gt;<span class="built_in">currentIndex</span>() == pos)<span class="comment">// 删除是当前播放的音乐时</span></span><br><span class="line">    {</span><br><span class="line">        <span class="type">int</span> nextPos = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(pos &gt;= <span class="number">1</span>)    nextPos = pos - <span class="number">1</span>;</span><br><span class="line">        musicplayList-&gt;<span class="built_in">removeMedia</span>(pos);</span><br><span class="line">        <span class="keyword">if</span>(ui-&gt;playList-&gt;<span class="built_in">count</span>() &gt; <span class="number">0</span>)</span><br><span class="line">        {</span><br><span class="line">            musicplayList-&gt;<span class="built_in">setCurrentIndex</span>(nextPos);</span><br><span class="line">            <span class="built_in">onPlayListChanged</span>(nextPos);</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        {</span><br><span class="line">            musicplayer-&gt;<span class="built_in">stop</span>();</span><br><span class="line">            ui-&gt;playmusic-&gt;<span class="built_in">setText</span>(<span class="string">"无文件"</span>);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        musicplayList-&gt;<span class="built_in">removeMedia</span>(pos);</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
-
-<p>清空文件则是移除文件的简化版，直接将播放列表清空即可。</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 清空文件列表</span></span><br><span class="line"><span class="built_in">connect</span>(ui-&gt;clearList, <span class="built_in">SIGNAL</span>(<span class="built_in">clicked</span>()), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">clearList</span>()));</span><br></pre></td></tr></table></figure></div>
-
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::clearList</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    musicplayList-&gt;<span class="built_in">clear</span>();	<span class="comment">// 清空列表</span></span><br><span class="line">    ui-&gt;playList-&gt;<span class="built_in">clear</span>();	<span class="comment">// 更新UI</span></span><br><span class="line">    ui-&gt;playmusic-&gt;<span class="built_in">clear</span>();</span><br><span class="line">    ui-&gt;time-&gt;<span class="built_in">clear</span>();</span><br><span class="line">    ui-&gt;timebar-&gt;<span class="built_in">setValue</span>(<span class="number">0</span>);</span><br><span class="line">    musicplayer-&gt;<span class="built_in">stop</span>();	<span class="comment">// 停止播放</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
-
-<p>最后还可以添加上一首和下一首的功能，只需简单绑定一下点击事件和调用musicplayList的函数即可。</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line">musicplayList-&gt;<span class="built_in">previous</span>();	<span class="comment">// 上一首</span></span><br><span class="line">musicplayList-&gt;<span class="built_in">next</span>();		<span class="comment">// 下一首</span></span><br></pre></td></tr></table></figure></div>
-
-<h2 id="3-7-音量控制模块"><a href="#3-7-音量控制模块" class="headerlink" title="3.7 音量控制模块"></a>3.7 音量控制模块</h2><p>一个播放器还应该支持音量的调节，而QMediaPlayer支持音量调节，所以绑定滑条值改变事件且调用函数即可，事件返回一个滑条的位置参数。</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 控制音量</span></span><br><span class="line"><span class="built_in">connect</span>(ui-&gt;volume, <span class="built_in">SIGNAL</span>(<span class="built_in">valueChanged</span>(<span class="type">int</span>)), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">changedVolume</span>(<span class="type">int</span>)));</span><br></pre></td></tr></table></figure></div>
-
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::changedVolume</span><span class="params">(<span class="type">int</span> value)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    musicplayer-&gt;<span class="built_in">setVolume</span>(value);</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
-
-<h2 id="3-8-信息显示与同步模块"><a href="#3-8-信息显示与同步模块" class="headerlink" title="3.8 信息显示与同步模块"></a>3.8 信息显示与同步模块</h2><p>根据UI的设计，显示的信息有：当前播放的音频名字、播放时间/完整时间。当播放音频进行切换时，需要更新音频名字、播放时间和音频完整时间等信息。</p>
-<p>为播放列表musicplayList的当前索引变化事件绑定onPlayListChanged()函数，事件返回新的索引号，用此更新播放的音频名字。</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 播放音乐变化</span></span><br><span class="line"><span class="built_in">connect</span>(musicplayList, <span class="built_in">SIGNAL</span>(<span class="built_in">currentIndexChanged</span>(<span class="type">int</span>)), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">onPlayListChanged</span>(<span class="type">int</span>)));</span><br></pre></td></tr></table></figure></div>
-
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::onPlayListChanged</span><span class="params">(<span class="type">int</span> pos)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    ui-&gt;playList-&gt;<span class="built_in">setCurrentRow</span>(pos);</span><br><span class="line">    <span class="comment">// 使用QListWidgetItem类取出QListWidget的某一行</span></span><br><span class="line">    QListWidgetItem *item = ui-&gt;playList-&gt;<span class="built_in">currentItem</span>();</span><br><span class="line">    <span class="keyword">if</span>(item)</span><br><span class="line">    {</span><br><span class="line">		<span class="comment">// 更新UI的音频名字</span></span><br><span class="line">        ui-&gt;playmusic-&gt;<span class="built_in">setText</span>(item-&gt;<span class="built_in">text</span>());</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
-
-<p>切换音频时，其总时长也应该变化，需要为播放器musicplayer的播放位置变化durationChanged事件绑定onDurationChanged()函数。函数为计算音频总的时间。</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 时长变化</span></span><br><span class="line"><span class="built_in">connect</span>(musicplayer, <span class="built_in">SIGNAL</span>(<span class="built_in">durationChanged</span>(qint64)), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">onDurationChanged</span>(qint64)));</span><br></pre></td></tr></table></figure></div>
-
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::onDurationChanged</span><span class="params">(qint64 dur)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    ui-&gt;timebar-&gt;<span class="built_in">setMaximum</span>(dur);	<span class="comment">// 设置进度条的最大值</span></span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> secs = <span class="built_in">int</span>(dur / <span class="number">1000</span>);</span><br><span class="line">    <span class="type">int</span> mins = secs / <span class="number">60</span>;</span><br><span class="line">    secs %= <span class="number">60</span>;</span><br><span class="line">    durationTime = QString::<span class="built_in">asprintf</span>(<span class="string">" %d : %d "</span>, mins, secs);</span><br><span class="line">    <span class="comment">// UI刷新时间</span></span><br><span class="line">    ui-&gt;time-&gt;<span class="built_in">setText</span>(positionTime + <span class="string">" / "</span> + durationTime);</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
-
-<p>至于音频随着播放而位置和进度的刷新，则需要为播放器musicplayer的播放位置变化positionChanged事件绑定onPositionChanged()函数。函数为计算播放的时间。</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 播放位置变化</span></span><br><span class="line"><span class="built_in">connect</span>(musicplayer, <span class="built_in">SIGNAL</span>(<span class="built_in">positionChanged</span>(qint64)), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">onPositionChanged</span>(qint64)));</span><br></pre></td></tr></table></figure></div>
-
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::onPositionChanged</span><span class="params">(qint64 pos)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="comment">// 进度条滑动到尽头，退出函数</span></span><br><span class="line">    <span class="keyword">if</span>(ui-&gt;timebar-&gt;<span class="built_in">isSliderDown</span>()) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    ui-&gt;timebar-&gt;<span class="built_in">setSliderPosition</span>(pos);</span><br><span class="line">    <span class="comment">// 计算分和秒</span></span><br><span class="line">    <span class="type">int</span> secs = <span class="built_in">int</span> (pos / <span class="number">1000</span>);</span><br><span class="line">    <span class="type">int</span> mins = secs / <span class="number">60</span>;</span><br><span class="line">    secs %= <span class="number">60</span>;</span><br><span class="line">    positionTime = QString::<span class="built_in">asprintf</span>(<span class="string">" %d : %d "</span>, mins, secs);</span><br><span class="line">    <span class="comment">// UI刷新时间</span></span><br><span class="line">    ui-&gt;time-&gt;<span class="built_in">setText</span>(positionTime + <span class="string">" / "</span> + durationTime);</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
-
-<h1 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h1><p>该程序源代码放在<a class="link" href="https://gitee.com/fingsinz/fmusicplayer/">Gitee - https://gitee.com/fingsinz/fmusicplayer/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p>该项目只是一个简单的播放器实现，希望能够帮助萌新认识Qt，提高自己的能力。</p>
-<p>不支持直接加载mp3文件，需要先下载相关解码器。此处附上解码器链接：</p>
-<p><a class="link" href="https://www.codecguide.com/download_kl.htm">K-lite_codec_pack <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p><a class="link" href="https://www.codecguide.com/download_k-lite_codec_pack_basic.htm">K-lite_codec_pack_basic（基础版） <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p><a class="link" href="https://www.codecguide.com/download_k-lite_codec_pack_standard.htm">K-lite_codec_pack_standard（标准版） <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>Qt</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>关于GPU服务器的选用</title>
-    <url>/%E5%85%B6%E4%BB%96%E5%88%86%E4%BA%AB/gpuserver/</url>
-    <content><![CDATA[<p>介绍关于GPU服务器：租用、使用</p>
-<p>关键词：深度学习、GPU服务器</p>
-<span id="more"></span>
-
-<hr>
-<!-- toc -->
-
-<h1 id="GPU服务器服务商"><a href="#GPU服务器服务商" class="headerlink" title="GPU服务器服务商"></a>GPU服务器服务商</h1><ol>
-<li>AutoDL算力云</li>
-</ol>
-<ul>
-<li>网站：<a class="link" href="https://www.autodl.com/home">AutoDL算力云 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
-<li>个人评价：本人具有使用经历，价格偏便宜，镜像有现成，适合新手入门尝试。</li>
-</ul>
-<ol start="2">
-<li><a class="link" href="https://mistgpu.com/">MistGPU <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
-</ol>
-<ul>
-<li>网站：<a class="link" href="https://mistgpu.com/">MistGPU <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
-<li>个人评价：价格还行，备用选择。</li>
-</ul>
-<ol start="3">
-<li>阿里云</li>
-</ol>
-<ul>
-<li>网站：<a class="link" href="https://www.aliyun.com/product/ecs/gpu">阿里云 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
-<li>个人评价：阿里云，不多说，可靠也不便宜。</li>
-</ul>
-<h1 id="GPU服务器使用"><a href="#GPU服务器使用" class="headerlink" title="GPU服务器使用"></a>GPU服务器使用</h1><ol>
-<li>选择适合的GPU型号、显存大小、浮点算力、存储盘大小。</li>
-<li>选择合适的镜像进行环境配置。</li>
-<li>一般无图形窗口，命令行使用，文件上传下载。</li>
-<li>详细可参考各个服务商的帮助文档。</li>
-</ol>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>其他分享</category>
-      </categories>
-      <tags>
-        <tag>深度学习</tag>
-        <tag>GPU服务器</tag>
       </tags>
   </entry>
   <entry>
@@ -5117,40 +5450,6 @@
       </tags>
   </entry>
   <entry>
-    <title>两个用过的导航页</title>
-    <url>/%E7%BD%91%E9%A1%B5/%E5%AF%BC%E8%88%AA%E9%A1%B5/</url>
-    <content><![CDATA[<p>介绍两个我常用的导航页——果汁导航页和青柠起始页。导航页就是一个网站的目录，其包含了很多常用其他网站的快捷方式。</p>
-<p>关键词：导航页</p>
-<span id="more"></span>
-
-<hr>
-<ol>
-<li>果汁导航</li>
-</ol>
-<p>果汁导航页包括互联网搜索功能，还有各种生活学习用到的网页快捷方式。每层目录下还收纳了很多相关网站，包括影视、知识、新闻、等网站，丰富度很高，也很容易因为内容太多眼花缭乱忘记了有这么样的功能。更多功能可以自己探索发现收藏。可登录使用也可不登录使用。</p>
-<p>地址：<a class="link" href="http://guozhivip.com/">果汁导航 - guozhivip.com <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/%E5%AF%BC%E8%88%AA%E9%A1%B5_%E6%9E%9C%E6%B1%81%E8%B5%84%E6%BA%90%E5%AF%BC%E8%88%AA.png" alt="果汁导航"><figcaption>果汁导航</figcaption></figure></p>
-<ol start="2">
-<li>青柠起始页</li>
-</ol>
-<p>一个简约的起始页，具有搜索功能，当搜索框聚焦时，背景具有毛玻璃效果。点击时钟可以到达另一页，此页可以添加一些常用的网站快捷方式（需登录），自定义程度高。丰富度不高，简约型网站。</p>
-<p>地址：<a class="link" href="https://limestart.cn/">青柠起始页 - limestart.cn <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/%E5%AF%BC%E8%88%AA%E9%A1%B5_%E9%9D%92%E6%9F%A0%E8%B5%B7%E5%A7%8B%E9%A1%B5.jpg" alt="青柠起始页主页"><figcaption>青柠起始页主页</figcaption></figure></p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/%E5%AF%BC%E8%88%AA%E9%A1%B5_%E9%9D%92%E6%9F%A0%E8%B5%B7%E5%A7%8B%E9%A1%B51.jpg" alt="青柠起始页附页"><figcaption>青柠起始页附页</figcaption></figure></p>
-<ul>
-<li>附：设置为浏览器起始页</li>
-</ul>
-<p>以Edge浏览器为例，打开设置页面，选择<code>开始、主页和新建标签页</code>，将启动时页面改为想要的导航页，更方便自己浏览器使用。</p>
-<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/%E5%AF%BC%E8%88%AA%E9%A1%B5_%E8%AE%BE%E7%BD%AE.jpg" alt="设置"><figcaption>设置</figcaption></figure></p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>网页</category>
-      </categories>
-      <tags>
-        <tag>导航页</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>基于YOLOv5的电瓶车识别入门级项目记录</title>
     <url>/%E7%AC%94%E8%AE%B0/yolov5/</url>
     <content><![CDATA[<p>一次基于YOLOv5的深度学习项目，在GPU服务器完成模型训练，在Windows 10下进行图像识别推理（C++）。</p>
@@ -5479,6 +5778,40 @@
         <tag>TensorRT</tag>
         <tag>C++推演</tag>
         <tag>OpenCV</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>两个用过的导航页</title>
+    <url>/%E7%BD%91%E9%A1%B5/%E5%AF%BC%E8%88%AA%E9%A1%B5/</url>
+    <content><![CDATA[<p>介绍两个我常用的导航页——果汁导航页和青柠起始页。导航页就是一个网站的目录，其包含了很多常用其他网站的快捷方式。</p>
+<p>关键词：导航页</p>
+<span id="more"></span>
+
+<hr>
+<ol>
+<li>果汁导航</li>
+</ol>
+<p>果汁导航页包括互联网搜索功能，还有各种生活学习用到的网页快捷方式。每层目录下还收纳了很多相关网站，包括影视、知识、新闻、等网站，丰富度很高，也很容易因为内容太多眼花缭乱忘记了有这么样的功能。更多功能可以自己探索发现收藏。可登录使用也可不登录使用。</p>
+<p>地址：<a class="link" href="http://guozhivip.com/">果汁导航 - guozhivip.com <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/%E5%AF%BC%E8%88%AA%E9%A1%B5_%E6%9E%9C%E6%B1%81%E8%B5%84%E6%BA%90%E5%AF%BC%E8%88%AA.png" alt="果汁导航"><figcaption>果汁导航</figcaption></figure></p>
+<ol start="2">
+<li>青柠起始页</li>
+</ol>
+<p>一个简约的起始页，具有搜索功能，当搜索框聚焦时，背景具有毛玻璃效果。点击时钟可以到达另一页，此页可以添加一些常用的网站快捷方式（需登录），自定义程度高。丰富度不高，简约型网站。</p>
+<p>地址：<a class="link" href="https://limestart.cn/">青柠起始页 - limestart.cn <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/%E5%AF%BC%E8%88%AA%E9%A1%B5_%E9%9D%92%E6%9F%A0%E8%B5%B7%E5%A7%8B%E9%A1%B5.jpg" alt="青柠起始页主页"><figcaption>青柠起始页主页</figcaption></figure></p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/%E5%AF%BC%E8%88%AA%E9%A1%B5_%E9%9D%92%E6%9F%A0%E8%B5%B7%E5%A7%8B%E9%A1%B51.jpg" alt="青柠起始页附页"><figcaption>青柠起始页附页</figcaption></figure></p>
+<ul>
+<li>附：设置为浏览器起始页</li>
+</ul>
+<p>以Edge浏览器为例，打开设置页面，选择<code>开始、主页和新建标签页</code>，将启动时页面改为想要的导航页，更方便自己浏览器使用。</p>
+<p><figure class="image-caption"><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/%E5%AF%BC%E8%88%AA%E9%A1%B5_%E8%AE%BE%E7%BD%AE.jpg" alt="设置"><figcaption>设置</figcaption></figure></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>网页</category>
+      </categories>
+      <tags>
+        <tag>导航页</tag>
       </tags>
   </entry>
 </search>
