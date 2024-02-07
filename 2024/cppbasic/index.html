@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://fblog-1257020106.cos.ap-shanghai.myqcloud.com/imgs/learnCpp_cmdlinein.jpg">
 <meta property="og:image" content="https://fblog-1257020106.cos.ap-shanghai.myqcloud.com/imgs/learnCpp_cmdlineout.jpg">
 <meta property="article:published_time" content="2024-01-09T13:00:00.000Z">
-<meta property="article:modified_time" content="2024-02-03T11:46:30.909Z">
+<meta property="article:modified_time" content="2024-02-07T09:39:12.887Z">
 <meta property="article:author" content="Fingsinz">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
@@ -465,8 +465,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-02-03 19:46:30</span>
-            <span class="mobile">2024-02-03 19:46:30</span>
+            <span class="desktop">2024-02-07 17:39:12</span>
+            <span class="mobile">2024-02-07 17:39:12</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -504,12 +504,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>12.6k 字</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>14.3k 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>51 分钟</span>
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>58 分钟</span>
         </span>
     
     
@@ -1686,7 +1686,191 @@
 </ul>
 </li>
 </ol>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+<h2 id="异常">异常</h2>
+<h3 id="什么是异常">什么是异常</h3>
+<p>对象可以在调用层次结构中向上抛出：</p>
+<ul>
+<li>通过“抛出”将控制转回到当前函数的调用方。</li>
+<li>如果不处理，异常会一直传播，直到它们到达 <code>main</code> 函数。但如果在主函数中中没有处理异常，将会调用 <code>std::terminate</code>，即终止程序。</li>
+</ul>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">fun1</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">throw</span> <span class="string">&quot;Exception&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">fun2</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">fun1</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">fun2</span>(); <span class="comment">// 没有处理异常，终止程序</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ol>
+<li>通过 <code>throw</code> 关键字抛出异常。</li>
+<li>通过 <code>try-catch</code> 语句捕获异常。</li>
+</ol>
+<p>例子：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义除法函数， a / b </span></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">division</span><span class="params">(<span class="type">double</span> a, <span class="type">double</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(b == <span class="number">0</span>)</span><br><span class="line">		<span class="keyword">throw</span> std::invalid_argument&#123;<span class="string">&quot;divided by 0&quot;</span>&#125;;</span><br><span class="line">	<span class="keyword">return</span> a / b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">double</span> number1 = <span class="number">0</span>, number2 = <span class="number">0</span>, ans = <span class="number">0</span>;</span><br><span class="line">	std::cin &gt;&gt; number1 &gt;&gt; number2;</span><br><span class="line">	<span class="keyword">try</span></span><br><span class="line">	&#123;</span><br><span class="line">		ans = <span class="built_in">division</span>(number1, number2);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">catch</span> (std::invalid_argument <span class="type">const</span> &amp;err)</span><br><span class="line">	&#123;</span><br><span class="line">		std::cout &lt;&lt; err.<span class="built_in">what</span>() &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	std::cout &lt;&lt; number1 &lt;&lt; <span class="string">&quot; / &quot;</span> &lt;&lt; number2 &lt;&lt; <span class="string">&quot; = &quot;</span> &lt;&lt; ans;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：1 2</span><br><span class="line">输出：1 / 2 = 0.5</span><br><span class="line"></span><br><span class="line">输入：1 0</span><br><span class="line">输出：divided by 0</span><br></pre></td></tr></table></figure></div>
+<h3 id="异常用处">异常用处</h3>
+<p>报告违规行为。</p>
+<ol>
+<li>
+<p>输入与期望或规定不符（违法输入，或违法的函数参数）。</p>
+<ul>
+<li>如：负数的平方根、下标越界等。</li>
+</ul>
+</li>
+<li>
+<p>定义或保留不变量失败。</p>
+<ul>
+<li>如：公共成员函数无法设置有效的成员值、<code>vector</code> 扩充空间期间爆内存。</li>
+</ul>
+</li>
+<li>
+<p>输出、返回值与期望或规定不符，函数无法生成有效的返回值或损坏全局。</p>
+<ul>
+<li>如：构造函数失败、无法返回除以零的结果。</li>
+</ul>
+</li>
+</ol>
+<p>异常的优劣：</p>
+<ol>
+<li>错误处理代码与业务逻辑的分离</li>
+<li>错误处理的集中化</li>
+<li>当不引发异常时，性能影响可以忽略不计</li>
+<li>抛出异常时通常会影响性能，由于额外的有效性检查而导致的性能影响</li>
+<li>容易产生资源/内存泄漏</li>
+</ol>
+<h3 id="异常替代方案">异常替代方案</h3>
+<ol>
+<li>
+<p>输入值无效：输入前进行检查，用参数类型排除无效值。</p>
+</li>
+<li>
+<p>定义或保留不变量失败：设置错误状态/标志，将对象设置为特殊，无效值/状态。</p>
+</li>
+<li>
+<p>不能返回有效值：通过单独的输出参数（引用或指针）返回错误代码、返回特殊的有效值、返回特殊类型 <code>std::optional</code>(C++17)</p>
+</li>
+</ol>
+<h3 id="标准库异常">标准库异常</h3>
+<p><code>std::exception</code>：其子类型有：</p>
+<ul>
+<li><code>logic_error</code>
+<ul>
+<li><code>invalid_argument</code></li>
+<li><code>domain_error</code></li>
+<li><code>length_error</code></li>
+<li><code>out_of_range</code></li>
+<li>……</li>
+</ul>
+</li>
+<li><code>runtime_error</code>
+<ul>
+<li><code>range_error</code></li>
+<li><code>overflow_error</code></li>
+<li><code>underflow_error</code></li>
+<li>……</li>
+</ul>
+</li>
+</ul>
+<p><code>vector</code> 支持一种“宽规约”函数，通过抛出异常来报告无效的输入值：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">std::vector&lt;<span class="type">int</span>&gt; v&#123; <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span> &#125;;</span><br><span class="line"><span class="type">int</span> a = v[<span class="number">3</span>];   <span class="comment">// 越界且窄规约，即错误</span></span><br><span class="line"><span class="type">int</span> b = v.<span class="built_in">at</span>(<span class="number">3</span>); <span class="comment">// 越界且宽规约，即抛出异常 std::out_of_range</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="处理异常">处理异常</h3>
+<p>重复抛出：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">catch</span>(std::exception <span class="type">const</span> &amp;)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">throw</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>捕获所有异常：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">catch</span>(...)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>集中异常处理：</p>
+<ul>
+<li>如果在许多不同的地方抛出相同的异常类型，可以避免代码重复。</li>
+</ul>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">handle_init_errors</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">try</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">throw</span>;  <span class="comment">// 重抛出</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">catch</span>(err::device_unreachable <span class="type">const</span> &amp;e)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">catch</span>(err::bad_connection <span class="type">const</span> &amp;e)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">catch</span>(err::bad_protocol <span class="type">const</span> &amp;e)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">init_server</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">try</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">///...</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">catch</span>(...) &#123; <span class="built_in">handle_init_errors</span>(); &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">init_client</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">try</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">catch</span>(...) &#123; <span class="built_in">handle_init_errors</span>(); &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h3 id="异常的问题">异常的问题</h3>
+<p>几乎任何一段代码都可能引发异常，对C++类型和库的设计产生重大影响。</p>
+<p>资源/内存泄漏的潜在来源：</p>
+<ol>
+<li>进行自己的内存管理的外部C库；</li>
+<li>不使用 RAII 进行自动资源管理的C++库（设计存在缺陷）；</li>
+<li>在销毁时不清理资源的类型（设计存在缺陷）；</li>
+</ol>
+<p>如：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">add_to_database</span> <span class="params">(database <span class="type">const</span>&amp; db, std::string_view filename)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    DBHandle h = <span class="built_in">open_dabase_conncection</span>(db);  <span class="comment">// 建立远程连接</span></span><br><span class="line">    <span class="keyword">auto</span> f = <span class="built_in">open_file</span>(filename);</span><br><span class="line">    <span class="comment">// 如果 open_file 抛出异常，则不会调用 close_database_connection</span></span><br><span class="line">  </span><br><span class="line">    <span class="comment">// do work…</span></span><br><span class="line">    <span class="built_in">close_database_connection</span>(h);   <span class="comment">// 断开远程连接</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>这个例子可以使用 RAII，在类析构时断开连接释放资源。</p>
+<ul>
+<li>但也不要让异常逃离析构函数，如果在析构函数运行时发生异常，可能导致析构函数终止，但对象还没完全释放。</li>
+<li>需要在析构函数作成套的 <code>try-catch</code>。</li>
+</ul>
+<h3 id="异常保障">异常保障</h3>
+<p>为了避免抛出异常：</p>
+<ul>
+<li>
+<p>当没有保障时：</p>
+<ul>
+<li>操作可能会失败</li>
+<li>资源可能会泄露</li>
+<li>可能违反不变量（=成员可能包含无效值）</li>
+<li>部分执行失败的操作可能会产生副作用（例如输出）</li>
+<li>异常可能向外传播</li>
+</ul>
+</li>
+<li>
+<p>存在基本保障时：</p>
+<ul>
+<li>不变量被保留，没有资源泄露</li>
+<li>所有成员都将包含有效值</li>
+<li>部分执行失败的操作可能会产生副作用（例如，值可能已写入文件）</li>
+</ul>
+</li>
+<li>
+<p>强保障时：</p>
+<ul>
+<li>操作可能会失败，但不会产生明显的副作用</li>
+<li>所有成员都保留其原始值</li>
+<li>内存分配容器应提供这种保证，即如果增长期间内存分配失败，容器应保持有效且不变</li>
+</ul>
+</li>
+<li>
+<p>使用无抛出保障时：</p>
+<ul>
+<li>行动一定会成功</li>
+<li>无法从外部观察到的异常，即没有抛出或内部捕获</li>
+<li>使用 <code>noexcept</code> 关键字进行记录和强制执行</li>
+</ul>
+</li>
+</ul>
+<p>无抛出保障关键字： <code>noexcept</code> （C++11）</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">f</span><span class="params">()</span> <span class="keyword">noexcept</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li><code>f</code> 函数承诺永远不抛出异常，不允许任何转义</li>
+<li>如果从 <code>noexcept</code> 函数中逃脱出异常，则程序将终止</li>
+</ul>
+<p>带条件的 <code>noexcept</code> 语句：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">A <span class="title">noexcept</span><span class="params">(exp)</span> <span class="comment">// 如果表达式产生真值，声明&#x27;A&#x27;为noexcept</span></span></span><br><span class="line"><span class="function">A <span class="title">noexcept</span><span class="params">(<span class="keyword">noexcept</span>(B))</span> <span class="comment">// 如果`B`没有抛出异常，声明`A`为noexcept</span></span></span><br></pre></td></tr></table></figure></div>
+<p><code>noexcept()</code> 默认是 <code>true</code>。</p>
+<h3 id="终止处理程序">终止处理程序</h3>
+<p>当在主函数有未捕获的异常时：</p>
+<ul>
+<li>调用终止函数 <code>std::terminate</code>。</li>
+<li>它调用终止处理程序，默认调用 <code>std::abort</code> ，从而正常终止程序。</li>
+</ul>
+<p>可以自定义处理程序：<code>std::set_terminate(handler);</code></p>
+<p>如：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdexcept&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">my_handler</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    std::cerr &lt;&lt; <span class="string">&quot;Unhandled Exception!\n&quot;</span>;</span><br><span class="line">    std::<span class="built_in">abort</span>();  <span class="comment">// 终止程序</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    std::<span class="built_in">set_terminate</span>(my_handler);</span><br><span class="line">    <span class="keyword">throw</span> std::exception&#123;&#125;; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h3 id="异常指针">异常指针</h3>
+<ul>
+<li><code>std::current_exception</code>：
+<ul>
+<li>捕获当前异常对象</li>
+<li>返回一个 <code>std::exception_ptr</code> 引用该异常</li>
+<li>如果没有异常，则返回空的 <code>std::exception_ptr</code></li>
+</ul>
+</li>
+<li><code>std::exception_ptr</code>
+<ul>
+<li>保存一个异常副本或对异常的引用</li>
+</ul>
+</li>
+<li><code>std::rethrow_exception(exception_ptr)</code>
+<ul>
+<li>抛出异常指针所引用的异常对象</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;exception&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdexcept&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">handle_init_errors</span> <span class="params">(std::exception_ptr eptr)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">try</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (eptr) std::<span class="built_in">rethrow_exception</span>(eptr);</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="built_in">catch</span> (err::bad_connection <span class="type">const</span>&amp; e)</span><br><span class="line">    &#123; </span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125; </span><br><span class="line">    <span class="built_in">catch</span> (err::bad_protocol <span class="type">const</span>&amp; e)</span><br><span class="line">    &#123; </span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">initialize_client</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (exp) <span class="keyword">throw</span> err::bad_connection; </span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    std::exception_ptr eptr;</span><br><span class="line">    <span class="keyword">try</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">initialize_client</span>(); </span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125; </span><br><span class="line">    <span class="built_in">catch</span> (...)</span><br><span class="line">    &#123;</span><br><span class="line">        eptr = std::<span class="built_in">current_exception</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">handle</span>(eptr);</span><br><span class="line">&#125; <span class="comment">// eptr已销毁，则捕获的异常已销毁</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="计数未捕获的异常">计数未捕获的异常</h3>
+<p>C++17中，<code>std::uncaught_exceptions</code> 返回当前线程中当前未处理的异常数。</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;exception&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">foo</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">bar</span>(); <span class="comment">// 可能抛出异常</span></span><br><span class="line">    <span class="type">int</span> count = std::<span class="built_in">uncaught_exceptions</span>();</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
         </div>
 
         
@@ -1700,7 +1884,7 @@
         
             <li>
                 <strong>更新于
-                    :</strong> 2024-02-03 19:46:30
+                    :</strong> 2024-02-07 17:39:12
             </li>
         
         <li>
@@ -1780,7 +1964,7 @@
     <div class="post-toc">
         <div class="toc-title">此页目录</div>
         <div class="page-title">C++基础语法杂记</div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8Ec%E8%AF%AD%E8%A8%80%E5%88%B0c"><span class="nav-text">从C语言到C++</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#c-%E5%BC%80%E5%8F%91%E8%AE%BE%E7%BD%AE"><span class="nav-text">C++开发设置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%96%E8%BE%91%E5%99%A8-%E9%9B%86%E6%88%90%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83ide"><span class="nav-text">编辑器 &amp; 集成开发环境IDE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E5%99%A8"><span class="nav-text">编译器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%A8%8B%E5%BA%8Fhello-world"><span class="nav-text">第一个程序Hello World</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%96%E8%AF%91hello-cpp"><span class="nav-text">编译hello.cpp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E5%99%A8%E5%8F%82%E6%95%B0%E6%A0%87%E8%AE%B0"><span class="nav-text">编译器参数标记</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c-%E7%9A%84i-o"><span class="nav-text">C++的I&#x2F;O</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#i-o%E6%B5%81"><span class="nav-text">I&#x2F;O流</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B"><span class="nav-text">基本类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E"><span class="nav-text">变量声明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B"><span class="nav-text">变量类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">算术运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E5%A2%9E%E8%87%AA%E5%87%8F%E7%AC%A6"><span class="nav-text">自增自减符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">比较运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">逻辑运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">位运算符</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E6%B5%81"><span class="nav-text">控制流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="nav-text">条件结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84"><span class="nav-text">循环结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%9A%E4%B8%BE"><span class="nav-text">枚举</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%81%9A%E5%90%88"><span class="nav-text">数据类型聚合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%94%A8"><span class="nav-text">引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c-%E7%9A%84%E9%BB%98%E8%AE%A4%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84-std-vector"><span class="nav-text">C++的默认动态数组 std::vector</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#std-vector%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-text">std::vector的使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#std-vector%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="nav-text">std::vector迭代器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#std-vector-%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-text">std::vector 的工作原理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2std-string"><span class="nav-text">字符串std::string</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0"><span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD"><span class="nav-text">函数重载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E8%AE%BE%E8%AE%A1"><span class="nav-text">函数设计</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B-%E9%83%A8%E5%88%86"><span class="nav-text">内存模型（部分）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA"><span class="nav-text">输入和输出</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="nav-text">命令行的输入输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%B5%81"><span class="nav-text">输入输出流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="nav-text">文件的输入输出</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%93%E5%BC%80%E5%92%8C%E5%85%B3%E9%97%AD%E6%96%87%E4%BB%B6"><span class="nav-text">打开和关闭文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%BB%E6%96%87%E4%BB%B6"><span class="nav-text">读文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%99%E6%96%87%E4%BB%B6"><span class="nav-text">写文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%B5%81%E7%9A%84%E9%94%99%E8%AF%AF"><span class="nav-text">输入流的错误</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%9F%BA%E7%A1%80"><span class="nav-text">自定义类基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E4%BE%8B"><span class="nav-text">引例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E6%88%90%E5%91%98%E7%9A%84%E5%8F%97%E9%99%90%E5%88%B6%E8%AE%BF%E9%97%AE"><span class="nav-text">类成员的受限制访问</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="nav-text">成员函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%AC%E6%9C%89%E4%B8%8E%E7%A7%81%E6%9C%89"><span class="nav-text">公有与私有</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#const%E9%99%90%E5%AE%9A%E7%9A%84%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="nav-text">const限定的成员函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-text">成员函数的定义</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-text">初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%90%E5%91%98%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-text">成员初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-text">构造函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0"><span class="nav-text">析构函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B5%84%E6%BA%90%E8%8E%B7%E5%8F%96%E5%8D%B3%E5%88%9D%E5%A7%8B%E5%8C%96raii"><span class="nav-text">资源获取即初始化RAII</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9B%B6%E8%A7%84%E5%88%99"><span class="nav-text">零规则</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E9%92%88"><span class="nav-text">指针</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E6%8C%87%E9%92%88%EF%BC%9F"><span class="nav-text">为什么需要指针？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%87%E5%90%91%E7%B1%BB%E5%9E%8B%E4%B8%BAt%E7%9A%84%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%8C%87%E9%92%88"><span class="nav-text">指向类型为T的对象的指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%87%E9%92%88%E7%9B%B8%E5%85%B3%E7%9A%84%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">指针相关的运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#const-%E6%8C%87%E9%92%88"><span class="nav-text">const 指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#this-%E6%8C%87%E9%92%88"><span class="nav-text">this 指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%91%E4%BD%BF%E7%94%A8%E6%8C%87%E9%92%88"><span class="nav-text">少使用指针</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8Ec%E8%AF%AD%E8%A8%80%E5%88%B0c"><span class="nav-text">从C语言到C++</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#c-%E5%BC%80%E5%8F%91%E8%AE%BE%E7%BD%AE"><span class="nav-text">C++开发设置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%96%E8%BE%91%E5%99%A8-%E9%9B%86%E6%88%90%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83ide"><span class="nav-text">编辑器 &amp; 集成开发环境IDE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E5%99%A8"><span class="nav-text">编译器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%A8%8B%E5%BA%8Fhello-world"><span class="nav-text">第一个程序Hello World</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%96%E8%AF%91hello-cpp"><span class="nav-text">编译hello.cpp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E5%99%A8%E5%8F%82%E6%95%B0%E6%A0%87%E8%AE%B0"><span class="nav-text">编译器参数标记</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c-%E7%9A%84i-o"><span class="nav-text">C++的I&#x2F;O</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#i-o%E6%B5%81"><span class="nav-text">I&#x2F;O流</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B"><span class="nav-text">基本类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E"><span class="nav-text">变量声明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B"><span class="nav-text">变量类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">算术运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E5%A2%9E%E8%87%AA%E5%87%8F%E7%AC%A6"><span class="nav-text">自增自减符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">比较运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">逻辑运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">位运算符</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E6%B5%81"><span class="nav-text">控制流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="nav-text">条件结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84"><span class="nav-text">循环结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%9A%E4%B8%BE"><span class="nav-text">枚举</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%81%9A%E5%90%88"><span class="nav-text">数据类型聚合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%94%A8"><span class="nav-text">引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c-%E7%9A%84%E9%BB%98%E8%AE%A4%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84-std-vector"><span class="nav-text">C++的默认动态数组 std::vector</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#std-vector%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-text">std::vector的使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#std-vector%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="nav-text">std::vector迭代器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#std-vector-%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-text">std::vector 的工作原理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2std-string"><span class="nav-text">字符串std::string</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0"><span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD"><span class="nav-text">函数重载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E8%AE%BE%E8%AE%A1"><span class="nav-text">函数设计</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B-%E9%83%A8%E5%88%86"><span class="nav-text">内存模型（部分）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA"><span class="nav-text">输入和输出</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="nav-text">命令行的输入输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%B5%81"><span class="nav-text">输入输出流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="nav-text">文件的输入输出</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%93%E5%BC%80%E5%92%8C%E5%85%B3%E9%97%AD%E6%96%87%E4%BB%B6"><span class="nav-text">打开和关闭文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%BB%E6%96%87%E4%BB%B6"><span class="nav-text">读文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%99%E6%96%87%E4%BB%B6"><span class="nav-text">写文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%B5%81%E7%9A%84%E9%94%99%E8%AF%AF"><span class="nav-text">输入流的错误</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%9F%BA%E7%A1%80"><span class="nav-text">自定义类基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E4%BE%8B"><span class="nav-text">引例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E6%88%90%E5%91%98%E7%9A%84%E5%8F%97%E9%99%90%E5%88%B6%E8%AE%BF%E9%97%AE"><span class="nav-text">类成员的受限制访问</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="nav-text">成员函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%AC%E6%9C%89%E4%B8%8E%E7%A7%81%E6%9C%89"><span class="nav-text">公有与私有</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#const%E9%99%90%E5%AE%9A%E7%9A%84%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="nav-text">const限定的成员函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-text">成员函数的定义</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-text">初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%90%E5%91%98%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-text">成员初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-text">构造函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0"><span class="nav-text">析构函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B5%84%E6%BA%90%E8%8E%B7%E5%8F%96%E5%8D%B3%E5%88%9D%E5%A7%8B%E5%8C%96raii"><span class="nav-text">资源获取即初始化RAII</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9B%B6%E8%A7%84%E5%88%99"><span class="nav-text">零规则</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E9%92%88"><span class="nav-text">指针</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E6%8C%87%E9%92%88%EF%BC%9F"><span class="nav-text">为什么需要指针？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%87%E5%90%91%E7%B1%BB%E5%9E%8B%E4%B8%BAt%E7%9A%84%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%8C%87%E9%92%88"><span class="nav-text">指向类型为T的对象的指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%87%E9%92%88%E7%9B%B8%E5%85%B3%E7%9A%84%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">指针相关的运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#const-%E6%8C%87%E9%92%88"><span class="nav-text">const 指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#this-%E6%8C%87%E9%92%88"><span class="nav-text">this 指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%91%E4%BD%BF%E7%94%A8%E6%8C%87%E9%92%88"><span class="nav-text">少使用指针</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8"><span class="nav-text">异常</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%BC%82%E5%B8%B8"><span class="nav-text">什么是异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E7%94%A8%E5%A4%84"><span class="nav-text">异常用处</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E6%9B%BF%E4%BB%A3%E6%96%B9%E6%A1%88"><span class="nav-text">异常替代方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E5%87%86%E5%BA%93%E5%BC%82%E5%B8%B8"><span class="nav-text">标准库异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E5%BC%82%E5%B8%B8"><span class="nav-text">处理异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">异常的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E4%BF%9D%E9%9A%9C"><span class="nav-text">异常保障</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%88%E6%AD%A2%E5%A4%84%E7%90%86%E7%A8%8B%E5%BA%8F"><span class="nav-text">终止处理程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E6%8C%87%E9%92%88"><span class="nav-text">异常指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E6%95%B0%E6%9C%AA%E6%8D%95%E8%8E%B7%E7%9A%84%E5%BC%82%E5%B8%B8"><span class="nav-text">计数未捕获的异常</span></a></li></ol></li></ol>
 
     </div>
 </div>
