@@ -50,7 +50,9 @@
     
     
 
-<meta name="generator" content="Hexo 6.3.0"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
     
     <style>
         :root {
@@ -227,19 +229,19 @@
     <ul class="nav">
         
             
-                <li><a href="/">首页</a></li>
+                <li><a href="/">首页🏚️</a></li>
             
         
             
-                <li><a href="/list/">文章</a></li>
+                <li><a href="/list/">文章📄</a></li>
             
         
             
-                <li><a href="/categories/">分类</a></li>
+                <li><a href="/categories/">分类🗂️</a></li>
             
         
             
-                <li><a href="/about/">关于</a></li>
+                <li><a href="/about/">关于🧑</a></li>
             
         
     </ul>
@@ -976,7 +978,7 @@ type(x) # &lt;class 'bool'&gt;
 <li>Python的字符串没有严格规定是单引号还是双引号，只要匹配即可。其数据类型代号是str。如果字符串中有单引号，为了避免出错，使用双引号。</li>
 </ul>
 <pre><code class="language-python">x = 'python'
-y = &quot;Tom's house&quot;
+y = "Tom's house"
 type(x) # &lt;class 'str'&gt;
 </code></pre>
 <ul>
@@ -1032,19 +1034,19 @@ z = x * 5 # z为11111，是字符串
 </tr>
 </tbody>
 </table>
-<pre><code class="language-python">str = &quot;hello&quot;
+<pre><code class="language-python">str = "hello"
 str[2] # l
 </code></pre>
 <ul>
 <li>字符串可以使用 <code>[:]</code> 截取字符串的一部分，遵循左闭右开，-1 为从末尾的开始位置。。</li>
 </ul>
-<pre><code class="language-python">str = &quot;hello&quot;
+<pre><code class="language-python">str = "hello"
 str[2:4] # ll
 </code></pre>
 <ul>
 <li>可以使用 <code>in</code> 或 <code>not in</code> 判断某字符是否在字符串中。</li>
 </ul>
-<pre><code class="language-python">str = &quot;hello&quot;
+<pre><code class="language-python">str = "hello"
 'h' in str		# 为真
 'h' not in str	# 为假
 </code></pre>
@@ -1085,7 +1087,7 @@ z = int(111) + int(222) # z为333，是整型
 <td style="text-align:center">单引号</td>
 </tr>
 <tr>
-<td style="text-align:center"><code>\&quot;</code></td>
+<td style="text-align:center"><code>\"</code></td>
 <td style="text-align:center">22</td>
 <td style="text-align:center">双引号</td>
 </tr>
@@ -1144,8 +1146,8 @@ z = int(111) + int(222) # z为333，是整型
 <ul>
 <li>在字符串前加 <code>r</code> ，可以让转义字符不被转义。</li>
 </ul>
-<pre><code class="language-python">str1 = &quot;Hello\nWorld&quot;	# 换行符生效
-str2 = r&quot;Hello\nWorld&quot;	# 换行符不生效，原样输出
+<pre><code class="language-python">str1 = "Hello\nWorld"	# 换行符生效
+str2 = r"Hello\nWorld"	# 换行符不生效，原样输出
 </code></pre>
 <h3 id="4-4-4-字符串的函数方法">4.4.4 字符串的函数方法</h3>
 <p>字符串的函数方法有许多，此处列出常用的几个。</p>
@@ -1214,7 +1216,7 @@ str2 = r&quot;Hello\nWorld&quot;	# 换行符不生效，原样输出
 <p><code>rstrip()</code>，删除字符串末尾的空格或指定字符。</p>
 </li>
 <li>
-<p><code>split(str=&quot;&quot;, num=string.count(str))</code>，以 str 为分隔符截取字符串，如果 num 有指定值，则仅截取 num+1 个子字符串。</p>
+<p><code>split(str="", num=string.count(str))</code>，以 str 为分隔符截取字符串，如果 num 有指定值，则仅截取 num+1 个子字符串。</p>
 </li>
 <li>
 <p><code>startswith(substr, beg=0,end=len(string))</code>，检查字符串是否是以指定子字符串 substr 开头，是则返回 True，否则返回 False。如果beg 和 end 指定值，则在指定范围内检查。</p>
@@ -1258,7 +1260,7 @@ print(x, y, sep=',')	# 输出x和y，以“,”为分隔符
 <pre><code>输出结果：15.0    10,1.5
 </code></pre>
 <h3 id="5-2-2-格式化print-的输出">5.2.2 格式化print()的输出</h3>
-<p>可以使用这样的格式输出： <code>print(&quot;输出格式字符串&quot; % (变量))</code> ，输出格式字符串中，与C语言类似。</p>
+<p>可以使用这样的格式输出： <code>print("输出格式字符串" % (变量))</code> ，输出格式字符串中，与C语言类似。</p>
 <ul>
 <li>
 <p><code>%d</code> 表示格式化整数输出。</p>
@@ -1278,8 +1280,8 @@ print(x, y, sep=',')	# 输出x和y，以“,”为分隔符
 </ul>
 <pre><code class="language-python">x = 10
 y = 9.9
-print(&quot;%d\t%f\t%s&quot; % (x, x, x))
-print(&quot;%d\t%f\t%s&quot; % (y, y, y))
+print("%d\t%f\t%s" % (x, x, x))
+print("%d\t%f\t%s" % (y, y, y))
 </code></pre>
 <pre><code>输出结果：
 10      10.000000       10
@@ -1290,7 +1292,7 @@ print(&quot;%d\t%f\t%s&quot; % (y, y, y))
 <li><code>%nd</code> ：格式化整数输出。若n不带符号表明保留n格空间，保留空间不足将完整输出数据。若n带正号表明输出在左边加上符号，若n带负号表示数据靠左输出。</li>
 </ul>
 <pre><code class="language-python">x = 11111
-print(&quot;|%2d| |%+2d| |%-2d| |%6d| |%+6d| |%-6d| &quot; % (x, x, x, x, x, x))
+print("|%2d| |%+2d| |%-2d| |%6d| |%+6d| |%-6d| " % (x, x, x, x, x, x))
 # 输出结果：|11111| |+11111| |11111| | 11111| |+11111| |11111 |
 </code></pre>
 <ul>
@@ -1304,8 +1306,8 @@ print(&quot;|%2d| |%+2d| |%-2d| |%6d| |%+6d| |%-6d| &quot; % (x, x, x, x, x, x))
 <p><code>%ns</code> ：格式化八进制输出。若n不带符号表明保留n格空间，保留空间不足将完整输出数据。若n带负号表示数据靠左输出。</p>
 </li>
 </ul>
-<pre><code class="language-python">x = &quot;Hello&quot;
-print(&quot;|%2s| |%-2s| |%6s| |%-6s|&quot; % (x, x, x, x))
+<pre><code class="language-python">x = "Hello"
+print("|%2s| |%-2s| |%6s| |%-6s|" % (x, x, x, x))
 # 输出结果：|Hello| |Hello| | Hello| |Hello |
 </code></pre>
 <ul>
@@ -1313,17 +1315,17 @@ print(&quot;|%2s| |%-2s| |%6s| |%-6s|&quot; % (x, x, x, x))
 </ul>
 <pre><code class="language-python">x = 3.14159
 x = 3.14159
-print(&quot;|%5f| |%10f| |%5.2f| |%+5.2f| |%-5.2f|&quot; % (x, x, x, x, x))
+print("|%5f| |%10f| |%5.2f| |%+5.2f| |%-5.2f|" % (x, x, x, x, x))
 # 输出结果：|3.141590| |  3.141590| | 3.14| |+3.14| |3.14 |
 </code></pre>
 <h3 id="5-2-3-format-函数">5.2.3 format()函数</h3>
-<p>使用 <code>format()</code> 函数的输出格式为： <code>print(&quot;输出格式字符串&quot; .format(变量, ...))</code></p>
+<p>使用 <code>format()</code> 函数的输出格式为： <code>print("输出格式字符串" .format(变量, ...))</code></p>
 <ul>
 <li>
-<p>输出格式字符串中输出变量的位置使用 <code>&#123;&#125;</code> 表示。</p>
+<p>输出格式字符串中输出变量的位置使用 <code>{}</code> 表示。</p>
 </li>
 <li>
-<p><code>&#123;&#125;</code> 中填入 <code>!a</code> (使用 ascii()), <code>!s</code> (使用 str()) 和 <code>!r</code> (使用 repr()) 可以用于在格式化某个值之前对其进行转化。</p>
+<p><code>{}</code> 中填入 <code>!a</code> (使用 ascii()), <code>!s</code> (使用 str()) 和 <code>!r</code> (使用 repr()) 可以用于在格式化某个值之前对其进行转化。</p>
 </li>
 <li>
 <p>格式内容如下</p>
@@ -1341,115 +1343,115 @@ print(&quot;|%5f| |%10f| |%5.2f| |%+5.2f| |%-5.2f|&quot; % (x, x, x, x, x))
 <tbody>
 <tr>
 <td style="text-align:center">3.1415926</td>
-<td style="text-align:center"><code>&#123;:.2f&#125;</code></td>
+<td style="text-align:center"><code>{:.2f}</code></td>
 <td style="text-align:center">3.14</td>
 <td style="text-align:center">保留小数点后两位</td>
 </tr>
 <tr>
 <td style="text-align:center">3.1415926</td>
-<td style="text-align:center"><code>&#123;:+.2f&#125;</code></td>
+<td style="text-align:center"><code>{:+.2f}</code></td>
 <td style="text-align:center">+3.14</td>
 <td style="text-align:center">带符号保留小数点后两位</td>
 </tr>
 <tr>
 <td style="text-align:center">-1</td>
-<td style="text-align:center"><code>&#123;:+.2f&#125;</code></td>
+<td style="text-align:center"><code>{:+.2f}</code></td>
 <td style="text-align:center">-1.00</td>
 <td style="text-align:center">带符号保留小数点后两位</td>
 </tr>
 <tr>
 <td style="text-align:center">2.71828</td>
-<td style="text-align:center"><code>&#123;:.0f&#125;</code></td>
+<td style="text-align:center"><code>{:.0f}</code></td>
 <td style="text-align:center">3</td>
 <td style="text-align:center">不带小数</td>
 </tr>
 <tr>
 <td style="text-align:center">5</td>
-<td style="text-align:center"><code>&#123;:0&gt;2d&#125;</code></td>
+<td style="text-align:center"><code>{:0&gt;2d}</code></td>
 <td style="text-align:center">05</td>
 <td style="text-align:center">数字补零（填充左边，宽度为2）</td>
 </tr>
 <tr>
 <td style="text-align:center">5</td>
-<td style="text-align:center"><code>&#123;:x&lt;4d&#125;</code></td>
+<td style="text-align:center"><code>{:x&lt;4d}</code></td>
 <td style="text-align:center">5xxx</td>
 <td style="text-align:center">数字补x（填充右边，宽度为4）</td>
 </tr>
 <tr>
 <td style="text-align:center">10</td>
-<td style="text-align:center"><code>&#123;:x&lt;4d&#125;</code></td>
+<td style="text-align:center"><code>{:x&lt;4d}</code></td>
 <td style="text-align:center">10xx</td>
 <td style="text-align:center">数字补x（填充右边，宽度为4）</td>
 </tr>
 <tr>
 <td style="text-align:center">1000000</td>
-<td style="text-align:center"><code>&#123;:,&#125;</code></td>
+<td style="text-align:center"><code>{:,}</code></td>
 <td style="text-align:center">1,000,000</td>
 <td style="text-align:center">以逗号分隔的数字格式</td>
 </tr>
 <tr>
 <td style="text-align:center">0.25</td>
-<td style="text-align:center"><code>&#123;:.2%&#125;</code></td>
+<td style="text-align:center"><code>{:.2%}</code></td>
 <td style="text-align:center">25.00%</td>
 <td style="text-align:center">百分比格式</td>
 </tr>
 <tr>
 <td style="text-align:center">1000000000</td>
-<td style="text-align:center"><code>&#123;:.2e&#125;</code></td>
+<td style="text-align:center"><code>{:.2e}</code></td>
 <td style="text-align:center">1.00e+09</td>
 <td style="text-align:center">指数记法</td>
 </tr>
 <tr>
 <td style="text-align:center">13</td>
-<td style="text-align:center"><code>&#123;:10d&#125;</code></td>
+<td style="text-align:center"><code>{:10d}</code></td>
 <td style="text-align:center">13</td>
 <td style="text-align:center">右对齐，宽度为10</td>
 </tr>
 <tr>
 <td style="text-align:center">13</td>
-<td style="text-align:center"><code>&#123;:&lt;10d&#125;</code></td>
+<td style="text-align:center"><code>{:&lt;10d}</code></td>
 <td style="text-align:center">13</td>
 <td style="text-align:center">左对齐，宽度为10</td>
 </tr>
 <tr>
 <td style="text-align:center">13</td>
-<td style="text-align:center"><code>&#123;:^10d&#125;</code></td>
+<td style="text-align:center"><code>{:^10d}</code></td>
 <td style="text-align:center">13</td>
 <td style="text-align:center">中间对齐，宽度为10</td>
 </tr>
 <tr>
 <td style="text-align:center">11</td>
-<td style="text-align:center"><code>&#123;:b&#125;</code></td>
+<td style="text-align:center"><code>{:b}</code></td>
 <td style="text-align:center">1011</td>
 <td style="text-align:center">二进制表示</td>
 </tr>
 <tr>
 <td style="text-align:center">11</td>
-<td style="text-align:center"><code>&#123;:d&#125;</code></td>
+<td style="text-align:center"><code>{:d}</code></td>
 <td style="text-align:center">11</td>
 <td style="text-align:center">十进制表示</td>
 </tr>
 <tr>
 <td style="text-align:center">11</td>
-<td style="text-align:center"><code>&#123;:o&#125;</code></td>
+<td style="text-align:center"><code>{:o}</code></td>
 <td style="text-align:center">13</td>
 <td style="text-align:center">八进制表示</td>
 </tr>
 <tr>
 <td style="text-align:center">11</td>
-<td style="text-align:center"><code>&#123;:x&#125;</code></td>
+<td style="text-align:center"><code>{:x}</code></td>
 <td style="text-align:center">b</td>
 <td style="text-align:center">十六进制表示</td>
 </tr>
 <tr>
 <td style="text-align:center">11</td>
-<td style="text-align:center"><code>&#123;:#x&#125;</code></td>
+<td style="text-align:center"><code>{:#x}</code></td>
 <td style="text-align:center">0xb</td>
 <td style="text-align:center">十六进制表示</td>
 </tr>
 <tr>
 <td style="text-align:center">11</td>
-<td style="text-align:center"><code>&#123;:#X&#125;</code></td>
+<td style="text-align:center"><code>{:#X}</code></td>
 <td style="text-align:center">0xB</td>
 <td style="text-align:center">十六进制表示</td>
 </tr>
@@ -1464,7 +1466,7 @@ print(dit(a)) # 列出int的所有函数
 <p>再结合 <code>help()</code> 函数即可了解每个函数的意义。</p>
 <h2 id="5-3-输入">5.3 输入</h2>
 <p>通过 <code>input()</code> 函数输入一行文本。</p>
-<p>该函数的格式为： <code>value = input(&quot;promt:&quot;)</code></p>
+<p>该函数的格式为： <code>value = input("promt:")</code></p>
 <ul>
 <li>
 <p>value：输入数据存入到该变量中，不论输入什么，value都是字符串数据类型，需要进行处理。</p>
@@ -1473,11 +1475,11 @@ print(dit(a)) # 列出int的所有函数
 <p>promt：输入提示词。</p>
 </li>
 </ul>
-<pre><code class="language-python">a = input(&quot;请输入一个数字：&quot;)
-print(&quot;输入的数字是&#123;&#125;，其类型是&#123;&#125;&quot;.format(a, type(a)))
+<pre><code class="language-python">a = input("请输入一个数字：")
+print("输入的数字是{}，其类型是{}".format(a, type(a)))
 
-b = int(input(&quot;请输入一个数字：&quot;))
-print(&quot;输入的数字是&#123;&#125;，其类型是&#123;&#125;&quot;.format(b, type(b)))
+b = int(input("请输入一个数字："))
+print("输入的数字是{}，其类型是{}".format(b, type(b)))
 
 # 运行窗口：
 # 请输入一个数字：6
@@ -1497,8 +1499,8 @@ print(&quot;输入的数字是&#123;&#125;，其类型是&#123;&#125;&quot;.form
 <p>在Python内是使用缩进方式区隔if语句的程序代码区块，编辑程序时可以用Tab键内缩或是直接内缩4个字符空间，表示这是if语句的程序代码区块。</p>
 <pre><code class="language-python">age = 18
 if (age &gt;= 18):
-	print(&quot;你成年了&quot;)
-	print(&quot;你的年龄是&#123;&#125;&quot;.format(age))
+	print("你成年了")
+	print("你的年龄是{}".format(age))
 </code></pre>
 <p>实际上不一定非得缩进4格字符空间，任意相同缩进的连续语句都可看作是同一代码块。</p>
 <h2 id="6-2-if-else语句">6.2 if-else语句</h2>
@@ -1521,17 +1523,17 @@ else:
 </code></pre>
 <p>如果条件判断一是True则执行程序代码区块一，然后离开条件判断。否则检查条件判断二，如果是True则执行程序代码区块二，然后离开条件判断。如果条件判断是False则持续进行检查，上述elif的条件判断可以不断扩充，如果所有条件判断是False则执行程序代码区块。</p>
 <p>举个例子，分数采取A、B、C、D、F，通常90-100分是A，80-89分是B，70-79分是C，60-69分是D，低于60分是F。</p>
-<pre><code class="language-python">score = int(input(&quot;请输入你的分数：&quot;))
+<pre><code class="language-python">score = int(input("请输入你的分数："))
 if (score &gt;= 90 and score &lt;= 100):
-	print(&quot;你的成绩是A&quot;)
+	print("你的成绩是A")
 elif (score &gt;= 80 and score &lt;= 89):
-	print(&quot;你的成绩是B&quot;)
+	print("你的成绩是B")
 elif (score &gt;= 70 and score &lt;= 79):
-	print(&quot;你的成绩是C&quot;)
+	print("你的成绩是C")
 elif (score &gt;= 60 and score &lt;= 69):
-	print(&quot;你的成绩是D&quot;)
+	print("你的成绩是D")
 else:
-	print(&quot;你的成绩是F&quot;)
+	print("你的成绩是F")
 </code></pre>
 <h2 id="6-4-嵌套的if语句">6.4 嵌套的if语句</h2>
 <p>if语句中有其他的if语句，称作if的嵌套。</p>
@@ -1576,14 +1578,14 @@ else:
 </code></pre>
 <p>当循环执行完毕（即遍历完 iterable 中的所有元素）后，会执行 <code>else</code> 子句中的代码，如果在循环过程中遇到了 <code>break</code> 语句，则会中断循环，此时不会执行 <code>else</code> 子句。可以查看下面这两个例子：</p>
 <pre><code class="language-python">for x in range(6):
-  # do Nothing
+&nbsp; # do Nothing
 else:
-  print(&quot;Finally finished!&quot;)
+&nbsp; print("Finally finished!")
 
 for x in range(6):
-  if x == 6: break
+&nbsp; if x == 6: break
 else:
-  print(&quot;Finally finished!&quot;)
+&nbsp; print("Finally finished!")
 </code></pre>
 <pre><code>输出结果：
 0
@@ -1615,10 +1617,10 @@ else:
 <p>举个栗子：</p>
 <pre><code class="language-python">count = 0
 while count &lt; 5:
-   print (count, &quot; 小于 5&quot;)
+   print (count, " 小于 5")
    count = count + 1
 else:
-   print (count, &quot; 大于或等于 5&quot;)
+   print (count, " 大于或等于 5")
 </code></pre>
 <pre><code>输出结果：
 0  小于 5
@@ -1642,7 +1644,7 @@ else:
 </ul>
 <pre><code class="language-python">for i in range(100):
 	pass
-print(&quot;finish&quot;)
+print("finish")
 # 输出：finish
 </code></pre>
 <p><br><br><br></p>
@@ -1672,7 +1674,7 @@ print(&quot;finish&quot;)
 <p>实例变量：在类的声明中，属性是用变量来表示的，这种变量就称为实例变量，实例变量就是一个用 self 修饰的变量。</p>
 </li>
 <li>
-<p>继承：即一个派生类（derived class）继承基类（base class）的字段和方法。继承也允许把一个派生类的对象作为一个基类对象对待。例如，有这样一个设计：一个Dog类型的对象派生自Animal类，这是模拟&quot;是一个（is-a）&quot;关系（例图，Dog是一个Animal）。</p>
+<p>继承：即一个派生类（derived class）继承基类（base class）的字段和方法。继承也允许把一个派生类的对象作为一个基类对象对待。例如，有这样一个设计：一个Dog类型的对象派生自Animal类，这是模拟"是一个（is-a）"关系（例图，Dog是一个Animal）。</p>
 </li>
 <li>
 <p>实例化：创建一个类的实例，类的具体对象。</p>
@@ -1696,7 +1698,7 @@ print(&quot;finish&quot;)
 	color = None	# 类的公有属性，此处是狗的颜色
 	__name = None	# 类的私有属性，此处是狗的名字
 	def sound(self):	# 类的方法，此处是发出声音方法
-		print(&quot;汪&quot;)
+		print("汪")
 
 dog = Dog()	# 类的实例化
 dog.sound()	# 类的实例调用类的方法
@@ -1718,9 +1720,9 @@ dog.sound()	# 类的实例调用类的方法
 		self.weight = w
 		self.color = c
 	def sound(self):	# 类的方法，此处是发出声音方法
-		print(&quot;汪&quot;)
+		print("汪")
 	def about(self):
-		print(&quot;这是一只&#123;&#125;色的狗，重量是&#123;&#125;kg&quot;.format(self.color, self.weight))
+		print("这是一只{}色的狗，重量是{}kg".format(self.color, self.weight))
 
 dog = Dog(10, '黑')	# 类的实例化，并且实例化时设定属性值
 dog.about()	# 输出关于狗狗的信息
@@ -1788,9 +1790,9 @@ class Dog(Animal):	# 狗类继承动物类
 		self.weight = w
 		self.color = c
 	def sound(self):	# 类的方法，此处是发出声音方法
-		print(&quot;汪&quot;)
+		print("汪")
 	def about(self):
-		print(&quot;这是一只&#123;&#125;色的狗，重量是&#123;&#125;kg&quot;.format(self.color, self.weight))
+		print("这是一只{}色的狗，重量是{}kg".format(self.color, self.weight))
 
 dog = Dog(10, '黑')	# 类的实例化，并且实例化时设定属性值
 dog.about()	# 输出关于狗狗的信息
@@ -1819,9 +1821,9 @@ class Dog(Animal, Flower):
 		self.weight = w
 		self.color = c
 	def sound(self):	# 类的方法，此处是发出声音方法
-		print(&quot;汪&quot;)
+		print("汪")
 	def about(self):
-		print(&quot;这是一只&#123;&#125;色的狗，重量是&#123;&#125;kg&quot;.format(self.color, self.weight))
+		print("这是一只{}色的狗，重量是{}kg".format(self.color, self.weight))
 
 dog = Dog(10, '黑')	# 类的实例化，并且实例化时设定属性值
 dog.about()	# 输出关于狗狗的信息
@@ -1834,20 +1836,20 @@ dog.sound()	# 类的实例调用类的方法
 	def __init__(self, w):
 		self.weight = w
 	def about(self):
-		print(&quot;这只动物的重量是&#123;&#125;kg&quot;.format(self.weight))
+		print("这只动物的重量是{}kg".format(self.weight))
 class Flower:
 	color = None	# 类的属性，此处是花的颜色，未知设为None
 	def __init__(self, c):
 		self.color = c
 	def about(self):
-		print(&quot;这朵花的颜色是&#123;&#125;色&quot;.format(self.color))
+		print("这朵花的颜色是{}色".format(self.color))
 
 class Dog(Animal, Flower):
 	def __init__(self, w, c):
 		self.weight = w
 		self.color = c
 	def about(self):
-		print(&quot;这是一只&#123;&#125;色的狗，重量是&#123;&#125;kg&quot;.format(self.color, self.weight))
+		print("这是一只{}色的狗，重量是{}kg".format(self.color, self.weight))
 
 animal = Animal(20)
 flower = Flower('红')
@@ -2090,41 +2092,41 @@ print(tup1 * 4)
 <h1>十一. 字典 Dict</h1>
 <h2 id="11-1-什么是字典">11.1 什么是字典</h2>
 <p>字典是另一种可变容器模型，由键值对组成，且可存储任意类型对象。</p>
-<p>字典的每个键值对用冒号 <code>:</code> 分割，每个对之间用逗号 <code>,</code> 分割，整个字典包括在花括号 <code>&#123;&#125;</code> 中 ,格式如下所示：</p>
-<pre><code class="language-python">d = &#123;key1 : value1, key2 : value2, ...&#125;
+<p>字典的每个键值对用冒号 <code>:</code> 分割，每个对之间用逗号 <code>,</code> 分割，整个字典包括在花括号 <code>{}</code> 中 ,格式如下所示：</p>
+<pre><code class="language-python">d = {key1 : value1, key2 : value2, ...}
 </code></pre>
 <p>需要注意的是，键值对的键必须是唯一的，值可以不唯一。 <strong>创建时如果同一个键被赋值两次，后一个值会被记住。</strong></p>
 <p>键必须不可变，所以可以用数字，字符串或元组充当，而用列表就不行。</p>
-<p>同时创建空字典时，可以使用 <code>d = &#123;&#125;</code> 直接创建，也可以使用 <code>d= dict()</code> 函数创建。所以字典的名字不能取dict。</p>
+<p>同时创建空字典时，可以使用 <code>d = {}</code> 直接创建，也可以使用 <code>d= dict()</code> 函数创建。所以字典的名字不能取dict。</p>
 <h2 id="11-2-字典的运算和方法">11.2 字典的运算和方法</h2>
 <h3 id="11-2-1-输出字典">11.2.1 输出字典</h3>
 <p>直接使用 <code>print()</code> 输出：</p>
-<pre><code class="language-python">d = &#123;'apple' : '苹果', 'banana' : '香蕉'&#125;
+<pre><code class="language-python">d = {'apple' : '苹果', 'banana' : '香蕉'}
 print(d)
 </code></pre>
 <h3 id="11-2-2-读取-修改和删除字典">11.2.2 读取、修改和删除字典</h3>
 <p>与列表、元组使用索引值不同，字典需要把键放到方括号中。如果访问了字典里没有的键，就会报错。</p>
-<pre><code class="language-python">d = &#123;'apple' : '苹果', 'banana' : '香蕉'&#125;
+<pre><code class="language-python">d = {'apple' : '苹果', 'banana' : '香蕉'}
 print(d['apple'])
 </code></pre>
 <p>修改字典内容也是直接使用键访问设定新值：</p>
-<pre><code class="language-python">d = &#123;'apple' : '苹果', 'banana' : '香蕉'&#125;
+<pre><code class="language-python">d = {'apple' : '苹果', 'banana' : '香蕉'}
 print(d)
 d['apple'] = '大苹果'
 print(d)
 </code></pre>
 <p>向字典添加新内容的方法是增加新的键值对：</p>
-<pre><code class="language-python">d = &#123;'apple' : '苹果', 'banana' : '香蕉'&#125;
+<pre><code class="language-python">d = {'apple' : '苹果', 'banana' : '香蕉'}
 print(d)
 d['mango'] = '芒果'
 print(d)
 </code></pre>
 <p>删除已有键值对如下：</p>
-<pre><code class="language-python">d = &#123;'apple' : '苹果', 'banana' : '香蕉'&#125;
+<pre><code class="language-python">d = {'apple' : '苹果', 'banana' : '香蕉'}
 del d['apple']
 </code></pre>
 <p>字典还有删除整个字典和清空字典的功能：</p>
-<pre><code class="language-python">d = &#123;'apple' : '苹果', 'banana' : '香蕉'&#125;
+<pre><code class="language-python">d = {'apple' : '苹果', 'banana' : '香蕉'}
 d = clear()	# 清空字典
 del d	# 删除字典
 </code></pre>
@@ -2173,8 +2175,8 @@ del d	# 删除字典
 <h1>十二. 集合 Set</h1>
 <h2 id="12-1-什么是集合">12.1 什么是集合</h2>
 <p>集合（set）是一个无序的不重复元素序列。集合中的元素不会重复，并且可以进行交集、并集、差集等常见的集合操作。</p>
-<p>可以使用大括号 <code>&#123; &#125;</code> 创建集合，元素之间用逗号 , 分隔， 或者也可以使用 <code>set()</code> 函数创建集合。创建一个空集合必须用 <code>set()</code> ，因为 { } 是用来创建一个空字典。</p>
-<pre><code class="language-python">parame1 = &#123;value01,value02,...&#125;
+<p>可以使用大括号 <code>{ }</code> 创建集合，元素之间用逗号 , 分隔， 或者也可以使用 <code>set()</code> 函数创建集合。创建一个空集合必须用 <code>set()</code> ，因为 { } 是用来创建一个空字典。</p>
+<pre><code class="language-python">parame1 = {value01,value02,...}
 # 或者
 parame2 = set(value)
 </code></pre>
@@ -2182,7 +2184,7 @@ parame2 = set(value)
 <h3 id="12-2-1-添加元素">12.2.1 添加元素</h3>
 <p><code>s.add(x)</code> ，将元素 x 添加到集合 s 中，如果元素已存在，则不进行任何操作。</p>
 <p><code>s.update(x)</code> 也可以添加元素，且参数可以是列表，元组，字典等。</p>
-<pre><code class="language-python">s = &#123;1, 3&#125;
+<pre><code class="language-python">s = {1, 3}
 s.add(2)
 s.update([4,6], [5])
 print(s)
@@ -2271,7 +2273,7 @@ print(s)
 <pre><code class="language-python">list = [1, 2, 3, 4]
 it = iter(list)
 for x in it:
-	print(x, end=&quot; &quot;)
+	print(x, end=" ")
 #输出结果：1 2 3 4
 </code></pre>
 <p>还可以把一个类作为一个迭代器使用，需要实现 <code>__iter__()</code> 和 <code>__next__()</code> 方法。此处举例：创建一个返回数字的迭代器，初始值为 1，逐步递增 1。</p>
@@ -2346,7 +2348,7 @@ f = fibonacci(10) # f 是一个迭代器，由生成器返回生成
  
 while True:
     try:
-        print (next(f), end=&quot; &quot;)
+        print (next(f), end=" ")
     except StopIteration:
         sys.exit()
 </code></pre>
@@ -2379,33 +2381,33 @@ while True:
 print(ans)
 </code></pre>
 <p>再举个例子，求列表中长度大于3的字符串并大写：</p>
-<pre><code class="language-python">list = [&quot;aaa&quot;, &quot;aasdad&quot;, &quot;asdw&quot;, &quot;wadhjuio&quot;]
+<pre><code class="language-python">list = ["aaa", "aasdad", "asdw", "wadhjuio"]
 str = [x.upper() for x in list if len(x) &gt; 3]
 print(str)
 </code></pre>
 <h2 id="14-2-字典推导式">14.2 字典推导式</h2>
 <p>格式为：</p>
-<pre><code class="language-python">&#123; key_expr: value_expr for value in collection &#125;
+<pre><code class="language-python">{ key_expr: value_expr for value in collection }
 
 # 或
 
-&#123; key_expr: value_expr for value in collection if condition &#125;
+{ key_expr: value_expr for value in collection if condition }
 </code></pre>
 <p>原理与列表推导式类似，推导出来的是一个字典。看一个例子，给出三个数字作为键，以对应的平方作为值，创建字典：</p>
 <pre><code class="language-python">list = [4, 2, 8]
-d = &#123;i : i * i for i in list&#125;
+d = {i : i * i for i in list}
 print(d)
 </code></pre>
 <p>再来一个例子，以列表中偶数索引为键，奇数索引为值创建字典：</p>
 <pre><code class="language-python">list = ['apple', '苹果', 'banana', '香蕉']
-d = &#123;list[i] : list[i + 1] for i in range(0, len(list), 2) if i &lt; len(list) - 1&#125;
-print(d)	# &#123;'apple': '苹果', 'banana': '香蕉'&#125;
+d = {list[i] : list[i + 1] for i in range(0, len(list), 2) if i &lt; len(list) - 1}
+print(d)	# {'apple': '苹果', 'banana': '香蕉'}
 </code></pre>
 <h2 id="14-3-集合推导式">14.3 集合推导式</h2>
 <p>格式为：</p>
-<pre><code class="language-python">&#123; expression for item in Sequence &#125;
+<pre><code class="language-python">{ expression for item in Sequence }
 # 或
-&#123; expression for item in Sequence if conditional &#125;
+{ expression for item in Sequence if conditional }
 </code></pre>
 <p>原理类似，推导出来的是一个集合。</p>
 <h2 id="14-4-元组推导式-生成器表达式">14.4 元组推导式（生成器表达式）</h2>

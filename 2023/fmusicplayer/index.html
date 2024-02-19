@@ -50,7 +50,9 @@
     
     
 
-<meta name="generator" content="Hexo 6.3.0"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
     
     <style>
         :root {
@@ -227,19 +229,19 @@
     <ul class="nav">
         
             
-                <li><a href="/">首页</a></li>
+                <li><a href="/">首页🏚️</a></li>
             
         
             
-                <li><a href="/list/">文章</a></li>
+                <li><a href="/list/">文章📄</a></li>
             
         
             
-                <li><a href="/categories/">分类</a></li>
+                <li><a href="/categories/">分类🗂️</a></li>
             
         
             
-                <li><a href="/about/">关于</a></li>
+                <li><a href="/about/">关于🧑</a></li>
             
         
     </ul>
@@ -383,21 +385,21 @@ changedVolume(50);
 connect(ui-&gt;play, SIGNAL(clicked()), this, SLOT(playMusic()));
 </code></pre>
 <pre><code class="language-cpp">void MainWindow::playMusic()//播放
-&#123;
+{
     // 维护播放列表，使其索引正常，正常播放
     if(musicplayList-&gt;currentIndex()&lt;0)
         musicplayList-&gt;setCurrentIndex(0);
     musicplayer-&gt;play();
-&#125;
+}
 </code></pre>
 <p>当点击暂停键时暂停音乐，支持记录位置，从上次暂停的位置播放。为暂停按钮绑定单击事件，触发pauseMusic()函数：</p>
 <pre><code class="language-cpp">// 暂停音乐
 connect(ui-&gt;pause, SIGNAL(clicked()), this, SLOT(pauseMusic()));
 </code></pre>
 <pre><code class="language-cpp">void MainWindow::pauseMusic()//暂停播放
-&#123;
+{
     musicplayer-&gt;pause();
-&#125;
+}
 </code></pre>
 <h2 id="3-4-停止模块">3.4 停止模块</h2>
 <p>当点击停止键时，停止音乐，音乐播放位置归零。为停止按钮绑定单击事件，触发stopMusic()函数：</p>
@@ -405,9 +407,9 @@ connect(ui-&gt;pause, SIGNAL(clicked()), this, SLOT(pauseMusic()));
 connect(ui-&gt;stop, SIGNAL(clicked()), this, SLOT(stopMusic()));
 </code></pre>
 <pre><code class="language-cpp">void MainWindow::stopMusic()//停止播放
-&#123;
+{
     musicplayer-&gt;stop();
-&#125;
+}
 </code></pre>
 <h2 id="3-5-控制音频进度模块">3.5 控制音频进度模块</h2>
 <p>播放时，音频进度条应当可以被拖动，并且更新播放的位置。为进度条绑定值修改事件，触发changedPosition()函数，函数参数为进度条传入的位置参数。</p>
@@ -415,9 +417,9 @@ connect(ui-&gt;stop, SIGNAL(clicked()), this, SLOT(stopMusic()));
 connect(ui-&gt;timebar, SIGNAL(valueChanged(int)), this, SLOT(changedPosition(int)));
 </code></pre>
 <pre><code class="language-cpp">void MainWindow::changedPosition(int pos)   // 修改播放位置
-&#123;
+{
     musicplayer-&gt;setPosition(pos);
-&#125;
+}
 </code></pre>
 <h2 id="3-6-管理音乐列表模块">3.6 管理音乐列表模块</h2>
 <p>播放器应该可以输入多个文件，接着顺序播放，所以需要维护一个音乐列表。</p>
@@ -427,27 +429,27 @@ connect(ui-&gt;addMusic, SIGNAL(clicked()), this, SLOT(addMusictoList()));
 </code></pre>
 <p>读取文件时，wav文件是支持的，而mp3文件需要外置解码器的支持，处理mp3文件方法见文章最后。</p>
 <pre><code class="language-cpp">void MainWindow::addMusictoList()
-&#123;
+{
     QString curPath = QDir::currentPath();
-    QString title = &quot;选择音频文件&quot;;
-    QString filter = &quot;音频文件(*.wav *.mp3)&quot;;
+    QString title = "选择音频文件";
+    QString filter = "音频文件(*.wav *.mp3)";
     QStringList fileList = QFileDialog::getOpenFileNames(this, title, curPath, filter);
 
 	// 添加文件少于1个时退出函数
     if(filter.count() &lt; 1)  return;
 	// 将读取的文件放入musicplayList里
     for(int i = 0; i &lt; fileList.count(); ++ i)
-    &#123;
+    {
         QString aFile = fileList.at(i);
         musicplayList-&gt;addMedia(QUrl::fromLocalFile(aFile));
 
         QFileInfo fileinfo(aFile);
         ui-&gt;playList-&gt;addItem(fileinfo.fileName());
-    &#125;
+    }
 	// 将音乐列表的第一首音频作为待播放音频
     if(musicplayer-&gt;state() != QMediaPlayer::PlayingState)
         musicplayList-&gt;setCurrentIndex(0);
-&#125;
+}
 </code></pre>
 <p>同样还应支持移除音频文件：</p>
 <pre><code class="language-cpp">// 移除文件
@@ -455,45 +457,45 @@ connect(ui-&gt;delMusic, SIGNAL(clicked()), this, SLOT(delMusic()));
 </code></pre>
 <p>移除文件时还应判断移除的是否为当前播放音乐，进行相应处理。</p>
 <pre><code class="language-cpp">void MainWindow::delMusic()
-&#123;
+{
     int pos = ui-&gt;playList-&gt;currentRow(); // 获取选中行
     QListWidgetItem *item = ui-&gt;playList-&gt;takeItem(pos);
     delete  item;
 
 
     if(musicplayList-&gt;currentIndex() == pos)// 删除是当前播放的音乐时
-    &#123;
+    {
         int nextPos = 0;
         if(pos &gt;= 1)    nextPos = pos - 1;
         musicplayList-&gt;removeMedia(pos);
         if(ui-&gt;playList-&gt;count() &gt; 0)
-        &#123;
+        {
             musicplayList-&gt;setCurrentIndex(nextPos);
             onPlayListChanged(nextPos);
-        &#125;
+        }
         else
-        &#123;
+        {
             musicplayer-&gt;stop();
-            ui-&gt;playmusic-&gt;setText(&quot;无文件&quot;);
-        &#125;
-    &#125;
+            ui-&gt;playmusic-&gt;setText("无文件");
+        }
+    }
     else
         musicplayList-&gt;removeMedia(pos);
-&#125;
+}
 </code></pre>
 <p>清空文件则是移除文件的简化版，直接将播放列表清空即可。</p>
 <pre><code class="language-cpp">// 清空文件列表
 connect(ui-&gt;clearList, SIGNAL(clicked()), this, SLOT(clearList()));
 </code></pre>
 <pre><code class="language-cpp">void MainWindow::clearList()
-&#123;
+{
     musicplayList-&gt;clear();	// 清空列表
     ui-&gt;playList-&gt;clear();	// 更新UI
     ui-&gt;playmusic-&gt;clear();
     ui-&gt;time-&gt;clear();
     ui-&gt;timebar-&gt;setValue(0);
     musicplayer-&gt;stop();	// 停止播放
-&#125;
+}
 </code></pre>
 <p>最后还可以添加上一首和下一首的功能，只需简单绑定一下点击事件和调用musicplayList的函数即可。</p>
 <pre><code class="language-cpp">musicplayList-&gt;previous();	// 上一首
@@ -505,9 +507,9 @@ musicplayList-&gt;next();		// 下一首
 connect(ui-&gt;volume, SIGNAL(valueChanged(int)), this, SLOT(changedVolume(int)));
 </code></pre>
 <pre><code class="language-cpp">void MainWindow::changedVolume(int value)
-&#123;
+{
     musicplayer-&gt;setVolume(value);
-&#125;
+}
 </code></pre>
 <h2 id="3-8-信息显示与同步模块">3.8 信息显示与同步模块</h2>
 <p>根据UI的设计，显示的信息有：当前播放的音频名字、播放时间/完整时间。当播放音频进行切换时，需要更新音频名字、播放时间和音频完整时间等信息。</p>
@@ -516,39 +518,39 @@ connect(ui-&gt;volume, SIGNAL(valueChanged(int)), this, SLOT(changedVolume(int))
 connect(musicplayList, SIGNAL(currentIndexChanged(int)), this, SLOT(onPlayListChanged(int)));
 </code></pre>
 <pre><code class="language-cpp">void MainWindow::onPlayListChanged(int pos)
-&#123;
+{
     ui-&gt;playList-&gt;setCurrentRow(pos);
     // 使用QListWidgetItem类取出QListWidget的某一行
     QListWidgetItem *item = ui-&gt;playList-&gt;currentItem();
     if(item)
-    &#123;
+    {
 		// 更新UI的音频名字
         ui-&gt;playmusic-&gt;setText(item-&gt;text());
-    &#125;
-&#125;
+    }
+}
 </code></pre>
 <p>切换音频时，其总时长也应该变化，需要为播放器musicplayer的播放位置变化durationChanged事件绑定onDurationChanged()函数。函数为计算音频总的时间。</p>
 <pre><code class="language-cpp">// 时长变化
 connect(musicplayer, SIGNAL(durationChanged(qint64)), this, SLOT(onDurationChanged(qint64)));
 </code></pre>
 <pre><code class="language-cpp">void MainWindow::onDurationChanged(qint64 dur)
-&#123;
+{
     ui-&gt;timebar-&gt;setMaximum(dur);	// 设置进度条的最大值
 
     int secs = int(dur / 1000);
     int mins = secs / 60;
     secs %= 60;
-    durationTime = QString::asprintf(&quot; %d : %d &quot;, mins, secs);
+    durationTime = QString::asprintf(" %d : %d ", mins, secs);
     // UI刷新时间
-    ui-&gt;time-&gt;setText(positionTime + &quot; / &quot; + durationTime);
-&#125;
+    ui-&gt;time-&gt;setText(positionTime + " / " + durationTime);
+}
 </code></pre>
 <p>至于音频随着播放而位置和进度的刷新，则需要为播放器musicplayer的播放位置变化positionChanged事件绑定onPositionChanged()函数。函数为计算播放的时间。</p>
 <pre><code class="language-cpp">// 播放位置变化
 connect(musicplayer, SIGNAL(positionChanged(qint64)), this, SLOT(onPositionChanged(qint64)));
 </code></pre>
 <pre><code class="language-cpp">void MainWindow::onPositionChanged(qint64 pos)
-&#123;
+{
 	// 进度条滑动到尽头，退出函数
     if(ui-&gt;timebar-&gt;isSliderDown()) return;
 
@@ -557,10 +559,10 @@ connect(musicplayer, SIGNAL(positionChanged(qint64)), this, SLOT(onPositionChang
     int secs = int (pos / 1000);
     int mins = secs / 60;
     secs %= 60;
-    positionTime = QString::asprintf(&quot; %d : %d &quot;, mins, secs);
+    positionTime = QString::asprintf(" %d : %d ", mins, secs);
     // UI刷新时间
-    ui-&gt;time-&gt;setText(positionTime + &quot; / &quot; + durationTime);
-&#125;
+    ui-&gt;time-&gt;setText(positionTime + " / " + durationTime);
+}
 </code></pre>
 <h1>四、总结</h1>
 <p>该程序源代码放在<a target="_blank" rel="noopener" href="https://gitee.com/fingsinz/fmusicplayer/">Gitee - https://gitee.com/fingsinz/fmusicplayer/</a></p>

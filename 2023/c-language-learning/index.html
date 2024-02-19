@@ -50,7 +50,9 @@
     
     
 
-<meta name="generator" content="Hexo 6.3.0"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
     
     <style>
         :root {
@@ -227,19 +229,19 @@
     <ul class="nav">
         
             
-                <li><a href="/">首页</a></li>
+                <li><a href="/">首页🏚️</a></li>
             
         
             
-                <li><a href="/list/">文章</a></li>
+                <li><a href="/list/">文章📄</a></li>
             
         
             
-                <li><a href="/categories/">分类</a></li>
+                <li><a href="/categories/">分类🗂️</a></li>
             
         
             
-                <li><a href="/about/">关于</a></li>
+                <li><a href="/about/">关于🧑</a></li>
             
         
     </ul>
@@ -315,10 +317,10 @@
 #include &lt;stdio.h&gt;
 
 int main()
-&#123;
-	printf(&quot;Hello World!&quot;);
+{
+	printf("Hello World!");
 	return 0;
-&#125;
+}
 </code></pre>
 <p>现在来逐行认识基本的C语言代码结构。</p>
 <ul>
@@ -326,13 +328,13 @@ int main()
 <p><code>//</code> 表示当前整行被编译器忽略，又称注释，供程序员理解语句。</p>
 </li>
 <li>
-<p><code>#include&lt;stdio.h&gt;</code>中的 <code>#</code>（井号）表示预处理命令，即在程序编译前进行提前处理的部分。若是头文件，可用 <code>&lt;&gt;</code>（单书名号）括起来，也可用 <code>&quot; &quot;</code>（引号）包含起来。 <strong>其中由 <code>&lt;&gt;</code> 括起来的头文件表示在系统头文件的文件夹中查找，由 <code>&quot;&quot;</code> 括起来的头文件表示在源文件当前文件夹查找。</strong></p>
+<p><code>#include&lt;stdio.h&gt;</code>中的 <code>#</code>（井号）表示预处理命令，即在程序编译前进行提前处理的部分。若是头文件，可用 <code>&lt;&gt;</code>（单书名号）括起来，也可用 <code>" "</code>（引号）包含起来。 <strong>其中由 <code>&lt;&gt;</code> 括起来的头文件表示在系统头文件的文件夹中查找，由 <code>""</code> 括起来的头文件表示在源文件当前文件夹查找。</strong></p>
 </li>
 <li>
-<p><code>int main()</code> 是一个函数的开头，再加以 <code>&#123;&#125;</code>（大括号）包含主函数内容。此处是主函数，主函数是一个程序最重要的函数，程序从此开始编译。</p>
+<p><code>int main()</code> 是一个函数的开头，再加以 <code>{}</code>（大括号）包含主函数内容。此处是主函数，主函数是一个程序最重要的函数，程序从此开始编译。</p>
 </li>
 <li>
-<p><code>printf(&quot;Hello World!&quot;);</code> 为程序工作语句，其作用是输出“Hello World！”。</p>
+<p><code>printf("Hello World!");</code> 为程序工作语句，其作用是输出“Hello World！”。</p>
 </li>
 <li>
 <p>C语言中以 <code>;</code>（分号）作为一条语句的结束标志。</p>
@@ -399,9 +401,9 @@ D返回语句<br>
 <h2 id="2-1-函数的基本结构">2.1 函数的基本结构</h2>
 <p>函数的结构应当如下，包括 <strong>函数返回类型return_type</strong> ， <strong>函数名字function_name</strong> 、 <strong>参数arguments</strong> 和 <strong>函数主体Body</strong> 等。</p>
 <pre><code class="language-c">return_type function_name(arguments)
-&#123;
+{
 	// body
-&#125;
+}
 </code></pre>
 <ul>
 <li>
@@ -425,15 +427,15 @@ int add(int a, int b);
 
 // 函数定义
 int add(int a, int b)
-&#123;
+{
 	return a + b;
-&#125;
+}
 </code></pre>
 <pre><code class="language-c">// 函数声明并定义
 int sub(int a, int b)
-&#123;
+{
 	return a - b;
-&#125;
+}
 </code></pre>
 <p>C语言从上到下运行，如果是先写了 main 函数，再写 sub 函数，而在 main 函数调用了 sub 函数的情况下，需要有一个声明在 main 函数的前面，告知编译器有这个函数，否则按从上到下的顺序，此时并未出现 sub 函数；</p>
 <p>如果是先写了 sub 函数，再写 main 函数，而在 main 函数调用了 sub 函数的情况下，在 main 函数之前的 sub 函数就相当于函数声明并定义，main 函数调用 sub 函数也自然成功。</p>
@@ -444,9 +446,9 @@ int sub(int a, int b)
 <p>当我们写完我们的函数，使用时直接称呼 <strong>函数签名</strong>（函数名字+参数列表）即可。</p>
 <pre><code class="language-c">// 声明并定义函数
 int add(int a, int b)
-&#123;
+{
 	return a + b;
-&#125;
+}
 
 // 函数调用
 add(c, d);
@@ -498,9 +500,9 @@ add(c, d);
 <td style="text-align:center"><code>'</code></td>
 </tr>
 <tr>
-<td style="text-align:center"><code>\&quot;</code></td>
+<td style="text-align:center"><code>\"</code></td>
 <td style="text-align:center">一个双引号</td>
-<td style="text-align:center"><code>&quot;</code></td>
+<td style="text-align:center"><code>"</code></td>
 </tr>
 <tr>
 <td style="text-align:center"><code>\?</code></td>
@@ -796,7 +798,7 @@ int i = (int)d; // 显式将double类型转换为int类型
 <pre><code class="language-c">// test.c
 #include&lt;stdio.h&gt;
 int main()
-&#123;
+{
 	int a, b, ans1;
 	int c, d, ans2;
 	ans1 = a + b; //两个整型变量相加的结果仍为整型。
@@ -806,14 +808,14 @@ int main()
 	//如 5/3=1，-5/3=-1；
 	ans2 = c % d; // 取余运算要求运算对象均为整数，即整型。
 	return 0;
-&#125;
+}
 </code></pre>
 <p>应当注意， <code>++i</code> 和 <code>i++</code> ， <code>--i</code> 和 <code>i--</code> 是两回事。</p>
 <pre><code class="language-c">// test2.c
 //以下例子可能理解更加深刻
 #include&lt;stdio.h&gt;
 int main()
-&#123;
+{
 	int i,j;
   
 	i = 1;
@@ -832,7 +834,7 @@ int main()
 	--i;    //j使用前，使i的值减一，此时 i=0；
 	j = i;    //j=i=0;
 	return 0; 
-&#125;
+}
 </code></pre>
 <h3 id="3-3-2-关系运算符">3.3.2 关系运算符</h3>
 <table>
@@ -950,31 +952,31 @@ int main()
 #include &lt;stdio.h&gt;
  
 int main()
-&#123;
+{
  
 	unsigned int a = 60;    /* 60 = 0011 1100 */  
 	unsigned int b = 13;    /* 13 = 0000 1101 */
 	int c = 0;           
  
 	c = a &amp; b;       /* 12 = 0000 1100 */ 
-	printf(&quot;c 的值是 %d\n&quot;, c ); // 一个输出的函数
+	printf("c 的值是 %d\n", c ); // 一个输出的函数
  
 	c = a | b;       /* 61 = 0011 1101 */
-	printf(&quot;c 的值是 %d\n&quot;, c );
+	printf("c 的值是 %d\n", c );
  
 	c = a ^ b;       /* 49 = 0011 0001 */
-	printf(&quot;c 的值是 %d\n&quot;, c );
+	printf("c 的值是 %d\n", c );
  
 	c = ~a;          /*-61 = 1100 0011 */
-	printf(&quot;c 的值是 %d\n&quot;, c );
+	printf("c 的值是 %d\n", c );
  
 	c = a &lt;&lt; 2;     /* 240 = 1111 0000 */
-	printf(&quot;c 的值是 %d\n&quot;, c );
+	printf("c 的值是 %d\n", c );
  
 	c = a &gt;&gt; 2;     /* 15 = 0000 1111 */
-	printf(&quot;c 的值是 %d\n&quot;, c );
+	printf("c 的值是 %d\n", c );
 	return 0;
-&#125;
+}
 </code></pre>
 <h3 id="3-3-5-赋值运算符">3.3.5 赋值运算符</h3>
 <table>
@@ -1051,12 +1053,12 @@ int main()
 <pre><code class="language-c">// test.c
 #include&lt;stdio.h&gt;
 int main()
-&#123;
+{
 	int i = 9, o = 6, q;
 	i &gt; o ? i : o;
 	// i大于o吗，大于（真）则返回i的值，小于（假）则返回o的值。
 	return 0;
-&#125;
+}
 </code></pre>
 <ul>
 <li><strong>逗号运算符</strong> <code>,</code> ：其形式为 <code>表达式1,表达式2</code> ，逗号运算符确保操作数被顺序地处理：先计算左边的操作数，再计算右边的操作数。右操作数的类型和值作为整个表达式的结果，而左操作数只是当作副作用被计算，其值和类型不会被返回。</li>
@@ -1064,12 +1066,12 @@ int main()
 <pre><code class="language-c">// test.c
 #include&lt;stdio.h&gt;
 int main()
-&#123;
+{
 	int i = 9, o = 6, q;
 	q = (i + o, i - o);
 	// q = 3
 	return 0;
-&#125;
+}
 </code></pre>
 <ul>
 <li>
@@ -1096,29 +1098,29 @@ int main()
 </ol>
 <pre><code class="language-c">//条件语句
 if(条件)  //如果小括号里面的条件为真，则运行大括号的语句。
-&#123;
+{
   …… 
-&#125;
+}
 </code></pre>
 <pre><code class="language-c">//循环语句
 for(语句1;语句2;语句3)  //语句2为条件，为真则运行大括号的语句，直至条件为假
-&#123;
+{
   …… 
-&#125;
+}
 //注意，小括号内必须得有两个分号，即使没有语句
 </code></pre>
 <pre><code class="language-c">//循环语句
 while(条件)  //如果小括号的条件为真，则运行大括号的语句，直至条件为假
-&#123;
+{
   …… 
-&#125;
+}
 
 do
-&#123;
+{
   …… 
-&#125;while(条件);  //如果小括号的条件为真，则运行大括号的语句，直至条件为假
+}while(条件);  //如果小括号的条件为真，则运行大括号的语句，直至条件为假
 
-// 注意，while(…)&#123;…&#125;和do&#123;…&#125;while;的区别是，do-while至少循环一次，无视条件真或假。
+// 注意，while(…){…}和do{…}while;的区别是，do-while至少循环一次，无视条件真或假。
 </code></pre>
 <pre><code class="language-c">continue;
 //用于循环语句
@@ -1130,7 +1132,7 @@ break;
 </code></pre>
 <pre><code class="language-c">//条件语句
 switch (对象)
-&#123;
+{
   case 值1:
     语句1 
     break;
@@ -1140,7 +1142,7 @@ switch (对象)
   default:  //default表示除以上case之外的情况
     语句3
     break;
-&#125;
+}
 //该语句每个case中的break不可省略。
 //若省略break则系统会一直往下读语句，直至结束或者break，可自行上机作死
 </code></pre>
@@ -1160,7 +1162,7 @@ a:
 <p><strong>函数调用语句</strong>：右一个函数调用加分号构成。</p>
 </li>
 <li>
-<p><strong>复合语句</strong>：用 <code>&#123;&#125;</code> 括起来的语句，也称语句块。</p>
+<p><strong>复合语句</strong>：用 <code>{}</code> 括起来的语句，也称语句块。</p>
 </li>
 <li>
 <p><strong>空语句</strong>：只有一个分号。</p>
@@ -1191,7 +1193,7 @@ a:
 <pre><code class="language-c">// test.c
 #include &lt;stdio.h&gt;
 int main()
-&#123;
+{
 	// 局部变量声明
 	int a, b;
 	int c;
@@ -1201,9 +1203,9 @@ int main()
 	b = 20;
 	c = a + b;
  
-	printf (&quot;value of a = %d, b = %d and c = %d\n&quot;, a, b, c);
+	printf ("value of a = %d, b = %d and c = %d\n", a, b, c);
 	return 0;
-&#125;
+}
 </code></pre>
 <ul>
 <li><strong>全局变量</strong></li>
@@ -1213,7 +1215,7 @@ int main()
 // 全局变量声明
 int g;
 int main ()
-&#123;
+{
 	// 局部变量声明
 	int a, b;
  
@@ -1222,9 +1224,9 @@ int main ()
 	b = 20;
 	g = a + b;
  
-	printf (&quot;value of a = %d, b = %d and g = %d\n&quot;, a, b, g);
+	printf ("value of a = %d, b = %d and g = %d\n", a, b, g);
 	return 0;
-&#125;
+}
 </code></pre>
 <ul>
 <li><strong>形式参数</strong></li>
@@ -1235,26 +1237,26 @@ int main ()
 // 全局变量声明
 int a = 20;
 int main()
-&#123;
+{
 	// 在主函数中的局部变量声明
 	int a = 10;
 	int b = 20;
 	int c = 0;
 	int sum(int, int);
  
-	printf (&quot;主函数中的 a = %d\n&quot;, a);
+	printf ("主函数中的 a = %d\n", a);
 	c = sum(a, b);
-	printf (&quot;主函数中的 c = %d\n&quot;, c);
+	printf ("主函数中的 c = %d\n", c);
 	return 0;
-&#125;
+}
  
 // 添加两个整数的函数
 int sum(int a, int b)
-&#123;
-	printf (&quot;sum函数中的 a = %d\n&quot;,  a);
-	printf (&quot;sum函数中的 b = %d\n&quot;,  b);
+{
+	printf ("sum函数中的 a = %d\n",  a);
+	printf ("sum函数中的 b = %d\n",  b);
 	return a + b;
-&#125;
+}
 </code></pre>
 <pre><code>输出结果：
 主函数中的 a = 10
@@ -1322,11 +1324,11 @@ sum函数中的 b = 20
 <pre><code class="language-c">// printf.c
 #include&lt;stdio.h&gt;
 int main()
-&#123;
+{
 	int a = 1, b = 2, c = 3;
-	printf(&quot;%d %d %d\n&quot;, a, b, c);
+	printf("%d %d %d\n", a, b, c);
 	return 0;
-&#125;
+}
 </code></pre>
 <pre><code>输出结果：
 1 2 3
@@ -1412,19 +1414,19 @@ int main()
 
 #include&lt;stdio.h&gt;
 int main()
-&#123;
+{
 	int a = 1;
 	float b = 3.1415926535; 
 	double c = 3.1415926535;
 	long int d = 1e9;
 	long long int e=1e18;
-	printf(&quot;%d\t\t%ld\t\t%lld\t\t%f\t%lf\n&quot;, a, a, a, a, a);
-	printf(&quot;%d\t%ld\t%lld\t%.8f\t%.8lf\n&quot;, b, b, b, b, b);
-	printf(&quot;%d\t%ld\t%lld\t%.8f\t%.8lf\n&quot;, c, c, c, c, c);
-	printf(&quot;%d\t%ld\t%lld\t%f\t%lf\n&quot;, d, d, d, d, d);
-	printf(&quot;%d\t%ld\t%lld\t%f\t%lf\n&quot;, e, e, e, e, e);
+	printf("%d\t\t%ld\t\t%lld\t\t%f\t%lf\n", a, a, a, a, a);
+	printf("%d\t%ld\t%lld\t%.8f\t%.8lf\n", b, b, b, b, b);
+	printf("%d\t%ld\t%lld\t%.8f\t%.8lf\n", c, c, c, c, c);
+	printf("%d\t%ld\t%lld\t%f\t%lf\n", d, d, d, d, d);
+	printf("%d\t%ld\t%lld\t%f\t%lf\n", e, e, e, e, e);
 	return 0;
-&#125;
+}
 </code></pre>
 <pre><code>运行结果：
 1               1               4294967297              0.000000        0.000000
@@ -1440,12 +1442,12 @@ int main()
 <pre><code class="language-c">// test.c
 #include&lt;stdio.h&gt;
 int main()
-&#123;
+{
 	float a = 3.141592;
-	printf(&quot;|%07.2f|\n&quot;, a);
-	printf(&quot;|%-07.2f|\n&quot;, a);
+	printf("|%07.2f|\n", a);
+	printf("|%-07.2f|\n", a);
 	return 0;
-&#125;
+}
 </code></pre>
 <pre><code>运行结果：
 |0003.14|
@@ -1456,23 +1458,23 @@ int main()
 <pre><code class="language-c">// test.c
 #include&lt;stdio.h&gt;
 int main()
-&#123;
+{
 	float a = 3.1415926;
 	int k;
-	scanf(&quot;%d&quot;, &amp;k); // 根据输入的k决定保留多少位小数
-	printf(&quot;%.*f&quot;, k, a);
+	scanf("%d", &amp;k); // 根据输入的k决定保留多少位小数
+	printf("%.*f", k, a);
 	return 0;
-&#125;
+}
 </code></pre>
 <p>另外， <code>printf()</code> 函数在运行时的形参是 <strong>从右到左</strong> 处理，具体效果如下：</p>
 <pre><code class="language-c">// test.c
 #include &lt;stdio.h&gt; 
 int main() 
-&#123; 
+{ 
     int a = 5, b = 2;
-    printf(&quot;%d %d\n&quot;, b = a + 1, a += 1);
+    printf("%d %d\n", b = a + 1, a += 1);
     return 0;
-&#125;
+}
 </code></pre>
 <pre><code>输出结果:
 7 6
@@ -1489,13 +1491,13 @@ int main()
 <pre><code class="language-c">// test.c
 #include&lt;stdio.h&gt;
 int main()
-&#123;
+{
 	char a = 'a';
 	putchar('!');
 	putchar(a);
-	puts(&quot;Hello World!&quot;);
+	puts("Hello World!");
 	return 0;
-&#125;
+}
 </code></pre>
 <pre><code>运行结果：
 !aHello World!
@@ -1510,14 +1512,14 @@ int main()
 // 输入成功返回成功读入的数据项数，输入数据时遇到了结束则返回EOF（End Of File）。
 </code></pre>
 <p>也可以参考这样的格式： <code>scanf(格式控制，地址表列)；</code>。格式控制字符串同输入的规则。在使用 <code>scanf()</code> 的时候，我们应当注意， <code>scanf()</code> 函数的地址表列是需要输入的变量地址，而不是变量名，因此，我们要在变量名前加 <code>&amp;</code> 取地址符。如：</p>
-<pre><code class="language-c">scanf(&quot;%d %d %d&quot;, a, b, c);    //此写法错误
-scanf(&quot;%d %d %d&quot;, &amp;a, &amp;b, &amp;c); //此写法正确
+<pre><code class="language-c">scanf("%d %d %d", a, b, c);    //此写法错误
+scanf("%d %d %d", &amp;a, &amp;b, &amp;c); //此写法正确
 </code></pre>
 <p>当我们不加取地址符的时候，程序会因为储存内存溢出（输入的内容没有正确的地方存放）而终止程序。因此，当我们的程序莫名中断崩掉时，我们可以优先考虑是否在输入时加取地址符。</p>
 <p>从另一个角度理解，对于函数而言，我们希望输入一个值，也就是修改变量里面的值，应当传入其地址，而不是直接传入值。</p>
 <p>还需要注意的是， <code>scanf()</code> 的格式控制字符串应与我们输入的格式严格一致，即格式控制字符串中有逗号或空格等的时候，我们输入也需加上逗号或空格等。如：</p>
-<pre><code class="language-c">scanf(&quot;%d %d %d&quot;, &amp;a, &amp;b, &amp;c);//此时应当输入 1 2 3
-scanf(&quot;%d,%d,%d&quot;, &amp;a, &amp;b, &amp;c);//此时应当输入 1,2,3
+<pre><code class="language-c">scanf("%d %d %d", &amp;a, &amp;b, &amp;c);//此时应当输入 1 2 3
+scanf("%d,%d,%d", &amp;a, &amp;b, &amp;c);//此时应当输入 1,2,3
 </code></pre>
 <p>如果没有留意到这个问题，那么当我们输入数据的时候，可能会出现数据吞没的情况，因为输入的跟字符串规定的不匹配，不读入。</p>
 <p>该函数还有自动处理的地方，如</p>
@@ -1532,12 +1534,12 @@ scanf(&quot;%d,%d,%d&quot;, &amp;a, &amp;b, &amp;c);//此时应当输入 1,2,3
 <pre><code class="language-c">// test.c
 #include&lt;stdio.h&gt;
 int main()
-&#123;
+{
 	float a, b;
-	scanf(&quot;%f%f&quot;, &amp;a, &amp;b);
-	printf(&quot;%f %f\n&quot;, a, b);
+	scanf("%f%f", &amp;a, &amp;b);
+	printf("%f %f\n", a, b);
 	return 0;
-&#125;
+}
 </code></pre>
 <pre><code>运行窗口：
 3.142.77                              //输入
@@ -1547,12 +1549,12 @@ int main()
 <pre><code class="language-c">// getstring.c
 #include &lt;stdio.h&gt;
 int main() 
-&#123;
+{
 	char a[20]; // 存放字符串
-	scanf(&quot;%[^\n]&quot;, a); // 可输入带空格的字符串
-	printf(&quot;%s\n&quot;, a);
+	scanf("%[^\n]", a); // 可输入带空格的字符串
+	printf("%s\n", a);
 	return 0;
-&#125;
+}
 </code></pre>
 <p>实际上， <code>scanf()</code> 函数的注意点与其的键盘缓冲区和输入流有关。该函数会从输入流中选择数据放入键盘缓冲区中。在未输入满前忽略掉空白字符（空格、制表符和新行符），在输入满时把空白字符当作中断的标志。所以要注意反思输入流和键盘缓冲区里面的内容是什么，是否有键盘缓冲区遗留问题导致提前终止输入，是否有数据仍在输入流中没有进入键盘缓冲区而丢弃等。</p>
 <ul>
@@ -1562,12 +1564,12 @@ int main()
 <pre><code class="language-c">// test.c
 #include&lt;stdio.h&gt;
 int main()
-&#123;
+{
 	char b;
 	b = getchar();
 	putchar(b);
 	return 0;
-&#125;
+}
 </code></pre>
 <pre><code>运行窗口：
 h	// 输入
@@ -1585,61 +1587,61 @@ h	// 输出
 <h2 id="5-1-if构成的条件结构">5.1 if构成的条件结构</h2>
 <p><code>if</code> 语句的结构如下：</p>
 <pre><code class="language-c">if( condition is true ) 
-&#123;
+{
   sentence1;
   sentence2;
   …………
-&#125;
+}
 //先简单地翻译一遍以上代码：如果（ 某个条件成立 ），则运行花括号中的内容。
 </code></pre>
 <p>需要注意， <code>if</code> 语句在没有花括号的情况下，只连带其后的一句语句。即 <code>if(condition)</code> 后只能跟一个语句，其可以是单个简单语句，也可以是由花括号包含起来的复合语句。</p>
 <p>再加之 <code>else</code> （另外，否则），可以组成以下三种形式：</p>
 <pre><code class="language-c">// 情况一，无else子句部分，只有单个if语句
 if( condition )
-&#123;
+{
 	sentence;
-&#125;   
+}   
     
 // 情况二，有else子句部分
 if( condition )
-&#123;
+{
 	sentence1;
-&#125; 
+} 
 else
-&#123;
+{
 	sentence2;
-&#125;
+}
       
 // 情况三，在else部分又嵌套多层if语句
 if( condition )
-&#123;
+{
 	sentence1;
-&#125; 
+} 
 else if( condition1 )
-&#123;
+{
 	sentence2;
-&#125;   
+}   
 else
-&#123;
+{
 	sentence3;
-&#125;
+}
 
 // 情况三还可以写成下面的形式
 if( condition )
-&#123;
+{
 	sentence1;
-&#125; 
+} 
 else 
-&#123;
+{
 	if( condition1 )
-	&#123;
+	{
 		sentence2;
-	&#125;   
+	}   
 	else
-	&#123;
+	{
 		sentence3;
-	&#125;
-&#125;
+	}
+}
 </code></pre>
 <p><code>if</code> 语句无论写几行，都是一个整体，属于同一个语句，只是将其分成 <code>if</code> 部分和 <code>else</code> 部分。在 <code>if</code> 语句中要对给定的条件进行检查，判定所给定的条件是否成立。判断的结果是一个逻辑值“是”或“否”。</p>
 <p><code>if</code> 语句小括号中的 <code>condition</code> ，应该是由关系运算符与逻辑运算符构成的表达式，运算符号详见运算符。如表达x大于1时写成 <code>x&gt;1</code> ，表达x在10到20之间时写成 <code>x &gt;=10 &amp;&amp; x &lt;= 20</code> ，表达x不等于4时写成 <code>x != 4</code> ，表达x等于4时写成 <code>x == 4</code> 。可以试着巧妙应用 <code>? :</code> 三目运算符转化繁琐的if结构。</p>
@@ -1648,61 +1650,61 @@ else
 #include &lt;stdio.h&gt; //声明头文件
 
 int main() 
-&#123;
+{
 	int x, y; //定义x和y变量
-	scanf(&quot;%d&quot;, &amp;x); //输入x
+	scanf("%d", &amp;x); //输入x
 	if(x &gt; 0) //第一个判断，做x＞0的判断
-	&#123;
+	{
 		y = 1;
-	&#125;
+	}
 	
 	else if( x == 0 ) //排除第一个判断后的另外一个判断，做x＝0的判断
-	&#123;
+	{
 		y = 0;
-	&#125;
+	}
   
 	else if( x &lt; 0 ) //排除以上两种情况后的另一种情况，做x＜0的判断
-	&#123;
+	{
 		y = -1;
-	&#125;
+	}
 	
 	//其实这种情况下，排除以上两种情况，剩下唯一的可能，可以写成else部分
 	//如：
 	//  else
-	//  &#123;
+	//  {
 	//     y = -1;
-	//  &#125;
+	//  }
   
-	printf(&quot;%d&quot;, y); //输出y
+	printf("%d", y); //输出y
 	return 0;
-&#125;
+}
 </code></pre>
 <p><code>if</code> 语句可以多个嵌套， <code>if</code> 中又带有 <code>if-else</code> 等情况，请注意辨识。应当注意 <code>if</code> 与 <code>else</code> 的配对关系。 <code>else</code> 总是与它上面最近的未配对的 <code>if</code> 配对， <code>else</code> 一般不能单独出现，上面必须先有 <code>if</code> 部分。上面的例子用 <code>if</code> 语句嵌套可如下表示：</p>
 <pre><code class="language-c">// test.c
 #include &lt;stdio.h&gt; //声明头文件
 
 int main() 
-&#123;
+{
 	int x, y; //定义x和y变量
-	scanf(&quot;%d&quot;, &amp;x); //输入x
+	scanf("%d", &amp;x); //输入x
 	if(x &gt;= 0)  //将大于等于零归为一类
-	&#123;
+	{
 		if(x &gt; 0)//再判断大于0的情况
 			y = 1;
 		else //在x大于等于零的情况下，再排除x大于零，即x等于零
 			y = ;  
-	&#125;
+	}
 	else //排除x大于等于零的情况下，即x小于零 
 		y = -1;
   
-	printf(&quot;%d&quot;, y); //输出y
+	printf("%d", y); //输出y
 	return 0;
-&#125;
+}
 </code></pre>
 <h2 id="5-2-switch构成的条件结构">5.2 switch构成的条件结构</h2>
 <p><code>switch</code> 语句的结构如下：</p>
 <pre><code class="language-c">switch (object) //对于某个变量或表达式进行switch
-&#123;
+{
 	case constant1: //对于常量1的情况，进行语句
 		//操作部分语句
 		break; //注意break必须存在
@@ -1714,17 +1716,17 @@ int main()
 	default: //对于默认情况，即排除上述情况，进行语句
 		//操作部分语句
 		break; //注意break不必存在，建议存在
-&#125;
+}
 </code></pre>
 <p>在此强调， <code>switch</code> 语句中 <code>case</code> 情况部分的 <code>break</code> 语句必须存在，此为语法规定。当去掉 <code>break</code> 语句时，系统将逐句往下运行。更具体地说，如果 <code>switch</code> 时 <code>case</code> 情况1的话，你想运行情况1部分的语句，但因为缺少 <code>break</code> 语句，系统还会运行下面 <code>case</code> 情况的语句，造成逻辑表达上的错误。可以对下面的代码中每个 <code>break</code> 试着取消注释，让其运行，观察系统运行语句输出区别。</p>
 <pre><code class="language-c">// test.c
 #include &lt;stdio.h&gt; //声明头文件
 
 int main() 
-&#123;
+{
 	int object = 1, sum = 0;
 	switch(object) 
-	&#123;
+	{
 		case 0 : 
 			sum = 0;
 			//break;
@@ -1737,10 +1739,10 @@ int main()
 		default :
 			sum = -1;
 			//break;
-	&#125;
-	printf(&quot;%d&quot;, sum);
+	}
+	printf("%d", sum);
 	return 0;
-&#125;
+}
 </code></pre>
 <p><code>switch</code> 语句的对象应该是 <strong>整型和字符类型的变量或变量表达式</strong> ，如 <code>int</code> 变量 <code>number</code> 、 <code>char</code> 变量 <code>ch</code>  、 <code>number%10</code> 、 <code>ch+32</code> ……相对于的 <code>case</code> 情况应该是整型常量或者是字符常量。如整数1、2、3……和字符’A’、‘B’、‘c’……</p>
 <p>对于 <code>switch</code> 语句，还有以下规则说明。操作部分语句可以不止一个语句，其一直运行到 <code>break</code> 语句为止。可以没有 <code>default</code> 的情况，但此时如果没有与 <code>switch</code> 表达式相匹配的 <code>case</code> 常量时，不执行任何语句。 <code>case</code> 情况出现的次序不影响执行结果，每个 <code>case</code> 情况常量必须互不相同，不能存在一个值有多种执行情况。</p>
@@ -1749,13 +1751,13 @@ int main()
 #include &lt;stdio.h&gt; //声明头文件
 
 int main() 
-&#123;
+{
 	int score ; //输入分数score，此处人为规定输入值在0到100之间 
 	char grade ; //输出分数评级，由'A'到'E' 
-	scanf(&quot;%d&quot; , &amp;score ) ; //输入分数 
+	scanf("%d" , &amp;score ) ; //输入分数 
 	switch( score / 10 ) 
 	//对分数除以十，即判断十位的情况，如80分到90，除以十为8 
-	&#123;
+	{
 		case 10: 
 			grade = 'A' ;
 			break ;
@@ -1774,10 +1776,10 @@ int main()
 		default:
 			grade = 'E' ;
 			break ;      
-	&#125;
-	printf(&quot;Your grade is %c .\n&quot; , grade ) ;
+	}
+	printf("Your grade is %c .\n" , grade ) ;
 	return 0;
-&#125;
+}
 </code></pre>
 <p><code>switch</code> 语句也是可以嵌套的，但结构上比较繁琐。</p>
 <p><br><br><br></p>
@@ -1789,11 +1791,11 @@ int main()
 <h2 id="6-1-while构成的循环结构">6.1 while构成的循环结构</h2>
 <p><code>while</code> 语句的一般形式如下：</p>
 <pre><code class="language-c">while( condition is true ) 
-&#123;
+{
 	sentences;
 	……………………
 	//花括号内的内容总称为循环体
-&#125;
+}
 </code></pre>
 <p>此处 <code>condition</code> 为表达式，只有当循环条件为真，即表达式为真，就执行循环体语句。循环体可以是一条语句，也可以是一个语句块（用花括号包起来）。 <code>while</code> 循环的特点是先判断条件表达式，后执行循环体语句。</p>
 <p><code>while</code> 语句的运行顺序是：从上至下，先判断条件表达式是否为真，为真则执行循环体。循环体运行完后再次判断条件表达式，为真则执行循环体。一直循环直至判断条件表达式为假。</p>
@@ -1802,27 +1804,27 @@ int main()
 <pre><code class="language-c">// add-100-number.c
 #include &lt;stdio.h&gt; //声明头文件 
 int main()
-&#123;
+{
 	int i = 1; //初始化循环变量，从1开始 
 	int sum = 0; //用来存求和的值 
 	while(i &lt;= 100) 
-	&#123;
+	{
 		sum += i; //相当于sum=sum+i，求和 
 		i ++; //i自增，实现从1到2到3到……100 
-	&#125;
-	printf(&quot;sum = %d\n&quot;, sum); //输出求和的值 
+	}
+	printf("sum = %d\n", sum); //输出求和的值 
 	return 0;
-&#125;
+}
 </code></pre>
 <p><code>while</code> 括号里的 <code>condition</code> 条件表达式实际上也会被执行的，如果条件表达式是赋值语句（赋值成功则表达式为真）、自增自减等也会生效。</p>
 <h2 id="6-2-do-while构成的循环结构">6.2 do-while构成的循环结构</h2>
 <p><code>do-while</code> 语句。其一般形式如下：</p>
 <pre><code class="language-c">do 
-&#123;
+{
 	sentences;
 	……………………
 	//花括号内的内容总称为循环体
-&#125; while(condition is true); //注意这有一个分号
+} while(condition is true); //注意这有一个分号
 </code></pre>
 <p>此处 <code>condition</code> 为表达式，道理同上。 <code>do-while</code> 循环的特点是先无条件执行循环体，然后判断循环条件是否成立。即 <code>do-while</code> 循环至少进行一次循环，注意与 <code>while</code> 语句区分。</p>
 <p><code>do-while</code> 语句的运行顺序是：从上至下，先无条件执行一次循环体，再判断条件表达式是否为真，为真则回到循环体开始重新执行循环体。循环体运行完后再次判断条件表达式，为真则执行循环体。一直循环直至判断条件表达式为假。</p>
@@ -1830,35 +1832,35 @@ int main()
 <pre><code class="language-c">// add-100-number.c
 #include &lt;stdio.h&gt; //声明头文件 
 int main()
-&#123;
+{
 	int i = 1; //初始化循环变量，从1开始 
 	int sum = 0; //用来存求和的值 
 	do
-	&#123;
+	{
 		sum += i; //相当于sum=sum+i，求和 
 		i ++; //i自增，实现从1到2到3到……100 
-	&#125; while(i &lt;= 100);
-	printf(&quot;sum = %d\n&quot;, sum); //输出求和的值 
+	} while(i &lt;= 100);
+	printf("sum = %d\n", sum); //输出求和的值 
 	return 0;
-&#125;
+}
 </code></pre>
 <p><code>while</code> 括号里的 <code>condition</code> 条件表达式实际上也会被执行的，如果条件表达式是赋值语句（赋值成功则表达式为真）、自增自减等也会生效。</p>
 <h2 id="6-3-for构成的循环结构">6.3 for构成的循环结构</h2>
 <p><code>for</code> 语句的一般形式如下：</p>
 <pre><code class="language-c">for( sentence1; condition; sentence2 )
-&#123;
+{
 	sentences3
 	…………………………
 	//花括号内的内容总称为循环体
-&#125;
+}
 </code></pre>
 <p>此处 <code>sentence1</code> 和 <code>sentence2</code> 为普通表达式， <code>sentence1</code> 只执行一次，而 <code>sentence2</code> 在每次执行完循环体后都会运行一次。 <code>condition</code> 为条件控制表达式，只有当循环条件为真，即表达式为真，就执行循环体语句。</p>
 <p><code>for</code> 语句的运行顺序是：先进行一次 <code>sentence1</code> ，接着判断 <code>condition</code> 是否为真，为真则执行循环体。循环体运行完后执行 <code>sentence2</code> 。然后再次判断 <code>condition</code> ，一直循环直至条件为假。</p>
 <p>所以延展出常用的 <code>for</code> 语句使用格式：</p>
 <pre><code class="language-c">for(循环变量赋值初始化; 循环条件; 循环变量变化)
-&#123;
+{
   循环体
-&#125;
+}
 </code></pre>
 <p>做个补充，在老版本的C语言中， <code>sentence1</code> 不支持声明变量并同时初始化，如： <code>for(int i = 1; i &lt;= 100; i ++)</code> 。但是在C99版本后是允许的。</p>
 <p>事实上， <code>for</code> 语句中的 <code>sentence1</code> 语句、 <code>sentence2</code> 语句和 <code>condition</code> 语句并非必要。即这三句语句可以省略，省略 <code>condition</code> 语句默认为真，写成 <code>for( ; ; )</code> ，但是两个分号绝不可少。在省略掉这三句语句时，我们仍要思考如何终止循环。例如在 <code>for</code> 语句上面就把变量初始化，在循环体中设置判断 <code>if</code> 什么条件就终止循环，在循环体中处理条件变化……</p>
@@ -1872,32 +1874,32 @@ int main()
 #include &lt;stdio.h&gt; //声明头文件 
 
 int main() 
-&#123;
+{
 	int i, sum = 0;
 	for(i = 1; i &lt;= 100; i ++) 
-	&#123;
+	{
 		sum += i;
 		if(sum &gt;= 2500) //当sum大于等于2500 
 		break; //终止所在的一层for循环 
-	&#125;
-	printf(&quot;sum = %d, and now i is %d\n&quot;, sum, i);
+	}
+	printf("sum = %d, and now i is %d\n", sum, i);
 	return 0;
-&#125;
+}
 </code></pre>
 <p>当然也可以这样解决：</p>
 <pre><code class="language-c">// use-for.c
 #include &lt;stdio.h&gt; //声明头文件 
 
 int main() 
-&#123;
+{
 	int i, sum = 0;
 	for(i = 1; sum &lt; 2500; i ++) 
-	&#123;
+	{
 		sum += i;
-	&#125;
-	printf(&quot;sum = %d, and now i is %d\n&quot;, sum, i);
+	}
+	printf("sum = %d, and now i is %d\n", sum, i);
 	return 0;
-&#125;
+}
 </code></pre>
 <p>注释中我写到，终止 <code>break</code> 所在的一层 <code>for</code> 循环，因为当有多个循环嵌套时， <code>break</code> 不会终止所有的循环，而是一层循环。（可以自己做实验研究）</p>
 <ul>
@@ -1908,43 +1910,43 @@ int main()
 <pre><code class="language-c">// Find-the-sum-of-even-numbers-from-1-to-100.c
 #include &lt;stdio.h&gt; //声明头文件 
 int main() 
-&#123;
+{
 	int i, sum = 0;
 	for(i = 1; i &lt;= 100; i ++) 
-	&#123;
+	{
 		if(i % 2 == 1) //当i为奇数，即除于2余数为1 
 			continue; //结束本次循环 
 		sum += i; 
-	&#125;
-	printf(&quot;sum = %d\n&quot;, sum);
+	}
+	printf("sum = %d\n", sum);
 	return 0;
-&#125;
+}
 </code></pre>
 <p>需要注意的是，结束本次循环并不是完全不进入循环，而是不执行 <code>continue</code> 下面的循环体部分。上面的代码，如果 <code>sum += i</code> 在 <code>continue</code> 的上面，结果还是会加上奇数的部分。</p>
 <p><br><br><br></p>
 <h1>Ⅶ —— 枚举</h1>
 <p>枚举是C语言中的一种基本数据类型，用于定义一组具有离散值的常量。枚举类型通常用于为程序中的一组相关的常量取名字，以便于程序的可读性和维护性。</p>
-<p>定义一个枚举类型，需要使用 <code>enum</code> 关键字，后面跟着枚举类型的名称，以及用大括号 <code>&#123;&#125;</code> 括起来的一组枚举常量。每个枚举常量可以用一个标识符来表示，也可以为它们指定一个整数值，如果没有指定，那么默认从0开始递增。</p>
+<p>定义一个枚举类型，需要使用 <code>enum</code> 关键字，后面跟着枚举类型的名称，以及用大括号 <code>{}</code> 括起来的一组枚举常量。每个枚举常量可以用一个标识符来表示，也可以为它们指定一个整数值，如果没有指定，那么默认从0开始递增。</p>
 <p>枚举语法定义格式为：</p>
-<pre><code class="language-c">enum　枚举名　&#123;枚举元素1,枚举元素2,……&#125;;
+<pre><code class="language-c">enum　枚举名　{枚举元素1,枚举元素2,……};
 </code></pre>
 <p>举个例子，一周有7天，如果想将星期一映射为数字1，星期天映射为数字7，我们可以使用枚举。</p>
 <pre><code class="language-c">enum Day
-&#123;
+{
 	MON=1, TUE, WED, THU, FRI, SAT, SUN
-&#125;;
+};
 // MON映射到1，后面的会自动递增
 // 效果跟#define MON 1 等一样
 </code></pre>
 <p>如果想让星期三之后特殊一些，星期三映射到8，星期天映射到12，只需在中间添加赋值即可。</p>
 <pre><code class="language-c">enum Day
-&#123;
+{
 	MON=1, TUE, WED=8, THU, FRI, SAT, SUN
-&#125;;
+};
 // MON映射到1，TUE映射到2，WED映射到8，后面的会自动递增
 </code></pre>
 <p>使用时直接输出即可：</p>
-<pre><code class="language-c">printf(&quot;%d&quot;, MON);
+<pre><code class="language-c">printf("%d", MON);
 </code></pre>
 <p>然而上面是对枚举类型的使用，下面介绍枚举变量的定义和使用。</p>
 <p>枚举类型是一种数据类型，可以对标 <code>int</code> 理解；枚举变量是一个变量，可以对标 <code>int number</code> 中的 <code>number</code> 理解。</p>
@@ -1953,79 +1955,79 @@ int main()
 <li>先定义枚举类型，再定义枚举变量</li>
 </ol>
 <pre><code class="language-c">enum DAY
-&#123;
+{
 	MON=1, TUE, WED, THU, FRI, SAT, SUN
-&#125;;
+};
 enum DAY day;
 </code></pre>
 <ol start="2">
 <li>定义枚举类型的同时定义枚举变量</li>
 </ol>
 <pre><code class="language-c">enum DAY
-&#123;
+{
 	MON=1, TUE, WED, THU, FRI, SAT, SUN
-&#125; day;
+} day;
 </code></pre>
 <ol start="3">
 <li>省略枚举名称，直接定义枚举变量</li>
 </ol>
 <pre><code class="language-c">enum
-&#123;
+{
 	MON=1, TUE, WED, THU, FRI, SAT, SUN
-&#125; day;
+} day;
 </code></pre>
 <p>给出使用枚举变量的情形：</p>
 <pre><code class="language-c">// test.c
 #include &lt;stdio.h&gt;
 enum DAY
-&#123;
+{
       MON=1, TUE, WED, THU, FRI, SAT, SUN
-&#125;;
+};
  
 int main()
-&#123;
+{
     enum DAY day;
     day = WED;
-    printf(&quot;%d&quot;, day);
+    printf("%d", day);
     return 0;
-&#125;
+}
 </code></pre>
 <p>在 <strong>枚举类型值连续</strong> 的情况下还可以进行循环：</p>
 <pre><code class="language-c">// test.c
 #include &lt;stdio.h&gt;
 enum DAY
-&#123;
+{
       MON=1, TUE, WED, THU, FRI, SAT, SUN
-&#125; day;
+} day;
 int main()
-&#123;
+{
     // 遍历枚举元素
     for (day = MON; day &lt;= SUN; day++) 
-    &#123;
-        printf(&quot;枚举元素：%d \n&quot;, day);
-    &#125;
+    {
+        printf("枚举元素：%d \n", day);
+    }
     return 0;
-&#125;
+}
 </code></pre>
 <p>如果将将整数转换为现有枚举值，只需强制类型转换：</p>
 <pre><code class="language-c">// test.c
 #include &lt;stdio.h&gt;
 
 int main()
-&#123;
+{
  
     enum day
-    &#123;
+    {
         saturday, sunday, monday, tuesday, wednesday, thursday, friday
-    &#125; workday;
+    } workday;
  
     int a = 1;
     enum day weekend;
     weekend = ( enum day ) a;  //类型转换
     //weekend = a; //错误
-    printf(&quot;%d&quot;,weekend);
+    printf("%d",weekend);
     return 0;
-&#125;
+}
 </code></pre>
 <pre><code>输出结果：
 1
@@ -2046,7 +2048,7 @@ int main()
 <pre><code class="language-c">// test.c
 #include &lt;stdio.h&gt;
 int main()
-&#123;
+{
 	int i;
 	int array[5];
 	
@@ -2056,18 +2058,18 @@ int main()
    	
    	// 访问数组并输出
    	for(i = 0; i &lt; 5; ++ i)
-   		printf(&quot;%d &quot;, array[i]);
+   		printf("%d ", array[i]);
    	return 0;
-&#125;
+}
 
 </code></pre>
 <p>补充个冷知识，我们比较经常使用 <code>array[0]</code> 访问元素，实际上还能以 <code>0[array]</code> 的方式访问元素。</p>
 <h2 id="8-3-数组的初始化">8.3 数组的初始化</h2>
 <p>通过上面的例子，我们可以通过循环给数组中的每个元素赋值。但是还可以通过声明时的初始化语句进行相同的操作。</p>
-<pre><code class="language-c">int array[5] = &#123;1, 2, 3, 4, 5&#125;;
+<pre><code class="language-c">int array[5] = {1, 2, 3, 4, 5};
 </code></pre>
-<p>大括号 <code>&#123; &#125;</code> 之间的值的数目不能大于我们在数组声明时在方括号 <code>[ ]</code> 中指定的元素数目。如果省略掉了数组的大小，数组的大小则为初始化时元素的个数。即等价于：</p>
-<pre><code class="language-c">int array[] = &#123;1, 2, 3, 4, 5&#125;;
+<p>大括号 <code>{ }</code> 之间的值的数目不能大于我们在数组声明时在方括号 <code>[ ]</code> 中指定的元素数目。如果省略掉了数组的大小，数组的大小则为初始化时元素的个数。即等价于：</p>
+<pre><code class="language-c">int array[] = {1, 2, 3, 4, 5};
 </code></pre>
 <h2 id="8-4-多维数组">8.4 多维数组</h2>
 <p>C 语言支持多维数组。多维数组声明的一般形式如下：</p>
@@ -2077,38 +2079,38 @@ int main()
 <pre><code class="language-c">type arrayName [x][y];
 </code></pre>
 <p>如一个二维数组初始化如下：</p>
-<pre><code class="language-c">int array[3][4] = &#123;  
- &#123;1, 2, 3, 4&#125; ,   /*  初始化索引号为 0 的行 */
- &#123;5, 6, 7, 8&#125; ,   /*  初始化索引号为 1 的行 */
- &#123;9, 10, 11, 12&#125;   /*  初始化索引号为 2 的行 */
-&#125;;
+<pre><code class="language-c">int array[3][4] = {  
+ {1, 2, 3, 4} ,   /*  初始化索引号为 0 的行 */
+ {5, 6, 7, 8} ,   /*  初始化索引号为 1 的行 */
+ {9, 10, 11, 12}   /*  初始化索引号为 2 的行 */
+};
 </code></pre>
 <p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/c_array2.png" alt="二维数组"></p>
 <p>二维数组中的元素是通过使用下标（即数组的行索引和列索引）访问。</p>
 <pre><code class="language-c">// test.c
 #include &lt;stdio.h&gt; 
 int main ()
-&#123;
+{
 	// 一个带有 5 行 2 列的数组
-	int a[5][2] = &#123; &#123;0,0&#125;, &#123;1,2&#125;, &#123;2,4&#125;, &#123;3,6&#125;,&#123;4,8&#125;&#125;;
+	int a[5][2] = { {0,0}, {1,2}, {2,4}, {3,6},{4,8}};
 	int i, j;
  
 	// 输出数组中每个元素的值
 	for (i = 0; i &lt; 5; i++)
-	&#123;
+	{
 		for (j = 0; j &lt; 2; j++)
-		&#123;
-			printf(&quot;a[%d][%d] = %d\n&quot;, i, j, a[i][j]);
-		&#125;
-	&#125;
+		{
+			printf("a[%d][%d] = %d\n", i, j, a[i][j]);
+		}
+	}
 	return 0;
-&#125;
+}
 </code></pre>
 <h2 id="8-5-数组的使用">8.5 数组的使用</h2>
 <ul>
 <li>求数组长度：使用 <code>sizeof</code> 关键字，将整个数组占的内存大小除以每个元素占的内存大小，得到的就是元素个数。</li>
 </ul>
-<pre><code class="language-c">int numbers[] = &#123;1, 2, 3, 4, 5&#125;;
+<pre><code class="language-c">int numbers[] = {1, 2, 3, 4, 5};
 int length = sizeof(numbers) / sizeof(numbers[0]);
 </code></pre>
 <ul>
@@ -2118,31 +2120,31 @@ int length = sizeof(numbers) / sizeof(numbers[0]);
 <li>形式参数是一个已定义大小的数组</li>
 </ol>
 <pre><code class="language-c">void fun(int param[10])
-&#123;
+{
 	// ……
-&#125;
+}
 </code></pre>
 <ol start="2">
 <li>形式参数是一个未定义大小的数组</li>
 </ol>
 <pre><code class="language-c">void fun(int param[])
-&#123;
+{
 	// ……
-&#125;
+}
 </code></pre>
 <p>为了函数的通用性，通常使用未定义大小的数组，再将数组大小作为第二参数传入。</p>
 <pre><code class="language-c">double getAverage(int arr[], int size) // 求数组的平均值
-&#123;
+{
 	int i;
 	double avg;
 	double sum;
 	for (i = 0; i &lt; size; ++ i)
-	&#123;
+	{
 		sum += arr[i];
-	&#125;
+	}
 	avg = sum / size;
 	return avg;
-&#125;
+}
 </code></pre>
 <p>需要注意的是，我们传入的是数组，在函数内部中如若有对数组元素的修改，也会同步对外部的数组进行修改。因为此处形式参数是以地址传递的形式传入。</p>
 <p>为什么传递数组名字会是以地址传递的形式传入呢？那是因为 <strong>数组名实际上是一个指针</strong> ，它存放数组中首元素的地址。至于什么是指针，可查阅下一节。</p>
@@ -2163,7 +2165,7 @@ int *pa = &amp;a;
 <p>之前使用 <code>scanf()</code> 函数时所加的 <code>&amp;</code> ，表明我们是把数据放到某变量名所处的地址，而不是塞到变量名里面。</p>
 <p>如果想输出地址的话，可以使用 <code>%p</code> 或 <code>%x</code> 输出：</p>
 <pre><code class="language-c">int a = 1;
-printf(&quot;%p&quot;, &amp;a);
+printf("%p", &amp;a);
 </code></pre>
 <p>指针使用前必须有初始化值，即定义时必须赋值，若无值则指向NULL。</p>
 <pre><code class="language-c">int *p = NULL;
@@ -2198,16 +2200,16 @@ printf(&quot;%p&quot;, &amp;a);
 <pre><code class="language-c">// test.c
 #include&lt;stdio.h&gt;
 int main()
-&#123;
+{
 	int a = 100, b = 10;
 	int *pointer1, *pointer2;
 	pointer1 = &amp;a;
 	pointer2 = &amp;b;
-	printf(&quot;a=%d,b=%d\n&quot;, a, b); 
-	printf(&quot;pointer1=%d,pointer2=%d\n&quot;, pointer1, pointer2); 
-	printf(&quot;pointer1=%d,pointer2=%d\n&quot;, *pointer1, *pointer2);
+	printf("a=%d,b=%d\n", a, b); 
+	printf("pointer1=%d,pointer2=%d\n", pointer1, pointer2); 
+	printf("pointer1=%d,pointer2=%d\n", *pointer1, *pointer2);
 	return 0;
-&#125;
+}
 </code></pre>
 <pre><code>输出结果：
 a=100,b=10
@@ -2218,21 +2220,21 @@ pointer1=100,pointer2=10
 <pre><code class="language-c">// swap-ab.c
 #include&lt;stdio.h&gt;
 void swap(int *a,int *b)
-&#123;
+{
 	int tmp;
 	tmp = *a;
 	*a = *b;
 	*b = tmp;
-&#125;
+}
 
 int main()
-&#123;
+{
 	int x = 1, y = 2;
-	printf(&quot;x=%d,y=%d\n&quot;, x, y);
+	printf("x=%d,y=%d\n", x, y);
 	swap(&amp;x, &amp;y);
-	printf(&quot;x=%d,y=%d\n&quot;, x, y);
+	printf("x=%d,y=%d\n", x, y);
 	return 0;
-&#125;
+}
 </code></pre>
 <pre><code>输出结果：
 x=1,y=2
@@ -2255,39 +2257,39 @@ p = &amp;a[0];  //p指向a[0]的地址
 <pre><code class="language-c">// test.c
 #include&lt;stdio.h&gt;
 int main()
-&#123;
-	int a[5] = &#123;101,102,103,104,105&#125;;
+{
+	int a[5] = {101,102,103,104,105};
 	int *p;
 	p = a;
-	printf(&quot;%d &quot;, *p);
-	printf(&quot;%d &quot;, *(p+1));
-	printf(&quot;%d&quot;, *(p+2));
+	printf("%d ", *p);
+	printf("%d ", *(p+1));
+	printf("%d", *(p+2));
 	return 0;      
-&#125;
+}
 </code></pre>
 <pre><code class="language-c">输出结果：
 101 102 103
 </code></pre>
 <p>因为数组名也有地址的属性，所以输出语句还可以改成：</p>
-<pre><code class="language-c">printf(&quot;%d &quot;, *a);
-printf(&quot;%d &quot;, *(a+1));
-printf(&quot;%d&quot;, *(a+2));
+<pre><code class="language-c">printf("%d ", *a);
+printf("%d ", *(a+1));
+printf("%d", *(a+2));
 </code></pre>
 <p>但数组名不能进行自增自减，如不能 <code>a++</code> 或 <code>a--</code> 等。</p>
 <p>指针还可以引用字符串（字符数组），字符串的本质是一个字符数组。我们可以类似指针引用一维数组那样引用字符串。</p>
 <pre><code class="language-c">// test.c
 #include&lt;stdio.h&gt;
 int main()
-&#123;
-  char a[] = &quot;computer!&quot;;
+{
+  char a[] = "computer!";
   char *p;
   p = a;
-  printf(&quot;%c\n&quot;, *p);  //%c，取*时，具体到某个元素，此处是首元素
-  printf(&quot;%c\n&quot;, *(p + 2));
-  printf(&quot;%s\n&quot;, p);  //%s，不取*，从首元素输出所有字符
-  printf(&quot;%s\n&quot;, p + 2);  // 从a[2]开始输出所有字符
+  printf("%c\n", *p);  //%c，取*时，具体到某个元素，此处是首元素
+  printf("%c\n", *(p + 2));
+  printf("%s\n", p);  //%s，不取*，从首元素输出所有字符
+  printf("%s\n", p + 2);  // 从a[2]开始输出所有字符
   return 0;
-&#125;
+}
 </code></pre>
 <pre><code>输出结果：
 输出结果：
@@ -2297,16 +2299,16 @@ computer!
 mputer!
 </code></pre>
 <pre><code class="language-c">//以上也可用字符指针变量表示，如下所示：
-char *p=&quot;computer!&quot;;//此处可能会出现warning，但无关紧要
-//上句等价于char *p; p=&quot;computer!&quot;;
-printf(&quot;%s&quot;,p);//此处无需*p，注意对比
+char *p="computer!";//此处可能会出现warning，但无关紧要
+//上句等价于char *p; p="computer!";
+printf("%s",p);//此处无需*p，注意对比
 </code></pre>
-<p><code>char *p=&quot;computer!&quot;</code> 的意思是将字符指针变量 <code>p</code> 指到&quot;computer!&quot;的首地址即&quot;c&quot;的地址。</p>
+<p><code>char *p="computer!"</code> 的意思是将字符指针变量 <code>p</code> 指到"computer!"的首地址即"c"的地址。</p>
 <p>之前，我们用字符数组也能实现打印字符串，而使用字符指针的不同是：</p>
 <p>①可以对字符指针变量赋值，但不能对数组名赋值，初始化不等于赋值，如不能：</p>
-<pre><code class="language-c">char a[10] = &#123;&quot;computer!&quot;&#125;; //此句合法
+<pre><code class="language-c">char a[10] = {"computer!"}; //此句合法
 char a[10]; 
-a = &quot;computer!&quot;; //此句不合法
+a = "computer!"; //此句不合法
 </code></pre>
 <p>②储存内容不同，字符数组把每一个元素的值都存放，而字符指针只存放第一个元素的地址。</p>
 <ul>
@@ -2333,17 +2335,17 @@ free(dynamicArray); // 动态数组内存释放
 <pre><code class="language-c">// test.c
 #include&lt;stdio.h&gt;
 int main()
-&#123;
-	int a[4][5] = &#123;
+{
+	int a[4][5] = {
 		1,2,3,4,5,
 		6,7,8,9,10,
 		11,12,13,14,15,
-		16,17,18,19,20&#125;;
+		16,17,18,19,20};
 	int (*p)[5];
 	p = a+1; // 指向第2行
-	for(int i=0;i&lt;5;i++)  printf(&quot;%d &quot;,(*p)[i]);
+	for(int i=0;i&lt;5;i++)  printf("%d ",(*p)[i]);
 	return 0;
-&#125;
+}
 </code></pre>
 <pre><code>输出结果：
 6 7 8 9 10
@@ -2357,18 +2359,18 @@ int main()
 <pre><code class="language-c">// test.c
 #include&lt;stdio.h&gt;
 int main()
-&#123;
+{
 	char *p[13];
-	p[1]=&quot;Januray&quot;;  p[2]=&quot;February&quot;;  p[3]=&quot;March&quot;; 
-	p[4]=&quot;April&quot;;  p[5]=&quot;May&quot;;      p[6]=&quot;June&quot;;
-	p[7]=&quot;July&quot;;  p[8]=&quot;August&quot;;    p[9]=&quot;September&quot;;
-	p[10]=&quot;October&quot;;p[11]=&quot;November&quot;;  p[12]=&quot;December&quot;;
+	p[1]="Januray";  p[2]="February";  p[3]="March"; 
+	p[4]="April";  p[5]="May";      p[6]="June";
+	p[7]="July";  p[8]="August";    p[9]="September";
+	p[10]="October";p[11]="November";  p[12]="December";
 	//可能会警告，但无关紧要
 	int n;
-	scanf(&quot;%d&quot;,&amp;n);
-	printf(&quot;%s\n&quot;,p[n]);
+	scanf("%d",&amp;n);
+	printf("%s\n",p[n]);
 	return 0;
-&#125;
+}
 </code></pre>
 <pre><code>运行结果：
 3 	// 输入
@@ -2382,64 +2384,64 @@ March 	// 输出
 <pre><code class="language-c">// test.c
 #include&lt;stdio.h&gt;
 int max(int x,int y)
-&#123;
+{
 	return (x &gt; y ? x : y);
-&#125;
+}
 
 int main()
-&#123;
+{
 	int a = 50, b = 100;
-	printf(&quot;max=%d&quot;, max(a, b));
+	printf("max=%d", max(a, b));
 	return 0;
-&#125;
+}
 </code></pre>
 <p>上代码等价于：</p>
 <pre><code class="language-c">// test.c
 #include&lt;stdio.h&gt;
 int max(int x,int y)
-&#123;
+{
 	return (x &gt; y ? x : y);
-&#125;
+}
 
 int main()
-&#123;
+{
 	int a = 50, b = 100;
 	int (*p)(int,int);
 	p = max;
-	printf(&quot;max=%d&quot;, (*p)(a,b));
+	printf("max=%d", (*p)(a,b));
 	return 0;
-&#125;
+}
 </code></pre>
 <p>注意 <code>int (*p)(int,int)</code>；定义指向函数的指针变量： <code>类型名 (* 指针变量名)(函数参数表列);</code></p>
 <p>指向函数的指针变量的一个重要用途是把函数的入口地址作为参数传递到其他函数，下附一个使用函数指针的例子；</p>
 <pre><code class="language-c">// test.c
 #include&lt;stdio.h&gt;
 void fun(int x, int y, int (*p)(int,int))
-&#123;
+{
 	int ans;
 	ans = (*p)(x,y);
-	printf(&quot;%d&quot;, ans);
-&#125;
+	printf("%d", ans);
+}
 int max(int x,int y)
-&#123;
-	printf(&quot;max=&quot;);
+{
+	printf("max=");
 	return x &gt; y ? x : y;
-&#125;
+}
 int min(int x,int y)
-&#123;
-	printf(&quot;min=&quot;);
+{
+	printf("min=");
 	return x &lt; y ? x : y;
-&#125;
+}
 
 int main()
-&#123;
+{
 	int a = 34, b = -21, n;
-	printf(&quot;请输入你的选择(1-求最大值，2-求最小值)：&quot;);
-	scanf(&quot;%d&quot;, &amp;n);
+	printf("请输入你的选择(1-求最大值，2-求最小值)：");
+	scanf("%d", &amp;n);
 	if(n==1)  fun(a, b, max);
 	if(n==2)  fun(a, b, min);
 	return 0;
-&#125;
+}
 </code></pre>
 <ul>
 <li>返回指针类型的函数</li>
@@ -2449,40 +2451,40 @@ int main()
 <pre><code class="language-c">// test.c
 #include&lt;stdio.h&gt;
 float* search(float (*pointer)[4])//定义函数
-&#123;
+{
 	int i = 0;
 	float *pt;
 	pt = NULL;
 	//切记初始化指针，无则指向NULL
 
 	for(; i &lt; 4; i ++)
-	&#123;
+	{
 		if(*(*pointer+i)&lt;60)  pt = *pointer;
 		//如有不及格，使pt指向score[i][0]
-	&#125;
+	}
 	return pt;
-&#125;
+}
 int main()
-&#123;
-	float score[][4] = &#123;&#123;60,70,80,90&#125;,&#123;56,89,67,88&#125;,&#123;34,78,90,66&#125;&#125;;
+{
+	float score[][4] = {{60,70,80,90},{56,89,67,88},{34,78,90,66}};
 	//定义数组，初始化成绩，有3名学生，每名学生有4门成绩
 	float *p;
 	int i, j;
 	for(i = 0; i &lt; 3; i ++)
-	&#123;
+	{
 		p = search(score + i);
 		//调用search函数，如不及格则返回score[i][0]的地址
 		//否则返回NULL
 		if(p == *(score+i))  //若返回的不是NULL，则输出学生成绩
-		&#123;
-			printf(&quot;No.%d score:&quot;,i);
+		{
+			printf("No.%d score:",i);
 			for(j = 0; j &lt; 4; j ++)
-				printf(&quot;%5.2f &quot;, *(p+j));
-			printf(&quot;\n&quot;);
-		&#125;
-	&#125;
+				printf("%5.2f ", *(p+j));
+			printf("\n");
+		}
+	}
 	return 0;
-&#125;
+}
 </code></pre>
 <ul>
 <li>指向指针数据的指针变量</li>
@@ -2491,15 +2493,15 @@ int main()
 <pre><code class="language-c">// test.c
 #include&lt;stdio.h&gt;
 int main()
-&#123;
+{
 	int a = 100;
 	int *p;
 	p = &amp;a;
 	int **q;
 	q = &amp;p;
-	printf(&quot;%d &quot;, **q);
+	printf("%d ", **q);
 	return 0;
-&#125;
+}
 </code></pre>
 <pre><code>输出结果：
 100
@@ -2510,29 +2512,29 @@ int main()
 <p><strong>共用体（Union）</strong> 是一种特殊的数据类型，允许在相同的内存位置存储不同的数据类型。可以定义一个带有多成员的共用体，但是任何时候只能有一个成员带有值。</p>
 <p>为了定义共用体，必须使用 <code>union</code> 语句。 <code>union</code> 语句定义了一个新的数据类型，带有多个成员。定义格式如下：</p>
 <pre><code class="language-c">union [union tag]
-&#123;
+{
 	成员定义;
 	成员定义;
 	...
 	成员定义;
-&#125; 共用体变量;
+} 共用体变量;
 </code></pre>
 <p><code>union tag</code> 是可选的，每个 <code>成员定义</code> 是标准的变量定义，比如 <code>int i;</code> 或者 <code>float f;</code> 或者其他有效的变量定义。在共用体定义的末尾，最后一个分号之前，可以指定一个或多个共用体变量，这是可选的。</p>
 <p>下面定义一个名为 <code>Data</code> 的共用体类型，有三个成员 <code>i</code> 、 <code>f</code> 和 <code>str</code> ：</p>
 <pre><code class="language-c">union Data
-&#123;
+{
 	int i;
 	float f;
 	char  str[10];
-&#125;;
+};
 </code></pre>
 <p>也可以像枚举类型定义枚举类型的同时定义枚举变量一样，定义共用体类型的同时定义共用体变量。</p>
 <pre><code class="language-c">union Data
-&#123;
+{
 	int i;
 	float f;
 	char  str[10];
-&#125; data;
+} data;
 </code></pre>
 <p><code>Data</code> 类型的变量可以存储一个整数、一个浮点数，或者一个字符串。这意味着一个变量（相同的内存位置）可以存储多个多种类型的数据。可以根据需要在一个共用体内使用任何内置的或者用户自定义的数据类型。</p>
 <p><strong>共用体占用的内存应足够存储共用体中最大的成员。</strong> 例如，在上面的实例中，<code>Data</code> 将占用10个字节的内存空间，因为在各个成员中，字符串所占用的空间是最大的。</p>
@@ -2543,12 +2545,12 @@ int main()
 <h2 id="10-2-结构体">10.2 结构体</h2>
 <p><strong>结构体</strong> 与共用体类似，不同的是结构体的成员并列存在，可同时使用。</p>
 <pre><code class="language-c">struct tag
-&#123;
+{
 	成员定义;
 	成员定义;
 	...
 	成员定义;
-&#125; 结构体变量;
+} 结构体变量;
 </code></pre>
 <p><code>tag</code> 是结构体标签，每个 <code>成员定义</code> 是标准的变量定义，比如 <code>int i;</code> 或者 <code>float f;</code> 或者其他有效的变量定义。在结构体定义的末尾，最后一个分号之前，可以指定一个或多个结构体变量，这是可选的。</p>
 <p>如：</p>
@@ -2556,30 +2558,30 @@ int main()
 //同时又声明了结构体变量s1
 //这个结构体并没有标明其标签
 struct 
-&#123;
+{
 	int a;
 	char b;
 	double c;
-&#125; s1;
+} s1;
 
 //此声明声明了拥有3个成员的结构体，分别为整型的a，字符型的b和双精度的c
 //结构体的标签被命名为SIMPLE,没有声明变量
 struct SIMPLE
-&#123;
+{
 	int a;
 	char b;
 	double c;
-&#125;;
+};
 //用SIMPLE标签的结构体，另外声明了变量t1、t2、t3
 struct SIMPLE t1, t2[20], *t3;
 
 //也可以用typedef创建新类型
 typedef struct
-&#123;
+{
 	int a;
 	char b;
 	double c; 
-&#125; Simple2;
+} Simple2;
 //现在可以用Simple2作为类型声明新的结构体变量
 Simple2 u1, u2[20], *u3;
 </code></pre>
@@ -2588,51 +2590,51 @@ Simple2 u1, u2[20], *u3;
 <pre><code class="language-c">int a;
 
 struct Tag
-&#123;
+{
 	double number;
-&#125;;
+};
 struct Tag b；
 
 typedef struct
-&#123;
+{
 	int number;
-&#125; Tag2;
+} Tag2;
 Tag2 c;
 </code></pre>
 <p>那么 <code>int</code> 、 <code>struct Tag</code> 、 <code>Tag2</code> 是对等的，都是数据类型；而 <code>a</code> 、 <code>b</code> 和 <code>c</code> 是同级的，都是变量。</p>
 <p>结构体的成员可以包含其他结构体，也可以包含指向自己结构体类型的指针。如果两个结构体互相包含，则需要对其中一个结构体进行不完整声明，如下所示：</p>
-<pre><code class="language-c">struct B;    //对结构体B进行不完整声明
+<pre><code class="language-c">struct B; &nbsp; &nbsp;//对结构体B进行不完整声明
 
 //结构体A中包含指向结构体B的指针
 struct A
-&#123;
-    struct B *partner;
-    //other members;
-&#125;;
+{
+&nbsp; &nbsp; struct B *partner;
+&nbsp; &nbsp; //other members;
+};
 
 //结构体B中包含指向结构体A的指针，在A声明完后，B也随之进行声明
 struct B
-&#123;
-    struct A *partner;
-    //other members;
-&#125;;
+{
+&nbsp; &nbsp; struct A *partner;
+&nbsp; &nbsp; //other members;
+};
 </code></pre>
-<p>为了访问结构的成员，使用成员访问运算符 <code>.</code> 。对于结构体的初始化，可以使用 <code>&#123;&#125;</code> ：</p>
+<p>为了访问结构的成员，使用成员访问运算符 <code>.</code> 。对于结构体的初始化，可以使用 <code>{}</code> ：</p>
 <pre><code class="language-c">//book.c
 #include &lt;stdio.h&gt;
 struct Books
-&#123;
-	char  title[50];
-   	char  author[50];
-   	char  subject[100];
-   	int   book_id;
-&#125; book = &#123;&quot;C 语言&quot;, &quot;RUNOOB&quot;, &quot;编程语言&quot;, 123456&#125;;
+{
+	char &nbsp;title[50];
+&nbsp; &nbsp;	char &nbsp;author[50];
+&nbsp; &nbsp;	char &nbsp;subject[100];
+&nbsp; &nbsp;	int &nbsp; book_id;
+} book = {"C 语言", "RUNOOB", "编程语言", 123456};
 
 int main()
-&#123;
-	printf(&quot;title : %s\nauthor: %s\nsubject: %s\nbook_id: %d\n&quot;, book.title, book.author, book.subject, book.book_id);
+{
+	printf("title : %s\nauthor: %s\nsubject: %s\nbook_id: %d\n", book.title, book.author, book.subject, book.book_id);
 	return 0;
-&#125;
+}
 </code></pre>
 <p>结构体作为函数的参数传入时，传参方式与其他类型的变量或指针类似，如： <code>void printBooks(struct Books b);</code> ，之后在函数里访问成员即可。</p>
 <p>可以定义指向结构的指针，方式与定义指向其他类型变量的指针相似，如：</p>
@@ -2648,11 +2650,11 @@ struct_pointer-&gt;title; // 指针访问成员时
 <p><strong>链表</strong>是一种物理存储单元上非连续、非顺序的存储结构，数据元素的逻辑顺序是通过链表中的指针链接次序实现的。而这些储存单元需要及时开辟，此时需要使用动态储存分配函数。</p>
 <p><strong>链表</strong>由一系列结点（链表中每一个元素称为结点）组成，结点可以在运行时动态生成。每个结点包括两个部分：一个是存储数据元素的 <strong>数据域</strong> ，另一个是存储下一个结点地址的 <strong>指针域</strong> 。如：</p>
 <pre><code class="language-c">struct test
-&#123;
+{
   int num;		// 数据域
   char name[5];		// 数据域
   struct test *next; 	// 指针域
-&#125;;
+};
 </code></pre>
 <p>链表还可分为动态链表和静态链表，此处不讨论静态链表，均为动态链表。</p>
 <p>使用链表结构可以克服数组链表需要预先知道数据大小的缺点，链表结构可以充分利用计算机内存空间，实现灵活的内存动态管理。但是链表失去了数组随机读取的优点，同时链表由于增加了结点的指针域，空间开销比较大。</p>
@@ -2702,36 +2704,36 @@ struct_pointer-&gt;title; // 指针访问成员时
 <p><strong>单向链表</strong>，指针指向单向，连接方向单向，优点是简单，缺点是效率略低。</p>
 <p>单向链表是由结点构成，所讨论的单向链表结点如下：</p>
 <pre><code class="language-c">struct test
-&#123;
+{
 	int num;
 	struct test *next;
-&#125;;
+};
 </code></pre>
 <ul>
 <li>链表的创建</li>
 </ul>
 <pre><code class="language-c">//链表创建，返回一个表头head
 struct test *creat()  
-&#123;
+{
 	struct test *head;
 	struct test *p1, *p2;
 	int n = 0;
 	p1 = p2 = (struct test *)malloc(sizeof(struct test));  //开辟一个内存单元
-	scanf(&quot;%d&quot;, &amp;p1-&gt;num);  //输入第一个信息
+	scanf("%d", &amp;p1-&gt;num);  //输入第一个信息
 	head = NULL;  //指针必须初始化，无地址则指向NULL
 	while(p1-&gt;num != 0) // 设计当输入0时停止创建链表
-	&#123;
+	{
 		n += 1;
 		if(n == 1)  head = p1; // 当链表为空，即创建的是第一个结点，则使头结点指向p1的地址
 		else  p2-&gt;next = p1;	// 当链表非空，用next指针连接
 		p2 = p1; // p2指向p1所指的地址，p2为当前链表末尾
 		p1 = (struct test *)malloc(sizeof(struct test));  //再开辟内存单元，并将起始地址赋值给p1
-		scanf(&quot;%d&quot;, &amp;p1-&gt;num);   //循环输入信息
-	&#125;
+		scanf("%d", &amp;p1-&gt;num);   //循环输入信息
+	}
 	free(p1); // 释放最后一个结点，即释放输入为0的结点
 	p2-&gt;next = NULL; // 链表的末尾指向NULL
 	return head;
-&#125;
+}
 </code></pre>
 <p>根据上述代码，演示过程如图：</p>
 <p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/c_create.png" alt="链表创建过程"></p>
@@ -2742,37 +2744,37 @@ struct test *creat()
 <p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/c_insert.png" alt="链表的插入"></p>
 <pre><code class="language-c">// 在某链表中插入一个新的由指针引用的结构体
 struct test *add(struct test *head, struct test *insert)
-&#123;
+{
 	struct test *p0, *p1, *p2;
 	p0 = insert;  //将新的由指针引用的结构体赋值给p0
 	p1 = head;
 	if(head == NULL)//判断是否为空链表
-	&#123;
+	{
 		head = p0;  //是空链表则从头插入，头指针为p0
 		p0-&gt;next = NULL;//后面无新的数据
-	&#125;
+	}
 	else    //链表非空，按num排序，找到适合的位置或者到链表末端停下
-	&#123;
+	{
 		while((p0-&gt;num &gt; p1-&gt;num) &amp;&amp; (p1-&gt;next != NULL))
-		&#123;
+		{
 			p2=p1;
 			p1=p1-&gt;next;
-		&#125;
+		}
 		
 		if(p0-&gt;num &lt;= p1-&gt;num) // 找到合适的位置
-		&#123;
+		{
 			if(head == p1) head = p0;
 			else  p2-&gt;next = p0;
 			p0-&gt;next = p1;
-		&#125;
+		}
 		else // 找不到合适位置，插入到链表末尾
-		&#123;
+		{
 			p1-&gt;next = p0;
 			p0-&gt;next = NULL;
-		&#125;		
-	&#125;		
+		}		
+	}		
 	return head; // 返回更新后的链表表头
-&#125;
+}
 </code></pre>
 <ul>
 <li>链表的删除</li>
@@ -2781,13 +2783,13 @@ struct test *add(struct test *head, struct test *insert)
 <p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/c_delete.png" alt="链表的删除"></p>
 <pre><code class="language-c">// 在某链表中查找num并删除该结构体，返回更新后的表头
 struct test *del(struct test *head, int num) 
-&#123;
+{
 	struct test *p1, *p2;
 	if(head == NULL)  // 判断是否为空链表
-	&#123;
-		printf(&quot;这是一个空链表\n&quot;);
+	{
+		printf("这是一个空链表\n");
 		return head;
-	&#125;  
+	}  
 	
 	p1 = head;
 	// 链表非空，将创建好的链表头指针head赋值给p1
@@ -2795,31 +2797,31 @@ struct test *del(struct test *head, int num)
 	
 	// 当没匹配到元素或者已经到链表末端，停止循环
 	while(p1-&gt;num != num &amp;&amp; p1-&gt;next != NULL)  
-	&#123;
+	{
 		p2 = p1;		// p2指向的是p1的前一个结点
 		p1 = p1-&gt;next;		// p1指针遍历链表
-	&#125; // 此处寻找元素
+	} // 此处寻找元素
   
 	if(p1-&gt;num == num)  // 如果是找到了元素而停止循环的情况
-	&#123;
+	{
 		if(p1 == head)
-		&#123;
+		{
 			head = p1-&gt;next;// 如果删除的是头指针，则将头指针指向下一个，修改表头
 			free(p1);
-		&#125;  
+		}  
 			
 		else
-		&#123;
+		{
 			p2-&gt;next = p1-&gt;next;  // 删除节点，即跳过某结构体直接连向下一个
 			free(p1);
-		&#125;  
+		}  
 			
-	&#125;
+	}
 	else 
-		printf(&quot;Not found!&quot;);   // 到链表末端而停止循环的情况，也就是没找到
+		printf("Not found!");   // 到链表末端而停止循环的情况，也就是没找到
 
 	return head;	// 返回修改后的表头
-&#125;
+}
 </code></pre>
 <ul>
 <li>链表的查找</li>
@@ -2827,23 +2829,23 @@ struct test *del(struct test *head, int num)
 <p>思路简单，自行理解代码。</p>
 <pre><code class="language-c">// 在链表中查找值为obj的结构体，找到返回该结构体的指针，找不到返回NULL
 struct test *find(struct test *head, int obj)
-&#123;
+{
 	struct test *p, *res = NULL; // res作为返回的结构体
 	if(head == NULL)	return NULL; // 链表为空返回空
 	
 	p = head;
 	
 	while(p != NULL) // 遍历链表
-	&#123;
+	{
 		if(p-&gt;num == obj) // 找到目标
-		&#123;
+		{
 			res = p;
 			break;
-		&#125;
+		}
 		p = p-&gt;next; // 往下顺延
-	&#125;
+	}
 	return res;
-&#125;
+}
 </code></pre>
 <ul>
 <li>链表的输出</li>
@@ -2851,25 +2853,25 @@ struct test *find(struct test *head, int obj)
 <p>思路简单，自行理解代码。</p>
 <pre><code class="language-c">// while循环输出链表
 void print(struct test *head)
-&#123;
+{
 	struct test *p;
 	p = head;
 	while(p != NULL)
-	&#123;
-		printf(&quot;%d &quot;, p-&gt;num);
+	{
+		printf("%d ", p-&gt;num);
 		p = p-&gt;next;
-	&#125;
-&#125;
+	}
+}
 </code></pre>
 <h2 id="11-4-双向链表">11.4 双向链表</h2>
 <p><strong>双向链表</strong>，指针指向双向，连接方向双向。</p>
 <p>双向链表是由结点构成，所讨论的双向链表结点如下：</p>
 <pre><code class="language-c">struct test
-&#123;
+{
 	int num;
 	struct test *next;	// 指向后一个结构体
 	struct test *pre;	// 指向前一个结构体
-&#125;;
+};
 </code></pre>
 <p>双向链表结构如下图：</p>
 <p><img src="https://fblog-img.oss-cn-hangzhou.aliyuncs.com/blog/c_dlist.png" alt="双向链表"></p>
@@ -2933,11 +2935,11 @@ void print(struct test *head)
 <pre><code class="language-c">// test.c
 #include &lt;stdio.h&gt;
 int main()
-&#123;
+{
 	FILE *fp;	// 文件对象
-	fp = fopen(&quot;test.txt&quot;, &quot;a+&quot;); // 打开文件并把文件指针绑定到该文件
+	fp = fopen("test.txt", "a+"); // 打开文件并把文件指针绑定到该文件
 	fclose(fp); // 关闭文件
-&#125;
+}
 </code></pre>
 <h2 id="12-2-写入文件">12.2 写入文件</h2>
 <ul>
@@ -2956,8 +2958,8 @@ int main()
 <pre><code class="language-c">int fprintf(FILE *fp,const char *format, ...) 
 </code></pre>
 <pre><code class="language-c">// 两函数比较
-printf(&quot;%d%d&quot;, a, b);
-fprintf(fp, &quot;%d %d&quot;, a, b);
+printf("%d%d", a, b);
+fprintf(fp, "%d %d", a, b);
 </code></pre>
 <h2 id="12-3-读取文件">12.3 读取文件</h2>
 <ul>
@@ -2976,8 +2978,8 @@ fprintf(fp, &quot;%d %d&quot;, a, b);
 <pre><code class="language-c">int fscanf(FILE *fp, const char *format, ...)
 </code></pre>
 <pre><code class="language-c">// 两函数比较
-scanf(&quot;%d%d&quot;, &amp;a, &amp;b);
-fscanf(fp, &quot;%d%d&quot;, &amp;a, &amp;b);
+scanf("%d%d", &amp;a, &amp;b);
+fscanf(fp, "%d%d", &amp;a, &amp;b);
 </code></pre>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>

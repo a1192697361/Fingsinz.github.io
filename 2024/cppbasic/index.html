@@ -50,7 +50,9 @@
     
     
 
-<meta name="generator" content="Hexo 6.3.0"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
     
     <style>
         :root {
@@ -227,19 +229,19 @@
     <ul class="nav">
         
             
-                <li><a href="/">首页</a></li>
+                <li><a href="/">首页🏚️</a></li>
             
         
             
-                <li><a href="/list/">文章</a></li>
+                <li><a href="/list/">文章📄</a></li>
             
         
             
-                <li><a href="/categories/">分类</a></li>
+                <li><a href="/categories/">分类🗂️</a></li>
             
         
             
-                <li><a href="/about/">关于</a></li>
+                <li><a href="/about/">关于🧑</a></li>
             
         
     </ul>
@@ -316,10 +318,10 @@
 #include &lt;iostream&gt;
 // 注释
 int main()
-&#123;
-    std::cout &lt;&lt; &quot;Hello World!\n&quot;;
+{
+    std::cout &lt;&lt; "Hello World!\n";
     return 0;
-&#125;
+}
 </code></pre>
 <ul>
 <li>
@@ -327,7 +329,7 @@ int main()
 <ul>
 <li>包含头文件，这行将会被头文件 iostream 所替换；</li>
 <li>iostream 是编译器目录中的一个头文件，其提供了基本的输入和输出方法。</li>
-<li><code>#include &quot;filename&quot;</code> 可以引入头文件；</li>
+<li><code>#include "filename"</code> 可以引入头文件；</li>
 <li><code>#include &lt;filename&gt;</code> 同上，但在包含目录中查找。</li>
 <li>发生在编译之前，编译器只能看到已经预处理的文件。</li>
 </ul>
@@ -349,13 +351,13 @@ int main()
 </ul>
 </li>
 <li>
-<p><code>&#123;&#125;</code></p>
+<p><code>{}</code></p>
 <ul>
 <li>表示语句块</li>
 </ul>
 </li>
 <li>
-<p><code>std::cout &lt;&lt; &quot;Hello World!\n&quot;;</code></p>
+<p><code>std::cout &lt;&lt; "Hello World!\n";</code></p>
 <ul>
 <li>在控制台输出 Hello World。</li>
 <li><code>std</code> 是标准库的命名空间；</li>
@@ -428,11 +430,11 @@ int main()
 <pre><code class="language-cpp">// IO流.cpp
 #include &lt;iostream&gt;
 int main()
-&#123;
+{
     int i;
     std::cin &gt;&gt; i;  // 输入 i
     std::cout &lt;&lt; i; // 输出 i
-&#125;
+}
 </code></pre>
 <ul>
 <li>
@@ -465,7 +467,7 @@ int main()
 <h3 id="基本类型">基本类型</h3>
 <h4 id="变量声明">变量声明</h4>
 <pre><code class="language-cpp">type variable = value;
-type variable &#123;value&#125;; // C++11后的初始化
+type variable {value}; // C++11后的初始化
 </code></pre>
 <p>但基本类型的变量默认情况下不会初始化。</p>
 <pre><code class="language-cpp">int i;
@@ -505,17 +507,17 @@ cout &lt;&lt; i &lt;&lt; '\n'; // i未被初始化，值不可知
 #include &lt;limits&gt;
 
 int main () 
-&#123;
-    std::cout &lt;&lt; &quot;lowest:  &quot; &lt;&lt; std::numeric_limits&lt;double&gt;::lowest() &lt;&lt; '\n';
+{
+    std::cout &lt;&lt; "lowest:  " &lt;&lt; std::numeric_limits&lt;double&gt;::lowest() &lt;&lt; '\n';
     // lowest:  -1.79769e+308
-	std::cout &lt;&lt; &quot;min:     &quot; &lt;&lt; std::numeric_limits&lt;double&gt;::min() &lt;&lt; '\n';
+	std::cout &lt;&lt; "min:     " &lt;&lt; std::numeric_limits&lt;double&gt;::min() &lt;&lt; '\n';
 	// min:     2.22507e-308
-	std::cout &lt;&lt; &quot;max:     &quot; &lt;&lt; std::numeric_limits&lt;double&gt;::max() &lt;&lt; '\n';
+	std::cout &lt;&lt; "max:     " &lt;&lt; std::numeric_limits&lt;double&gt;::max() &lt;&lt; '\n';
 	// max:     1.79769e+308
-	std::cout &lt;&lt; &quot;epsilon: &quot; &lt;&lt; std::numeric_limits&lt;double&gt;::epsilon() &lt;&lt; '\n';
+	std::cout &lt;&lt; "epsilon: " &lt;&lt; std::numeric_limits&lt;double&gt;::epsilon() &lt;&lt; '\n';
 	// epsilon: 2.22045e-16
 	return 0; 
-&#125;
+}
 </code></pre>
 <h5 id="类型窄化">类型窄化</h5>
 <p>从可以表示更多值的类型转换为可以表示更少值的类型，可能导致信息丢失。</p>
@@ -689,82 +691,82 @@ typedef OldType NewType;
 <h3 id="控制流">控制流</h3>
 <h4 id="条件结构">条件结构</h4>
 <pre><code class="language-cpp">if (condition1) 
-&#123;
+{
   // 条件1为真则执行
-&#125;
+}
 else if (condition2) 
-&#123;
+{
   // 条件2为真则执行
-&#125;
+}
 else 
-&#123;
+{
   // 否则执行
-&#125;
+}
 </code></pre>
 <p>C++17支持以下语法：</p>
 <pre><code class="language-cpp">// 即在条件判断前可执行一句语句
 if(statement; condition)
-&#123;
+{
     // ……
-&#125;
+}
 </code></pre>
 <p>另外还有 <code>switch</code>：</p>
 <pre><code class="language-cpp">switch(variable)
-&#123;
+{
     case value1:
         break;
     case value2:
         break;
     default:
-&#125;
+}
 </code></pre>
 <p>C++17同样支持多执行一句语句：</p>
 <pre><code class="language-cpp">switch(statement; variable)
-&#123;
+{
     case value1:
         break;
     case value2:
         break;
     default:
-&#125;
+}
 </code></pre>
 <p>三元运算符 <code>condition ? statement1 : statement2</code> 同样可用于分支结构。</p>
 <h4 id="循环结构">循环结构</h4>
 <p><code>for</code> 循环：</p>
 <pre><code class="language-cpp">for (initialization; condition; step)
-&#123;
+{
     // 循环体
-&#125;
+}
 </code></pre>
 <p>在C++11支持针对可迭代对象的迭代循环，即</p>
 <pre><code class="language-cpp">for(variable : range)
-&#123;
+{
     // 循环体
-&#125;
+}
 </code></pre>
 <p><code>while</code> 循环：</p>
 <pre><code class="language-cpp">while(condition)
-&#123;
+{
     // 循环体
-&#125;
+}
 </code></pre>
 <p><code>do-while</code> 循环：</p>
 <pre><code class="language-cpp">do
-&#123;
+{
     // 循环体
-&#125; while(condition);
+} while(condition);
 </code></pre>
 <h3 id="枚举">枚举</h3>
-<p>普通枚举： <code>enum　枚举名 &#123;枚举元素1,枚举元素2,……&#125;;</code></p>
+<p>普通枚举： <code>enum　枚举名 {枚举元素1,枚举元素2,……};</code></p>
 <p>如：</p>
-<pre><code class="language-cpp">enum day &#123;mon, tue, wed, thu, fri, sat, sun&#125;;
+<pre><code class="language-cpp">enum day {mon, tue, wed, thu, fri, sat, sun};
 day d;
 d = mon; // 正确
 d = tue; // 正确
 </code></pre>
-<p>但 C++11 中允许带有作用域的枚举： <code>enum class 枚举名 &#123;枚举元素1,枚举元素2,……&#125;;</code></p>
+<p>但 C++11 中允许带有作用域的枚举： <code>enum class 枚举名 {枚举元素1,枚举元素2,……};</code></p>
 <p>如：</p>
-<pre><code class="language-cpp">enum class day &#123;mon, tue, wed, thu, fri, sat, sun&#125;;
+<pre><code class="language-cpp">enum class day {mon, tue, wed, thu, fri, sat, sun};
 day d;
 d = day::mon;   // 正确
 d = tue;        // 错误
@@ -772,13 +774,13 @@ d = tue;        // 错误
 <p>枚举的内在类型：必须是整型类型，默认情况下枚举是 <code>int</code> 类型。</p>
 <p>如：</p>
 <pre><code class="language-cpp">// 枚举只有7个值，使用char类型足够
-enum class day : char &#123;mon, tue, wed, thu, fri, sat, sun&#125;;
+enum class day : char {mon, tue, wed, thu, fri, sat, sun};
 </code></pre>
 <p>枚举可以自定义映射值，如：</p>
-<pre><code class="language-cpp">enum class day : char &#123;mon = 1, tue = 2, wed = 3, thu = 4, fri = 5, sat = 6, sun = 7&#125;;
+<pre><code class="language-cpp">enum class day : char {mon = 1, tue = 2, wed = 3, thu = 4, fri = 5, sat = 6, sun = 7};
 </code></pre>
 <p>枚举可以与基本数据类型进行转换，如：</p>
-<pre><code class="language-cpp">enum class day : char &#123;mon = 1, tue = 2, wed = 3, thu = 4, fri = 5, sat = 6, sun = 7&#125;;
+<pre><code class="language-cpp">enum class day : char {mon = 1, tue = 2, wed = 3, thu = 4, fri = 5, sat = 6, sun = 7};
 int i = static_cast&lt;int&gt;(month::tue);   // i = 2
 int j = 1;
 day d = static_cast&lt;day&gt;(j);            // d = tue
@@ -787,13 +789,13 @@ day d = static_cast&lt;day&gt;(j);            // d = tue
 <p>基础数据类型： <code>void</code>、<code>bool</code>、<code>char</code>、<code>int</code>、<code>float</code>、<code>double</code> 等。</p>
 <p>聚合的例子：</p>
 <pre><code class="language-cpp">struct point
-&#123;
+{
     int x;
     int y;
-&#125;;
+};
 
-point p = &#123;1, 2&#125;;
-std::cout &lt;&lt; p.x &lt;&lt; &quot;,&quot; &lt;&lt; p.y &lt;&lt; &quot;\n&quot;;
+point p = {1, 2};
+std::cout &lt;&lt; p.x &lt;&lt; "," &lt;&lt; p.y &lt;&lt; "\n";
 </code></pre>
 <p>为什么要自定义类型/数据聚合？</p>
 <ul>
@@ -803,44 +805,44 @@ std::cout &lt;&lt; p.x &lt;&lt; &quot;,&quot; &lt;&lt; p.y &lt;&lt; &quot;\n&quo
 <li>可以从一个专用类型的函数返回多个值，而不是多个非const引用输出参数</li>
 </ul>
 <p>聚合后的初始化：</p>
-<pre><code class="language-cpp">Type &#123;arg1 arg2 ... argn&#125;
+<pre><code class="language-cpp">Type {arg1 arg2 ... argn}
 </code></pre>
 <p>如：</p>
 <pre><code class="language-cpp">struct point
-&#123;
+{
     int x;
     int y;
-&#125;;
+};
 
-point p&#123;1, 2&#125;;
+point p{1, 2};
 </code></pre>
 <p>可以多重聚合：</p>
 <pre><code class="language-cpp">struct point
-&#123;
+{
     int x;
     int y;
-&#125;;
+};
 
 struct line
-&#123;
+{
     point _begin;
     point _end;
-&#125;
+}
 </code></pre>
 <h3 id="引用">引用</h3>
 <p>使用引用：定义一个变量的引用，引用相对于一个变量的别名。</p>
 <pre><code class="language-cpp">int i = 2;
 int &amp;r = i; // 定义 i 的引用 r
 
-std::cout &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; r &lt;&lt; &quot;\n&quot;; // i 与 r 是一样的值
+std::cout &lt;&lt; i &lt;&lt; " " &lt;&lt; r &lt;&lt; "\n"; // i 与 r 是一样的值
 // 2 2
 
 i = 10；
-std::cout &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; r &lt;&lt; &quot;\n&quot;; // i 与 r 是一样的值
+std::cout &lt;&lt; i &lt;&lt; " " &lt;&lt; r &lt;&lt; "\n"; // i 与 r 是一样的值
 // 10 10
 
 r = 20;
-std::cout &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; r &lt;&lt; &quot;\n&quot;; // i 与 r 是一样的值
+std::cout &lt;&lt; i &lt;&lt; " " &lt;&lt; r &lt;&lt; "\n"; // i 与 r 是一样的值
 // 20 20
 </code></pre>
 <ul>
@@ -853,7 +855,7 @@ std::cout &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; r &lt;&lt; &quot;\n&quot;; 
 const int &amp;r = i; // 定义 i 的常量引用 r
 
 i = 10; // 不报错
-std::cout &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; r &lt;&lt; &quot;\n&quot;; // i 与 r 是一样的值
+std::cout &lt;&lt; i &lt;&lt; " " &lt;&lt; r &lt;&lt; "\n"; // i 与 r 是一样的值
 // 10 10
 
 r = 20; // 报错
@@ -873,12 +875,12 @@ r = 20; // 报错
 <li><code>&amp;</code> ：只能绑在左值上；</li>
 <li><code>const &amp;</code>：能绑定在左值和右值上。</li>
 </ul>
-<pre><code class="language-cpp">bool is_palindrome (std::string const&amp; s) &#123; … &#125;
-std::string s = &quot;uhu&quot;; 
-cout &lt;&lt; is_palindrome(s) &lt;&lt; &quot;, &quot; &lt;&lt; is_palindrome(&quot;otto&quot;) &lt;&lt; '\n';
-// 左值变量 s 和 右值 &quot;otto&quot; 都可以执行
+<pre><code class="language-cpp">bool is_palindrome (std::string const&amp; s) { … }
+std::string s = "uhu"; 
+cout &lt;&lt; is_palindrome(s) &lt;&lt; ", " &lt;&lt; is_palindrome("otto") &lt;&lt; '\n';
+// 左值变量 s 和 右值 "otto" 都可以执行
 </code></pre>
-<pre><code class="language-cpp">void swap (int&amp; i, int&amp; j) &#123; … &#125;
+<pre><code class="language-cpp">void swap (int&amp; i, int&amp; j) { … }
 int i = 0; 
 swap(i, 5); // 5 是右值，不能绑定引用，编译错误
 </code></pre>
@@ -890,14 +892,14 @@ swap(i, 5); // 5 是右值，不能绑定引用，编译错误
 <li>在一些vector操作期间，<code>std::vector</code> 存储元素的内部内存缓冲区可以被交换为一个新的，因此对旧缓冲区的任何引用都可能是悬空的。</li>
 </ul>
 </li>
-<li>引用能延长临时变量（或右值）的生存期：如 <code>const auto&amp; r = vector&lt;int&gt;&#123;1, 2, 3&#125;</code>，引用r存在，右边vector则一直存在。
+<li>引用能延长临时变量（或右值）的生存期：如 <code>const auto&amp; r = vector&lt;int&gt;{1, 2, 3}</code>，引用r存在，右边vector则一直存在。
 <ul>
 <li>不要通过引用去延长变量生存期，请使用合适的变量。</li>
 <li>但当对临时的vector成员进行引用时，则生存期不会延长。如：</li>
 </ul>
 </li>
 </ul>
-<pre><code class="language-cpp">std::vector&lt;std::string&gt; foo () &#123; … &#125;
+<pre><code class="language-cpp">std::vector&lt;std::string&gt; foo () { … }
 const std::string &amp;s = foo()[0];
 // 对函数返回的临时 vector 的成员进行引用，并不会延长生存期
 std::cout &lt;&lt; s;     // 未定义的行为
@@ -912,38 +914,38 @@ std::cout &lt;&lt; s;     // 未定义的行为
 <h4 id="std-vector的使用">std::vector的使用</h4>
 <p><code>std::vector</code> 的定义和初始化：</p>
 <pre><code class="language-cpp">std::vector&lt;int&gt; v;                 // 定义一个空，元素类型为int的vector
-std::vector&lt;int&gt; v1 = &#123;1, 2, 3&#125;;    // 定义一个vector并初始化
-std::vector&lt;int&gt; v2&#123;1, 2, 3&#125;;       // 定义一个vector并C++11的初始化
+std::vector&lt;int&gt; v1 = {1, 2, 3};    // 定义一个vector并初始化
+std::vector&lt;int&gt; v2{1, 2, 3};       // 定义一个vector并C++11的初始化
 std::vector&lt;int&gt; v3(10);            // 定义一个长度为10，未初始化的vector
 std::vector&lt;int&gt; v4(10, 0);         // 定义一个长度为10，且都初始化为0的vector
-std::vector&lt;int&gt; v5&#123;v1&#125;;            // 定义vector，并用v1的值和长度初始化
+std::vector&lt;int&gt; v5{v1};            // 定义vector，并用v1的值和长度初始化
 </code></pre>
 <p>遍历 <code>std::vector</code>：</p>
-<pre><code class="language-cpp">std::vector&lt;int&gt; v1&#123;1, 2, 3&#125;;
+<pre><code class="language-cpp">std::vector&lt;int&gt; v1{1, 2, 3};
 for (int i = 0; i &lt; v1.size(); i++)
-&#123;
+{
     // 下标访问
     std::cout &lt;&lt; v1[i] &lt;&lt; ' ';
-&#125;
+}
 
 for (int x : v1)    // 此时 x 只能从 v1 中读，并不能修改值
-&#123;
+{
     // 基于范围for循环
     std::cout &lt;&lt; x &lt;&lt; ' ';
-&#125;
+}
 
 for (int &amp;x : v1)    // 此时 x 附加了引用，可以修改值
-&#123;
+{
     // 基于范围for循环
     x = 1;
     std::cout &lt;&lt; x &lt;&lt; ' ';
-&#125;
+}
 
 // 对于x的变量类型很复杂时的只读，减少开销
 for (auto const&amp; x : v1) 
-&#123; 
-    std::cout &lt;&lt; x &lt;&lt; &quot; &quot;; 
-&#125;
+{ 
+    std::cout &lt;&lt; x &lt;&lt; " "; 
+}
 
 // .front()首元素，.back()尾元素
 std::cout &lt;&lt; v1.front() &lt;&lt; '\n' &lt;&lt; v1.back() &lt;&lt; '\n';
@@ -953,12 +955,12 @@ std::cout &lt;&lt; v1.front() &lt;&lt; '\n' &lt;&lt; v1.back() &lt;&lt; '\n';
 v.push_back(1);     // 向v的后面添加一个元素
 </code></pre>
 <p>删除元素：</p>
-<pre><code class="language-cpp">std::vector&lt;int&gt; v&#123;1, 2, 3&#125;;
+<pre><code class="language-cpp">std::vector&lt;int&gt; v{1, 2, 3};
 v.pop_back();       // 删除v的最后一个元素
 v.clear();          // 清空v中的所有元素
 </code></pre>
 <p><code>std::vector</code> 的长度调整：</p>
-<pre><code class="language-cpp">std::vector&lt;int&gt; v&#123;1, 2, 3&#125;;
+<pre><code class="language-cpp">std::vector&lt;int&gt; v{1, 2, 3};
 v.resize(5);        // 将v的长度调整为5
 </code></pre>
 <ul>
@@ -968,17 +970,17 @@ v.resize(5);        // 将v的长度调整为5
 #include &lt;vector&gt;
 
 int main () 
-&#123;
-    std::vector&lt;int&gt; v&#123;1, 2, 3&#125;;
+{
+    std::vector&lt;int&gt; v{1, 2, 3};
 	v.resize(6);
-	for(int x : v)	std::cout &lt;&lt; x &lt;&lt; &quot; &quot;;
+	for(int x : v)	std::cout &lt;&lt; x &lt;&lt; " ";
     // 1 2 3 0 0 0
 	v.push_back(7);
 	std::cout &lt;&lt; std::endl;
-	for(int x : v)	std::cout &lt;&lt; x &lt;&lt; &quot; &quot;;
+	for(int x : v)	std::cout &lt;&lt; x &lt;&lt; " ";
     // 1 2 3 0 0 0 7
 	return 0; 
-&#125;
+}
 </code></pre>
 <p><code>std::vector</code> 中的复制都是深复制。</p>
 <ul>
@@ -988,7 +990,7 @@ int main ()
 <li>深层所有权：销毁vector将销毁所有包含的对象。</li>
 </ul>
 <p><em>深复制和浅复制（深拷贝和浅拷贝）：简单来说，深拷贝在内存上独立，复制内容在新的内存空间上。浅拷贝在内存上共享。比如把A复制到B，如果是深复制，则A和B独立互不影响；如果是浅复制，在修改A，B也会改变。</em></p>
-<pre><code class="language-cpp">std::vector&lt;int&gt; a&#123;1, 2, 3&#125;;
+<pre><code class="language-cpp">std::vector&lt;int&gt; a{1, 2, 3};
 std::vector&lt;int&gt; b = a; // 深度赋值，a和b独立，互不影响
 a[0] = 9;   // a：9 2 3；b：1 2 3
 </code></pre>
@@ -1001,11 +1003,11 @@ a[0] = 9;   // a：9 2 3；b：1 2 3
 <li>大小：指元素个数，函数 <code>.size()</code> 可以获取，同时函数 <code>.resize(newSize)</code> 可以改变大小。</li>
 <li>容量：指能容纳的元素个数，函数 <code>.capacity()</code> 可以获取，同时函数 <code>.resize(newCapacity)</code> 可以改变最大容纳元素个数。</li>
 </ul>
-<pre><code class="language-cpp">std::vector&lt;int&gt; a&#123;1, 2, 3&#125;;
-std::cout &lt;&lt; a.size() &lt;&lt; &quot; &quot; &lt;&lt; a.capacity() &lt;&lt; &quot;\n&quot;;
+<pre><code class="language-cpp">std::vector&lt;int&gt; a{1, 2, 3};
+std::cout &lt;&lt; a.size() &lt;&lt; " " &lt;&lt; a.capacity() &lt;&lt; "\n";
 // 3 3
 a.push_back(4);
-std::cout &lt;&lt; a.size() &lt;&lt; &quot; &quot; &lt;&lt; a.capacity() &lt;&lt; &quot;\n&quot;;
+std::cout &lt;&lt; a.size() &lt;&lt; " " &lt;&lt; a.capacity() &lt;&lt; "\n";
 // 4 6
 </code></pre>
 <h4 id="std-vector迭代器">std::vector迭代器</h4>
@@ -1015,10 +1017,10 @@ std::cout &lt;&lt; a.size() &lt;&lt; &quot; &quot; &lt;&lt; a.capacity() &lt;&lt
 <li><code>end(vector)</code>：指向vector的最后一个元素的后面，只能用作位置指示符，不能用于访问元素。</li>
 </ul>
 <p><em>迭代器：类似一个指针，指向容器的某个位置，便于迭代循环</em></p>
-<pre><code class="language-cpp">std::vector&lt;int&gt; a&#123;1, 2, 3&#125;;
+<pre><code class="language-cpp">std::vector&lt;int&gt; a{1, 2, 3};
 std::vector&lt;int&gt;::iterator p = begin(a);
 for(p; p != end(a); p ++)
-	std::cout &lt;&lt; *p &lt;&lt; &quot; &quot;;
+	std::cout &lt;&lt; *p &lt;&lt; " ";
 </code></pre>
 <p>所以迭代器也可以进行自增自减，加法减法运算。</p>
 <p>除了正向迭代器，还有反向迭代器，其作用与正向迭代器类似：</p>
@@ -1027,28 +1029,28 @@ for(p; p != end(a); p ++)
 <li><code>rend(vector)</code>：指向vector的第一个元素的前面，只能用作位置指示符，不能用于访问元素。</li>
 </ul>
 <p>用迭代器表示范围的 <code>std::vector</code> 初始化和赋值：</p>
-<pre><code class="language-cpp">std::vector&lt;int&gt; u&#123;1, 2, 3&#125;;
-std::vector&lt;int&gt; v&#123;begin(u), begin(u) + 1&#125;;
+<pre><code class="language-cpp">std::vector&lt;int&gt; u{1, 2, 3};
+std::vector&lt;int&gt; v{begin(u), begin(u) + 1};
 
 std::vector&lt;int&gt; w;
 w.assign(begin(u) + 1, end(u));
 </code></pre>
 <p>通过迭代器在 <code>std::vector</code> 中插入元素：</p>
-<pre><code class="language-cpp">std::vector&lt;int&gt; v&#123;1, 2, 3&#125;;
+<pre><code class="language-cpp">std::vector&lt;int&gt; v{1, 2, 3};
 
 // 函数结构1
 //.insert(插入位置, 插入元素)
-//.insert(插入位置, &#123;插入元素1, 插入元素2, ……&#125;)
+//.insert(插入位置, {插入元素1, 插入元素2, ……})
 
 v.insert(begin(v), 0);      // 在v的第一个位置前插入0
 // 0 1 2 3
-v.insert(end(v), &#123;4, 5&#125;);   // 在v的最后一个位置后插入&#123;4, 5&#125;
+v.insert(end(v), {4, 5});   // 在v的最后一个位置后插入{4, 5}
 // 0 1 2 3 4 5
 
 // 函数结构2
 //.insert(插入位置, 起始位置, 结束位置)，范围左闭右开
 
-std::vector&lt;int&gt; v1&#123;7, 8, 9&#125;;
+std::vector&lt;int&gt; v1{7, 8, 9};
 // 在v的第一个位置前插入v1的所有元素
 v.insert(begin(v), begin(v1), end(v1));
 // 7 8 9 0 1 2 3 4 5
@@ -1057,14 +1059,14 @@ v.insert(begin(v), begin(v1), end(v1));
 <pre><code class="language-cpp">// 函数结构
 //.erase(位置)
 //.erase(起始位置, 结束位置)，范围左闭右开
-std::vector&lt;int&gt; v&#123;1, 2, 9, 3, 4, 5&#125;;
+std::vector&lt;int&gt; v{1, 2, 9, 3, 4, 5};
 v.erase(begin(v) + 2);
 // 1 2 3 4 5
 v.erase(begin(v), begin(v) + 2);
 // 3 4 5
 </code></pre>
 <p>在使用迭代器进行元素操作后，如添加删除，原迭代器并未更新，如：</p>
-<pre><code class="language-cpp">std::vector&lt;int&gt; v&#123;1, 2, 3, 4, 5, 6&#125;;
+<pre><code class="language-cpp">std::vector&lt;int&gt; v{1, 2, 3, 4, 5, 6};
 	
 auto i = begin(v) + 3;  // auto 表示编译器自动推导类型
 v.insert(i, 8);
@@ -1117,49 +1119,49 @@ v.swap(std::vector&lt;int&gt;(v)); // C++98~20支持
 #include &lt;string&gt;   // 字符串操作的头文件
 
 int main () 
-&#123;
+{
     using std::cout;
-    std::string hw = &quot;Hello&quot;;
+    std::string hw = "Hello";
     std::string s = hw;     // 复制 hw 到 s
-    hw += &quot; World!&quot;;
+    hw += " World!";
     cout &lt;&lt; hw &lt;&lt; '\n';     // Hello World!
     cout &lt;&lt; hw[4] &lt;&lt; '\n';  // o
     cout &lt;&lt; s &lt;&lt; '\n';      // Hello
-&#125;
+}
 </code></pre>
-<p>字符串的操作，对于 <code>std::string s = &quot;Hello World&quot;;</code></p>
+<p>字符串的操作，对于 <code>std::string s = "Hello World";</code></p>
 <ul>
-<li><code>s.insert(5, &quot;,&quot;)</code>：在下标为 5 的位置插入字符串 “,”，变成 “Hello, World”</li>
+<li><code>s.insert(5, ",")</code>：在下标为 5 的位置插入字符串 “,”，变成 “Hello, World”</li>
 <li><code>s.erase(6, 7)</code>：删除下标为 5 的位置后的 7 个字符，变成“Hello,”</li>
-<li><code>s.replace(5, 3, &quot; C++&quot;)</code>：将下标为 5 的位置的后 3 个字符替换为 “C++”，变成“Hello C++”</li>
+<li><code>s.replace(5, 3, " C++")</code>：将下标为 5 的位置的后 3 个字符替换为 “C++”，变成“Hello C++”</li>
 <li><code>s.resize(5)</code>：调整字符串长度为5，即变成“Hello”</li>
 <li><code>s.resize(8, '!')</code>：调整字符串长度为8，多出来的部分用 <code>!</code> 代替，变成“Hello!!!”</li>
-<li><code>s.find(&quot;l&quot;)</code>：字符串中从头到尾寻找“l”，返回 l 所在的下标 2 ，找不到返回 <code>string::npos</code></li>
-<li><code>s.rfind(&quot;l&quot;)</code>：字符串中从尾到头寻找“l，返回 l 所在的下标 3 ，找不到返回 <code>string::npos</code></li>
+<li><code>s.find("l")</code>：字符串中从头到尾寻找“l”，返回 l 所在的下标 2 ，找不到返回 <code>string::npos</code></li>
+<li><code>s.rfind("l")</code>：字符串中从尾到头寻找“l，返回 l 所在的下标 3 ，找不到返回 <code>string::npos</code></li>
 <li><code>s.find('e', 5)</code>：字符串从第5个位置往后寻找“e”。</li>
 <li><code>s.substr(0, 2)</code>：在字符串 s 中从下标为0到2（左闭右开）截取子字符串，返回“He”</li>
-<li><code>s.ends_with(&quot;&quot;)</code>:判断字符串是否以 “” 结尾，返回 true 或者 false</li>
-<li><code>s.starts_with(&quot;&quot;)</code>:判断字符串是否以 “” 开头，返回 true 或者 false</li>
+<li><code>s.ends_with("")</code>:判断字符串是否以 “” 结尾，返回 true 或者 false</li>
+<li><code>s.starts_with("")</code>:判断字符串是否以 “” 开头，返回 true 或者 false</li>
 </ul>
 <p>在定义并初始化时：</p>
-<pre><code class="language-cpp">std::string a = &quot;hello&quot;;    // std::string 类型
+<pre><code class="language-cpp">std::string a = "hello";    // std::string 类型
 // 使用 auto：
-auto b = &quot;hello&quot;;
+auto b = "hello";
 // 此时 b 会被推导为 const char[] 类型，而不是std::string
 
 // 在 C++14及以后
 using namespace std::string_literals;
-auto c = &quot;hello&quot;s;
+auto c = "hello"s;
 // 此时 c 是 std::string 类型
 </code></pre>
 <p>另外，仅用空格分隔的字符串字面值将被连接起来：</p>
-<pre><code class="language-cpp">std::string s = &quot;hello&quot; &quot; world&quot;;
-// s 现在是 &quot;hello world&quot;
+<pre><code class="language-cpp">std::string s = "hello" " world";
+// s 现在是 "hello world"
 </code></pre>
 <p>如果想让字符串的转义字符失效：</p>
 <pre><code class="language-cpp">using namespace std::string_literals;
-auto s = R&quot;(\n)&quot;s;  // C++14及之后支持，类型为 std::string
-auto t = R&quot;(\\n)&quot;;  // C++11支持，类型为 const char[]
+auto s = R"(\n)"s;  // C++14及之后支持，类型为 std::string
+auto t = R"(\\n)";  // C++11支持，类型为 const char[]
 </code></pre>
 <p>函数 <code>std::getline()</code> ：该函数需要包含头文件<string></string></p>
 <pre><code class="language-cpp">std::string s;
@@ -1208,7 +1210,7 @@ std::getline(std::cin, s, 'a');
 <pre><code class="language-cpp">#include &lt;string&gt;
 std::to_string(5);  // 数字（整型和浮点型）转字符串
 
-std::string s = &quot;123&quot;;
+std::string s = "123";
 int num = std::stoi(s); // 字符串转整型
 // 类似的还有 std::stol, std::stoll, std::stof, std::stod
 // 分别是字符串转long，转long long，转float，转double
@@ -1218,16 +1220,16 @@ int num = std::stoi(s); // 字符串转整型
 <p>与C语言类似，函数实现细节的封装；通过将问题分解为单独的函数，更容易对正确性和测试进行推理；避免为常见任务重复代码。</p>
 <p>函数结构：</p>
 <pre><code class="language-cpp">返回类型 函数名 (参数列表)
-&#123;
+{
     // 函数体
-&#125;
+}
 </code></pre>
 <p>函数参数的默认值：</p>
 <pre><code class="language-cpp">// a 默认值为0，b 默认值为0
 int add(int a, int b = 0)
-&#123;
+{
     return a + b;
-&#125;
+}
 
 int num1 = add(1, 2);   // num1 = 3;
 int num2 = add(1);      // num2 = 1;
@@ -1238,14 +1240,14 @@ int num2 = add(1);      // num2 = 1;
 <p>具有相同名称但不同参数列表的函数，不能单独重载返回类型。</p>
 <p>如：</p>
 <pre><code class="language-cpp">int add(int a, int b)
-&#123;
+{
     return a + b;
-&#125;
+}
 
 double add(double a, double b)
-&#123;
+{
     return a + b;
-&#125;
+}
 </code></pre>
 <h4 id="函数设计">函数设计</h4>
 <p>约定：</p>
@@ -1259,9 +1261,9 @@ double add(double a, double b)
 </ul>
 <p>C++17中，支持使用 <code>[[nodiscard]]</code> 鼓励编译器在发现返回值被丢弃时发生警告：</p>
 <pre><code class="language-cpp">[[nodiscard]] bool odd(int num)
-&#123;
+{
     return num % 2 == 1;
-&#125;
+}
 
 bool yes = odd(3);  // 正常
 
@@ -1327,9 +1329,9 @@ odd(4); // 警告，因为返回值被丢弃
 <p>C++ 也支持通过命令输入一些参数。有时候会遇到下面的代码：</p>
 <pre><code class="language-cpp">#include &lt;iostream&gt;
 int main(int argc, char* argv[])
-&#123;
+{
     return 0;
-&#125;
+}
 </code></pre>
 <p>其中，<code>argc</code> 表示命令行传入参数的个数， <code>argv</code> 表示命令行传入的参数字符串数组。</p>
 <ul>
@@ -1339,11 +1341,11 @@ int main(int argc, char* argv[])
 <pre><code class="language-cpp">// test.cpp
 #include &lt;iostream&gt;
 int main(int argc, char* argv[])
-&#123;
+{
     for(int i = 0; i &lt; argc; i++)
-        std::cout &lt;&lt; argv[i] &lt;&lt; &quot; &quot;;
+        std::cout &lt;&lt; argv[i] &lt;&lt; " ";
     return 0;
-&#125;
+}
 </code></pre>
 <p>在经过编译后，可以在 cmd 中进行调用可执行文件：</p>
 <pre><code class="language-cmd">g++ -o test.exe test.cpp
@@ -1357,10 +1359,10 @@ test.exe 1 2 3
 <pre><code class="language-cpp">// test.cpp
 #include &lt;iostream&gt;
 int main(int argc, char* argv[])
-&#123;
+{
     if(argc &lt;= 1)    return 0;
     else return argc;
-&#125;
+}
 </code></pre>
 <p>经过编译后运行有：</p>
 <pre><code class="language-cmd">g++ -o test.exe test.cpp
@@ -1398,18 +1400,18 @@ echo %errorlevel%
 <p>函数 <code>open()</code> 和 <code>clost()</code> 分别控制文件的打开和关闭。</p>
 <p>打开文件操作如下：</p>
 <pre><code class="language-cpp">// 1. 初始化流时打开文件
-std::ifstream in1(&quot;test.txt&quot;);   // 使用文件名打开文件
-std::string path = &quot;test.txt&quot;;
+std::ifstream in1("test.txt");   // 使用文件名打开文件
+std::string path = "test.txt";
 std::ifstream in2(path); // 文件名使用字符串和字符数组都可以
 // 文件将自动关闭
 
 // 2. 使用open函数打开文件
 std::ifstream in3;
-in3.open(&quot;test.txt&quot;);
+in3.open("test.txt");
 </code></pre>
 <p>关闭文件操作如下：</p>
 <pre><code class="language-cpp">std::ifstream in4;
-in4.open(&quot;test.txt&quot;);
+in4.open("test.txt");
 // ……
 in4.close();
 </code></pre>
@@ -1421,11 +1423,11 @@ in4.close();
 </ul>
 <p>只需要在初始化时声明打开模式即可：</p>
 <pre><code class="language-cpp">// 以二进制方式打开文件
-std::ifstream in(&quot;test.txt&quot;, std::ios::in | std::ios::binary); 
+std::ifstream in("test.txt", std::ios::in | std::ios::binary); 
 </code></pre>
 <h4 id="读文件">读文件</h4>
 <p>使用文件输入流 <code>ifstream</code>：</p>
-<pre><code class="language-cpp">std::ifstream in(&quot;test.txt&quot;);
+<pre><code class="language-cpp">std::ifstream in("test.txt");
 int x;
 while(in &gt;&gt; x)
     std::cout &lt;&lt; x &lt;&lt; '\n';
@@ -1434,23 +1436,23 @@ while(in &gt;&gt; x)
 <ul>
 <li>函数参数为指针和长度，将文件读入到指针的空间中，返回读取的字节数；</li>
 </ul>
-<pre><code class="language-cpp">std::ifstream in(&quot;test.txt&quot;, std::ios::in | std::ios::binary);
+<pre><code class="language-cpp">std::ifstream in("test.txt", std::ios::in | std::ios::binary);
 unsigned int i;
 in.read(reinterpret_cast&lt;char*&gt;(&amp;i), sizeof(i));
 </code></pre>
 <h4 id="写文件">写文件</h4>
 <p>使用文件输出流 <code>ofstream</code>：</p>
-<pre><code class="language-cpp">std::ofstream out(&quot;test.txt&quot;);
+<pre><code class="language-cpp">std::ofstream out("test.txt");
 if(out.good())  // 判断流是否正常可写文件
-&#123;
-    out &lt;&lt; &quot;Hello World!\n&quot;;
-&#125;
+{
+    out &lt;&lt; "Hello World!\n";
+}
 </code></pre>
 <p>当打开模式为二进制打开时，写文件使用 <code>std::ostream::write()</code>。</p>
 <ul>
 <li>函数参数为指针和长度，将指针指向的内容写入文件，返回写入的字节数；</li>
 </ul>
-<pre><code class="language-cpp">std::ofstream out(&quot;test.txt&quot;, std::ios::out | std::ios::binary);
+<pre><code class="language-cpp">std::ofstream out("test.txt", std::ios::out | std::ios::binary);
 unsigned int i = 10;
 out.write(reinterpret_cast&lt;char*&gt;(&amp;i), sizeof(i));
 </code></pre>
@@ -1458,15 +1460,15 @@ out.write(reinterpret_cast&lt;char*&gt;(&amp;i), sizeof(i));
 <p>当有代码：</p>
 <pre><code class="language-cpp">#include &lt;iostream&gt;
 int main()
-&#123;
+{
     int i = 0, j = 0;
-    std::cout &lt;&lt; &quot;input i:&quot;;
+    std::cout &lt;&lt; "input i:";
     std::cin &gt;&gt; i;
-    std::cout &lt;&lt; &quot;input j:&quot;;
+    std::cout &lt;&lt; "input j:";
     std::cin &gt;&gt; j;
-    std::cout &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; j &lt;&lt; std::endl;
+    std::cout &lt;&lt; i &lt;&lt; " " &lt;&lt; j &lt;&lt; std::endl;
     return 0;
-&#125;
+}
 </code></pre>
 <p>如果输入的是： <code>1 2</code> 这没有问题；</p>
 <p>但如果输入的是： <code>asd 2</code>，此时将中断 j 的输入并输出 <code>0 0</code>。</p>
@@ -1479,23 +1481,23 @@ int main()
 <p>要想解决这个问题，需要清除 <code>cin</code> 的错误位以及输入缓冲区。</p>
 <pre><code class="language-cpp">#include &lt;iostream&gt;
 void resetCin()
-&#123;
+{
     // 清空错误状态
     std::cin.clear();
     // 清空输入缓冲区
     std::cin.ignore(std::numeric_limits&lt;std::streamsize&gt;::max(), '\n');
-&#125;
+}
 int main()
-&#123;
+{
     int i = 0, j = 0;
-    std::cout &lt;&lt; &quot;input i:&quot;;
+    std::cout &lt;&lt; "input i:";
     std::cin &gt;&gt; i;
     if(std::cin.fail())  resetCin();
-    std::cout &lt;&lt; &quot;input j:&quot;;
+    std::cout &lt;&lt; "input j:";
     std::cin &gt;&gt; j;
-    std::cout &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; j &lt;&lt; &quot;\n&quot;;
+    std::cout &lt;&lt; i &lt;&lt; " " &lt;&lt; j &lt;&lt; "\n";
     return 0;
-&#125;
+}
 </code></pre>
 <p>此时再次输入 <code>asd 2</code>，将输出 <code>0 2</code>。</p>
 <hr>
@@ -1511,9 +1513,9 @@ int main()
 </ol>
 <p>分析要求，如果是 C 语言，可以包装成结构体：</p>
 <pre><code class="language-c">struct Counter
-&#123;
+{
     int count;
-&#125;
+}
 
 Counter cnt;
 std::cout &lt;&lt; cnt.count; // 访问
@@ -1542,12 +1544,12 @@ cnt.count = 10; // 访问
 <li>避免重复/样板：对于潜在的复杂操作封装成成员函数，只需要一个调用</li>
 </ul>
 <pre><code class="language-cpp">class Counter
-&#123;
+{
     int count;                  // 成员变量
 public:
-    void inc() &#123; count++; &#125;     // 成员函数
-    int get() &#123; return count; &#125;
-&#125;;
+    void inc() { count++; }     // 成员函数
+    int get() { return count; }
+};
 
 Counter cnt;
 std::cout &lt;&lt; cnt.get();
@@ -1566,51 +1568,51 @@ std::cout &lt;&lt; cnt.get();
 <pre><code class="language-cpp">#include &lt;iostream&gt;
 
 class Counter
-&#123;
+{
     int count;                  // 成员变量
 public:
-    Counter() : count(0) &#123;&#125;
-    explicit Counter(int _count) &#123; count = _count;&#125;     // 构造函数
-    void inc() &#123; count++; &#125;     // 成员函数
-    int get() const &#123; return count; &#125;
-&#125;;
+    Counter() : count(0) {}
+    explicit Counter(int _count) { count = _count;}     // 构造函数
+    void inc() { count++; }     // 成员函数
+    int get() const { return count; }
+};
 
 int main()
-&#123;
+{
 	Counter cnt1;
 	auto const &amp;pcnt1 = cnt1;
 	pcnt1.inc();    // 编译错误，inc() 是非const函数
 	std::cout &lt;&lt; pcnt1.get();
     return 0;
-&#125;
+}
 </code></pre>
 <p>成员变量在 <code>const</code> 限定的成员函数内 也具有 <code>const</code> 属性。</p>
 <p>如果一个函数是常量限定的，另一个不是，则两个成员函数可以有相同的名称（和参数列表）。这使得可以清楚地区分只读访问和读/写操作。</p>
 <ul>
 <li>即成员函数可以被 <code>const</code> 重载</li>
 </ul>
-<pre><code class="language-cpp">int getAndSet() const &#123; return count; &#125; // 只读访问
-void getAndSet(int newcount) &#123; count = newcount; &#125; // 写
+<pre><code class="language-cpp">int getAndSet() const { return count; } // 只读访问
+void getAndSet(int newcount) { count = newcount; } // 写
 </code></pre>
 <h4 id="成员函数的定义">成员函数的定义</h4>
 <p>当类的成员函数较为复杂时，一般不会在类内定义，而是定义在类的外部，此时加上作用域：</p>
 <pre><code class="language-cpp">class A
-&#123;
+{
     int value;
 public:
     void setValue(int v);
     int getValue() const;
-&#125;
+}
 
 void A::setValue(int v)
-&#123;
+{
     // ……
-&#125;
+}
 
 int A::getValue() const
-&#123;
+{
     // ……
-&#125;
+}
 </code></pre>
 <h3 id="初始化">初始化</h3>
 <h4 id="成员初始化">成员初始化</h4>
@@ -1618,23 +1620,23 @@ int A::getValue() const
 <li>成员变量初始化，C++11 下：</li>
 </ol>
 <pre><code class="language-cpp">class Counter
-&#123;
+{
     int count = 0;
 public:
     //……
-&#125;
+}
 </code></pre>
 <ol start="2">
 <li>构造函数的初始化列表</li>
 </ol>
 <p><em>构造函数是创建对象时执行的特殊成员函数</em></p>
 <pre><code class="language-cpp">class Counter
-&#123;
+{
     int count = 0;
 public:
-   Counter() : count(0) &#123;&#125;
+   Counter() : count(0) {}
    // ……
-&#125;
+}
 </code></pre>
 <p><strong>确保初始化列表中的成员顺序始终与成员声明顺序相同</strong></p>
 <h4 id="构造函数">构造函数</h4>
@@ -1655,58 +1657,58 @@ public:
 <p>类默认提供 <strong>默认构造函数</strong>，<strong>其不带参数</strong>。但是当显式定义构造函数时，需要手动提供一个默认构造函数，默认构造函数只能有一个（避免二义性），但构造函数可以有多个。<br>
 如：</p>
 <pre><code class="language-cpp">class Counter
-&#123;
+{
     int count;                  // 成员变量
 public:
-    Counter() : count(0) &#123;&#125;     // 默认构造函数，采用初始化列表，确保初始化列表中的成员顺序始终与成员声明顺序相同！
-    Counter(int _count) &#123; count = _count;&#125;     // 构造函数，且默认用1初始化
-    void inc() &#123; count++; &#125;     // 成员函数
-    int get() &#123; return count; &#125;
-&#125;;
+    Counter() : count(0) {}     // 默认构造函数，采用初始化列表，确保初始化列表中的成员顺序始终与成员声明顺序相同！
+    Counter(int _count) { count = _count;}     // 构造函数，且默认用1初始化
+    void inc() { count++; }     // 成员函数
+    int get() { return count; }
+};
 
 Counter cnt1;       // 默认构造函数，并初始化count = 0
 Counter cnt2(10);   // 构造函数，初始化count = 10
 </code></pre>
 <p>或者使用 <code>TypeName() = default;</code>，编译器提供默认构造函数的实现。</p>
 <pre><code class="language-cpp">class Counter
-&#123;
+{
     int count;                  // 成员变量
 public:
     Counter() = default;        // 默认构造函数，未初始化
-    Counter(int _count) &#123; count = _count;&#125;     // 构造函数
-    void inc() &#123; count++; &#125;     // 成员函数
-    int get() &#123; return count; &#125;
-&#125;;
+    Counter(int _count) { count = _count;}     // 构造函数
+    void inc() { count++; }     // 成员函数
+    int get() { return count; }
+};
 </code></pre>
 <p>默认构造函数还可以通过给函数参数设置默认值提供：</p>
 <pre><code class="language-cpp">class Counter
-&#123;
+{
 public:
-    Counter(int _count = 0) &#123; count = _count; &#125; // 默认构造
+    Counter(int _count = 0) { count = _count; } // 默认构造
     // Counter() = default; // 默认构造函数
-&#125;
+}
 </code></pre>
 <p>定义构造函数时，加上关键字 <code>explicit</code> 表示构造函数只能用于显式转换，即不会被隐式调用，隐式调用的构造是很难找到的 bug 的主要来源。如：</p>
 <pre><code class="language-cpp">#include &lt;iostream&gt;
 
 class Counter
-&#123;
+{
     int count;                  // 成员变量
 public:
-    Counter() : count(0) &#123;&#125;
-    explicit Counter(int _count) &#123; count = _count;&#125;     // 构造函数
-    void inc() &#123; count++; &#125;     // 成员函数
-    int get() &#123; return count; &#125;
-&#125;;
+    Counter() : count(0) {}
+    explicit Counter(int _count) { count = _count;}     // 构造函数
+    void inc() { count++; }     // 成员函数
+    int get() { return count; }
+};
 
-int fun (Counter c) &#123; return c.get(); &#125;
+int fun (Counter c) { return c.get(); }
 
 int main()
-&#123;
-	std::cout &lt;&lt; fun(2) &lt;&lt; &quot;\n&quot;;    // 编译错误，避免了由2隐式转换为Counter的bug
-    std::cout &lt;&lt; fun(Counter(2)) &lt;&lt; &quot;\n&quot;; // 正确
+{
+	std::cout &lt;&lt; fun(2) &lt;&lt; "\n";    // 编译错误，避免了由2隐式转换为Counter的bug
+    std::cout &lt;&lt; fun(Counter(2)) &lt;&lt; "\n"; // 正确
     return 0;
-&#125;
+}
 </code></pre>
 <p>可以尝试把 <code>explicit</code> 去掉，体验如何隐式调用构造函数。</p>
 <h5 id="拷贝构造函数">拷贝构造函数</h5>
@@ -1722,19 +1724,19 @@ int main()
 <li><strong>拷贝构造函数的函数名就是其类型名，参数为拷贝源</strong></li>
 </ul>
 <p>拷贝函数的形式：</p>
-<pre><code class="language-cpp">T::T(const T&amp; t) &#123;&#125;
+<pre><code class="language-cpp">T::T(const T&amp; t) {}
 </code></pre>
 <p>可以重载拷贝构造函数，进行一些自定义的复制操作。</p>
 <pre><code class="language-cpp">class Counter
-&#123;
+{
     int count;                  // 成员变量
 public:
-    Counter() : count(0) &#123;&#125;							// 默认构造函数 
-    explicit Counter(int _count) &#123; count = _count;&#125; // 构造函数
-    Counter(const Counter &amp;c) &#123; count = c.get(); &#125;	// 拷贝构造函数 
-    void inc() &#123; count++; &#125;     // 成员函数
-    int get() const &#123; return count; &#125;
-&#125;;
+    Counter() : count(0) {}							// 默认构造函数 
+    explicit Counter(int _count) { count = _count;} // 构造函数
+    Counter(const Counter &amp;c) { count = c.get(); }	// 拷贝构造函数 
+    void inc() { count++; }     // 成员函数
+    int get() const { return count; }
+};
 
 Counter cnt1;       // 默认构造函数，并初始化count = 0
 Counter cnt2 = cnt1;	// 调用拷贝构造函数 
@@ -1749,24 +1751,24 @@ Counter cnt2 = cnt1;	// 调用拷贝构造函数
 </code></pre>
 <p>具体如：</p>
 <pre><code class="language-cpp">class Counter
-&#123;
+{
     int count;                  // 成员变量
 public:
-    Counter() : count(0) &#123;&#125;							// 默认构造函数 
-    explicit Counter(int _count) &#123; count = _count;&#125; // 构造函数
-    Counter(const Counter &amp;c) &#123; count = c.get(); &#125;	// 拷贝构造函数 
+    Counter() : count(0) {}							// 默认构造函数 
+    explicit Counter(int _count) { count = _count;} // 构造函数
+    Counter(const Counter &amp;c) { count = c.get(); }	// 拷贝构造函数 
     Counter&amp; operator =(const Counter &amp;c) 			// 赋值运算符函数 
-	&#123; 
+	{ 
 		if(this != &amp;c)  // 判断赋值是否为本身，若为本身则无需操作
-		&#123;
+		{
 			this-&gt;set(c.get());
-		&#125;
+		}
 		return *this;
-	&#125;
-    void inc() &#123; count++; &#125;     // 成员函数
-    void set(int _count) &#123; count = _count; &#125;
-    int get() const &#123; return count; &#125;
-&#125;;
+	}
+    void inc() { count++; }     // 成员函数
+    void set(int _count) { count = _count; }
+    int get() const { return count; }
+};
 </code></pre>
 <h5 id="移动构造函数和移动赋值运算符函数">移动构造函数和移动赋值运算符函数</h5>
 <p>C++引入了移动语义，也产生了移动构造函数和移动赋值运算符函数。</p>
@@ -1786,7 +1788,7 @@ public:
 <li>如果不定义默认构造函数和析构函数，编译器会生成它们。</li>
 </ul>
 <p>函数形式：</p>
-<pre><code class="language-cpp">Type::~Type() &#123; ... &#125;
+<pre><code class="language-cpp">Type::~Type() { ... }
 </code></pre>
 <p>析构函数的执行顺序：<strong>所有数据成员的析构函数将以其构造函数相反的声明顺序执行</strong></p>
 <ul>
@@ -1859,14 +1861,14 @@ public:
 <li>然后 Device 只需要一个指向 Hub 的指针，即已知成员内存大小。</li>
 </ul>
 <pre><code class="language-cpp">class Hub;
-class Device &#123;
+class Device {
   Hub* hub_;
   …
-&#125;;
-class Hub &#123;
+};
+class Hub {
   std::vector&lt;Device const*&gt; devs_;
   …
-&#125;;
+};
 </code></pre>
 <h3 id="指向类型为t的对象的指针">指向类型为T的对象的指针</h3>
 <pre><code class="language-cpp">T* ptr;
@@ -1935,12 +1937,12 @@ char *pc = &amp;c;
 </code></pre>
 <p>成员访问符 <code>-&gt;</code> ： 访问指针指向的对象的成员</p>
 <pre><code class="language-cpp">struct coord
-&#123;
+{
     char x = 0;
     char y = 0;
-&#125;
+}
 
-coord a&#123;1, 2&#125;;
+coord a{1, 2};
 coord *pa = &amp;a;
 char v = pa-&gt;x;     // 访问指针pa指向地址中的x成员的值
 char w = (*pa).y;   // 解引用后使用.访问成员 
@@ -2047,26 +2049,26 @@ int const * const cpc = ...;// const 修饰它的左边（int和*）
 </ul>
 <p>如：</p>
 <pre><code class="language-cpp">class IntRange
-&#123;
+{
     int l_ = 0;
     int r_ = 0;
 public:
     explicit
-    IntRange (int l, int r): l_&#123;l&#125;, r_&#123;r&#125; 
-    &#123;
+    IntRange (int l, int r): l_{l}, r_{r} 
+    {
         if (l_ &gt; r_) std::swap(l_, r_);
-    &#125;
-    int left ()  const &#123; return l_; &#125;
+    }
+    int left ()  const { return l_; }
     // 也可以使用“this”访问成员：
-    int right () const &#123; return this-&gt;r_; &#125;
+    int right () const { return this-&gt;r_; }
     // 返回对象本身的引用
     IntRange&amp; shift (int by) 
-    &#123;
+    {
         l_ += by;
         r_ += by;
         return *this;
-    &#125;
-&#125;;
+    }
+};
 </code></pre>
 <h3 id="少使用指针">少使用指针</h3>
 <p>推荐合适使用 <strong>引用</strong> 代替指针。</p>
@@ -2092,20 +2094,20 @@ public:
 <li>如果不处理，异常会一直传播，直到它们到达 <code>main</code> 函数。但如果在主函数中中没有处理异常，将会调用 <code>std::terminate</code>，即终止程序。</li>
 </ul>
 <pre><code class="language-cpp">void fun1()
-&#123;
-	throw &quot;Exception&quot;;
-&#125;
+{
+	throw "Exception";
+}
 
 void fun2()
-&#123;
+{
 	fun1();
-&#125;
+}
 
 int main()
-&#123;
+{
 	fun2(); // 没有处理异常，终止程序
     return 0;
-&#125;
+}
 </code></pre>
 <ol>
 <li>通过 <code>throw</code> 关键字抛出异常。</li>
@@ -2114,28 +2116,28 @@ int main()
 <p>例子：</p>
 <pre><code class="language-cpp">// 定义除法函数， a / b 
 double division(double a, double b)
-&#123;
+{
 	if(b == 0)
-		throw std::invalid_argument&#123;&quot;divided by 0&quot;&#125;;
+		throw std::invalid_argument{"divided by 0"};
 	return a / b;
-&#125;
+}
 
 int main()
-&#123;
+{
 	double number1 = 0, number2 = 0, ans = 0;
 	std::cin &gt;&gt; number1 &gt;&gt; number2;
 	try
-	&#123;
+	{
 		ans = division(number1, number2);
-	&#125;
+	}
 	catch (std::invalid_argument const &amp;err)
-	&#123;
+	{
 		std::cout &lt;&lt; err.what() &lt;&lt; '\n';
 		return -1;
-	&#125;
-	std::cout &lt;&lt; number1 &lt;&lt; &quot; / &quot; &lt;&lt; number2 &lt;&lt; &quot; = &quot; &lt;&lt; ans;
+	}
+	std::cout &lt;&lt; number1 &lt;&lt; " / " &lt;&lt; number2 &lt;&lt; " = " &lt;&lt; ans;
     return 0;
-&#125;
+}
 </code></pre>
 <pre><code>输入：1 2
 输出：1 / 2 = 0.5
@@ -2207,72 +2209,72 @@ int main()
 </li>
 </ul>
 <p><code>vector</code> 支持一种“宽规约”函数，通过抛出异常来报告无效的输入值：</p>
-<pre><code class="language-cpp">std::vector&lt;int&gt; v&#123; 0, 1, 2 &#125;;
+<pre><code class="language-cpp">std::vector&lt;int&gt; v{ 0, 1, 2 };
 int a = v[3];   // 越界且窄规约，即错误
 int b = v.at(3); // 越界且宽规约，即抛出异常 std::out_of_range
 </code></pre>
 <h3 id="处理异常">处理异常</h3>
 <p>重复抛出：</p>
 <pre><code class="language-cpp">try
-&#123;
+{
     // ...
-&#125;
+}
 catch(std::exception const &amp;)
-&#123;
+{
     throw;
-&#125;
+}
 </code></pre>
 <p>捕获所有异常：</p>
 <pre><code class="language-cpp">try
-&#123;
+{
     // ...
-&#125;
+}
 catch(...)
-&#123;
+{
     // ...
-&#125;
+}
 </code></pre>
 <p>集中异常处理：</p>
 <ul>
 <li>如果在许多不同的地方抛出相同的异常类型，可以避免代码重复。</li>
 </ul>
 <pre><code class="language-cpp">void handle_init_errors()
-&#123;
+{
     try
-    &#123;
+    {
         throw;  // 重抛出
-    &#125;
+    }
     catch(err::device_unreachable const &amp;e)
-    &#123;
+    {
         //...
-    &#125;
+    }
     catch(err::bad_connection const &amp;e)
-    &#123;
+    {
         //...
-    &#125;
+    }
     catch(err::bad_protocol const &amp;e)
-    &#123;
+    {
         //...
-    &#125;
-&#125;
+    }
+}
 
 void init_server()
-&#123;
+{
     try
-    &#123;
+    {
         ///...
-    &#125;
-    catch(...) &#123; handle_init_errors(); &#125;
-&#125;
+    }
+    catch(...) { handle_init_errors(); }
+}
 
 void init_client()
-&#123;
+{
     try
-    &#123;
+    {
         //...
-    &#125;
-    catch(...) &#123; handle_init_errors(); &#125;
-&#125;
+    }
+    catch(...) { handle_init_errors(); }
+}
 </code></pre>
 <h3 id="异常的问题">异常的问题</h3>
 <p>几乎任何一段代码都可能引发异常，对C++类型和库的设计产生重大影响。</p>
@@ -2284,14 +2286,14 @@ void init_client()
 </ol>
 <p>如：</p>
 <pre><code class="language-cpp">void add_to_database (database const&amp; db, std::string_view filename)
-&#123;
+{
     DBHandle h = open_dabase_conncection(db);  // 建立远程连接
     auto f = open_file(filename);
     // 如果 open_file 抛出异常，则不会调用 close_database_connection
   
     // do work…
     close_database_connection(h);   // 断开远程连接
-&#125;
+}
 </code></pre>
 <p>这个例子可以使用 RAII，在类析构时断开连接释放资源。</p>
 <ul>
@@ -2338,9 +2340,9 @@ void init_client()
 </ul>
 <p>无抛出保障关键字： <code>noexcept</code> （C++11）</p>
 <pre><code class="language-cpp">int f() noexcept
-&#123;
+{
     ...
-&#125;
+}
 </code></pre>
 <ul>
 <li><code>f</code> 函数承诺永远不抛出异常，不允许任何转义</li>
@@ -2362,15 +2364,15 @@ A noexcept(noexcept(B)) // 如果`B`没有抛出异常，声明`A`为noexcept
 <pre><code class="language-cpp">#include &lt;stdexcept&gt;
 #include &lt;iostream&gt;
 void my_handler ()
-&#123;
-    std::cerr &lt;&lt; &quot;Unhandled Exception!\n&quot;;
+{
+    std::cerr &lt;&lt; "Unhandled Exception!\n";
     std::abort();  // 终止程序
-&#125;
+}
 int main ()
-&#123;
+{
     std::set_terminate(my_handler);
-    throw std::exception&#123;&#125;; 
-&#125;
+    throw std::exception{}; 
+}
 </code></pre>
 <h3 id="异常指针">异常指针</h3>
 <ul>
@@ -2395,49 +2397,49 @@ int main ()
 <pre><code class="language-cpp">#include &lt;exception&gt;
 #include &lt;stdexcept&gt;
 void handle_init_errors (std::exception_ptr eptr)
-&#123;
+{
     try
-    &#123;
+    {
         if (eptr) std::rethrow_exception(eptr);
-    &#125; 
+    } 
     catch (err::bad_connection const&amp; e)
-    &#123; 
+    { 
         // ...
-    &#125; 
+    } 
     catch (err::bad_protocol const&amp; e)
-    &#123; 
+    { 
         // ...
-    &#125;
-&#125;
+    }
+}
 void initialize_client ()
-&#123;
+{
     if (exp) throw err::bad_connection; 
     // ...
-&#125;
+}
 int main ()
-&#123;
+{
     std::exception_ptr eptr;
     try
-    &#123;
+    {
         initialize_client(); 
         // ...
-    &#125; 
+    } 
     catch (...)
-    &#123;
+    {
         eptr = std::current_exception();
-    &#125;
+    }
     handle(eptr);
-&#125; // eptr已销毁，则捕获的异常已销毁
+} // eptr已销毁，则捕获的异常已销毁
 </code></pre>
 <h3 id="计数未捕获的异常">计数未捕获的异常</h3>
 <p>C++17中，<code>std::uncaught_exceptions</code> 返回当前线程中当前未处理的异常数。</p>
 <pre><code class="language-cpp">#include &lt;exception&gt;
 void foo ()
-&#123;
+{
     bar(); // 可能抛出异常
     int count = std::uncaught_exceptions();
     // ...
-&#125;
+}
 </code></pre>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>

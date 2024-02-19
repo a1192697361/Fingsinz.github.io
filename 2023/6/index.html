@@ -50,7 +50,9 @@
     
     
 
-<meta name="generator" content="Hexo 6.3.0"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
     
     <style>
         :root {
@@ -227,19 +229,19 @@
     <ul class="nav">
         
             
-                <li><a href="/">首页</a></li>
+                <li><a href="/">首页🏚️</a></li>
             
         
             
-                <li><a href="/list/">文章</a></li>
+                <li><a href="/list/">文章📄</a></li>
             
         
             
-                <li><a href="/categories/">分类</a></li>
+                <li><a href="/categories/">分类🗂️</a></li>
             
         
             
-                <li><a href="/about/">关于</a></li>
+                <li><a href="/about/">关于🧑</a></li>
             
         
     </ul>
@@ -291,31 +293,31 @@
 using namespace std;
 
 int main()
-&#123;
+{
 	int a = 3, b = 4, c = 5;
 	int d[a * b * c]; // error
 	return 0;
-&#125;
+}
 </code></pre>
 <pre><code class="language-cpp">//错误示范2
 #include &lt;iostream&gt;
 using namespace std;
 
 int main()
-&#123;
+{
 	int a = 3, b = 4, c = 5;
 	const int tmp = a * b * c;
 	int d[tmp]; // error，如错误原因2
 	return 0;
-&#125;
+}
 
 </code></pre>
 <pre><code class="language-cpp">//错误示范3
 struct test
-&#123;
+{
     static const int array_size; // error
     int size_array[array_size];
-&#125;;
+};
 
 const int test::array_size = 42;
 </code></pre>
@@ -325,12 +327,12 @@ const int test::array_size = 42;
 using namespace std;
 
 int main()
-&#123;
+{
 	int a = 3, b = 4, c = 5;
 	int *d = new int[a * b * c];
 	delete[] d;
 	return 0;
-&#125;
+}
 </code></pre>
 <p>关于new分配内存的使用：</p>
 <ol>
@@ -356,9 +358,9 @@ delete[] p;
 </ol>
 <pre><code class="language-cpp">Type **p = new Type *[m];
 for (int i = 0; i &lt; m; ++i)
-&#123;
+{
 	p[i] = new Type[n];
-&#125;
+}
 </code></pre>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>

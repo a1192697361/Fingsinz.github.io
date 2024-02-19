@@ -50,7 +50,9 @@
     
     
 
-<meta name="generator" content="Hexo 6.3.0"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
     
     <style>
         :root {
@@ -227,19 +229,19 @@
     <ul class="nav">
         
             
-                <li><a href="/">首页</a></li>
+                <li><a href="/">首页🏚️</a></li>
             
         
             
-                <li><a href="/list/">文章</a></li>
+                <li><a href="/list/">文章📄</a></li>
             
         
             
-                <li><a href="/categories/">分类</a></li>
+                <li><a href="/categories/">分类🗂️</a></li>
             
         
             
-                <li><a href="/about/">关于</a></li>
+                <li><a href="/about/">关于🧑</a></li>
             
         
     </ul>
@@ -303,7 +305,7 @@
 <ul>
 <li>为了正确显示HTML页面，在<code>&lt;meta&gt;</code>标签中设置编码。如：</li>
 </ul>
-<pre><code class="language-html">&lt;meta charset=&quot;UTF-8&quot; /&gt;
+<pre><code class="language-html">&lt;meta charset="UTF-8" /&gt;
 </code></pre>
 <ul>
 <li>字符集有很多，如ASCII码，UTF-8码，ISO-8859-1码，推荐用UTF-8码。</li>
@@ -417,7 +419,7 @@ profile，可以设置URL，一个由空格分隔的URL列表，这些URL包含�
 <p>referrerpolicy，可以设置值，规定在获取资源时使用的引荐来源信息。值包括“no-referrer”，“no-referrer-when-downgrade”，“origin”，“origin-when-cross-origin”，“unsafe-url”。</p>
 <p>rel，可以设置值，规定当前文档与被链接文档之间的关系。值包括“alternate”，“author”，“help”，“icon”，“licence”，“next”，“pingback”，“prefetch”，“prev”，“search”，“sidebar”，“stylesheet”，“tag”。</p>
 <p>rev，可以设置反向关系，在HTML5中不支持。</p>
-<p>sizes，可以设置值，规定被链接资源的尺寸，仅适用<code>rel=&quot;icon&quot;</code>。值包括“heightxwidth”，“any”。</p>
+<p>sizes，可以设置值，规定被链接资源的尺寸，仅适用<code>rel="icon"</code>。值包括“heightxwidth”，“any”。</p>
 <p>target，可以设置目标，在HTML5中不支持。</p>
 <p>type，可以设置MIME类型，规定被链接文档的MIME类型。</p>
 <ol start="5">
@@ -428,9 +430,9 @@ profile，可以设置URL，一个由空格分隔的URL列表，这些URL包含�
 </ul>
 <pre><code class="language-html">&lt;html&gt;
 &lt;head&gt;
-&lt;style type=&quot;text/css&quot;&gt;
-h1 &#123;color:red&#125;
-p &#123;color:blue&#125;
+&lt;style type="text/css"&gt;
+h1 {color:red}
+p {color:blue}
 &lt;/style&gt;
 &lt;/head&gt;
 
@@ -532,26 +534,26 @@ p &#123;color:blue&#125;
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
     &lt;body&gt;
-        &lt;a name = &quot;flag&quot;&gt;这是一句话&lt;/a&gt;
+        &lt;a name = "flag"&gt;这是一句话&lt;/a&gt;
         &lt;br /&gt;
-        &lt;a href=&quot;http://cn.bing.com/&quot; &gt;A link to Bing&lt;/a&gt;
+        &lt;a href="http://cn.bing.com/" &gt;A link to Bing&lt;/a&gt;
         &lt;br /&gt;
-        &lt;a href = &quot;#flag&quot;&gt;跳转到顶部句子&lt;/a&gt;
+        &lt;a href = "#flag"&gt;跳转到顶部句子&lt;/a&gt;
     &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
 <ul>
-<li><code>&lt;a&gt;</code>标签具有target属性，其用于定义被链接的文档在何处显示。如<code>&lt;a href=&quot;http://cn.bing.com/&quot; target=&quot;_blank&quot;&gt;A Link&lt;/a&gt;</code>中的<code>target=&quot;_blank&quot;</code>表示在新的窗口打开文档。</li>
+<li><code>&lt;a&gt;</code>标签具有target属性，其用于定义被链接的文档在何处显示。如<code>&lt;a href="http://cn.bing.com/" target="_blank"&gt;A Link&lt;/a&gt;</code>中的<code>target="_blank"</code>表示在新的窗口打开文档。</li>
 </ul>
 <h2 id="html图像">HTML图像</h2>
 <ul>
 <li>在 HTML 中，图像由<code>&lt;img&gt;</code>标签定义。<code>&lt;img&gt;</code>是空标签，意思是说，它只包含属性，并且没有闭合标签。</li>
-<li>页面上显示图像需要使用源属性（src，source），源属性的值是图像的URL地址。如：<code>&lt;img src=&quot;xxx/image.jpg&quot;&gt;</code>，则image这个jpg文件需要在源属性的值的地址上。</li>
-<li>替换文本属性（Alt），用来为图像定义一串预备的可替换的文本。替换文本属性的值是人为定义的。即当图片无法显示时，展示alt属性的值的文字。如：<code>&lt;img src=&quot;xxx/a.jpg&quot; alt=&quot;test&quot;&gt;</code>，当a.jpg无法显示时，显示test。</li>
+<li>页面上显示图像需要使用源属性（src，source），源属性的值是图像的URL地址。如：<code>&lt;img src="xxx/image.jpg"&gt;</code>，则image这个jpg文件需要在源属性的值的地址上。</li>
+<li>替换文本属性（Alt），用来为图像定义一串预备的可替换的文本。替换文本属性的值是人为定义的。即当图片无法显示时，展示alt属性的值的文字。如：<code>&lt;img src="xxx/a.jpg" alt="test"&gt;</code>，当a.jpg无法显示时，显示test。</li>
 <li>img标签中可以使用align属性进行图像与文本对齐。此处align的值可选“bottom”、“middle”和“top”，默认bottom对齐。</li>
 <li>img标签中可以使用align属性进行文本和图像位置设定。此处align的值可选“left”、“right”，分别用于图像固定段落的左端和右端。</li>
-<li>img标签中可以使用width和height属性进行更改图像的大小。如：<code>&lt;img src=&quot;xxx/a.jpg&quot; width=&quot;200&quot; height=&quot;200&quot;&gt;</code></li>
-<li>可以将<code>&lt;a&gt;</code>标签和<code>&lt;img&gt;</code>结合，制作能跳转链接的图片。如：<code>&lt;a href=&quot;http://cn.bing.cn&quot;&gt;&lt;img src=&quot;xxx/a.jpg&quot;&gt;&lt;/a&gt;</code></li>
+<li>img标签中可以使用width和height属性进行更改图像的大小。如：<code>&lt;img src="xxx/a.jpg" width="200" height="200"&gt;</code></li>
+<li>可以将<code>&lt;a&gt;</code>标签和<code>&lt;img&gt;</code>结合，制作能跳转链接的图片。如：<code>&lt;a href="http://cn.bing.cn"&gt;&lt;img src="xxx/a.jpg"&gt;&lt;/a&gt;</code></li>
 <li>img标签中还有以下属性</li>
 </ul>
 <table>
@@ -609,14 +611,14 @@ p &#123;color:blue&#125;
 <li>在body标签中使用background属性可以使用图像作为背景。但如果图像小于页面，图像会进行重复。</li>
 <li>使用<code>&lt;map&gt;</code>标签和<code>&lt;area&gt;</code>标签制作图像映射。</li>
 </ul>
-<pre><code class="language-html">&lt;img src=&quot;xxx/a.jpg&quot; usemap=&quot;#amap&quot;&gt;
+<pre><code class="language-html">&lt;img src="xxx/a.jpg" usemap="#amap"&gt;
 &lt;!--map标签中有属性name和id，与img标签usemap对应--&gt;
 &lt;!--map标签中id属性时必须且唯一的，name属性时可选的--&gt;
-&lt;map name=&quot;amap&quot; id=&quot;amap&quot;&gt;
+&lt;map name="amap" id="amap"&gt;
 &lt;!--area标签中有shape属性、coords属性等--&gt;
-    &lt;area shape=&quot;circle&quot; coords=&quot;180,139,14&quot; href=&quot;xxx&quot; alt=&quot;1&quot;&gt;
-    &lt;area shape=&quot;circle&quot; coords=&quot;129,161,10&quot; href=&quot;xxx&quot; alt=&quot;2&quot;&gt;
-    &lt;area shape=&quot;rect&quot; coords=&quot;0,0,110,260&quot; href=&quot;xxx&quot; alt=&quot;3&quot;&gt;
+    &lt;area shape="circle" coords="180,139,14" href="xxx" alt="1"&gt;
+    &lt;area shape="circle" coords="129,161,10" href="xxx" alt="2"&gt;
+    &lt;area shape="rect" coords="0,0,110,260" href="xxx" alt="3"&gt;
 
 &lt;/map&gt;
 </code></pre>
@@ -937,7 +939,7 @@ p &#123;color:blue&#125;
 <li><code>&lt;div&gt;</code>元素的另一个常见的用途是文档布局。它取代了使用表格定义布局的老式方法。使用<code>&lt;div&gt;</code>元素来组合块级元素，这样就可以使用样式对它们进行格式化。如：</li>
 </ul>
 <pre><code class="language-html">&lt;!--使用div分块，并用class标识和更改颜色为蓝色--&gt;
- &lt;div class=&quot;xxx&quot; style=&quot;color:blue&quot;&gt;
+ &lt;div class="xxx" style="color:blue"&gt;
   &lt;h2&gt;xxxxxx&lt;/h2&gt;
   &lt;p&gt;xxxxxx&lt;/p&gt;
  &lt;/div&gt;
@@ -959,13 +961,13 @@ p &#123;color:blue&#125;
 </li>
 </ul>
 <pre><code class="language-html">&lt;!--在html中标识class，并使用span组合--&gt;
-&lt;p class=&quot;tip&quot;&gt;&lt;span&gt;强调：&lt;/span&gt;... ... ...&lt;/p&gt;
+&lt;p class="tip"&gt;&lt;span&gt;强调：&lt;/span&gt;... ... ...&lt;/p&gt;
 </code></pre>
 <pre><code class="language-css">/*在CSS文件中统一设置span的格式*/
-p.tip span &#123;
+p.tip span {
     font-weight:bold;
     color:#ff9955;
-    &#125;
+    }
 </code></pre>
 <ul>
 <li>使用<code>&lt;span&gt;</code>来组合行内元素，以便通过样式来格式化它们。</li>
@@ -979,24 +981,24 @@ p.tip span &#123;
     &lt;head&gt;
     &lt;!--CSS样式--&gt;
     &lt;style&gt;
-    .cities &#123;
+    .cities {
         background-color:black;
         color:white;
         margin:20px;
         padding:20px;
-    &#125; 
-    span.place &#123;
+    } 
+    span.place {
         background-color:blue;
         color:white;
         margin:20px;
         padding:20px;
-    &#125;    
+    }    
     &lt;/style&gt;
     &lt;/head&gt;
 
     &lt;body&gt;
     &lt;!--使用class名整体格式化--&gt;
-    &lt;div class=&quot;cities&quot;&gt;
+    &lt;div class="cities"&gt;
     &lt;h2&gt;London&lt;/h2&gt;
     &lt;p&gt;
     London is the capital city of England. 
@@ -1005,7 +1007,7 @@ p.tip span &#123;
     &lt;/p&gt;
     &lt;/div&gt; 
 
-    &lt;h1&gt;A &lt;span class=&quot;place&quot;&gt;place&lt;/span&gt;in London&lt;/h1&gt;
+    &lt;h1&gt;A &lt;span class="place"&gt;place&lt;/span&gt;in London&lt;/h1&gt;
     &lt;/body&gt;
   &lt;/html&gt;
 </code></pre>
@@ -1015,7 +1017,7 @@ p.tip span &#123;
 <p>iframe可以在网页内显示网页。</p>
 </li>
 <li>
-<p>语法：<code>&lt;iframe src=&quot;URL&quot;&gt;&lt;iframe&gt;</code></p>
+<p>语法：<code>&lt;iframe src="URL"&gt;&lt;iframe&gt;</code></p>
 </li>
 <li>
 <p>属性</p>
@@ -1107,10 +1109,10 @@ p.tip span &#123;
 </ul>
 <pre><code class="language-html">&lt;html&gt;
 
-&lt;frameset cols=&quot;25%,50%,25%&quot;&gt;
-  &lt;frame src=&quot;/xxx/frame_a.html&quot;&gt;
-  &lt;frame src=&quot;/xxx/frame_b.html&quot;&gt;
-  &lt;frame src=&quot;/xxx/frame_c.html&quot;&gt;
+&lt;frameset cols="25%,50%,25%"&gt;
+  &lt;frame src="/xxx/frame_a.html"&gt;
+  &lt;frame src="/xxx/frame_b.html"&gt;
+  &lt;frame src="/xxx/frame_c.html"&gt;
 
 &lt;noframes&gt;
 &lt;body&gt;您的浏览器无法处理框架！&lt;/body&gt;
@@ -1232,47 +1234,47 @@ POST 没有大小限制，可用于发送大量数据。<br>
 <h4 id="文本输入">文本输入</h4>
 <ul>
 <li>
-<p><code>&lt;input type=&quot;text&quot;&gt;</code>定义用于文本输入的单行输入字段。</p>
+<p><code>&lt;input type="text"&gt;</code>定义用于文本输入的单行输入字段。</p>
 </li>
 <li>
 <p>表单本身并不可见。还要注意文本字段的默认宽度是 20 个字符。</p>
 <h4 id="密码输入">密码输入</h4>
 </li>
 <li>
-<p><code>&lt;input type=&quot;password&quot;&gt;</code>定义密码字段。</p>
+<p><code>&lt;input type="password"&gt;</code>定义密码字段。</p>
 </li>
 <li>
 <p>password 字段中的字符会被做掩码处理（显示为星号或实心圆）。</p>
 <h4 id="单选按钮输入">单选按钮输入</h4>
 </li>
 <li>
-<p><code>&lt;input type=&quot;radio&quot;&gt;</code>定义单选按钮。</p>
+<p><code>&lt;input type="radio"&gt;</code>定义单选按钮。</p>
 </li>
 <li>
 <p>通常单选应该有选项，如下是一个单选：</p>
 </li>
 </ul>
 <pre><code class="language-html">&lt;form&gt;
-&lt;input type=&quot;radio&quot; name=&quot;sex&quot; value=&quot;male&quot; checked/&gt;男
+&lt;input type="radio" name="sex" value="male" checked/&gt;男
 &lt;br /&gt;
-&lt;input type=&quot;radio&quot; name=&quot;sex&quot; value=&quot;female&quot; checked/&gt;女
+&lt;input type="radio" name="sex" value="female" checked/&gt;女
 &lt;/form&gt;
 </code></pre>
 <h4 id="复选框输入">复选框输入</h4>
 <ul>
 <li>
-<p><code>&lt;input type=&quot;checkbox&quot;&gt;</code>定义复选框。</p>
+<p><code>&lt;input type="checkbox"&gt;</code>定义复选框。</p>
 </li>
 <li>
 <p>复选框允许用户在有限数量的选项中选择零个或多个选项。</p>
 <h4 id="按钮输入">按钮输入</h4>
 </li>
 <li>
-<p><code>&lt;input type=&quot;button&gt;</code>定义按钮。</p>
+<p><code>&lt;input type="button&gt;</code>定义按钮。</p>
 <h4 id="提交按钮">提交按钮</h4>
 </li>
 <li>
-<p><code>&lt;input type=&quot;submit&quot;&gt;</code>定义用于向表单处理程序提交表单的按钮。</p>
+<p><code>&lt;input type="submit"&gt;</code>定义用于向表单处理程序提交表单的按钮。</p>
 </li>
 <li>
 <p>表单处理程序通常是包含用来处理输入数据的脚本的服务器页面。有关处理表单输入的知识，参考ASP或PHP语言。</p>
@@ -1282,10 +1284,10 @@ POST 没有大小限制，可用于发送大量数据。<br>
 </li>
 </ul>
 <pre><code class="language-html">&lt;!--将表单数据提交到xxx.asp页面--&gt;
-&lt;form action=&quot;../xxx/xxx.asp&quot;&gt;
+&lt;form action="../xxx/xxx.asp"&gt;
 Name:&lt;br /&gt;
-&lt;input type=&quot;text&quot; name=&quot;Name&quot;&gt;
-&lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
+&lt;input type="text" name="Name"&gt;
+&lt;input type="submit" value="提交"&gt;
 &lt;/form&gt;
 </code></pre>
 <ul>
@@ -1295,59 +1297,59 @@ Name:&lt;br /&gt;
 </li>
 <li>
 <p>color<br>
-<code>&lt;input type=&quot;color&quot;&gt;</code>用于应该包含颜色的输入字段。根据浏览器支持，颜色选择器会出现输入字段中。</p>
+<code>&lt;input type="color"&gt;</code>用于应该包含颜色的输入字段。根据浏览器支持，颜色选择器会出现输入字段中。</p>
 </li>
 <li>
 <p>date<br>
-<code>&lt;input type=&quot;date&quot;&gt;</code>用于应该包含日期的输入字段。根据浏览器支持，日期选择器会出现输入字段中。</p>
+<code>&lt;input type="date"&gt;</code>用于应该包含日期的输入字段。根据浏览器支持，日期选择器会出现输入字段中。</p>
 </li>
 <li>
 <p>datetime<br>
-<code>&lt;input type=&quot;datetime&quot;&gt;</code>允许用户选择日期和时间（有时区）。根据浏览器支持，日期选择器会出现输入字段中。</p>
+<code>&lt;input type="datetime"&gt;</code>允许用户选择日期和时间（有时区）。根据浏览器支持，日期选择器会出现输入字段中。</p>
 </li>
 <li>
 <p>datetime-local<br>
-<code>&lt;input type=&quot;datetime-local&quot;&gt;</code>允许用户选择日期和时间（无时区）。根据浏览器支持，日期选择器会出现输入字段中。</p>
+<code>&lt;input type="datetime-local"&gt;</code>允许用户选择日期和时间（无时区）。根据浏览器支持，日期选择器会出现输入字段中。</p>
 </li>
 <li>
 <p>email<br>
-<code>&lt;input type=&quot;email&quot;&gt;</code>用于应该包含电子邮件地址的输入字段。根据浏览器支持，能够在被提交时自动对电子邮件地址进行验证。某些智能手机会识别 email 类型，并在键盘增加 “.com” 以匹配电子邮件输入。</p>
+<code>&lt;input type="email"&gt;</code>用于应该包含电子邮件地址的输入字段。根据浏览器支持，能够在被提交时自动对电子邮件地址进行验证。某些智能手机会识别 email 类型，并在键盘增加 “.com” 以匹配电子邮件输入。</p>
 </li>
 <li>
 <p>month<br>
-<code>&lt;input type=&quot;month&quot;&gt;</code>允许用户选择月份和年份。根据浏览器支持，日期选择器会出现输入字段中。</p>
+<code>&lt;input type="month"&gt;</code>允许用户选择月份和年份。根据浏览器支持，日期选择器会出现输入字段中。</p>
 </li>
 <li>
 <p>number<br>
-<code>&lt;input type=&quot;number&quot;&gt;</code>用于应该包含数字值的输入字段。能够对数字做出限制。</p>
+<code>&lt;input type="number"&gt;</code>用于应该包含数字值的输入字段。能够对数字做出限制。</p>
 </li>
 <li>
 <p>range<br>
-<code>&lt;input type=&quot;range&quot;&gt;</code>用于应该包含一定范围内的值的输入字段。根据浏览器支持，输入字段能够显示为滑块控件。</p>
+<code>&lt;input type="range"&gt;</code>用于应该包含一定范围内的值的输入字段。根据浏览器支持，输入字段能够显示为滑块控件。</p>
 </li>
 <li>
 <p>search<br>
-<code>&lt;input type=&quot;search&quot;&gt;</code>用于搜索字段（搜索字段的表现类似常规文本字段）。</p>
+<code>&lt;input type="search"&gt;</code>用于搜索字段（搜索字段的表现类似常规文本字段）。</p>
 </li>
 <li>
 <p>tel<br>
-<code>&lt;input type=&quot;tel&quot;&gt;</code>用于应该包含电话号码的输入字段。目前只有 Safari 8 支持 tel 类型。</p>
+<code>&lt;input type="tel"&gt;</code>用于应该包含电话号码的输入字段。目前只有 Safari 8 支持 tel 类型。</p>
 </li>
 <li>
 <p>time<br>
-<code>&lt;input type=&quot;time&quot;&gt;</code>允许用户选择时间（无时区）。根据浏览器支持，时间选择器会出现输入字段中。</p>
+<code>&lt;input type="time"&gt;</code>允许用户选择时间（无时区）。根据浏览器支持，时间选择器会出现输入字段中。</p>
 </li>
 <li>
 <p>url<br>
-<code>&lt;input type=&quot;url&quot;&gt;</code>用于应该包含 URL 地址的输入字段。根据浏览器支持，在提交时能够自动验证 url 字段。某些智能手机识别 url 类型，并向键盘添加 “.com” 以匹配 url 输入。</p>
+<code>&lt;input type="url"&gt;</code>用于应该包含 URL 地址的输入字段。根据浏览器支持，在提交时能够自动验证 url 字段。某些智能手机识别 url 类型，并向键盘添加 “.com” 以匹配 url 输入。</p>
 </li>
 <li>
 <p>week<br>
-<code>&lt;input type=&quot;week&quot;&gt;</code>允许用户选择周和年。根据浏览器支持，日期选择器会出现输入字段中。</p>
+<code>&lt;input type="week"&gt;</code>允许用户选择周和年。根据浏览器支持，日期选择器会出现输入字段中。</p>
 </li>
 <li>
 <p>image<br>
-<code>&lt;input type=&quot;image&quot;&gt;</code>获取点击图像时的x和y坐标。</p>
+<code>&lt;input type="image"&gt;</code>获取点击图像时的x和y坐标。</p>
 </li>
 </ul>
 <h3 id="input元素属性">input元素属性</h3>
@@ -1367,42 +1369,42 @@ autocomplete 属性适用于<code>&lt;form&gt;</code>以及如下<code>&lt;input
 <li>form，规定<code>&lt;input&gt;</code>元素所属的一个或多个表单。如需引用一个以上的表单，请使用空格分隔的表单 id 列表。<br>
 即表单外使用<code>&lt;input&gt;</code>标签。</li>
 </ul>
-<pre><code class="language-html">&lt;form action=&quot;xxx.php&quot; id=&quot;form1&quot;&gt;
-   First name: &lt;input type=&quot;text&quot; name=&quot;fname&quot;&gt;&lt;br&gt;
-   &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;
+<pre><code class="language-html">&lt;form action="xxx.php" id="form1"&gt;
+   First name: &lt;input type="text" name="fname"&gt;&lt;br&gt;
+   &lt;input type="submit" value="Submit"&gt;
 &lt;/form&gt;
 
- Last name: &lt;input type=&quot;text&quot; name=&quot;lname&quot; form=&quot;form1&quot;&gt;
+ Last name: &lt;input type="text" name="lname" form="form1"&gt;
 </code></pre>
 <ul>
 <li>
 <p>formaction，规定当提交表单时处理该输入控件文件的URL。<br>
 formaction 属性覆盖<code>&lt;form&gt;</code>元素的 action 属性。<br>
-formaction 属性适用于<code>type=&quot;submit&quot;</code>以及<code>type=&quot;image&quot;</code>。</p>
+formaction 属性适用于<code>type="submit"</code>以及<code>type="image"</code>。</p>
 </li>
 <li>
 <p>formenctype，规定表单数据提交服务器时编码规则。<br>
 formenctype 属性覆盖<code>&lt;form&gt;</code>元素的 enctype 属性。<br>
-formenctype 属性适用于<code>type=&quot;submit&quot;</code>以及<code>type=&quot;image&quot;</code>。</p>
+formenctype 属性适用于<code>type="submit"</code>以及<code>type="image"</code>。</p>
 </li>
 <li>
 <p>formmethod，定义用以向action URL发送表单数据的HTTP方法。<br>
 formmethod 属性覆盖<code>&lt;form&gt;</code>元素的 method 属性。<br>
-formmethod 属性适用于<code>type=&quot;submit&quot;</code>以及<code>type=&quot;image&quot;</code>。</p>
+formmethod 属性适用于<code>type="submit"</code>以及<code>type="image"</code>。</p>
 </li>
 <li>
 <p>formnovalidate，布尔属性，设置时，规定提交表单时不对<code>&lt;input&gt;</code>元素进行验证。<br>
 formnovalidate 属性覆盖<code>&lt;form&gt;</code>元素的 novalidate 属性。<br>
-formnovalidate 属性可用于<code>type=&quot;submit&quot;</code>。</p>
+formnovalidate 属性可用于<code>type="submit"</code>。</p>
 </li>
 <li>
 <p>formtarget，规定名称或关键词指示提交表单后何处显示接收到的响应。<br>
 formtarget 属性会覆盖<code>&lt;form&gt;</code>元素的 target 属性。<br>
-formtarget 属性可与<code>type=&quot;submit&quot;</code>和<code>type=&quot;image&quot;</code>使用。</p>
+formtarget 属性可与<code>type="submit"</code>和<code>type="image"</code>使用。</p>
 </li>
 <li>
 <p>height和width，规定<code>&lt;input&gt;</code>元素的高度和宽度。<br>
-height 和 width 属性仅用于<code>&lt;input type=&quot;image&quot;&gt;</code>。</p>
+height 和 width 属性仅用于<code>&lt;input type="image"&gt;</code>。</p>
 </li>
 <li>
 <p>list，引用的<code>&lt;datalist&gt;</code>元素中包含了<code>&lt;input&gt;</code>元素的预定义选项。</p>
@@ -1441,11 +1443,11 @@ step 属性适用于以下输入类型：number、range、date、datetime、date
 <p><code>&lt;option&gt;</code>元素定义待选择的选项。列表通常会把首个选项显示为被选选项。通过添加 selected 属性来定义预定义选项。</p>
 </li>
 </ul>
-<pre><code class="language-html">&lt;select name=&quot;cars&quot;&gt;
-&lt;option value=&quot;volvo&quot;&gt;Volvo&lt;/option&gt;
-&lt;option value=&quot;saab&quot;&gt;Saab&lt;/option&gt;
-&lt;option value=&quot;fiat&quot;&gt;Fiat&lt;/option&gt;
-&lt;option value=&quot;audi&quot;&gt;Audi&lt;/option&gt;
+<pre><code class="language-html">&lt;select name="cars"&gt;
+&lt;option value="volvo"&gt;Volvo&lt;/option&gt;
+&lt;option value="saab"&gt;Saab&lt;/option&gt;
+&lt;option value="fiat"&gt;Fiat&lt;/option&gt;
+&lt;option value="audi"&gt;Audi&lt;/option&gt;
 &lt;/select&gt;
 </code></pre>
 <h3 id="textarea元素">textarea元素</h3>
@@ -1499,9 +1501,9 @@ step 属性适用于以下输入类型：number、range、date、datetime、date
 必须把音频文件转换为不同的格式。<br>
 <code>&lt;audio&gt;</code>元素在老式浏览器中不起作用。</li>
 </ul>
-<pre><code class="language-html">&lt;audio controls=&quot;controls&quot;&gt;
-  &lt;source src=&quot;song.mp3&quot; type=&quot;audio/mp3&quot; /&gt;
-  &lt;source src=&quot;song.ogg&quot; type=&quot;audio/ogg&quot; /&gt;
+<pre><code class="language-html">&lt;audio controls="controls"&gt;
+  &lt;source src="song.mp3" type="audio/mp3" /&gt;
+  &lt;source src="song.ogg" type="audio/ogg" /&gt;
 Your browser does not support this audio format.
 &lt;/audio&gt;
 </code></pre>
@@ -1610,12 +1612,12 @@ iPad 和 iPhone 不能显示 Flash 视频。<br>
     &lt;fieldset&gt;
     &lt;legend&gt;Personal information:&lt;/legend&gt;
     First name:&lt;br&gt;
-    &lt;input type=&quot;text&quot; name=&quot;firstname&quot;&gt;
+    &lt;input type="text" name="firstname"&gt;
     &lt;br&gt;
     Last name:&lt;br&gt;
-    &lt;input type=&quot;text&quot; name=&quot;lastname&quot;&gt;
+    &lt;input type="text" name="lastname"&gt;
     &lt;br&gt;&lt;br&gt;
-    &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;&lt;/fieldset&gt;
+    &lt;input type="submit" value="Submit"&gt;&lt;/fieldset&gt;
 &lt;/form&gt;
 </code></pre>
 <h1>HTML id属性</h1>
@@ -1629,17 +1631,17 @@ iPad 和 iPhone 不能显示 Flash 视频。<br>
 &lt;html&gt;
   &lt;head&gt;
   &lt;style&gt;
-  #London &#123;
+  #London {
     background-color: lightblue;
     color: black;
     padding: 40px;
     text-align: center;
-  &#125;
+  }
   &lt;/style&gt;
   &lt;/head&gt;
 
   &lt;body&gt;
-  &lt;h1 id=&quot;London&quot;&gt;My City&lt;/h1&gt;
+  &lt;h1 id="London"&gt;My City&lt;/h1&gt;
   &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
@@ -1652,12 +1654,12 @@ iPad 和 iPhone 不能显示 Flash 视频。<br>
 </li>
 </ul>
 <pre><code class="language-html">&lt;!--先用id创建书签--&gt;
-&lt;h2 id=&quot;C4&quot;&gt;第四章&lt;/h2&gt;
+&lt;h2 id="C4"&gt;第四章&lt;/h2&gt;
 
 &lt;!--接着使用链接元素跳转--&gt;
-&lt;a href=&quot;#C4&quot;&gt;跳转到第四章&lt;/a&gt;
+&lt;a href="#C4"&gt;跳转到第四章&lt;/a&gt;
 &lt;!--或者跳转到另一页的书签--&gt;
-&lt;a href=&quot;test.html#C4&quot;&gt;跳转到第四章&lt;/a&gt;
+&lt;a href="test.html#C4"&gt;跳转到第四章&lt;/a&gt;
 </code></pre>
 <ul>
 <li>CSS和JS可以使用id属性选取元素或设置样式。</li>
