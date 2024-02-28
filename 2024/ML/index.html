@@ -3,7 +3,7 @@
     
     <head>
     <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  viewport-fit=cover" name="viewport" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
     <meta name="description" content="机器学习杂记" />
     <meta name="hexo-theme-A4" content="v1.8.3" />
     <link rel="alternate icon" type="image/webp" href="/img/favicon.webp">
@@ -51,11 +51,11 @@
 
     
     
-    <link href="
-https://cdn.jsdelivr.net/npm/lightgallery.js@1.4.0/dist/css/lightgallery.min.css
-" rel="stylesheet">
+   
+<link rel="stylesheet" href="/css/lightgallery.min.css">
 
-<meta name="generator" content="Hexo 6.3.0">
+
+<meta name="generator" content="Hexo 7.1.1">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
     
@@ -584,9 +584,7 @@ b=\frac{1}{m}\sum_{i=1}^m(y_i-\omega x_i)
 </ul>
 <p>使用 SAG 算法进行线性回归计算。</p>
 <p>测试结果：</p>
-<pre class="line-numbers language-none"><code class="language-none">Data imported: 506
-平均误差：4.57072
-迭代时长：46.329s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Data imported: 506</span><br><span class="line">平均误差：4.57072</span><br><span class="line">迭代时长：46.329s</span><br></pre></td></tr></tbody></table></figure>
 <p><a target="_blank" rel="noopener" href="https://fblog-1257020106.cos.ap-shanghai.myqcloud.com/imgs/ML_MultipleLinearRegression.png" title="多元线性回归" class="gallery-item" style="box-shadow: none;"> <img src="https://fblog-1257020106.cos.ap-shanghai.myqcloud.com/imgs/ML_MultipleLinearRegression.png" alt="多元线性回归"></a></p>
 <p>该例子相关的数据集以及代码已置于仓库：<a target="_blank" rel="noopener" href="https://gitee.com/fingsinz/mlcode/blob/master/LinearRegression/MultipleLinearRegression.cpp">Gitee</a></p>
 <h2 id="贝叶斯分类器">贝叶斯分类器</h2>
@@ -714,20 +712,7 @@ cov_{k}^{(p,q)}&amp;=&amp;\sum_{j=1}^{N_k}[(x_{kp}^{(j)}-\hat{\mu}_{kp})(x_{kq}^
 <h3 id="基于opencv实现正态贝叶斯分类器">基于OpenCV实现正态贝叶斯分类器</h3>
 <p>OpenCV 自带实现了 <strong>正态贝叶斯分类器</strong> 的类： <code>NormalBayesClassifier</code>。</p>
 <h4 id="相关代码">相关代码</h4>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// 创建贝叶斯分类器</span>
-cv<span class="token double-colon punctuation">::</span>Ptr<span class="token operator">&lt;</span>cv<span class="token double-colon punctuation">::</span>ml<span class="token double-colon punctuation">::</span>NormalBayesClassifier<span class="token operator">&gt;</span> model<span class="token operator">=</span>cv<span class="token double-colon punctuation">::</span>ml<span class="token double-colon punctuation">::</span><span class="token class-name">NormalBayesClassifier</span><span class="token double-colon punctuation">::</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    
-<span class="token comment">// 设置训练数据</span>
-cv<span class="token double-colon punctuation">::</span>Ptr<span class="token operator">&lt;</span>cv<span class="token double-colon punctuation">::</span>ml<span class="token double-colon punctuation">::</span>TrainData<span class="token operator">&gt;</span> tData <span class="token operator">=</span>cv<span class="token double-colon punctuation">::</span>ml<span class="token double-colon punctuation">::</span><span class="token class-name">TrainData</span><span class="token double-colon punctuation">::</span><span class="token function">create</span><span class="token punctuation">(</span>datas<span class="token punctuation">,</span> ROW_SAMPLE<span class="token punctuation">,</span> labels<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">//训练分类器</span>
-model<span class="token operator">-&gt;</span><span class="token function">train</span><span class="token punctuation">(</span>tData<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    
-<span class="token comment">//预测</span>
-<span class="token keyword">int</span> label <span class="token operator">=</span> model<span class="token operator">-&gt;</span><span class="token function">predict</span><span class="token punctuation">(</span>samples<span class="token punctuation">)</span>
-
-<span class="token comment">//保存模型</span>
-model<span class="token operator">-&gt;</span><span class="token function">save</span><span class="token punctuation">(</span>filename<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建贝叶斯分类器</span></span><br><span class="line">cv::Ptr&lt;cv::ml::NormalBayesClassifier&gt; model=cv::ml::NormalBayesClassifier::<span class="built_in">create</span>();</span><br><span class="line">    </span><br><span class="line"><span class="comment">// 设置训练数据</span></span><br><span class="line">cv::Ptr&lt;cv::ml::TrainData&gt; tData =cv::ml::TrainData::<span class="built_in">create</span>(datas, ROW_SAMPLE, labels);</span><br><span class="line"></span><br><span class="line"><span class="comment">//训练分类器</span></span><br><span class="line">model-&gt;<span class="built_in">train</span>(tData);</span><br><span class="line">    </span><br><span class="line"><span class="comment">//预测</span></span><br><span class="line"><span class="type">int</span> label = model-&gt;<span class="built_in">predict</span>(samples)</span><br><span class="line"></span><br><span class="line"><span class="comment">//保存模型</span></span><br><span class="line">model-&gt;<span class="built_in">save</span>(filename)</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="例子-糖尿病预测数据集">例子-糖尿病预测数据集</h3>
 <p>数据集地址：<a target="_blank" rel="noopener" href="https://aistudio.baidu.com/datasetdetail/33810">https://aistudio.baidu.com/datasetdetail/33810</a></p>
 <ul>
@@ -745,17 +730,7 @@ model<span class="token operator">-&gt;</span><span class="token function">save<
 <li>Age：年龄</li>
 </ul>
 <p>使用手搓的朴素贝叶斯分类器和 OpenCV 实现的正态贝叶斯分类器进行训练测试，结果如下：</p>
-<pre class="line-numbers language-none"><code class="language-none">Train Data imported: 668
-正态贝叶斯分类器：
-计算花费时长：0ms
-Test Data imported: 100
-正确率：0.76
-
-Train Data imported: 668
-朴素贝叶斯分类器：
-计算花费时长：1ms
-Test Data imported: 100
-正确率：0.59<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Train Data imported: 668</span><br><span class="line">正态贝叶斯分类器：</span><br><span class="line">计算花费时长：0ms</span><br><span class="line">Test Data imported: 100</span><br><span class="line">正确率：0.76</span><br><span class="line"></span><br><span class="line">Train Data imported: 668</span><br><span class="line">朴素贝叶斯分类器：</span><br><span class="line">计算花费时长：1ms</span><br><span class="line">Test Data imported: 100</span><br><span class="line">正确率：0.59</span><br></pre></td></tr></tbody></table></figure>
 <p>代码及数据集地址：<a target="_blank" rel="noopener" href="https://gitee.com/fingsinz/mlcode/tree/master/bayesClassifier">Gitee - bayesClassifier</a></p>
 <h3 id="例子-鸢尾花数据集">例子-鸢尾花数据集</h3>
 <p>数据集地址：</p>
@@ -806,17 +781,7 @@ Test Data imported: 100
 </tbody>
 </table>
 <p>使用手搓的朴素贝叶斯分类器和 OpenCV 实现的正态贝叶斯分类器进行训练测试，结果如下：</p>
-<pre class="line-numbers language-none"><code class="language-none">Train Data imported: 120
-正态贝叶斯分类器：
-计算花费时长：0ms
-Test Data imported: 30
-正确率：0.966667
-
-Train Data imported: 120
-朴素贝叶斯分类器：
-计算花费时长：0ms
-Test Data imported: 30
-正确率：0.8<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Train Data imported: 120</span><br><span class="line">正态贝叶斯分类器：</span><br><span class="line">计算花费时长：0ms</span><br><span class="line">Test Data imported: 30</span><br><span class="line">正确率：0.966667</span><br><span class="line"></span><br><span class="line">Train Data imported: 120</span><br><span class="line">朴素贝叶斯分类器：</span><br><span class="line">计算花费时长：0ms</span><br><span class="line">Test Data imported: 30</span><br><span class="line">正确率：0.8</span><br></pre></td></tr></tbody></table></figure>
 <p>代码及数据集地址：<a target="_blank" rel="noopener" href="https://gitee.com/fingsinz/mlcode/tree/master/bayesClassifier">Gitee - bayesClassifier</a></p>
 <h2 id="初探-em-算法">初探 EM 算法</h2>
 <h3 id="em-介绍">EM 介绍</h3>
@@ -861,14 +826,7 @@ Test Data imported: 30
 <ul>
 <li>高斯混合模型可以看作是由 K 个单高斯模型组合而成的模型，这 K 个子模型是混合模型的隐变量。</li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// 创建 EM</span>
-cv<span class="token double-colon punctuation">::</span>Ptr<span class="token operator">&lt;</span>cv<span class="token double-colon punctuation">::</span>ml<span class="token double-colon punctuation">::</span>EM<span class="token operator">&gt;</span> model<span class="token operator">=</span>cv<span class="token double-colon punctuation">::</span>ml<span class="token double-colon punctuation">::</span><span class="token class-name">EM</span><span class="token double-colon punctuation">::</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">// 设置聚类数</span>
-model<span class="token operator">-&gt;</span><span class="token function">setClustersNumber</span><span class="token punctuation">(</span>classes<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">// 训练函数，结果反映在 labels参数</span>
-<span class="token keyword">bool</span> <span class="token function">trainEM</span><span class="token punctuation">(</span>InputArray samples<span class="token punctuation">,</span>OutputArray logLikelihoods<span class="token operator">=</span><span class="token function">noArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>OutputArray labels<span class="token operator">=</span><span class="token function">noArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>OutputArray probs<span class="token operator">=</span><span class="token function">noArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建 EM</span></span><br><span class="line">cv::Ptr&lt;cv::ml::EM&gt; model=cv::ml::EM::<span class="built_in">create</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置聚类数</span></span><br><span class="line">model-&gt;<span class="built_in">setClustersNumber</span>(classes);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 训练函数，结果反映在 labels参数</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">trainEM</span><span class="params">(InputArray samples,OutputArray logLikelihoods=noArray(),OutputArray labels=noArray(),OutputArray probs=noArray())</span> </span>;</span><br></pre></td></tr></tbody></table></figure>
 <p>使用 EM 算法进行像素聚类进而实现图像分割。</p>
 <ul>
 <li>将 RGB 属性作为样本，进行聚类。即每一个像素都是一个样本。</li>
@@ -952,23 +910,7 @@ c-4-3.333-8.333-7.667-13 -13l-13-13l77-155 77-156c66 199.333 139 419.667
 <h3 id="基于opencv实现knn">基于OpenCV实现KNN</h3>
 <p>OpenCV 并没有采用交叉验证和距离权值的方法。</p>
 <p>相关函数：</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// 创建模型</span>
-cv<span class="token double-colon punctuation">::</span>Ptr<span class="token operator">&lt;</span>cv<span class="token double-colon punctuation">::</span>ml<span class="token double-colon punctuation">::</span>KNearest<span class="token operator">&gt;</span> model<span class="token operator">=</span>cv<span class="token double-colon punctuation">::</span>ml<span class="token double-colon punctuation">::</span><span class="token class-name">KNearest</span><span class="token double-colon punctuation">::</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">// 设置默认 K 值</span>
-model<span class="token operator">-&gt;</span><span class="token function">setDefaultK</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">// 是否分类</span>
-model<span class="token operator">-&gt;</span><span class="token function">setIsClassifier</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">// 设置算法类型</span>
-model<span class="token operator">-&gt;</span><span class="token function">setAlgorithmType</span><span class="token punctuation">(</span>cv<span class="token double-colon punctuation">::</span>ml<span class="token double-colon punctuation">::</span>KNearest<span class="token double-colon punctuation">::</span>BRUTE_FORCE<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">// 训练，实际上是初始化训练样本数据</span>
-model<span class="token operator">-&gt;</span><span class="token function">train</span><span class="token punctuation">(</span>trainDataPtr<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">// 找到最近邻</span>
-model<span class="token operator">-&gt;</span><span class="token function">findNearest</span><span class="token punctuation">(</span>testMat<span class="token punctuation">,</span> k<span class="token punctuation">,</span> result<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建模型</span></span><br><span class="line">cv::Ptr&lt;cv::ml::KNearest&gt; model=cv::ml::KNearest::<span class="built_in">create</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置默认 K 值</span></span><br><span class="line">model-&gt;<span class="built_in">setDefaultK</span>(k);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 是否分类</span></span><br><span class="line">model-&gt;<span class="built_in">setIsClassifier</span>(<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置算法类型</span></span><br><span class="line">model-&gt;<span class="built_in">setAlgorithmType</span>(cv::ml::KNearest::BRUTE_FORCE);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 训练，实际上是初始化训练样本数据</span></span><br><span class="line">model-&gt;<span class="built_in">train</span>(trainDataPtr);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 找到最近邻</span></span><br><span class="line">model-&gt;<span class="built_in">findNearest</span>(testMat, k, result);</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="例子-小麦品种籽粒数据集">例子-小麦品种籽粒数据集</h3>
 <p>数据集地址：<a target="_blank" rel="noopener" href="https://archive.ics.uci.edu/dataset/236/seeds">https://archive.ics.uci.edu/dataset/236/seeds</a></p>
 <p>三种不同小麦品种籽粒几何特性的测定。数据集具有7个属性：</p>
@@ -1069,17 +1011,7 @@ model<span class="token operator">-&gt;</span><span class="token function">findN
 </tbody>
 </table>
 <p>使用自实现 KNN 和 OpenCV 提供的 KNN 类进行训练计算，结果如下：</p>
-<pre class="line-numbers language-none"><code class="language-none">Train Data imported: 150
-Test Data imported: 60
-K近邻算法：
-正确率：0.933333
-计算花费时长：1ms
-
-Train Data imported: 150
-Test Data imported: 60
-K近邻算法(基于OpenCV实现)：
-正确率：0.95
-计算花费时长：50ms<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Train Data imported: 150</span><br><span class="line">Test Data imported: 60</span><br><span class="line">K近邻算法：</span><br><span class="line">正确率：0.933333</span><br><span class="line">计算花费时长：1ms</span><br><span class="line"></span><br><span class="line">Train Data imported: 150</span><br><span class="line">Test Data imported: 60</span><br><span class="line">K近邻算法(基于OpenCV实现)：</span><br><span class="line">正确率：0.95</span><br><span class="line">计算花费时长：50ms</span><br></pre></td></tr></tbody></table></figure>
 <p>代码及数据集地址：<a target="_blank" rel="noopener" href="https://gitee.com/fingsinz/mlcode/tree/master/KNN">KNN - Gitee</a></p>
 <h2 id="svm-支持向量机算法">SVM 支持向量机算法</h2>
 <ul>
@@ -1612,22 +1544,7 @@ w\cdot\phi(\mathbf{x}_i)+b-y_i\leq\varepsilon+\xi_i^+\end{cases},\ \begin{cases}
 </ul>
 <h3 id="opencv所支持的-svm">OpenCV所支持的 SVM</h3>
 <p>OpenCV 提供了五种支持向量机的类型，分别为：</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">enum</span> <span class="token class-name">Types</span> <span class="token punctuation">{</span>
-    <span class="token comment">// C-SVC，n类分类（n≥2）</span>
-    C_SVC<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">,</span>
-
-    <span class="token comment">// ν-SVC </span>
-    NU_SVC<span class="token operator">=</span><span class="token number">101</span><span class="token punctuation">,</span>
-
-    <span class="token comment">// 单类SVM</span>
-    ONE_CLASS<span class="token operator">=</span><span class="token number">102</span><span class="token punctuation">,</span>
-    
-    <span class="token comment">// ε-SVR</span>
-    EPS_SVR<span class="token operator">=</span><span class="token number">103</span><span class="token punctuation">,</span>
-
-    <span class="token comment">// ν-SVR</span>
-    NU_SVR<span class="token operator">=</span><span class="token number">104</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">Types</span> {</span><br><span class="line">    <span class="comment">// C-SVC，n类分类（n≥2）</span></span><br><span class="line">    C_SVC=<span class="number">100</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ν-SVC </span></span><br><span class="line">    NU_SVC=<span class="number">101</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 单类SVM</span></span><br><span class="line">    ONE_CLASS=<span class="number">102</span>,</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// ε-SVR</span></span><br><span class="line">    EPS_SVR=<span class="number">103</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ν-SVR</span></span><br><span class="line">    NU_SVR=<span class="number">104</span></span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
 <p>通过 <code>SVM::setType(int val)</code> 设置 SVM 类型，默认为 <code>C_SVC</code>。通过 <code>SVM::getType()</code> 获取 SVM 类型。</p>
 <p>各个类型的 SVM 的超参可以通过以下函数访问：</p>
 <ul>
@@ -1636,28 +1553,7 @@ w\cdot\phi(\mathbf{x}_i)+b-y_i\leq\varepsilon+\xi_i^+\end{cases},\ \begin{cases}
 <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ε</mi></mrow><annotation encoding="application/x-tex">\varepsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">ε</span></span></span></span>：通过 <code>SVM::setP(double val)</code> 和 <code>SVM::getP()</code> 访问。</li>
 </ul>
 <p>同时支持的核函数有：</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">enum</span> <span class="token class-name">KernelTypes</span> <span class="token punctuation">{</span>
-    <span class="token comment">// 当自定义内核已设置时，由SVM::getKernelType返回 </span>
-    CUSTOM<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>
-
-    <span class="token comment">// 线性核</span>
-    LINEAR<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>
-    
-    <span class="token comment">// 多项式核</span>
-    POLY<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>
-
-    <span class="token comment">// 径向基函数（RBF），在大多数情况下是一个很好的选择。</span>
-    RBF<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>
-
-    <span class="token comment">// Sigmoid 核函数</span>
-    SIGMOID<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span>
-
-    <span class="token comment">// 指数CHI2核，类似于RBF核</span>
-    CHI2<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">,</span>
-
-    <span class="token comment">// 直方图相交核，比较快.</span>
-    INTER<span class="token operator">=</span><span class="token number">5</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">KernelTypes</span> {</span><br><span class="line">    <span class="comment">// 当自定义内核已设置时，由SVM::getKernelType返回 </span></span><br><span class="line">    CUSTOM=<span class="number">-1</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 线性核</span></span><br><span class="line">    LINEAR=<span class="number">0</span>,</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 多项式核</span></span><br><span class="line">    POLY=<span class="number">1</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 径向基函数（RBF），在大多数情况下是一个很好的选择。</span></span><br><span class="line">    RBF=<span class="number">2</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Sigmoid 核函数</span></span><br><span class="line">    SIGMOID=<span class="number">3</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 指数CHI2核，类似于RBF核</span></span><br><span class="line">    CHI2=<span class="number">4</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 直方图相交核，比较快.</span></span><br><span class="line">    INTER=<span class="number">5</span></span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
 <p>使用 <code>SVM::setKernelType(int kernelType)</code> 设置核函数类型。</p>
 <ul>
 <li>多项式核为：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo stretchy="false">(</mo><msub><mi>x</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>x</mi><mi>j</mi></msub><mo stretchy="false">)</mo><mo>=</mo><mo stretchy="false">(</mo><mi>γ</mi><msubsup><mi>x</mi><mi>i</mi><mi>T</mi></msubsup><msub><mi>x</mi><mi>j</mi></msub><mo>+</mo><mrow><mi mathvariant="bold">c</mi><mi mathvariant="bold">o</mi><mi mathvariant="bold">e</mi><mi mathvariant="bold">f</mi><mn mathvariant="bold">0</mn></mrow><msup><mo stretchy="false">)</mo><mrow><mi mathvariant="bold">d</mi><mi mathvariant="bold">e</mi><mi mathvariant="bold">g</mi><mi mathvariant="bold">r</mi><mi mathvariant="bold">e</mi><mi mathvariant="bold">e</mi></mrow></msup><mo separator="true">,</mo><mtext>&nbsp;</mtext><mi>γ</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">K(x_i, x_j) = (\gamma x_i^T x_j + \mathbf{coef0})^{\mathbf{degree}},\ \gamma &gt; 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.1274389999999999em;vertical-align:-0.286108em;"></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.05556em;">γ</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-2.441336em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">T</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.258664em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.0991079999999998em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathbf">c</span><span class="mord mathbf">o</span><span class="mord mathbf">e</span><span class="mord mathbf" style="margin-right:0.10903em;">f</span><span class="mord mathbf">0</span></span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathbf mtight">d</span><span class="mord mathbf mtight">e</span><span class="mord mathbf mtight" style="margin-right:0.01597em;">g</span><span class="mord mathbf mtight">r</span><span class="mord mathbf mtight">e</span><span class="mord mathbf mtight">e</span></span></span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mspace">&nbsp;</span><span class="mord mathdefault" style="margin-right:0.05556em;">γ</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span></li>
@@ -1682,14 +1578,7 @@ w\cdot\phi(\mathbf{x}_i)+b-y_i\leq\varepsilon+\xi_i^+\end{cases},\ \begin{cases}
 </ul>
 <hr>
 <p>还有关于 <code>SVM::trainAuto(...)</code>，函数如下：</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">bool</span> <span class="token function">trainAuto</span><span class="token punctuation">(</span> <span class="token keyword">const</span> Ptr<span class="token operator">&lt;</span>TrainData<span class="token operator">&gt;</span><span class="token operator">&amp;</span> data<span class="token punctuation">,</span> <span class="token keyword">int</span> kFold <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span>
-                ParamGrid Cgrid <span class="token operator">=</span> <span class="token function">getDefaultGrid</span><span class="token punctuation">(</span>C<span class="token punctuation">)</span><span class="token punctuation">,</span>
-                ParamGrid gammaGrid  <span class="token operator">=</span> <span class="token function">getDefaultGrid</span><span class="token punctuation">(</span>GAMMA<span class="token punctuation">)</span><span class="token punctuation">,</span>
-                ParamGrid pGrid      <span class="token operator">=</span> <span class="token function">getDefaultGrid</span><span class="token punctuation">(</span>P<span class="token punctuation">)</span><span class="token punctuation">,</span>
-                ParamGrid nuGrid     <span class="token operator">=</span> <span class="token function">getDefaultGrid</span><span class="token punctuation">(</span>NU<span class="token punctuation">)</span><span class="token punctuation">,</span>
-                ParamGrid coeffGrid  <span class="token operator">=</span> <span class="token function">getDefaultGrid</span><span class="token punctuation">(</span>COEF<span class="token punctuation">)</span><span class="token punctuation">,</span>
-                ParamGrid degreeGrid <span class="token operator">=</span> <span class="token function">getDefaultGrid</span><span class="token punctuation">(</span>DEGREE<span class="token punctuation">)</span><span class="token punctuation">,</span>
-                <span class="token keyword">bool</span> balanced<span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">trainAuto</span><span class="params">( <span class="type">const</span> Ptr&lt;TrainData&gt;&amp; data, <span class="type">int</span> kFold = <span class="number">10</span>,</span></span></span><br><span class="line"><span class="params"><span class="function">                ParamGrid Cgrid = getDefaultGrid(C),</span></span></span><br><span class="line"><span class="params"><span class="function">                ParamGrid gammaGrid  = getDefaultGrid(GAMMA),</span></span></span><br><span class="line"><span class="params"><span class="function">                ParamGrid pGrid      = getDefaultGrid(P),</span></span></span><br><span class="line"><span class="params"><span class="function">                ParamGrid nuGrid     = getDefaultGrid(NU),</span></span></span><br><span class="line"><span class="params"><span class="function">                ParamGrid coeffGrid  = getDefaultGrid(COEF),</span></span></span><br><span class="line"><span class="params"><span class="function">                ParamGrid degreeGrid = getDefaultGrid(DEGREE),</span></span></span><br><span class="line"><span class="params"><span class="function">                <span class="type">bool</span> balanced=<span class="literal">false</span>)</span> </span>= <span class="number">0</span>;</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li>该方法通过选择最佳参数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span></span>、<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>γ</mi></mrow><annotation encoding="application/x-tex">\gamma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05556em;">γ</span></span></span></span>、<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span></span></span></span>、<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ν</mi></mrow><annotation encoding="application/x-tex">\nu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.06366em;">ν</span></span></span></span>、<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">c</mi><mi mathvariant="bold">o</mi><mi mathvariant="bold">e</mi><mi mathvariant="bold">f</mi><mn mathvariant="bold">0</mn></mrow><annotation encoding="application/x-tex">\mathbf{coef0}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbf">c</span><span class="mord mathbf">o</span><span class="mord mathbf">e</span><span class="mord mathbf" style="margin-right:0.10903em;">f</span><span class="mord mathbf">0</span></span></span></span></span>、<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">d</mi><mi mathvariant="bold">e</mi><mi mathvariant="bold">g</mi><mi mathvariant="bold">r</mi><mi mathvariant="bold">e</mi><mi mathvariant="bold">e</mi></mrow><annotation encoding="application/x-tex">\mathbf{degree}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathbf">d</span><span class="mord mathbf">e</span><span class="mord mathbf" style="margin-right:0.01597em;">g</span><span class="mord mathbf">r</span><span class="mord mathbf">e</span><span class="mord mathbf">e</span></span></span></span></span> 来自动训练 SVM 模型。当测试集误差的交叉验证估计值最小时，参数被认为是最佳的。
 <ul>
@@ -1707,17 +1596,7 @@ w\cdot\phi(\mathbf{x}_i)+b-y_i\leq\varepsilon+\xi_i^+\end{cases},\ \begin{cases}
 <li><code>balanced</code>：如果为真且问题是 2 分类，则该方法创建更平衡的交叉验证子集，即子集中的类之间的比例接近整个训练数据集中的比例。</li>
 </ul>
 <p>类似地，该函数重载还有：</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">bool</span> <span class="token function">trainAuto</span><span class="token punctuation">(</span>InputArray samples<span class="token punctuation">,</span>
-            <span class="token keyword">int</span> layout<span class="token punctuation">,</span>
-            InputArray responses<span class="token punctuation">,</span>
-            <span class="token keyword">int</span> kFold <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span>
-            Ptr<span class="token operator">&lt;</span>ParamGrid<span class="token operator">&gt;</span> Cgrid <span class="token operator">=</span> <span class="token class-name">SVM</span><span class="token double-colon punctuation">::</span><span class="token function">getDefaultGridPtr</span><span class="token punctuation">(</span>SVM<span class="token double-colon punctuation">::</span>C<span class="token punctuation">)</span><span class="token punctuation">,</span>
-            Ptr<span class="token operator">&lt;</span>ParamGrid<span class="token operator">&gt;</span> gammaGrid  <span class="token operator">=</span> <span class="token class-name">SVM</span><span class="token double-colon punctuation">::</span><span class="token function">getDefaultGridPtr</span><span class="token punctuation">(</span>SVM<span class="token double-colon punctuation">::</span>GAMMA<span class="token punctuation">)</span><span class="token punctuation">,</span>
-            Ptr<span class="token operator">&lt;</span>ParamGrid<span class="token operator">&gt;</span> pGrid      <span class="token operator">=</span> <span class="token class-name">SVM</span><span class="token double-colon punctuation">::</span><span class="token function">getDefaultGridPtr</span><span class="token punctuation">(</span>SVM<span class="token double-colon punctuation">::</span>P<span class="token punctuation">)</span><span class="token punctuation">,</span>
-            Ptr<span class="token operator">&lt;</span>ParamGrid<span class="token operator">&gt;</span> nuGrid     <span class="token operator">=</span> <span class="token class-name">SVM</span><span class="token double-colon punctuation">::</span><span class="token function">getDefaultGridPtr</span><span class="token punctuation">(</span>SVM<span class="token double-colon punctuation">::</span>NU<span class="token punctuation">)</span><span class="token punctuation">,</span>
-            Ptr<span class="token operator">&lt;</span>ParamGrid<span class="token operator">&gt;</span> coeffGrid  <span class="token operator">=</span> <span class="token class-name">SVM</span><span class="token double-colon punctuation">::</span><span class="token function">getDefaultGridPtr</span><span class="token punctuation">(</span>SVM<span class="token double-colon punctuation">::</span>COEF<span class="token punctuation">)</span><span class="token punctuation">,</span>
-            Ptr<span class="token operator">&lt;</span>ParamGrid<span class="token operator">&gt;</span> degreeGrid <span class="token operator">=</span> <span class="token class-name">SVM</span><span class="token double-colon punctuation">::</span><span class="token function">getDefaultGridPtr</span><span class="token punctuation">(</span>SVM<span class="token double-colon punctuation">::</span>DEGREE<span class="token punctuation">)</span><span class="token punctuation">,</span>
-            <span class="token keyword">bool</span> balanced<span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">trainAuto</span><span class="params">(InputArray samples,</span></span></span><br><span class="line"><span class="params"><span class="function">            <span class="type">int</span> layout,</span></span></span><br><span class="line"><span class="params"><span class="function">            InputArray responses,</span></span></span><br><span class="line"><span class="params"><span class="function">            <span class="type">int</span> kFold = <span class="number">10</span>,</span></span></span><br><span class="line"><span class="params"><span class="function">            Ptr&lt;ParamGrid&gt; Cgrid = SVM::getDefaultGridPtr(SVM::C),</span></span></span><br><span class="line"><span class="params"><span class="function">            Ptr&lt;ParamGrid&gt; gammaGrid  = SVM::getDefaultGridPtr(SVM::GAMMA),</span></span></span><br><span class="line"><span class="params"><span class="function">            Ptr&lt;ParamGrid&gt; pGrid      = SVM::getDefaultGridPtr(SVM::P),</span></span></span><br><span class="line"><span class="params"><span class="function">            Ptr&lt;ParamGrid&gt; nuGrid     = SVM::getDefaultGridPtr(SVM::NU),</span></span></span><br><span class="line"><span class="params"><span class="function">            Ptr&lt;ParamGrid&gt; coeffGrid  = SVM::getDefaultGridPtr(SVM::COEF),</span></span></span><br><span class="line"><span class="params"><span class="function">            Ptr&lt;ParamGrid&gt; degreeGrid = SVM::getDefaultGridPtr(SVM::DEGREE),</span></span></span><br><span class="line"><span class="params"><span class="function">            <span class="type">bool</span> balanced=<span class="literal">false</span>)</span> </span>= <span class="number">0</span>;</span><br></pre></td></tr></tbody></table></figure>
 <hr>
 <h3 id="例子-香蕉数据集">例子-香蕉数据集</h3>
 <p>数据集地址：<a target="_blank" rel="noopener" href="https://sci2s.ugr.es/keel/dataset.php?cod=182">https://sci2s.ugr.es/keel/dataset.php?cod=182</a></p>
@@ -1769,11 +1648,7 @@ w\cdot\phi(\mathbf{x}_i)+b-y_i\leq\varepsilon+\xi_i^+\end{cases},\ \begin{cases}
 </tbody>
 </table>
 <p>使用 OpenCV 提供的 SVM 模型效果如下：</p>
-<pre class="line-numbers language-none"><code class="language-none">Train Data imported: 5100
-Test Data imported: 200
-SVM算法(基于OpenCV实现)：
-计算花费时长：131ms
-正确率：0.915<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Train Data imported: 5100</span><br><span class="line">Test Data imported: 200</span><br><span class="line">SVM算法(基于OpenCV实现)：</span><br><span class="line">计算花费时长：131ms</span><br><span class="line">正确率：0.915</span><br></pre></td></tr></tbody></table></figure>
 <p>代码地址：<a target="_blank" rel="noopener" href="https://gitee.com/fingsinz/mlcode/blob/master/SVM/SVM.h">Gitee - SVM</a></p>
 <h2 id="决策树">决策树</h2>
 <h3 id="基本流程">基本流程</h3>
@@ -1984,47 +1859,39 @@ SVM算法(基于OpenCV实现)：
 <ul>
 <li><code>MaxCategories</code>：表示特征属性为类的形式的最大类数量。如果训练过程中，类的数量大于该值，采用聚类方法更高效。该参数只应用于非两类的分类树问题。通过以下函数访问：</li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">getMaxCategories</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">void</span> <span class="token function">setMaxCategories</span><span class="token punctuation">(</span><span class="token keyword">int</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">getMaxCategories</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setMaxCategories</span><span class="params">(<span class="type">int</span> val)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li><code>MaxDepth</code>：决策树的最大可能深度。通过以下函数访问：</li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">getMaxDepth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">void</span> <span class="token function">setMaxDepth</span><span class="token punctuation">(</span><span class="token keyword">int</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">getMaxDepth</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setMaxDepth</span><span class="params">(<span class="type">int</span> val)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li><code>MinSampleCount</code>：如果某个结点的样本数小于该值，则该结点不再被分叉。通过以下函数访问：</li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">getMinSampleCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">void</span> <span class="token function">setMinSampleCount</span><span class="token punctuation">(</span><span class="token keyword">int</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">getMinSampleCount</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setMinSampleCount</span><span class="params">(<span class="type">int</span> val)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li><code>CVFolds</code>：表示交叉验证的子集数量。如果值大于1，则应该交叉验证进行剪枝。通过以下函数访问：</li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">getCVFolds</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">void</span> <span class="token function">setCVFolds</span><span class="token punctuation">(</span><span class="token keyword">int</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">getCVFolds</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setCVFolds</span><span class="params">(<span class="type">int</span> val)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li><code>UseSurrogates</code>：如果设为真，则需要产生代替分叉节点。默认为假。通过以下函数访问：</li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">bool</span> <span class="token function">getUseSurrogates</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">void</span> <span class="token function">setUseSurrogates</span><span class="token punctuation">(</span><span class="token keyword">bool</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">getUseSurrogates</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setUseSurrogates</span><span class="params">(<span class="type">bool</span> val)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li><code>Use1SERule</code>：如果设为真，表示剪枝过程使用 1SE 规则，使决策树更加的，且对训练集的噪声更有抵抗力，但精度会下降。默认为真。通过以下函数访问：</li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">bool</span> <span class="token function">getUse1SERule</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">void</span> <span class="token function">setUse1SERule</span><span class="token punctuation">(</span><span class="token keyword">bool</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">getUse1SERule</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setUse1SERule</span><span class="params">(<span class="type">bool</span> val)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li><code>TruncatePrunedTree</code>：如果设为真，则要被剪掉的结点将从树上移除，否则仍保留。默认为真。通过以下函数访问：</li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">bool</span> <span class="token function">getTruncatePrunedTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">void</span> <span class="token function">setTruncatePrunedTree</span><span class="token punctuation">(</span><span class="token keyword">bool</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">getTruncatePrunedTree</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setTruncatePrunedTree</span><span class="params">(<span class="type">bool</span> val)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li><code>RegressionAccuracy</code>：构建回归树的条件，表示回归树的响应值的精度如果达到该值则无需再分叉。通过以下函数访问：</li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">float</span> <span class="token function">getRegressionAccuracy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">void</span> <span class="token function">setRegressionAccuracy</span><span class="token punctuation">(</span><span class="token keyword">float</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">float</span> <span class="title">getRegressionAccuracy</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setRegressionAccuracy</span><span class="params">(<span class="type">float</span> val)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li><code>Priors</code>：表示分类树的类别标签先验概率，按类别标签值排序。通过以下函数访问：</li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">cv<span class="token double-colon punctuation">::</span>Mat <span class="token function">getPriors</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">void</span> <span class="token function">setPriors</span><span class="token punctuation">(</span><span class="token keyword">const</span> cv<span class="token double-colon punctuation">::</span>Mat <span class="token operator">&amp;</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">cv::Mat <span class="title">getPriors</span><span class="params">()</span><span class="type">void</span> <span class="title">setPriors</span><span class="params">(<span class="type">const</span> cv::Mat &amp;val)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="例子-单词难度预测">例子-单词难度预测</h3>
 <p>数据集地址：<a target="_blank" rel="noopener" href="https://aistudio.baidu.com/datasetdetail/107161">https://aistudio.baidu.com/datasetdetail/107161</a></p>
 <p>数据集属性有：</p>
@@ -2107,11 +1974,7 @@ SVM算法(基于OpenCV实现)：
 </tbody>
 </table>
 <p>效果如下：</p>
-<pre class="line-numbers language-none"><code class="language-none">Train Data imported: 30457
-Test Data imported: 9992
-决策树算法(基于OpenCV实现)：
-计算花费时长：159ms
-平均误差：0.0239817<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Train Data imported: 30457</span><br><span class="line">Test Data imported: 9992</span><br><span class="line">决策树算法(基于OpenCV实现)：</span><br><span class="line">计算花费时长：159ms</span><br><span class="line">平均误差：0.0239817</span><br></pre></td></tr></tbody></table></figure>
 <p>代码地址：<a target="_blank" rel="noopener" href="https://gitee.com/fingsinz/mlcode/blob/master/DTree/DTree.h">Gitee - Decision Tree</a></p>
 <h2 id="adaboost">AdaBoost</h2>
 <h3 id="基本流程">基本流程</h3>
@@ -2251,26 +2114,15 @@ Test Data imported: 9992
 <ul>
 <li><code>BoostType</code>：Boosting 算法的类型。</li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">enum</span> <span class="token class-name">Types</span> 
-<span class="token punctuation">{</span>
-    DISCRETE<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token comment">// Discrete AdaBoost.</span>
-    REAL<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>     <span class="token comment">// Real AdaBoost.</span>
-    LOGIT<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>    <span class="token comment">// LogitBoost. </span>
-    GENTLE<span class="token operator">=</span><span class="token number">3</span>    <span class="token comment">// Gentle AdaBoost. </span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token comment">// 访问函数：</span>
-<span class="token keyword">int</span> <span class="token function">getBoostType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 默认是 REAL</span>
-<span class="token keyword">void</span> <span class="token function">setBoostType</span><span class="token punctuation">(</span><span class="token keyword">int</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">Types</span> </span><br><span class="line">{</span><br><span class="line">    DISCRETE=<span class="number">0</span>, <span class="comment">// Discrete AdaBoost.</span></span><br><span class="line">    REAL=<span class="number">1</span>,     <span class="comment">// Real AdaBoost.</span></span><br><span class="line">    LOGIT=<span class="number">2</span>,    <span class="comment">// LogitBoost. </span></span><br><span class="line">    GENTLE=<span class="number">3</span>    <span class="comment">// Gentle AdaBoost. </span></span><br><span class="line">};</span><br><span class="line"><span class="comment">// 访问函数：</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">getBoostType</span><span class="params">()</span></span>; <span class="comment">// 默认是 REAL</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setBoostType</span><span class="params">(<span class="type">int</span> val)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li><code>WeakCount</code>：弱分类器的数量，也是迭代次数。访问函数：</li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">getWeakCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 默认是 100</span>
-<span class="token keyword">void</span> <span class="token function">setWeakCount</span><span class="token punctuation">(</span><span class="token keyword">int</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">getWeakCount</span><span class="params">()</span></span>; <span class="comment">// 默认是 100</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setWeakCount</span><span class="params">(<span class="type">int</span> val)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li><code>WeightTrimRate</code>：裁剪率，0～1，在迭代过程中，那些归一化后的样本权值 wi(m) 小于该裁剪率的样本将不进入下次迭代。访问函数：</li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">double</span> <span class="token function">getWeightTrimRate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 默认是 0.95</span>
-<span class="token keyword">void</span> <span class="token function">setWeightTrimRate</span><span class="token punctuation">(</span><span class="token keyword">double</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">double</span> <span class="title">getWeightTrimRate</span><span class="params">()</span></span>; <span class="comment">// 默认是 0.95</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setWeightTrimRate</span><span class="params">(<span class="type">double</span> val)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="例子-用户贷款违约预测">例子-用户贷款违约预测</h3>
 <p>数据集地址：<a target="_blank" rel="noopener" href="https://aistudio.baidu.com/datasetdetail/112664">https://aistudio.baidu.com/datasetdetail/112664</a></p>
 <p>数据集的属性如下：</p>
@@ -2289,11 +2141,7 @@ Test Data imported: 9992
 <li>label：是否存在违约，即响应值</li>
 </ul>
 <p>AdaBoost 分类效果如下：</p>
-<pre class="line-numbers language-none"><code class="language-none">Train Data imported: 168000
-Test Data imported: 84000
-AdaBoost算法(基于OpenCV实现)：
-计算花费时长：31247ms
-准确率：0.890024<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Train Data imported: 168000</span><br><span class="line">Test Data imported: 84000</span><br><span class="line">AdaBoost算法(基于OpenCV实现)：</span><br><span class="line">计算花费时长：31247ms</span><br><span class="line">准确率：0.890024</span><br></pre></td></tr></tbody></table></figure>
 <p>代码地址：<a target="_blank" rel="noopener" href="https://gitee.com/fingsinz/mlcode/blob/master/AdaBoost/AdaBoost.h">Gitee - AdaBoost</a></p>
 <h2 id="随机森林">随机森林</h2>
 <p>森林由若干棵树组成。</p>
@@ -2416,15 +2264,11 @@ AdaBoost算法(基于OpenCV实现)：
 <ul>
 <li><code>CalculateVarImportance</code>：表示是否计算特征属性的重要程度。函数接口：</li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">bool</span> <span class="token function">getCalculateVarImportance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">void</span> <span class="token function">setCalculateVarImportance</span><span class="token punctuation">(</span><span class="token keyword">bool</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 默认值为false</span>
-
-<span class="token comment">// 可以通过RTrees::getVarImportance检索。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">getCalculateVarImportance</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setCalculateVarImportance</span><span class="params">(<span class="type">bool</span> val)</span></span>; <span class="comment">// 默认值为false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以通过RTrees::getVarImportance检索。</span></span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li><code>ActiveVarCount</code>：在每棵树结点处随机选择的特征子集的大小，以及所使用的找到最佳分割点。如果将其设置为0，则大小将设置为特征总数的平方根。函数接口：</li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">getActiveVarCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
-<span class="token keyword">void</span> <span class="token function">setActiveVarCount</span><span class="token punctuation">(</span><span class="token keyword">int</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 默认值为0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">getActiveVarCount</span><span class="params">()</span> </span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setActiveVarCount</span><span class="params">(<span class="type">int</span> val)</span></span>; <span class="comment">// 默认值为0</span></span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li><code>TermCriteria</code>：迭代终止条件。</li>
 </ul>
@@ -2444,17 +2288,7 @@ AdaBoost算法(基于OpenCV实现)：
 <li>I_Mean_Accuracy：准确性，为响应值</li>
 </ul>
 <p>使用决策树和随机森林的效果如下：</p>
-<pre class="line-numbers language-none"><code class="language-none">Train Data imported: 30457
-Test Data imported: 9992
-决策树算法(基于OpenCV实现)：
-计算花费时长：186ms
-平均误差：0.0239817
-
-Train Data imported: 30457
-Test Data imported: 9992
-随机森林算法(基于OpenCV实现)：
-计算花费时长：17378ms
-平均误差：0.0212776<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Train Data imported: 30457</span><br><span class="line">Test Data imported: 9992</span><br><span class="line">决策树算法(基于OpenCV实现)：</span><br><span class="line">计算花费时长：186ms</span><br><span class="line">平均误差：0.0239817</span><br><span class="line"></span><br><span class="line">Train Data imported: 30457</span><br><span class="line">Test Data imported: 9992</span><br><span class="line">随机森林算法(基于OpenCV实现)：</span><br><span class="line">计算花费时长：17378ms</span><br><span class="line">平均误差：0.0212776</span><br></pre></td></tr></tbody></table></figure>
 <p>代码地址：<a target="_blank" rel="noopener" href="https://gitee.com/fingsinz/mlcode/blob/master/RTrees/RTrees.h">Gitee - Random Trees</a></p>
 <h2 id="神经网络">神经网络</h2>
 <p>神经网络是一种模仿生物神经系统的机器学习算法。</p>
@@ -2714,109 +2548,47 @@ Test Data imported: 9992
 </ul>
 <h3 id="opencv-提供的-ann">OpenCV 提供的 ANN</h3>
 <p>OpenCV 提供的神经网络算法有：</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">enum</span> <span class="token class-name">TrainingMethods</span>
-<span class="token punctuation">{</span>
-    BACKPROP<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>     <span class="token comment">// BP 算法</span>
-    RPROP <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span>      <span class="token comment">// RPROP 算法</span>
-    ANNEAL <span class="token operator">=</span> <span class="token number">2</span>      <span class="token comment">// 模拟退火算法</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">TrainingMethods</span></span><br><span class="line">{</span><br><span class="line">    BACKPROP=<span class="number">0</span>,     <span class="comment">// BP 算法</span></span><br><span class="line">    RPROP = <span class="number">1</span>,      <span class="comment">// RPROP 算法</span></span><br><span class="line">    ANNEAL = <span class="number">2</span>      <span class="comment">// 模拟退火算法</span></span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
 <p>通过函数设置：</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// param1：</span>
-<span class="token comment">//      - 对于RPROP算法，传递给setRpropDW0；</span>
-<span class="token comment">//      - 对于BP算法，传递给setBackpropWeightScale；</span>
-<span class="token comment">//      - 对于模拟退火算法，传递给initialT。</span>
-<span class="token comment">// param2：</span>
-<span class="token comment">//      - 对于RPROP算法，传递给setRpropDWMin；</span>
-<span class="token comment">//      - 对于BP算法，传递给setBackpropMomentumScale；</span>
-<span class="token comment">//      - 对于模拟退火算法，传递给finalT。</span>
-<span class="token keyword">void</span> <span class="token function">setTrainMethod</span><span class="token punctuation">(</span><span class="token keyword">int</span> method<span class="token punctuation">,</span> <span class="token keyword">double</span> param1 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">double</span> param2 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">int</span> <span class="token function">getTrainMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// param1：</span></span><br><span class="line"><span class="comment">//      - 对于RPROP算法，传递给setRpropDW0；</span></span><br><span class="line"><span class="comment">//      - 对于BP算法，传递给setBackpropWeightScale；</span></span><br><span class="line"><span class="comment">//      - 对于模拟退火算法，传递给initialT。</span></span><br><span class="line"><span class="comment">// param2：</span></span><br><span class="line"><span class="comment">//      - 对于RPROP算法，传递给setRpropDWMin；</span></span><br><span class="line"><span class="comment">//      - 对于BP算法，传递给setBackpropMomentumScale；</span></span><br><span class="line"><span class="comment">//      - 对于模拟退火算法，传递给finalT。</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setTrainMethod</span><span class="params">(<span class="type">int</span> method, <span class="type">double</span> param1 = <span class="number">0</span>, <span class="type">double</span> param2 = <span class="number">0</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">getTrainMethod</span><span class="params">()</span></span>;</span><br></pre></td></tr></tbody></table></figure>
 <p>OpenCV 提供的激活函数（目前，默认和唯一完全支持的激活函数是对称 Sigmoid）：</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">enum</span> <span class="token class-name">ActivationFunctions</span>
-<span class="token punctuation">{</span>
-    <span class="token comment">// 线性函数</span>
-    IDENTITY <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
-    
-    <span class="token comment">// 对称 Sigmoid 函数</span>
-    SIGMOID_SYM <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span>
-
-    <span class="token comment">// 高斯函数</span>
-    GAUSSIAN <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span>
-    
-    <span class="token comment">// ReLU 函数：f(x)=max(0,x)</span>
-    RELU <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span>
-
-    <span class="token comment">// Leaky ReLU 函数：当 x&gt;0，f(x)=x；当 x&lt;=0，f(x)=αx</span>
-    LEAKYRELU<span class="token operator">=</span> <span class="token number">4</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">ActivationFunctions</span></span><br><span class="line">{</span><br><span class="line">    <span class="comment">// 线性函数</span></span><br><span class="line">    IDENTITY = <span class="number">0</span>,</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 对称 Sigmoid 函数</span></span><br><span class="line">    SIGMOID_SYM = <span class="number">1</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 高斯函数</span></span><br><span class="line">    GAUSSIAN = <span class="number">2</span>,</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// ReLU 函数：f(x)=max(0,x)</span></span><br><span class="line">    RELU = <span class="number">3</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Leaky ReLU 函数：当 x&gt;0，f(x)=x；当 x&lt;=0，f(x)=αx</span></span><br><span class="line">    LEAKYRELU= <span class="number">4</span></span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
 <p>通过函数设置：</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// param1：激活函数的第一个参数，α</span>
-<span class="token comment">// param2：激活函数的第二个参数，β</span>
-<span class="token keyword">void</span> <span class="token function">setActivationFunction</span><span class="token punctuation">(</span><span class="token keyword">int</span> type<span class="token punctuation">,</span> <span class="token keyword">double</span> param1 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">double</span> param2 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// param1：激活函数的第一个参数，α</span></span><br><span class="line"><span class="comment">// param2：激活函数的第二个参数，β</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setActivationFunction</span><span class="params">(<span class="type">int</span> type, <span class="type">double</span> param1 = <span class="number">0</span>, <span class="type">double</span> param2 = <span class="number">0</span>)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
 <p>部分参数如下：</p>
 <ul>
 <li><code>LayerSizes</code>：指定每层神经元的数量，包括输入和输出层。参数为向量，第一个元素指定了输入层中元素的数量。最后一个元素为输出层中元素的数量。默认值为空。</li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">setLayerSizes</span><span class="token punctuation">(</span>InputArray _layer_sizes<span class="token punctuation">)</span><span class="token punctuation">;</span>
-cv<span class="token double-colon punctuation">::</span>Mat <span class="token function">getLayerSizes</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">setLayerSizes</span><span class="params">(InputArray _layer_sizes)</span></span>;</span><br><span class="line"><span class="function">cv::Mat <span class="title">getLayerSizes</span><span class="params">()</span> <span class="type">const</span> </span>= <span class="number">0</span>;</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li><code>BackpropWeightScale</code>：权重梯度项的强度，<br>
 推荐值为0.1左右，默认值为0.1。</li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">double</span> <span class="token function">getBackpropWeightScale</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">void</span> <span class="token function">setBackpropWeightScale</span><span class="token punctuation">(</span><span class="token keyword">double</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">double</span> <span class="title">getBackpropWeightScale</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setBackpropWeightScale</span><span class="params">(<span class="type">double</span> val)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li><code>BackpropMomentumScale</code>：动量项的强度，该参数提供了一些惯量来平滑权重的随机波动。默认值为0.1。</li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">double</span> <span class="token function">getBackpropMomentumScale</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">void</span> <span class="token function">setBackpropMomentumScale</span><span class="token punctuation">(</span><span class="token keyword">double</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">double</span> <span class="title">getBackpropMomentumScale</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setBackpropMomentumScale</span><span class="params">(<span class="type">double</span> val)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li><code>propDW0</code>：RPROP 中的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="normal">Δ</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">\Delta_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord">Δ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，默认值为0.1。</li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">double</span> <span class="token function">getRpropDW0</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">void</span> <span class="token function">setRpropDW0</span><span class="token punctuation">(</span><span class="token keyword">double</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">double</span> <span class="title">getRpropDW0</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setRpropDW0</span><span class="params">(<span class="type">double</span> val)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li><code>RpropDWPlus</code>：RPROP 中的增加因子 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>η</mi><mo>+</mo></msup></mrow><annotation encoding="application/x-tex">\eta^+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9657709999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">η</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.771331em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span></span></span></span>，默认值为1.2。</li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">double</span> <span class="token function">getRpropDWPlus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">void</span> <span class="token function">setRpropDWPlus</span><span class="token punctuation">(</span><span class="token keyword">double</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">double</span> <span class="title">getRpropDWPlus</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setRpropDWPlus</span><span class="params">(<span class="type">double</span> val)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li><code>RpropDWMinus</code>：RPROP 中的减少因子 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>η</mi><mo>−</mo></msup></mrow><annotation encoding="application/x-tex">\eta^-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9657709999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">η</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.771331em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">−</span></span></span></span></span></span></span></span></span></span></span>，默认值为0.5。</li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">double</span> <span class="token function">getRpropDWMinus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">void</span> <span class="token function">setRpropDWMinus</span><span class="token punctuation">(</span><span class="token keyword">double</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">double</span> <span class="title">getRpropDWMinus</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setRpropDWMinus</span><span class="params">(<span class="type">double</span> val)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li><code>RpropDWMin</code> 和 <code>RpropDWMax</code>：RPROP 中的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="normal">Δ</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Delta_{min}(t)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord">Δ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">t</span><span class="mclose">)</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="normal">Δ</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Delta_{max}(t)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord">Δ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">t</span><span class="mclose">)</span></span></span></span></li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// Default value is FLT_EPSILON.</span>
-<span class="token keyword">double</span> <span class="token function">getRpropDWMin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">void</span> <span class="token function">setRpropDWMin</span><span class="token punctuation">(</span><span class="token keyword">double</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">// Default value is 50.</span>
-<span class="token keyword">double</span> <span class="token function">getRpropDWMax</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">void</span> <span class="token function">setRpropDWMax</span><span class="token punctuation">(</span><span class="token keyword">double</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Default value is FLT_EPSILON.</span></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">getRpropDWMin</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setRpropDWMin</span><span class="params">(<span class="type">double</span> val)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Default value is 50.</span></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">getRpropDWMax</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setRpropDWMax</span><span class="params">(<span class="type">double</span> val)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li>模拟退火相关：</li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// 更新初始温度，默认值为 10</span>
-<span class="token keyword">double</span> <span class="token function">getAnnealInitialT</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
- <span class="token keyword">void</span> <span class="token function">setAnnealInitialT</span><span class="token punctuation">(</span><span class="token keyword">double</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">// 更新最终温度，默认值为 0.1</span>
-<span class="token keyword">double</span> <span class="token function">getAnnealFinalT</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">void</span> <span class="token function">setAnnealFinalT</span><span class="token punctuation">(</span><span class="token keyword">double</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">// 更新冷却比，默认值为 0.95</span>
-<span class="token keyword">double</span> <span class="token function">getAnnealCoolingRatio</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">void</span> <span class="token function">setAnnealCoolingRatio</span><span class="token punctuation">(</span><span class="token keyword">double</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">// 每一步更新迭代，默认值为 10</span>
-<span class="token keyword">int</span> <span class="token function">getAnnealItePerStep</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">void</span> <span class="token function">setAnnealItePerStep</span><span class="token punctuation">(</span><span class="token keyword">int</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">// 设置/初始化退火RNG</span>
-<span class="token keyword">void</span> <span class="token function">setAnnealEnergyRNG</span><span class="token punctuation">(</span><span class="token keyword">const</span> RNG<span class="token operator">&amp;</span> rng<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 更新初始温度，默认值为 10</span></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">getAnnealInitialT</span><span class="params">()</span></span>;</span><br><span class="line"> <span class="function"><span class="type">void</span> <span class="title">setAnnealInitialT</span><span class="params">(<span class="type">double</span> val)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 更新最终温度，默认值为 0.1</span></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">getAnnealFinalT</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setAnnealFinalT</span><span class="params">(<span class="type">double</span> val)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 更新冷却比，默认值为 0.95</span></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">getAnnealCoolingRatio</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setAnnealCoolingRatio</span><span class="params">(<span class="type">double</span> val)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 每一步更新迭代，默认值为 10</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">getAnnealItePerStep</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setAnnealItePerStep</span><span class="params">(<span class="type">int</span> val)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置/初始化退火RNG</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setAnnealEnergyRNG</span><span class="params">(<span class="type">const</span> RNG&amp; rng)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li><code>TermCriteria</code>：迭代条件。</li>
 </ul>
@@ -2834,19 +2606,9 @@ cv<span class="token double-colon punctuation">::</span>Mat <span class="token f
 <li>Age：年龄</li>
 </ul>
 <p>使用 MLP 进行预测结果与贝叶斯分类器比较如下：</p>
-<pre class="line-numbers language-none"><code class="language-none">Train Data imported: 668
-Test Data imported: 100
-正态贝叶斯分类器：
-计算花费时长：0ms
-正确率：0.76
-
-Train Data imported: 668
-Test Data imported: 100
-神经网络（BP）算法(基于OpenCV实现)：
-计算花费时长：230ms
-正确率：0.82<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Train Data imported: 668</span><br><span class="line">Test Data imported: 100</span><br><span class="line">正态贝叶斯分类器：</span><br><span class="line">计算花费时长：0ms</span><br><span class="line">正确率：0.76</span><br><span class="line"></span><br><span class="line">Train Data imported: 668</span><br><span class="line">Test Data imported: 100</span><br><span class="line">神经网络（BP）算法(基于OpenCV实现)：</span><br><span class="line">计算花费时长：230ms</span><br><span class="line">正确率：0.82</span><br></pre></td></tr></tbody></table></figure>
 <p>代码地址：<a target="_blank" rel="noopener" href="https://gitee.com/fingsinz/mlcode/blob/master/MLP/MLP.h">Gitee - ANN_MLP</a></p>
-</div><script src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.4.0/dist/js/lightgallery.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
+</div><script src="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/js/lightgallery.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
         var options = {
             selector: '.gallery-item'
         };
@@ -2970,9 +2732,8 @@ Test Data imported: 100
 
 
 
-<script src="
-https://cdn.jsdelivr.net/npm/lightgallery.js@1.4.0/dist/js/lightgallery.min.js
-"></script>
+<script src="/js/lightgallery.min.js"></script>
+
 
 
                 </div>

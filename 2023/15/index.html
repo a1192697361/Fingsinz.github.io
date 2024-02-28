@@ -3,7 +3,7 @@
     
     <head>
     <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  viewport-fit=cover" name="viewport" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
     <meta name="description" content="利用Ping指令进行基本网络检测" />
     <meta name="hexo-theme-A4" content="v1.8.3" />
     <link rel="alternate icon" type="image/webp" href="/img/favicon.webp">
@@ -51,11 +51,11 @@
 
     
     
-    <link href="
-https://cdn.jsdelivr.net/npm/lightgallery.js@1.4.0/dist/css/lightgallery.min.css
-" rel="stylesheet">
+   
+<link rel="stylesheet" href="/css/lightgallery.min.css">
 
-<meta name="generator" content="Hexo 6.3.0">
+
+<meta name="generator" content="Hexo 7.1.1">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
     
@@ -306,35 +306,35 @@ https://cdn.jsdelivr.net/npm/lightgallery.js@1.4.0/dist/css/lightgallery.min.css
 <span id="more"></span>
 <hr>
 <h1>测试TCP/IP协议栈</h1>
-<pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">ping 127.0.0.1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ping</span> <span class="number">127</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">1</span></span><br></pre></td></tr></tbody></table></figure>
 <p><code>127.0.0.1</code> 是你本地主机的环回地址，实际上只要是 <code>127.0.0.1</code> 到 <code>127.255.255.254</code> 都是本地主机环回地址。</p>
 <ul>
 <li>作用：用于检查本地主机TCP/IP协议栈是否正常。</li>
 </ul>
 <h1>测试本地网卡</h1>
 <p>打开cmd（命令提示符），输入：</p>
-<pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">ipconfig<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ipconfig</span></span><br></pre></td></tr></tbody></table></figure>
 <p>记住自己的本地ip，接着输入：</p>
-<pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">ping [本地ip]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ping</span> [本地ip]</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li>作用：用于检查本地网卡工作是否正常。</li>
 </ul>
 <h1>测试与网关的链路</h1>
 <p>打开cmd（命令提示符），输入：</p>
-<pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">ipconfig<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ipconfig</span></span><br></pre></td></tr></tbody></table></figure>
 <p>记住自己的默认网关，接着输入：</p>
-<pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">ping [默认网关]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ping</span> [默认网关]</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li>用于检查本地主机与网关的链路是否正常。</li>
 </ul>
 <h1>测试与外网远程网站的链路</h1>
 <p>以连通百度网站为测试：</p>
 <p>打开cmd（命令提示符），输入：</p>
-<pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">ping www.baidu.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ping</span> www.baidu.com</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li>用于检查本地主机与外网远程网站的链路是否正常。</li>
 </ul>
-</div><script src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.4.0/dist/js/lightgallery.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
+</div><script src="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/js/lightgallery.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
         var options = {
             selector: '.gallery-item'
         };
@@ -454,9 +454,8 @@ https://cdn.jsdelivr.net/npm/lightgallery.js@1.4.0/dist/css/lightgallery.min.css
 
 
 
-<script src="
-https://cdn.jsdelivr.net/npm/lightgallery.js@1.4.0/dist/js/lightgallery.min.js
-"></script>
+<script src="/js/lightgallery.min.js"></script>
+
 
 
                 </div>
