@@ -4,7 +4,7 @@
     <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
-    <meta name="description" content="" />
+    <meta name="description" content="JetBrains系软件的数据位置修改" />
     <meta name="hexo-theme-A4" content="v1.8.3" />
     <link rel="alternate icon" type="image/webp" href="/img/favicon.webp">
     <title>Fingsinz&#39;s space | 风信梓</title>
@@ -293,16 +293,71 @@
                         <div class="post-main">
 
     
+        <div class="post-main-title">
+            JetBrains系软件的数据位置修改
+        </div>
+      
+    
 
     <div class="post-md">
         
             
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%9F%A5%E6%89%BE%E5%8E%9F%E6%9D%A5%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BD%8D%E7%BD%AE"><span class="post-toc-text">查找原来的数据位置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%8A%8A%E5%8E%9F%E6%9D%A5%E7%9A%84%E6%95%B0%E6%8D%AE%E6%8B%B7%E8%B4%9D%E5%88%B0%E6%96%B0%E4%BD%8D%E7%BD%AE"><span class="post-toc-text">把原来的数据拷贝到新位置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%8C%87%E5%AE%9A%E8%B7%AF%E5%BE%84"><span class="post-toc-text">修改配置文件指定路径</span></a></li></ol>
+            
         
-        
+        <div class=".article-gallery"><span id="more"></span>
+<hr>
+<p><em>以 CLion 为例。</em></p>
+<p><em>需要关闭软件后操作。</em></p>
+<h2 id="查找原来的数据位置">查找原来的数据位置</h2>
+<ul>
+<li>config 项默认在：<code>C:/Users/用户名/AppData/Roaming/JetBrains/产品</code></li>
+<li>system 项默认在：<code>C:/Users/用户名/AppData/Local/JetBrains/产品</code></li>
+</ul>
+<h2 id="把原来的数据拷贝到新位置">把原来的数据拷贝到新位置</h2>
+<ul>
+<li>比如我需要把原来的数据拷贝到 <code>E:/CLion</code> 下新建的 <code>.CLion</code> 文件夹。</li>
+</ul>
+<ol>
+<li>
+<p>将 <code>C:/Users/用户名/AppData/Roaming/JetBrains/CLion</code> 下所有内容复制到 <code>E:/CLion/.CLion</code> 下新建的文件夹 <code>config</code> 。</p>
+</li>
+<li>
+<p>将 <code>C:/Users/用户名/AppData/Local/JetBrains/产品</code> 下所有内容复制到 <code>E:/CLion/.CLion</code> 下新建的文件夹 <code>system</code> 。</p>
+</li>
+</ol>
+<h2 id="修改配置文件指定路径">修改配置文件指定路径</h2>
+<p>找到 CLion 安装目录下的 <code>bin</code> 目录，打开 <code>idea.properties</code> 配置文件，修改路径如下：</p>
+<figure class="highlight properties"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#---------------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Uncomment this option if you want to customize a path to the settings directory.</span></span><br><span class="line"><span class="comment">#---------------------------------------------------------------------</span></span><br><span class="line"><span class="attr">idea.config.path</span>=<span class="string">E:/CLion/.CLion/config</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">#---------------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Uncomment this option if you want to customize a path to the caches directory.</span></span><br><span class="line"><span class="comment">#---------------------------------------------------------------------</span></span><br><span class="line"><span class="attr">idea.system.path</span>=<span class="string">E:/CLion/.CLion/system</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">#---------------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Uncomment this option if you want to customize a path to the user-installed plugins directory.</span></span><br><span class="line"><span class="comment">#---------------------------------------------------------------------</span></span><br><span class="line"><span class="attr">idea.plugins.path</span>=<span class="string">E:/CLion/.CLion/config/plugins</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">#---------------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Uncomment this option if you want to customize a path to the logs directory.</span></span><br><span class="line"><span class="comment">#---------------------------------------------------------------------</span></span><br><span class="line"><span class="attr">idea.log.path</span>=<span class="string">E:/CLion/.CLion/system/log</span></span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>此处为我自己个人的配置，自行选择合适的路径修改。</li>
+</ul>
+</div><script src="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/js/lightgallery.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
+        var options = {
+            selector: '.gallery-item'
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options);
+        }</script><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
     <div class="post-meta">
         <i>
+        
+            <span>2024-03-15</span>
+            
+                <span>该篇文章被 Fingsinz</span>
+            
+            
+             
+                <span>归为分类:
+                    
+                    
+                        <a href='/categories/%E6%97%A5%E5%B8%B8/'>
+                            日常
+                        </a>
+                    
+                </span>
+            
         
         </i>
     </div>
