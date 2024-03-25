@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    
+    <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+    <meta name="description" content="设计模式 - C++" />
+    <meta name="hexo-theme-A4" content="v1.8.3" />
+    <link rel="alternate icon" type="image/webp" href="/img/favicon.webp">
+    <title>Fingsinz&#39;s space | 风信梓</title>
+
+    
+        
+<link rel="stylesheet" href="/css/highlight/style1.css">
+
+        
+<link rel="stylesheet" href="/css/reset.css">
+
+        
+<link rel="stylesheet" href="/css/markdown.css">
+
+        
+<link rel="stylesheet" href="/css/fonts.css">
+ 
+         <!--注意：首页既不是post也不是page-->
+        
+        
+        
+<link rel="stylesheet" href="/css/ui.css">
+ 
+        
+<link rel="stylesheet" href="/css/style.css">
+
+
+        
+            <!--返回顶部css-->
+            
+<link rel="stylesheet" href="/css/returnToTop.css">
+
+            
+<link rel="stylesheet" href="/css/unicons.css">
+
+        
+        
+            <!--目录-->
+            
+<link rel="stylesheet" href="/css/toc.css">
+
+        
+    
+
+    
+    
+   
+<link rel="stylesheet" href="/css/lightgallery.min.css">
+
+
+<meta name="generator" content="Hexo 7.1.1">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+    
+    <style>
+        :root {
+            --waline-theme-color: #000000; 
+            --waline-color: #000000; 
+            --waline-border-color: #000000; 
+            --waline-white: #000000; 
+            --waline-bgcolor-light: white;  
+        }
+        body {
+            color: #000000;
+            background: #bed2bb;
+        }
+        .post-md code {
+            background: #e7f7f3;
+            color: #7f688d; 
+        }
+        .post-md pre, .post-md .highlight {
+            background: #e7f7f3;
+            color: #7f688d; 
+        }
+        pre .string, pre .value, pre .inheritance, pre .header, pre .ruby .symbol, pre .xml .cdata {
+            color: #000000;
+        }
+        pre .number, pre .preprocessor, pre .built_in, pre .literal, pre .params, pre .constant {
+            color: #000000;
+        }
+        .year-font-color {
+            color: #000000 !important;
+        }
+        .wl-card span.wl-nick {
+            color: #000000; 
+        }
+        .wl-card .wl-badge {
+            border: 1px solid #000000;
+            color: #000000; 
+        }
+        .wl-btn {
+            border: 1px solid #000000; 
+            color:  #000000;  
+        }
+        .wl-btn.primary {
+            color: white; 
+        }
+        .wl-header label {
+            color: #000000;
+        }
+        a {
+            color: #6b798e;
+        }
+
+        .post-md a {
+            color: #6b798e;
+        }
+
+        .nav li a {
+            color: #6b798e;
+        }
+
+        .archive-main a:link {
+            color: #6b798e;
+        }
+        .archive-main a:visited {
+            color: #6b798e; 
+        }
+
+        .archive li span {
+            color: #000000;
+        }
+
+        .post-main-title {
+            color: #000000;
+        }
+
+        .post-md h1,
+        .post-md h2,
+        .post-md h3,
+        .post-md h4,
+        .post-md h5,
+        .post-md h6 {
+            color: #000000;
+        }
+
+        [data-waline] p {
+            color: #000000;
+        }
+        [data-waline] a {
+            color: #000000;
+        } 
+        .wl-sort li.active {
+            color: #000000;
+        }
+
+        .wl-card .wl-meta>span {
+            background: white;
+        }
+
+        .paper {
+            background: #bed2bb;
+        }
+
+        .index-main {
+            background: white;
+        }
+
+        .paper-main {
+            background: white;
+        }
+
+        .wl-panel {
+            background: white;
+        }
+
+        .archive li:nth-child(odd) {
+            background: white;
+            ;
+        }
+
+        .archive li:nth-child(even) {
+            background: white;
+        }
+
+        .post-md table tr:nth-child(odd) td {
+            background: white;
+        }
+
+        .post-md table tr:nth-child(even) td {
+            background: white;
+        }
+
+    
+        .progress-wrap::after {
+            color: #000000; /* 箭头的颜色 */
+        }
+        .progress-wrap svg.progress-circle path {
+	        stroke: #000000; /* 边框的颜色 */
+        }
+        .progress-wrap::before {
+	        background-image: linear-gradient(298deg, #6b798e, #6b798e); /* 鼠标滑过的箭头颜色 */
+         }
+
+        .return-to-last-progress-wrap::after {
+            color: #000000; /* 箭头的颜色 */
+        }
+        .return-to-last-progress-wrap svg.progress-circle path {
+	        stroke: #000000; /* 边框的颜色 */
+        }
+        .return-to-last-progress-wrap::before {
+	        background-image: linear-gradient(298deg, #6b798e, #6b798e); /* 鼠标滑过的箭头颜色 */
+         }
+
+         .left-toc-container::-webkit-scrollbar-thumb {
+            background-color: #000000; /* 设置滚动条拖动块的颜色 */
+        }
+
+        .bs-docs-sidebar .nav>.active>a,
+        .bs-docs-sidebar .nav>li>a:hover,
+        .bs-docs-sidebar .nav>li>a:focus {
+            color: #6b798e;
+            border-left-color: #6b798e;
+        }
+        .bs-docs-sidebar .nav>li>a {
+            color:  #000000;
+        }
+    </style>
+
+    
+    <body>
+        
+            <div class="left-toc-container">
+                <nav id="toc" class="bs-docs-sidebar"></nav>
+            </div>
+        
+        <div class="paper">
+            
+            
+            
+            
+                <div class="shadow-drop-2-bottom paper-main">
+                    
+
+
+<div class="header">
+    <div class="header-container">
+        <img style="
+        width: 56px;
+        height: auto;" alt="^-^" cache-control="max-age=86400" class="header-img" src="/img/favicon.webp" width="10%"></img>
+        <div class="header-content">
+            <a class="logo" href="/">Fingsinz&#39;s space</a> 
+            <span class="description">我在想，时下你所需要的，应该是痛痛快快换个心情，干干脆脆享受人生。</span> 
+        </div>
+        
+    </div>
+    
+   
+    <ul class="nav">
+        
+            
+                <li><a href="/">首页🏚️</a></li>
+            
+        
+            
+                <li><a href="/list/">文章📄</a></li>
+            
+        
+            
+                <li><a href="/categories/">分类📁</a></li>
+            
+        
+            
+                <li><a href="/notes/">笔记📔</a></li>
+            
+        
+            
+                <li><a href="/funny/">趣事💡</a></li>
+            
+        
+            
+                <li><a href="/about/">关于🧑</a></li>
+            
+        
+    </ul>
+</div> 
+        
+                    
+                    
+
+                    
+                    
+                    
+                    <!--说明是文章post页面-->
+                    
+                        <div class="post-main">
+
+    
+        <div class="post-main-title">
+            设计模式 - C++
+        </div>
+      
+    
+
+    <div class="post-md">
+        
+            
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F"><span class="post-toc-text">创建型模式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F"><span class="post-toc-text">简单工厂模式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%E5%AE%9A%E4%B9%89"><span class="post-toc-text">简单工厂模式定义</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%E5%8A%A8%E6%9C%BA"><span class="post-toc-text">简单工厂模式动机</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84"><span class="post-toc-text">简单工厂模式结构</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%E4%BB%A3%E7%A0%81"><span class="post-toc-text">简单工厂模式代码</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="post-toc-text">简单工厂模式优缺点</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%E9%80%82%E7%94%A8%E7%8E%AF%E5%A2%83"><span class="post-toc-text">简单工厂模式适用环境</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93"><span class="post-toc-text">简单工厂模式总结</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F"><span class="post-toc-text">工厂方法模式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F%E5%AE%9A%E4%B9%89"><span class="post-toc-text">工厂方法模式定义</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F%E5%8A%A8%E6%9C%BA"><span class="post-toc-text">工厂方法模式动机</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84"><span class="post-toc-text">工厂方法模式结构</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F%E4%BB%A3%E7%A0%81"><span class="post-toc-text">工厂方法模式代码</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="post-toc-text">工厂方法模式优缺点</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F%E9%80%82%E7%94%A8%E7%8E%AF%E5%A2%83"><span class="post-toc-text">工厂方法模式适用环境</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F%E6%89%A9%E5%B1%95"><span class="post-toc-text">工厂方法模式扩展</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93"><span class="post-toc-text">工厂方法模式总结</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F"><span class="post-toc-text">结构型模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F"><span class="post-toc-text">行为型模式</span></a></li></ol>
+            
+        
+        <div class=".article-gallery"><p>关键词：C++、设计模式</p>
+<span id="more"></span>
+<hr>
+<blockquote>
+<p><strong>Reference：</strong><br>
+<a target="_blank" rel="noopener" href="https://design-patterns.readthedocs.io/zh-cn/latest/index.html">图说设计模式</a></p>
+</blockquote>
+<p>软件模式是应用于软件开发领域的模式，即软件开发的总体指导思路或参照样板。</p>
+<h2 id="创建型模式">创建型模式</h2>
+<h3 id="简单工厂模式">简单工厂模式</h3>
+<h4 id="简单工厂模式定义">简单工厂模式定义</h4>
+<p>简单工厂模式（Simple Factory Pattern），又称为静态工厂模式（Static Factory Pattern），属于创建型模式。</p>
+<ul>
+<li>专门定义一个类来负责创建其他类的实例，被创建的实例通常具有共同的父亲。</li>
+<li>可以根据参数的不同返回不同类的实例。</li>
+</ul>
+<h4 id="简单工厂模式动机">简单工厂模式动机</h4>
+<p>考虑一个界面，其中可以有多个按钮，每个按钮可以对应不同的功能。</p>
+<ul>
+<li>这些按钮都源自同一个基类，通过继承基类后修改部分属性和方法使得呈现不同的表现。</li>
+<li>在使用这些按钮时，不需要知道这些具体按钮类的名字，只需要知道表示该按钮类的一个参数，并提供一个调用方便的方法，把该参数传入方法即可返回一个相应的按钮对象。</li>
+</ul>
+<h4 id="简单工厂模式结构">简单工厂模式结构</h4>
+<p>简单工厂模式包含以下角色：</p>
+<ul>
+<li>Factory（工厂角色）：负责实现创建所有实例的内部逻辑。</li>
+<li>Product（抽象产品角色）：是所创建的所有对象的父类，负责描述所有实例所共有的公共接口。</li>
+<li>ConcreteProduct（具体产品角色）：是创建的目标，所有创建的对象都充当这个角色的某个具体类的实例。</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://fblog-1257020106.cos.ap-shanghai.myqcloud.com/imgs/designpattern_SimpleFactory.png" title="简单工厂模式" class="gallery-item" style="box-shadow: none;"> <img src="https://fblog-1257020106.cos.ap-shanghai.myqcloud.com/imgs/designpattern_SimpleFactory.png" alt="简单工厂模式"></a></p>
+<h4 id="简单工厂模式代码">简单工厂模式代码</h4>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://gitee.com/fingsinz/design-patterns-in-cpp/tree/master/SimpleFactory">Gitee</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Fingsinz/Patterns/tree/master/SimpleFactory">Github</a></li>
+</ul>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"Factory.h"</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"Product.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	Product *product = Factory::<span class="built_in">createProduct</span>(<span class="string">"ProductA"</span>);</span><br><span class="line">	product-&gt;<span class="built_in">use</span>();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">delete</span> product;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="简单工厂模式优缺点">简单工厂模式优缺点</h4>
+<p>优点：</p>
+<ul>
+<li>工厂类含有必要的判断逻辑，可以决定在什么时候创建哪一个产品类的实例，客户端可以免除直接创建产品对象的责任，而仅仅“消费”产品；简单工厂模式通过这种做法实现了对责任的分割，它提供了专门的工厂类用于创建对象。</li>
+<li>客户端无须知道所创建的具体产品类的类名，只需要知道具体产品类所对应的参数即可，对于一些复杂的类名，通过简单工厂模式可以减少使用者的记忆量。</li>
+<li>可以通过引入配置文件，可以在不修改任何客户端代码的情况下更换和增加新的具体产品类，在一定程度上提高了系统的灵活性。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>由于工厂类集中了所有产品创建逻辑，一旦不能正常工作，整个系统都要受到影响。</li>
+<li>使用简单工厂模式将会增加系统中类的个数，在一定程序上增加了系统的复杂度和理解难度。</li>
+<li>系统扩展困难，一旦添加新产品就不得不修改工厂逻辑，在产品类型较多时，有可能造成工厂逻辑过于复杂，不利于系统的扩展和维护。</li>
+<li>由于使用了静态工厂方法，造成工厂角色无法形成基于继承的等级结构。</li>
+</ul>
+<h4 id="简单工厂模式适用环境">简单工厂模式适用环境</h4>
+<ul>
+<li>工厂类负责创建的对象比较少：
+<ul>
+<li>由于创建的对象较少，不会造成工厂方法中的业务逻辑太过复杂。</li>
+</ul>
+</li>
+<li>客户端只知道传入工厂类的参数，对于如何创建对象不关心：
+<ul>
+<li>客户端既不需要关心创建细节，甚至连类名都不需要记住，只需要知道类型所对应的参数。</li>
+</ul>
+</li>
+</ul>
+<h4 id="简单工厂模式总结">简单工厂模式总结</h4>
+<ol>
+<li>创建型模式对类的实例化过程进行了抽象，能够将对象的创建与对象的使用过程分离。</li>
+<li>简单工厂模式又称为静态工厂方法模式，它属于类创建型模式。
+<ul>
+<li>可以根据参数的不同返回不同类的实例。</li>
+<li>简单工厂模式专门定义一个类来负责创建其他类的实例，被创建的实例通常都具有共同的父类。</li>
+</ul>
+</li>
+<li>简单工厂模式包含三个角色。
+<ul>
+<li>工厂角色负责实现创建所有实例的内部逻辑；</li>
+<li>抽象产品角色是所创建的所有对象的父类，负责描述所有实例所共有的公共接口；</li>
+<li>具体产品角色是创建目标，所有创建的对象都充当这个角色的某个具体类的实例。</li>
+</ul>
+</li>
+<li>简单工厂模式的要点在于：当你需要什么，只需要传入一个正确的参数，就可以获取你所需要的对象，而无须知道其创建细节。</li>
+<li>简单工厂模式的优缺点：
+<ul>
+<li>简单工厂模式最大的优点在于实现对象的创建和对象的使用分离，将对象的创建交给专门的工厂类负责。</li>
+<li>其最大的缺点在于工厂类不够灵活，增加新的具体产品需要修改工厂类的判断逻辑代码，而且产品较多时，工厂方法代码将会非常复杂。</li>
+</ul>
+</li>
+<li>简单工厂模式适用情况包括：工厂类负责创建的对象比较少；客户端只知道传入工厂类的参数，对于如何创建对象不关心</li>
+</ol>
+<h3 id="工厂方法模式">工厂方法模式</h3>
+<h4 id="工厂方法模式定义">工厂方法模式定义</h4>
+<p>工厂方法模式（Factory Method Pattern）又称为工厂模式，也叫虚拟构造器模式或者多态工厂模式，属于类创建型模式。</p>
+<ul>
+<li>工厂父类负责定义创建产品对象的公共接口，工厂子类负责生成具体的产品对象。</li>
+<li>将产品类的实例化操作放到工厂子类中完成。</li>
+</ul>
+<h4 id="工厂方法模式动机">工厂方法模式动机</h4>
+<p>考虑一个界面，其中可以有多个按钮，每个按钮可以对应不同的功能。</p>
+<ul>
+<li>先定义一个抽象的按钮工厂类，再定义具体的工厂来去实现各种按钮。</li>
+<li>如果出现新的按钮类型，只需要为这种新类型的按钮创建一个具体的工厂类就可以获得该新按钮的实例。</li>
+</ul>
+<h4 id="工厂方法模式结构">工厂方法模式结构</h4>
+<p>工厂方法模式包含以下角色：</p>
+<ul>
+<li>Product：抽象产品。</li>
+<li>ConcreteProduct：具体产品。</li>
+<li>Factory：抽象工厂。</li>
+<li>ConcreteFactory：具体工厂。</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://fblog-1257020106.cos.ap-shanghai.myqcloud.com/imgs/designpattern_FactoryMethod.png" title="工厂方法模式" class="gallery-item" style="box-shadow: none;"> <img src="https://fblog-1257020106.cos.ap-shanghai.myqcloud.com/imgs/designpattern_FactoryMethod.png" alt="工厂方法模式"></a></p>
+<h4 id="工厂方法模式代码">工厂方法模式代码</h4>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://gitee.com/fingsinz/design-patterns-in-cpp/tree/master/FactoryMethod">Gitee</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Fingsinz/Patterns/tree/master/FactoryMethod">Github</a></li>
+</ul>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"Factory.h"</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"ConcreteFactoryA.h"</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"ConcreteFactoryB.h"</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"Product.h"</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	Factory *factoryA = <span class="keyword">new</span> <span class="built_in">ConcreteFactoryA</span>();</span><br><span class="line">	Factory *factoryB = <span class="keyword">new</span> <span class="built_in">ConcreteFactoryB</span>();</span><br><span class="line"></span><br><span class="line">	Product *pro1 = factoryA-&gt;<span class="built_in">createProduct</span>();</span><br><span class="line">	Product *pro2 = factoryB-&gt;<span class="built_in">createProduct</span>();</span><br><span class="line"></span><br><span class="line">	pro1-&gt;<span class="built_in">use</span>();</span><br><span class="line">	pro2-&gt;<span class="built_in">use</span>();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">delete</span> factoryA;</span><br><span class="line">	<span class="keyword">delete</span> factoryB;</span><br><span class="line">	<span class="keyword">delete</span> pro1;</span><br><span class="line">	<span class="keyword">delete</span> pro2;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="工厂方法模式优缺点">工厂方法模式优缺点</h4>
+<p>优点：</p>
+<ul>
+<li>工厂方法用来创建客户所需要的产品，用户只需要关心所需产品对应的工厂，无须关心创建细节，甚至无须知道具体产品类的类名。</li>
+<li>工厂方法模式之所以又被称为多态工厂模式，是因为所有的具体工厂类都具有同一抽象父类。</li>
+<li>使用工厂方法模式的另一个优点是在系统中加入新产品时，无须修改抽象工厂和抽象产品提供的接口，无须修改客户端，也无须修改其他的具体工厂和具体产品，而只要添加一个具体工厂和具体产品就可以了。这样，系统的可扩展性也就变得非常好，完全符合“开闭原则”。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>在添加新产品时，需要编写新的具体产品类，而且还要提供与之对应的具体工厂类，系统中类的个数将成对增加，在一定程度上增加了系统的复杂度，有更多的类需要编译和运行，会给系统带来一些额外的开销。</li>
+<li>由于考虑到系统的可扩展性，需要引入抽象层，在客户端代码中均使用抽象层进行定义，增加了系统的抽象性和理解难度，且在实现时可能需要用到 DOM、反射等技术，增加了系统的实现难度。</li>
+</ul>
+<h4 id="工厂方法模式适用环境">工厂方法模式适用环境</h4>
+<ul>
+<li>一个类不知道它所需要的对象的类：
+<ul>
+<li>在工厂方法模式中，客户端不需要知道具体产品类的类名，只需要知道所对应的工厂即可。</li>
+<li>具体的产品对象由具体工厂类创建；客户端需要知道创建具体产品的工厂类。</li>
+</ul>
+</li>
+<li>一个类通过其子类来指定创建哪个对象：
+<ul>
+<li>在工厂方法模式中，对于抽象工厂类只需要提供一个创建产品的接口，而由其子类来确定具体要创建的对象，利用面向对象的多态性和里氏代换原则，在程序运行时，子类对象将覆盖父类对象，从而使得系统更容易扩展。</li>
+</ul>
+</li>
+<li>将创建对象的任务委托给多个工厂子类中的某一个，客户端在使用时可以无须关心是哪一个工厂子类创建产品子类，需要时再动态指定，可将具体工厂类的类名存储在配置文件或数据库中。</li>
+</ul>
+<h4 id="工厂方法模式扩展">工厂方法模式扩展</h4>
+<ul>
+<li>使用多个工厂方法：
+<ul>
+<li>在抽象工厂角色中可以定义多个工厂方法，从而使具体工厂角色实现这些不同的工厂方法，这些方法可以包含不同的业务逻辑，以满足对不同的产品对象的需求。</li>
+</ul>
+</li>
+<li>产品对象的重复使用：
+<ul>
+<li>工厂对象将已经创建过的产品保存到一个集合（如数组、List等）中，然后根据客户对产品的请求，对集合进行查询。</li>
+<li>如果有满足要求的产品对象，就直接将该产品返回客户端；</li>
+<li>如果集合中没有这样的产品对象，那么就创建一个新的满足要求的产品对象，然后将这个对象在增加到集合中，再返回给客户端。</li>
+</ul>
+</li>
+<li>多态性的丧失和模式的退化：
+<ul>
+<li>如果工厂仅仅返回一个具体产品对象，便违背了工厂方法的用意，发生退化，此时就不再是工厂方法模式了。</li>
+<li>一般来说，工厂对象应当有一个抽象的父类型，如果工厂等级结构中只有一个具体工厂类的话，抽象工厂就可以省略，也将发生了退化。</li>
+<li>当只有一个具体工厂，在具体工厂中可以创建所有的产品对象，并且工厂方法设计为静态方法时，工厂方法模式就退化成简单工厂模式。</li>
+</ul>
+</li>
+</ul>
+<h4 id="工厂方法模式总结">工厂方法模式总结</h4>
+<ol>
+<li>工厂方法模式又称为工厂模式，它属于类创建型模式。在工厂方法模式中，工厂父类负责定义创建产品对象的公共接口，而工厂子类则负责生成具体的产品对象。</li>
+<li>工厂方法模式包含四个角色：
+<ul>
+<li>抽象产品是定义产品的接口，是工厂方法模式所创建对象的超类型，即产品对象的共同父类或接口；</li>
+<li>具体产品实现了抽象产品接口，某种类型的具体产品由专门的具体工厂创建，它们之间往往一一对应；</li>
+<li>抽象工厂中声明了工厂方法，用于返回一个产品，它是工厂方法模式的核心，任何在模式中创建对象的工厂类都必须实现该接口；</li>
+<li>具体工厂是抽象工厂类的子类，实现了抽象工厂中定义的工厂方法，并可由客户调用，返回一个具体产品类的实例。</li>
+</ul>
+</li>
+<li>工厂方法模式是简单工厂模式的进一步抽象和推广。由于使用了面向对象的多态性，工厂方法模式保持了简单工厂模式的优点，而且克服了它的缺点。</li>
+<li>工厂方法模式的优缺点：
+<ul>
+<li>优点是增加新的产品类时无须修改现有系统，并封装了产品对象的创建细节，系统具有良好的灵活性和可扩展性；</li>
+<li>其缺点在于增加新产品的同时需要增加新的工厂，导致系统类的个数成对增加，在一定程度上增加了系统的复杂性。</li>
+</ul>
+</li>
+<li>工厂方法模式适用情况包括：
+<ul>
+<li>一个类不知道它所需要的对象的类；</li>
+<li>一个类通过其子类来指定创建哪个对象；将创建对象的任务委托给多个工厂子类中的某一个，客户端在使用时可以无须关心是哪一个工厂子类创建产品子类，需要时再动态指定。</li>
+</ul>
+</li>
+</ol>
+<h2 id="结构型模式">结构型模式</h2>
+<h2 id="行为型模式">行为型模式</h2>
+</div><script src="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/js/lightgallery.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
+        var options = {
+            selector: '.gallery-item'
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options);
+        }</script><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+    </div>
+
+    <div class="post-meta">
+        <i>
+        
+            <span>2024-03-24</span>
+            
+                <span>该篇文章被 Fingsinz</span>
+            
+            
+                <span>打上标签:
+                    
+                    
+                        <a href='/tags/C/'>
+                            C++
+                        </a>
+                    
+                        <a href='/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/'>
+                            设计模式
+                        </a>
+                    
+                </span>
+             
+             
+                <span>归为分类:
+                    
+                    
+                        <a href='/categories/%E7%AC%94%E8%AE%B0/'>
+                            笔记
+                        </a>
+                    
+                </span>
+            
+        
+        </i>
+    </div>
+    <br>
+    
+    <!-- <div class="post-footer-pre-next">
+        <span>上一篇：<a href=""></a></span>
+        <span class="post-footer-pre-next-last-span-right">上一篇：<a href=""></a></span>
+    </div> -->
+
+    
+        
+
+     
+</div>
+
+
+
+                                      
+                    
+                    
+                    <div class="footer">
+    
+        <span> 
+            ©2023-2024 
+
+            
+                
+
+            
+                
+                    / <a href="/"> Fingsinz&#39;s Space </a>
+                
+
+            
+                
+                    / <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/fingsinz"> 知乎 </a>
+                
+
+            
+        </span>
+    
+</div>
+<!--这是指一条线往下的内容-->
+<div class="footer-last">
+    
+            <span>我在想，时下你所需要的，应该是痛痛快快换个心情，干干脆脆享受人生。</span>
+            
+    
+</div>
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <!--目录-->
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tocify/1.9.0/javascripts/jquery.tocify.min.js" type="text/javascript" ></script>
+        
+<script src="/js/toc.js"></script>
+
+    
+
+    
+<script src="/js/randomHeaderContent.js"></script>
+
+    <!--回到顶部按钮-->
+    
+        
+<script src="/js/returnToTop.js"></script>
+
+    
+
+    
+        
+<script src="/js/returnToLastPage.js"></script>
+
+    
+
+
+
+
+
+<script src="/js/lightgallery.min.js"></script>
+
+
+
+                </div>
+            
+            
+                <!-- 回到顶部的按钮-->  
+                <div class="progress-wrap shadow-drop-2-bottom">
+                    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+                    </svg>
+                </div>
+            
+            
+    </body>
+
+
+</html>
