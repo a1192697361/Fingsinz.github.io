@@ -978,6 +978,7 @@ Connection 对象都对应一个 Socket fd。</li>
 <li>新增 <code>deleteConnection()</code> 函数。</li>
 </ul>
 <p>更多细节上的变化（可能有部分错误处理、变量变化）可比较前一天的文件。</p>
+<p><em>服务器中还可能有潜在的bug。</em></p>
 <p>最后，添加测试连接的程序 <code>test.cpp</code>，使用命令 <code>make t</code> 编译，使用如下：</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./test -t 1000 -m 10 -w 100</span><br></pre></td></tr></tbody></table></figure>
 <ul>
