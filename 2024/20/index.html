@@ -398,12 +398,18 @@
 <p><em>在升级后，我再进入 WSL 时出现了“参考的对象类型不支持尝试的操作”的情况，解决方式参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/marin1993/article/details/119841299">CSDN</a></em></p>
 <h2 id="注销-wsl">注销 WSL</h2>
 <p>在 cmd 中输入 <code>wsl --unregister &lt;Linux&gt;</code> 进行删除 WSL。</p>
+<p>另外如果忘记了 root 账户密码的话，可以修改：</p>
+<ol>
+<li>打开 powershell 或 cmd，输入 <code>wsl -u root</code> 会直接进入 root 模式，在改模式下直接修改 root 密码；</li>
+<li>输入 <code>passwd root</code>，终端会提示让你输入新的密码。</li>
+</ol>
 <h2 id="references">References</h2>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://docs.eesast.com/docs/tools/wsl">WSL 安装与使用</a></li>
 <li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/windows/wsl/install">如何使用 WSL 在 Windows 上安装 Linux</a></li>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_46092061/article/details/118878697">Ubuntu18.04…5 配置国内镜像源：解决E: Failed to fetch</a></li>
 <li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package">下载 Linux 内核更新包</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/xdg15294969271/article/details/122374964">Windows下WSL的root密码忘记解决办法</a></li>
 </ul>
 </div><script src="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/js/lightgallery.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
         var options = {
