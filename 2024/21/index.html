@@ -4,7 +4,7 @@
     <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
-    <meta name="description" content="深度学习杂记" />
+    <meta name="description" content="Windows下保持SSH长时间挂起" />
     <meta name="hexo-theme-A4" content="v1.8.9" />
     <link rel="alternate icon" type="image/webp" href="/img/favicon.webp">
     <title>Fingsinz&#39;s space | 风信梓</title>
@@ -268,10 +268,6 @@
             
         
             
-                <li><a href="/categories/">分类📁</a></li>
-            
-        
-            
                 <li><a href="/notes/">笔记📔</a></li>
             
         
@@ -298,7 +294,7 @@
 
     
         <div class="post-main-title">
-            深度学习杂记
+            Windows下保持SSH长时间挂起
         </div>
       
     
@@ -306,16 +302,30 @@
     <div class="post-md">
         
             
-                
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="post-toc-text">问题描述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3"><span class="post-toc-text">问题解决</span></a></li></ol>
             
         
-        <div class=".article-gallery"><p>关键词：深度学习</p>
+        <div class=".article-gallery"><p>关键词：SSH</p>
 <span id="more"></span>
 <hr>
-<p><em>Reference：<a target="_blank" rel="noopener" href="https://zh-v2.d2l.ai/d2l-zh-pytorch.pdf">https://zh-v2.d2l.ai/d2l-zh-pytorch.pdf</a></em></p>
-<p><em>框架：Pytorch</em></p>
-<p><em>此纪录只关注技术的使用，可能有部分的解释。</em></p>
-<p>施工中…</p>
+<h2 id="问题描述">问题描述</h2>
+<p>实际上，终端 SSH 连接在长时间不操作会出现自动中断，需要再次连接，十分麻烦。</p>
+<h2 id="问题解决">问题解决</h2>
+<p>更改自己客户端 ssh 配置：</p>
+<ol>
+<li>
+<p>用记事本打开 <code>C:/Users/用户名/.ssh/config</code>。</p>
+</li>
+<li>
+<p>添加一行：</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ServerAliveInterval 60</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>该行意思是：每隔60秒自动发送一个空的请求以保持连接。</li>
+<li>秒数可以根据自己实际调整。</li>
+</ul>
+<p><strong>Reference：</strong> <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/431249844">解决ssh连接长时间不操作断开连接的问题（client_loop/ send disconnect/ Broken pipe） - KelvinF97的文章 - 知乎</a></p>
 </div><script src="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/js/lightgallery.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
         var options = {
             selector: '.gallery-item'
@@ -327,7 +337,7 @@
     <div class="post-meta">
         <i>
         
-            <span>2024-03-02</span>
+            <span>2024-05-04</span>
             
                 <span>该篇文章被 Fingsinz</span>
             
@@ -335,8 +345,8 @@
                 <span>打上标签:
                     
                     
-                        <a href='/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/'>
-                            深度学习
+                        <a href='/tags/SSH/'>
+                            SSH
                         </a>
                     
                 </span>
@@ -345,8 +355,8 @@
                 <span>归为分类:
                     
                     
-                        <a href='/categories/%E7%AC%94%E8%AE%B0/'>
-                            笔记
+                        <a href='/categories/%E6%97%A5%E5%B8%B8/'>
+                            日常
                         </a>
                     
                 </span>
