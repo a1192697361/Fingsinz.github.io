@@ -4,7 +4,7 @@
     <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
-    <meta name="description" content="Linux 服务器编程尝试记录 - C++" />
+    <meta name="description" content="Linux 服务器编程入门尝试 - C++" />
     <meta name="hexo-theme-A4" content="v1.8.9" />
     <link rel="alternate icon" type="image/webp" href="/img/favicon.webp">
     <title>Fingsinz&#39;s space | 风信梓</title>
@@ -294,7 +294,7 @@
 
     
         <div class="post-main-title">
-            Linux 服务器编程尝试记录 - C++
+            Linux 服务器编程入门尝试 - C++
         </div>
       
     
@@ -317,7 +317,7 @@
 <p><em>Linux下操作。</em></p>
 </blockquote>
 <h2 id="一-从socket开始">一、从socket开始</h2>
-<p>socket，被翻译为套接字，它是计算机之间进行通信的一种约定或一种方式。</p>
+<p>socket，被翻译为套接字，它是计算机之间进行通信的一种约定或一种方式。套接字是双方通过网络进行通信的通道。Socket 连接的一边是客户端，另一边是服务器端。一个正常的服务器端能服务多个客户端。</p>
 <ul>
 <li>通过 socket 这种约定，一台计算机可以接收其他计算机的数据，也可以向其他计算机发送数据。</li>
 </ul>
@@ -401,6 +401,18 @@
 <li><code>connect</code> 函数：</li>
 </ul>
 <figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">connect</span> <span class="params">(<span class="type">int</span> __fd, __CONST_SOCKADDR_ARG __addr, <span class="type">socklen_t</span> __len)</span></span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* __fd：客户端的文件描述符。</span></span><br><span class="line"><span class="comment">* __addr：sockaddr 参数。</span></span><br><span class="line"><span class="comment">* __len：sockaddr 参数大小。</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></tbody></table></figure>
+<p>关于 Socket 的有些地址结构需要清楚：</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// 通用的套接字地址类型</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">sockaddr</span> {</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">short</span>   sa_family;     <span class="comment">// AF_INET 或 AF_INET6</span></span><br><span class="line">    <span class="type">char</span>             sa_data[<span class="number">14</span>];   <span class="comment">// 无关紧要</span></span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实际使用的套接字地址类型</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">sockaddr_in</span> {</span><br><span class="line">    <span class="type">short</span>           sin_family;     <span class="comment">// AF_INET</span></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">short</span>  sin_port;       <span class="comment">// 端口号，大端</span></span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">in_addr</span>  sin_addr;       <span class="comment">// IPv4 地址</span></span><br><span class="line">    <span class="type">char</span>            sin_zero[<span class="number">8</span>];    <span class="comment">// 无关紧要</span></span><br><span class="line">};</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">sockaddr_in6</span> {</span><br><span class="line">    <span class="type">uint16_t</span>        sin6_family;    <span class="comment">// AF_INET6</span></span><br><span class="line">    <span class="type">uint16_t</span>        sin6_port;      <span class="comment">// 端口号，大端</span></span><br><span class="line">    <span class="type">uint32_t</span>        sin6_flowinfo;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">in6_addr</span> sin6_addr;      <span class="comment">// IPv6 地址</span></span><br><span class="line">    <span class="type">uint32_t</span>        sin6_scope_id;</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">sockaddr_storage</span> {</span><br><span class="line">    <span class="type">sa_family_t</span>     ss_family;      <span class="comment">// AF_INET 或 AF_INET6</span></span><br><span class="line">    <span class="comment">// 为IPv4和IPv6提供足够的空间</span></span><br><span class="line">    <span class="type">char</span>    __ss_pad1[_SS_PAD1SIZE];</span><br><span class="line">    <span class="type">int64_t</span> __ss_align;</span><br><span class="line">    <span class="type">char</span>    __ss_pad2[_SS_PAD2SIZE];</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>
+<p><code>struct sockaddr_storage</code> 对于IPv4和IPv6都足够大，可以在实际中使用它。</p>
+</li>
+<li>
+<p><code>struct sockaddr_in</code> 和 <code>struct sockaddr_in6</code> 是IPv4和IPv6的具体结构。</p>
+</li>
+</ul>
+<p><code>struct sockaddr *</code> 是 socket API 使用的类型，结构本身是无用的。程序员不应操作 <code>sockaddr</code>，<code>sockaddr</code> 是给操作系统用的。应使用 <code>sockaddr_in</code> 来表示地址，<code>sockaddr_in</code> 区分了地址和端口，将 <code>struct sockaddr_storage</code> 引用（指针）转换为 <code>struct sockaddr_in</code> 或 <code>struct sockaddr_in6</code> 以初始化/读取结构。</p>
+<p>当在 Linux 上调用任何系统调用时，实际上是在调用 libc 中的一个瘦包装器，即一个稳定的 Linux 系统调用接口的包装器。在 Windows 上，套接字 API 遵循相同的 BSD API，但有许多不同的细节。接口来自 OS DLL 而不是系统调用。</p>
 <p>该节代码：<a target="_blank" rel="noopener" href="https://github.com/Fingsinz/MakeServerInLinux/tree/master/Day1">Github</a>，<a target="_blank" rel="noopener" href="https://gitee.com/fingsinz/make-server-in-linux/tree/master/Day1">Gitee</a></p>
 <h2 id="二-完善代码-数据读写">二、完善代码，数据读写</h2>
 <p>上面的代码是基础版的，但要想真正运行使用，需要完善代码，并抓住错误。</p>
